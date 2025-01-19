@@ -1,6 +1,7 @@
 'use client'
 
 import { getWhatsAppLink } from '@/lib/constants'
+import { motion } from "motion/react"
 import Image from 'next/image'
 
 type Client = {
@@ -57,7 +58,12 @@ export default function Clients() {
   return (
     <section id="clients" className="py-20 bg-gray-50">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
           <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
             Portfolio
           </span>
@@ -67,81 +73,107 @@ export default function Clients() {
           <p className="text-text-main/70 text-lg">
             Beberapa project unggulan yang telah kami kembangkan
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* First row - 3 government clients */}
-          {sortedClients.slice(0, 3).map((client) => (
-            <div 
+          {sortedClients.slice(0, 3).map((client, index) => (
+            <motion.div
               key={client.id}
-              className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group w-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
             >
-              <div className="relative aspect-[2/1] w-full bg-gray-50 group">
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative aspect-[2/1] w-full bg-gray-50">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-primary/5 to-purple-500/5" />
                 <Image
                   src={client.image}
                   alt={`${client.name} project`}
                   fill
-                  className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain p-4 transition-all duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-blue-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                  <p className="text-sm text-white">
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-primary/90 to-blue-900/90 opacity-0 group-hover:opacity-95 transition-all duration-500 flex items-center justify-center p-8">
+                  <p className="text-sm text-white/90 leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {client.description}
                   </p>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-medium text-text-main text-center">
+
+              <div className="p-6 relative">
+                <h3 className="text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300">
                   {client.name}
                 </h3>
+                {client.isGovernment && (
+                  <span className="inline-block px-3 py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full mt-2">
+                    Government
+                  </span>
+                )}
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {/* Second row - 2 centered cards */}
-          <div className="lg:col-span-3 flex justify-center gap-8">
-            {sortedClients.slice(3).map((client) => (
-              <div 
+          <div className="lg:col-span-3 flex flex-col md:flex-row justify-center gap-8">
+            {sortedClients.slice(3).map((client, index) => (
+              <motion.div
                 key={client.id}
-                className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group w-full md:w-1/2 lg:w-1/3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 3) * 0.1 }}
+                className="group relative bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden w-full md:w-1/2 lg:w-1/3"
               >
-                <div className="relative aspect-[2/1] w-full bg-gray-50 group">
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative aspect-[2/1] w-full bg-gray-50">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-primary/5 to-purple-500/5" />
                   <Image
                     src={client.image}
                     alt={`${client.name} project`}
                     fill
-                    className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                    className="object-contain p-4 transition-all duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-blue-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-sm text-white">
+                  <div className="absolute inset-0 bg-gradient-to-b from-blue-primary/90 to-blue-900/90 opacity-0 group-hover:opacity-95 transition-all duration-500 flex items-center justify-center p-8">
+                    <p className="text-sm text-white/90 leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       {client.description}
                     </p>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-medium text-text-main text-center">
+
+                <div className="p-6 relative">
+                  <h3 className="text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300">
                     {client.name}
                   </h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-text-main/70 mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <p className="text-text-main/70 mb-8">
             Dan masih banyak lagi project yang telah kami kembangkan untuk klien kami
           </p>
           <a 
             href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-all duration-300 font-medium hover:shadow-lg hover:shadow-blue-primary/25"
           >
             MULAI PROJECT
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
