@@ -6,7 +6,7 @@ export default function About() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-center mb-8">
-              Meta Solusi Digital: Ahli Pembuatan Website dengan Keahlian Terpercaya
+              Tentang Kami
             </h2>
             <p className="text-text-main/70 text-lg leading-relaxed">
               PT Meta Solusi Digital adalah partner yang akan mendampingi transformasi digital bisnis 

@@ -145,12 +145,6 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-16">
-          <p className="text-text-main/70 text-lg">
-            Butuh solusi khusus? <a href="#contact" className="text-blue-primary hover:text-blue-primary/90 font-medium">Hubungi kami</a> untuk mendiskusikan kebutuhan Anda
-          </p>
-        </div>
       </div>
     </section>
   )
