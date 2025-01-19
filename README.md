@@ -44,6 +44,9 @@ npm install
 # Build the project
 npm run build
 
+# Install serve if not installed
+npm install -g serve
+
 # Restart PM2 process
 pm2 restart meta-solusi-digital
 ```
