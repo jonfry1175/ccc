@@ -97,4 +97,12 @@ export const CLIENTS = [
     url: 'cloudlink.co.id',
     image: '/clients/cloudlink.png'
   }
-] 
+]
+
+export const WHATSAPP_NUMBER = '6282118807755'
+export const WHATSAPP_FORMATTED = '+62 821 1880 7755'
+export const WHATSAPP_MESSAGE = 'Halo, saya tertarik dengan layanan website dari Meta Solusi Digital.'
+
+export const getWhatsAppLink = (message: string = WHATSAPP_MESSAGE) => {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+} 

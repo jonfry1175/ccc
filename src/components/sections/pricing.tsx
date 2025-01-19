@@ -1,5 +1,6 @@
 'use client'
 
+import { getWhatsAppLink } from '@/lib/constants'
 import { Check } from 'lucide-react'
 
 type PricingFeature = {
@@ -132,7 +133,9 @@ export default function Pricing() {
                 </ul>
                 <div className="mt-auto">
                   <a
-                    href="#contact"
+                    href={getWhatsAppLink(`Halo, saya tertarik dengan ${tier.name} untuk website.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block text-center py-4 px-6 rounded-full bg-blue-primary text-white hover:bg-blue-primary/90 transition-colors font-semibold text-base"
                   >
                     {tier.isCustom ? 'Hubungi Kami' : 'Pilih Paket'}
