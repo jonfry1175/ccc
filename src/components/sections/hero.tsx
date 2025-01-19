@@ -59,8 +59,9 @@ function AnimatedContent() {
           </motion.div>
         </div>
 
+        {/* Hero Image - Hidden on mobile */}
         <motion.div 
-          className="relative"
+          className="relative hidden lg:block"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
@@ -82,7 +83,6 @@ function AnimatedContent() {
   )
 }
 
-// Static version that exactly matches the animated content structure
 function StaticContent() {
   return (
     <div className="container relative z-10">
@@ -110,7 +110,8 @@ function StaticContent() {
           </div>
         </div>
 
-        <div className="relative opacity-0">
+        {/* Hero Image - Hidden on mobile */}
+        <div className="relative opacity-0 hidden lg:block">
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-primary/20 to-purple-500/20 rounded-xl blur-xl" />
             <Image
@@ -137,7 +138,8 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen flex items-center bg-gradient-to-b from-blue-50 to-white pt-20 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      {/* Background Image - Hidden on mobile */}
+      <div className="absolute inset-0 z-0 hidden lg:block">
         <Image
           src="/hero-image.jpeg"
           alt="Software Development Background"
