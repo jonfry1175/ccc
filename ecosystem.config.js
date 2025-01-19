@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'meta-solusi-digital',
       script: 'serve',
-      args: 'out -p 3001',
+      args: ['out', '-l', 'tcp://0.0.0.0:3001'],
       env: {
         NODE_ENV: 'production',
         PORT: 3001
