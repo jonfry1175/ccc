@@ -11,6 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: '#173156', // Dark blue
+          light: '#3E5879',   // Medium blue
+        },
+        neutral: {
+          DEFAULT: '#D8C4B6', // Light beige
+          light: '#F5EFE7',   // Off white
+        }
       },
     },
   },
