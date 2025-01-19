@@ -81,7 +81,7 @@ export default function Showcase() {
             href="#contact"
             className="inline-block px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium"
           >
-            MULAI PROYEK
+            MULAI PROJECT
           </a>
         </div>
       </div>

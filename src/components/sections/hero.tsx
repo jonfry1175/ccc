@@ -56,12 +56,6 @@ function AnimatedContent() {
               Mulai Konsultasi Gratis
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 rounded-full hover:border-blue-primary/20 hover:bg-blue-primary/5 transition-all font-semibold text-text-main hover:shadow-lg"
-            >
-              Lihat Paket & Harga
-            </a>
           </motion.div>
         </div>
 
@@ -113,24 +107,6 @@ function StaticContent() {
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga 
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
-            <a
-              href={getWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-all font-semibold group hover:shadow-lg hover:shadow-blue-primary/25"
-            >
-              Mulai Konsultasi Gratis
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 rounded-full hover:border-blue-primary/20 hover:bg-blue-primary/5 transition-all font-semibold text-text-main hover:shadow-lg"
-            >
-              Lihat Paket & Harga
-            </a>
           </div>
         </div>
 

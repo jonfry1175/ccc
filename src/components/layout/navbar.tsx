@@ -1,90 +1,118 @@
 'use client'
 
-import { COMPANY_NAME } from '@/lib/constants'
-import Image from 'next/image'
+import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
+import { Menu, X } from 'lucide-react'
+import { AnimatePresence, motion } from "motion/react"
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+const navItems = [
+  { href: '#about', label: 'Tentang' },
+  { href: '#services', label: 'Layanan' },
+  { href: '#clients', label: 'Klien' },
+  { href: '#pricing', label: 'Harga' }
+]
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center -ml-3">
-            <Image
-              src="/logo.png"
-              alt={COMPANY_NAME}
-              width={180}
-              height={45}
-              className="h-12 w-auto"
-              priority
-              unoptimized
-            />
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <nav className="container mx-auto">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link 
+            href="/"
+            className="text-xl font-bold text-text-main hover:text-blue-primary transition-colors"
+          >
+            {COMPANY_NAME}
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#about" className="text-text-main hover:text-blue-primary">
-              Tentang Kami
-            </Link>
-            <Link href="#services" className="text-text-main hover:text-blue-primary">
-              Layanan
-            </Link>
-            <Link href="#clients" className="text-text-main hover:text-blue-primary">
-              Klien
-            </Link>
-            <Link href="#pricing" className="text-text-main hover:text-blue-primary">
-              Harga
-            </Link>
-            <Link 
-              href="#contact"
-              className="px-6 py-2 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90"
-            >
-              Hubungi Kami
-            </Link>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
-          <button 
-            type="button"
-            aria-label="Toggle menu"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium"
+            >
+              Hubungi Kami
+            </motion.a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 md:hidden text-text-main hover:text-blue-primary transition-colors"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
-              />
-            </svg>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 space-y-4">
-            <Link href="#about" className="block text-text-main hover:text-blue-primary">
-              Tentang Kami
-            </Link>
-            <Link href="#services" className="block text-text-main hover:text-blue-primary">
-              Layanan
-            </Link>
-            <Link href="#clients" className="block text-text-main hover:text-blue-primary">
-              Klien
-            </Link>
-            <Link href="#pricing" className="block text-text-main hover:text-blue-primary">
-              Harga
-            </Link>
-            <Link 
-              href="#contact"
-              className="block px-6 py-2 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 text-center"
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-t"
             >
-              Hubungi Kami
-            </Link>
-          </div>
-        )}
-      </div>
-    </nav>
+              <div className="container py-4 space-y-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <a
+                  href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block py-2 text-blue-primary font-medium"
+                >
+                  Hubungi Kami
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </motion.header>
   )
 } 

@@ -65,7 +65,7 @@ export default function Clients() {
             Klien Kami
           </h2>
           <p className="text-text-main/70 text-lg">
-            Beberapa proyek unggulan yang telah kami kembangkan
+            Beberapa project unggulan yang telah kami kembangkan
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function Clients() {
 
         <div className="text-center mt-12">
           <p className="text-text-main/70 mb-6">
-            Dan masih banyak lagi proyek yang telah kami kembangkan untuk klien kami
+            Dan masih banyak lagi project yang telah kami kembangkan untuk klien kami
           </p>
           <a 
             href={getWhatsAppLink()}
@@ -139,7 +139,7 @@ export default function Clients() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium transition-colors"
           >
-            MULAI PROYEK
+            MULAI PROJECT
           </a>
         </div>
       </div>

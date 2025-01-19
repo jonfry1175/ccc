@@ -25,7 +25,7 @@ export default function Contact() {
             Hubungi Kami
           </span>
           <h2 className="text-4xl font-bold mt-4 mb-4">
-            Mulai Proyek Anda
+            Mulai Project Anda
           </h2>
           <p className="text-text-main/70 text-lg">
             Diskusikan kebutuhan website Anda dengan tim kami
