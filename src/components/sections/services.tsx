@@ -2,6 +2,7 @@
 
 import type { LucideIcon } from 'lucide-react'
 import { Globe, Layout, Smartphone } from 'lucide-react'
+import { motion } from "motion/react"
 import { useState } from 'react'
 
 type Service = {
@@ -42,7 +43,12 @@ export default function Services() {
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
           <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
             Layanan Kami
           </span>
@@ -52,12 +58,16 @@ export default function Services() {
           <p className="text-text-main/70 text-lg">
             Kami menyediakan layanan pengembangan website dan aplikasi yang komprehensif
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
-          {services.map((service) => (
-            <div 
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
             >
               <button
@@ -67,11 +77,13 @@ export default function Services() {
                 <div className="w-14 h-14 bg-blue-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <service.Icon className="w-7 h-7 text-blue-primary" />
                 </div>
-                <span className="text-xl font-semibold ml-4 text-text-main">{service.title}</span>
-                <svg
-                  className={`ml-auto w-6 h-6 text-text-main/30 transform transition-transform ${
-                    openId === service.id ? 'rotate-180' : ''
-                  }`}
+                <span className="text-xl font-semibold ml-4 text-text-main">
+                  {service.title}
+                </span>
+                <motion.svg
+                  animate={{ rotate: openId === service.id ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="ml-auto w-6 h-6 text-text-main/30"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -82,16 +94,21 @@ export default function Services() {
                     strokeWidth={2}
                     d="M19 9l-7 7-7-7"
                   />
-                </svg>
+                </motion.svg>
               </button>
               {openId === service.id && (
-                <div className="px-6 pb-6 pt-2">
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="px-6 pb-6 pt-2"
+                >
                   <p className="text-text-main/70 leading-relaxed">
                     {service.description}
                   </p>
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

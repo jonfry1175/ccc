@@ -2,6 +2,7 @@
 
 import { getWhatsAppLink } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
+import { motion } from "motion/react"
 
 export default function About() {
   return (
@@ -9,18 +10,44 @@ export default function About() {
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-6">
-            <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-sm font-medium text-blue-primary uppercase tracking-wider"
+            >
               Tentang Kami
-            </span>
-            <h2 className="text-4xl font-bold mt-4 mb-8">
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl font-bold mt-4 mb-8"
+            >
               Partner Terpercaya untuk Transformasi Digital Anda
-            </h2>
-            <p className="text-text-main/70 text-lg leading-relaxed max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-text-main/70 text-lg leading-relaxed max-w-3xl mx-auto"
+            >
               PT Meta Solusi Digital adalah partner yang akan mendampingi transformasi digital bisnis 
               Anda. Dengan keahlian di bidang Website, Aplikasi Web, Mobile Apps, dan Strategi Digital 
               Marketing, tim kami siap menghadirkan solusi yang selaras dengan visi bisnis Anda.
-            </p>
-            <div className="pt-8">
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="pt-8"
+            >
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
@@ -29,7 +56,7 @@ export default function About() {
               >
                 Mulai Diskusi <ArrowRight className="w-5 h-5" />
               </a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
