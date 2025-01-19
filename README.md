@@ -24,20 +24,36 @@ Open [http://localhost:3001](http://localhost:3001) with your browser to see the
 
 ## Deployment
 
-This project is deployed on [Vercel](https://vercel.com). The production site is live at [metasolusidigital.com](https://metasolusidigital.com).
+This project is deployed on VPS. The production site is live at [metasolusidigital.com](https://metasolusidigital.com).
 
-### Automatic Deployments
+### Deployment Steps
 
-- Main branch is automatically deployed to production
-- Preview deployments are created for all pull requests
-- Changes are automatically deployed when merged to main
+1. SSH into VPS and navigate to project directory:
+```bash
+cd /var/www/metasolusidigital-web
+```
+
+2. Pull latest changes and install dependencies:
+```bash
+git pull origin main
+npm install
+```
+
+3. Build and restart:
+```bash
+# Build the project
+npm run build
+
+# Restart PM2 process
+pm2 restart meta-solusi-digital
+```
 
 ### Environment Variables
 
-Required environment variables should be set in your Vercel project settings:
+Required environment variables should be set in your .env file:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://metasolusidigital.com
+PORT=3001
 ```
 
 ## Project Structure
