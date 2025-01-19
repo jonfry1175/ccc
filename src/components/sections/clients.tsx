@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
 
 type Client = {
   id: number
@@ -48,8 +47,6 @@ const clients: Client[] = [
 ]
 
 export default function Clients() {
-  const [expandedId, setExpandedId] = useState<number | null>(null)
-
   const sortedClients = [...clients].sort((a, b) => {
     if (a.isGovernment && !b.isGovernment) return -1
     if (!a.isGovernment && b.isGovernment) return 1
