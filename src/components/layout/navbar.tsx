@@ -10,17 +10,18 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center -ml-3">
             <Image
               src="/logo.png"
               alt={COMPANY_NAME}
-              width={40}
-              height={40}
-              className="w-10 h-10"
+              width={180}
+              height={45}
+              className="h-12 w-auto"
+              priority
+              unoptimized
             />
-            <span className="text-xl font-bold text-text-main">{COMPANY_NAME}</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -45,6 +46,8 @@ export default function Navbar() {
           </div>
 
           <button 
+            type="button"
+            aria-label="Toggle menu"
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -61,21 +64,21 @@ export default function Navbar() {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4 space-y-4">
-            <Link href="#about" className="block text-gray-600 hover:text-navy-900">
+            <Link href="#about" className="block text-text-main hover:text-blue-primary">
               Tentang Kami
             </Link>
-            <Link href="#services" className="block text-gray-600 hover:text-navy-900">
+            <Link href="#services" className="block text-text-main hover:text-blue-primary">
               Layanan
             </Link>
-            <Link href="#clients" className="block text-gray-600 hover:text-navy-900">
+            <Link href="#clients" className="block text-text-main hover:text-blue-primary">
               Klien
             </Link>
-            <Link href="#pricing" className="block text-gray-600 hover:text-navy-900">
+            <Link href="#pricing" className="block text-text-main hover:text-blue-primary">
               Harga
             </Link>
             <Link 
               href="#contact"
-              className="block px-6 py-2 bg-navy-900 text-white rounded-full hover:bg-navy-800 text-center"
+              className="block px-6 py-2 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 text-center"
             >
               Hubungi Kami
             </Link>
