@@ -6,7 +6,7 @@ module.exports = {
       args: 'start',
       env: {
         NODE_ENV: 'production',
-        PORT: 3000
+        PORT: 3001
       },
       instances: 'max',
       exec_mode: 'cluster',
@@ -14,7 +14,8 @@ module.exports = {
       watch: false,
       max_memory_restart: '1G',
       env_production: {
-        NODE_ENV: 'production'
+        NODE_ENV: 'production',
+        PORT: 3001
       }
     }
   ]
