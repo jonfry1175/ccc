@@ -80,7 +80,7 @@ const formatPrice = (price: number) => {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20">
+    <section id="pricing" className="py-20 bg-white">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">

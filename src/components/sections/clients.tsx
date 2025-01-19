@@ -1,5 +1,6 @@
 'use client'
 
+import { getWhatsAppLink } from '@/lib/constants'
 import Image from 'next/image'
 
 type Client = {
@@ -57,10 +58,13 @@ export default function Clients() {
     <section id="clients" className="py-20 bg-gray-50">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
+          <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
+            Portfolio
+          </span>
+          <h2 className="text-4xl font-bold mt-4 mb-4">
             Klien Kami
           </h2>
-          <p className="text-text-main/70">
+          <p className="text-text-main/70 text-lg">
             Beberapa proyek unggulan yang telah kami kembangkan
           </p>
         </div>
@@ -81,7 +85,7 @@ export default function Clients() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-blue-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                  <p className="text-sm text-white/90">
+                  <p className="text-sm text-white">
                     {client.description}
                   </p>
                 </div>
@@ -110,7 +114,7 @@ export default function Clients() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-blue-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <p className="text-sm text-white/90">
+                    <p className="text-sm text-white">
                       {client.description}
                     </p>
                   </div>
@@ -130,8 +134,10 @@ export default function Clients() {
             Dan masih banyak lagi proyek yang telah kami kembangkan untuk klien kami
           </p>
           <a 
-            href="#contact"
-            className="inline-block px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium"
+            href={getWhatsAppLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium transition-colors"
           >
             MULAI PROYEK
           </a>

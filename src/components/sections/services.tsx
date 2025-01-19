@@ -40,30 +40,36 @@ export default function Services() {
   }
 
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
+          <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
             Layanan Kami
+          </span>
+          <h2 className="text-4xl font-bold mt-4 mb-4">
+            Solusi Digital untuk Bisnis Anda
           </h2>
+          <p className="text-text-main/70 text-lg">
+            Kami menyediakan layanan pengembangan website dan aplikasi yang komprehensif
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
           {services.map((service) => (
             <div 
               key={service.id}
-              className="bg-gray-50 rounded-lg overflow-hidden"
+              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
             >
               <button
                 onClick={() => toggleAccordion(service.id)}
                 className="w-full flex items-center p-6 text-left"
               >
-                <div className="bg-gray-200 p-4 rounded-full">
-                  <service.Icon className="w-6 h-6 text-blue-primary" />
+                <div className="w-14 h-14 bg-blue-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <service.Icon className="w-7 h-7 text-blue-primary" />
                 </div>
-                <span className="text-xl font-semibold ml-4">{service.title}</span>
+                <span className="text-xl font-semibold ml-4 text-text-main">{service.title}</span>
                 <svg
-                  className={`ml-auto w-6 h-6 transform transition-transform ${
+                  className={`ml-auto w-6 h-6 text-text-main/30 transform transition-transform ${
                     openId === service.id ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -79,8 +85,8 @@ export default function Services() {
                 </svg>
               </button>
               {openId === service.id && (
-                <div className="px-6 pb-6">
-                  <p className="text-text-main/70">
+                <div className="px-6 pb-6 pt-2">
+                  <p className="text-text-main/70 leading-relaxed">
                     {service.description}
                   </p>
                 </div>

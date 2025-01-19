@@ -33,7 +33,7 @@ const reasons: Reason[] = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-20">
+    <section id="why-us" className="py-20 bg-white">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">
