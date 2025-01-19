@@ -3,8 +3,20 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center bg-blue-light pt-20">
-      <div className="container">
+    <section id="hero" className="min-h-screen flex items-center bg-blue-light pt-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-bg.jpeg"
+          alt="Website Development Background"
+          fill
+          className="object-cover opacity-10"
+          priority
+          sizes="100vw"
+        />
+      </div>
+
+      <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <span className="text-sm font-medium text-text-main/80 uppercase tracking-wider">
@@ -22,11 +34,12 @@ export default function Hero() {
           </div>
           <div className="relative">
             <Image
-              src="/hero-image.webp"
+              src="/hero-image.jpeg"
               alt="Website Development"
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
+              priority
             />
           </div>
         </div>
