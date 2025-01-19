@@ -1,5 +1,9 @@
+'use client'
+
+import { getWhatsAppLink } from '@/lib/constants'
+import { ArrowRight } from 'lucide-react'
+import { motion } from "motion/react"
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -18,21 +22,68 @@ export default function Hero() {
 
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <span className="text-sm font-medium text-text-main/80 uppercase tracking-wider">
-              SOLUSI DIGITAL TERPERCAYA
-            </span>
-            <h1 className="text-5xl font-bold leading-tight">
-              Membantu Anda Membangun Website Berkualitas
-            </h1>
-            <Link 
-              href="#contact"
-              className="inline-block px-8 py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 font-medium"
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              HUBUNGI KAMI
-            </Link>
+              <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
+                Meta Solusi Digital
+              </span>
+            </motion.div>
+
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Wujudkan Aplikasi{' '}
+              <span className="text-blue-primary">Profesional</span>{' '}
+              untuk Bisnis Anda
+            </motion.h1>
+
+            <motion.p 
+              className="text-xl text-text-main/70"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Kami membantu bisnis Anda berkembang di era digital dengan solusi website
+              yang modern, responsif, dan optimal untuk meningkatkan performa bisnis Anda
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-start gap-4 pt-4"
+            >
+              <a
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-semibold group"
+              >
+                Mulai Proyek
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#pricing"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 rounded-full hover:border-blue-primary/20 hover:bg-blue-primary/5 transition-colors font-semibold text-text-main"
+              >
+                Lihat Harga
+              </a>
+            </motion.div>
           </div>
-          <div className="relative">
+
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
             <Image
               src="/hero-image.jpeg"
               alt="Website Development"
@@ -41,7 +92,7 @@ export default function Hero() {
               className="rounded-lg shadow-lg"
               priority
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
