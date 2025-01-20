@@ -11,7 +11,7 @@ const navItems = [
   { href: '#about', label: 'Tentang' },
   { href: '#services', label: 'Layanan' },
   { href: '#clients', label: 'Portofolio' },
-  { href: '#pricing', label: 'Harga' }
+  { href: '#pricing', label: 'Paket Harga' }
 ]
 
 export default function Navbar() {

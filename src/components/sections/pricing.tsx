@@ -46,7 +46,7 @@ const pricingTiers: PricingTier[] = [
   {
     id: 3,
     name: 'Paket Premium',
-    price: 7500000,
+    price: 8000000,
     subtitle: 'Performa Maksimal untuk Bisnis Anda:',
     features: [
       { text: '20 Halaman Responsif' },
@@ -84,7 +84,7 @@ export default function Pricing() {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
-            Harga Layanan
+            Paket Harga Layanan
           </span>
           <h2 className="text-4xl font-bold mt-4 mb-4">
             Pilihan Paket Website
