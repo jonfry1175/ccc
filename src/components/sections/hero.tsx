@@ -88,15 +88,6 @@ function StaticContent() {
     <div className="container relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 opacity-0">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-primary/10 border border-blue-primary/20">
-              <Sparkles className="w-4 h-4 text-blue-primary" />
-              <span className="text-sm font-medium text-blue-primary">
-                Meta Solusi Digital
-              </span>
-            </div>
-          </div>
-
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Transformasi Digital{' '}

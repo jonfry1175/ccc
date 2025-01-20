@@ -48,16 +48,16 @@ export default function Navbar() {
               height={32}
               className="h-8 w-auto"
             />
-            <span className="leading-none pb-0.5">{COMPANY_NAME}</span>
+            <span className="leading-none">{COMPANY_NAME}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right"
               >
                 {item.label}
               </Link>
