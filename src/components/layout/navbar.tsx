@@ -3,6 +3,7 @@
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
 import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from "motion/react"
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -38,9 +39,16 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/"
-            className="text-xl font-bold text-text-main hover:text-blue-primary transition-colors"
+            className="text-xl font-bold text-text-main hover:text-blue-primary transition-colors flex items-end gap-2"
           >
-            {COMPANY_NAME}
+            <Image 
+              src="/logo-m.png"
+              alt="Company Logo"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+            />
+            <span className="leading-none pb-0.5">{COMPANY_NAME}</span>
           </Link>
 
           {/* Desktop Navigation */}
