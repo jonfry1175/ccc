@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Globe, Laptop, Lock, Search, Smartphone } from 'lucide-react'
+import { createMetadata } from '../shared-metadata'
 
 const features = [
   {
@@ -25,6 +26,12 @@ const features = [
     description: 'Implementasi standar keamanan terkini untuk melindungi data'
   }
 ]
+
+export const metadata = createMetadata({
+  title: 'Pengembangan Website | Your Company Name',
+  description: 'Layanan pengembangan website profesional dengan fokus pada performa, SEO, dan pengalaman pengguna. Kami membangun website modern yang sesuai kebutuhan bisnis Anda.',
+  path: '/services/web-development'
+})
 
 export default function WebDevelopmentPage() {
   return (

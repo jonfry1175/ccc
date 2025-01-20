@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { BarChart3, Layers, Layout, Plug, Server, Zap } from 'lucide-react'
+import { createMetadata } from '../shared-metadata'
 
 type Feature = {
   Icon: LucideIcon
@@ -41,6 +42,12 @@ const technologies = [
   'GraphQL',
   'REST APIs'
 ]
+
+export const metadata = createMetadata({
+  title: 'Aplikasi Web | Your Company Name',
+  description: 'Jasa pembuatan aplikasi web yang powerful dan scalable untuk kebutuhan bisnis. Solusi enterprise dengan teknologi modern dan performa tinggi.',
+  path: '/services/web-applications'
+})
 
 export default function WebApplicationsPage() {
   return (

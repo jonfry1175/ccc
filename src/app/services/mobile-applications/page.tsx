@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Battery, GitBranch, Smartphone, Tablet, Workflow } from 'lucide-react'
+import { createMetadata } from '../shared-metadata'
 
 type Feature = {
   Icon: LucideIcon
@@ -41,6 +42,12 @@ const platforms = [
   'Firebase',
   'AWS Mobile'
 ]
+
+export const metadata = createMetadata({
+  title: 'Aplikasi Mobile | Your Company Name',
+  description: 'Pengembangan aplikasi mobile iOS dan Android berkualitas tinggi. Kami membangun aplikasi native dan cross-platform dengan fokus pada user experience.',
+  path: '/services/mobile-applications'
+})
 
 export default function MobileApplicationsPage() {
   return (

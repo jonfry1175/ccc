@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+
+# Host
+Host: https://metasolusidigital.com
+
+# Sitemaps
+Sitemap: https://metasolusidigital.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10 
