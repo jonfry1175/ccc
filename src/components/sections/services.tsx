@@ -3,6 +3,7 @@
 import type { LucideIcon } from 'lucide-react'
 import { Globe, Layout, Smartphone } from 'lucide-react'
 import { motion } from "motion/react"
+import Link from 'next/link'
 import { useState } from 'react'
 
 type Service = {
@@ -10,6 +11,7 @@ type Service = {
   title: string
   description: string
   Icon: LucideIcon
+  href: string
 }
 
 const services: Service[] = [
@@ -17,19 +19,22 @@ const services: Service[] = [
     id: 1,
     title: 'Pengembangan Website',
     description: 'Kami membuat situs web berkinerja tinggi dan ramah pengguna yang disesuaikan dengan kebutuhan bisnis Anda, menggunakan beragam teknologi dan kerangka kerja untuk pengalaman web yang menarik.',
-    Icon: Globe
+    Icon: Globe,
+    href: '/services/web-development'
   },
   {
     id: 2,
     title: 'Aplikasi Web',
     description: 'Kami menyediakan layanan pengembangan aplikasi web terbaik yang disesuaikan dengan kebutuhan Anda, menggunakan beragam teknologi untuk solusi yang mudah digunakan dan berkinerja tinggi.',
-    Icon: Layout
+    Icon: Layout,
+    href: '/services/web-applications'
   },
   {
     id: 3,
     title: 'Aplikasi Mobile',
     description: 'Kami unggul dalam menciptakan aplikasi seluler iOS dan Android berkinerja tinggi, berkolaborasi erat dengan klien untuk memastikan visi mereka terwujud dan pengguna mendapatkan pengalaman yang luar biasa.',
-    Icon: Smartphone
+    Icon: Smartphone,
+    href: '/services/mobile-applications'
   },
 ]
 
@@ -103,9 +108,28 @@ export default function Services() {
                   exit={{ height: 0, opacity: 0 }}
                   className="px-6 pb-6 pt-2"
                 >
-                  <p className="text-text-main/70 leading-relaxed">
+                  <p className="text-text-main/70 leading-relaxed mb-4">
                     {service.description}
                   </p>
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center text-blue-primary hover:text-blue-primary/80 font-medium"
+                  >
+                    Pelajari lebih lanjut
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
                 </motion.div>
               )}
             </motion.div>
