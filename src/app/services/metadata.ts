@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: {
@@ -14,8 +13,4 @@ export const metadata: Metadata = {
     'jasa pembuatan website',
     'development services',
   ],
-}
-
-export default function ServicesLayout({ children }: { children: ReactNode }) {
-  return children
 } 
