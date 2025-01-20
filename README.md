@@ -80,4 +80,4 @@ src/
 
 ## License
 
-Copyright © 2024 Meta Solusi Digital. All rights reserved.
+Copyright © 2024 Meta Solusi Digital. All rights reserved. 
