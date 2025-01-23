@@ -10,6 +10,7 @@ type Client = {
   image: string
   description: string
   isGovernment?: boolean
+  label?: string
 }
 
 const clients: Client[] = [
@@ -38,13 +39,15 @@ const clients: Client[] = [
     id: 4,
     name: 'Cloudlink',
     image: '/portofolio-cloudlink.png',
-    description: 'Sistem manajemen billing pelanggan yang terintegrasi dengan fitur lengkap untuk pengelolaan pembayaran dan tagihan secara efisien.'
+    description: 'Sistem manajemen billing pelanggan yang terintegrasi dengan fitur lengkap untuk pengelolaan pembayaran dan tagihan secara efisien.',
+    label: 'Billing System'
   },
   {
     id: 5,
     name: 'Optima Jasa',
     image: '/portofolio-optimajasa.png',
-    description: 'Website perusahaan modern dilengkapi sistem ERP terintegrasi untuk optimalisasi manajemen sumber daya dan operasional bisnis.'
+    description: 'Website perusahaan modern dilengkapi sistem ERP terintegrasi untuk optimalisasi manajemen sumber daya dan operasional bisnis.',
+    label: 'ERP'
   }
 ]
 
@@ -112,15 +115,22 @@ export default function Clients() {
                 </div>
               </div>
 
-              <div className="p-4 md:p-6 relative">
-                <h3 className="text-base md:text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300">
+              <div className="p-4 md:p-6 relative flex flex-col h-[120px] md:h-[140px]">
+                <h3 className="text-base md:text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300 line-clamp-3">
                   {client.name}
                 </h3>
-                {client.isGovernment && (
-                  <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full mt-2">
-                    Government
-                  </span>
-                )}
+                <div className="mt-auto md:mb-2">
+                  {client.isGovernment && (
+                    <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full">
+                      Government
+                    </span>
+                  )}
+                  {client.label && (
+                    <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full ml-2">
+                      {client.label}
+                    </span>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -162,10 +172,22 @@ export default function Clients() {
                   </div>
                 </div>
 
-                <div className="p-4 md:p-6 relative">
-                  <h3 className="text-base md:text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300">
+                <div className="p-4 md:p-6 relative flex flex-col h-[120px] md:h-[140px]">
+                  <h3 className="text-base md:text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300 line-clamp-3">
                     {client.name}
                   </h3>
+                  <div className="mt-auto md:mb-2">
+                    {client.isGovernment && (
+                      <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full">
+                        Government
+                      </span>
+                    )}
+                    {client.label && (
+                      <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full ml-2">
+                        {client.label}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
