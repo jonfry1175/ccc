@@ -1,22 +1,43 @@
 'use client'
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
-import { Menu, X } from 'lucide-react'
+import { ChevronDown, Globe, Layout, Menu, Smartphone, X } from 'lucide-react'
 import { AnimatePresence, motion } from "motion/react"
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const navItems = [
-  { href: '#about', label: 'Tentang' },
-  { href: '#services', label: 'Layanan' },
-  { href: '#clients', label: 'Portofolio' },
-  { href: '#pricing', label: 'Paket Harga' }
+  { href: '/', label: 'Beranda' },
+  { 
+    href: '#', 
+    label: 'Layanan',
+    children: [
+      { 
+        href: '/services/web-development', 
+        label: 'Jasa Pembuatan Website',
+        icon: Globe
+      },
+      { 
+        href: '/services/web-applications', 
+        label: 'Aplikasi Web',
+        icon: Layout
+      },
+      { 
+        href: '/services/mobile-applications', 
+        label: 'Aplikasi Mobile',
+        icon: Smartphone
+      },
+    ]
+  },
+  { href: '/portfolio', label: 'Portofolio' },
+  { href: '/about', label: 'Tentang' }
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,16 +72,48 @@ export default function Navbar() {
             <span className="leading-none">{COMPANY_NAME}</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Clean Dropdown */}
           <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right"
-              >
-                {item.label}
-              </Link>
+              <div key={item.href} className="relative group">
+                {item.children ? (
+                  <>
+                    <button
+                      onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                      className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right flex items-center gap-1"
+                    >
+                      {item.label}
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                    </button>
+                    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-white rounded-xl shadow-lg py-2 min-w-[240px] border border-gray-100">
+                        {item.children.map((child) => {
+                          const IconComponent = child.icon
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="flex items-center gap-3 px-4 py-2.5 text-text-main/70 hover:text-blue-primary hover:bg-gray-50/80 transition-colors"
+                            >
+                              <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <IconComponent className="w-4 h-4 text-blue-primary" />
+                              </div>
+                              <span className="font-medium">{child.label}</span>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
 
@@ -87,7 +140,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with Clean Dropdown */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -98,14 +151,47 @@ export default function Navbar() {
             >
               <div className="container py-4 space-y-4">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
-                  >
-                    {item.label}
-                  </Link>
+                  <div key={item.href}>
+                    {item.children ? (
+                      <>
+                        <button
+                          onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                          className="flex items-center justify-between w-full py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                        >
+                          {item.label}
+                          <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                        </button>
+                        {activeDropdown === item.label && (
+                          <div className="pl-4 mt-2 space-y-2">
+                            {item.children.map((child) => {
+                              const IconComponent = child.icon
+                              return (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="flex items-center gap-3 py-2 text-text-main/70 hover:text-blue-primary transition-colors"
+                                >
+                                  <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <IconComponent className="w-4 h-4 text-blue-primary" />
+                                  </div>
+                                  <span className="font-medium">{child.label}</span>
+                                </Link>
+                              )
+                            })}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="block py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
                 ))}
                 <a
                   href={getWhatsAppLink()}
