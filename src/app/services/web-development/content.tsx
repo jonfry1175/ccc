@@ -102,6 +102,13 @@ const useCases = [
 ]
 
 export default function WebDevelopmentContent() {
+  const handleCTAClick = () => {
+    const navCTAButton = document.querySelector('nav a[target="_blank"][rel="noopener noreferrer"]') as HTMLAnchorElement
+    if (navCTAButton) {
+      navCTAButton.click()
+    }
+  }
+
   return (
     <div className="container px-4 sm:px-6 max-w-4xl py-12 sm:py-20 font-poppins">
       <motion.div
@@ -121,6 +128,8 @@ export default function WebDevelopmentContent() {
             Wujudkan presence online bisnis Anda dengan website profesional yang dibangun khusus sesuai kebutuhan. Kami hadirkan solusi website modern dengan performa tinggi dan desain menarik.
           </p>
         </div>
+
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-16" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,6 +174,8 @@ export default function WebDevelopmentContent() {
           </Accordion>
         </motion.div>
 
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-16" />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -190,11 +201,13 @@ export default function WebDevelopmentContent() {
           </div>
         </motion.div>
 
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-16" />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mt-12 sm:mt-16 text-center bg-blue-primary/5 p-6 sm:p-8 rounded-xl sm:rounded-2xl"
+          className="text-center bg-blue-primary/5 p-6 sm:p-8 rounded-xl sm:rounded-2xl"
         >
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 font-poppins">Siap Memulai Project Website Anda?</h2>
           <p className="text-base sm:text-lg mb-5 sm:mb-6 font-poppins font-normal">
@@ -202,11 +215,8 @@ export default function WebDevelopmentContent() {
           </p>
           <Button 
             size="lg" 
-            className="w-full sm:w-auto bg-blue-primary hover:bg-blue-primary/90"
-            onClick={() => {
-              const ctaButton = document.querySelector('a[href*="whatsapp"]') as HTMLAnchorElement
-              if (ctaButton) ctaButton.click()
-            }}
+            className="w-full sm:w-auto bg-blue-primary hover:bg-blue-primary/90 text-white"
+            onClick={handleCTAClick}
           >
             Hubungi Kami Sekarang
           </Button>
