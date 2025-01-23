@@ -33,7 +33,7 @@ function AnimatedContent() {
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Transformasi Digital{' '}
               <span className="text-blue-primary">Bisnis Anda</span>{' '}
-              Dimulai di Sini
+              Dimulai dari sini
             </h1>
             <p className="text-xl text-text-main/70 max-w-xl">
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga 
@@ -92,7 +92,7 @@ function StaticContent() {
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Transformasi Digital{' '}
               <span className="text-blue-primary">Bisnis Anda</span>{' '}
-              Dimulai di Sini
+              Dimulai dari sini
             </h1>
             <p className="text-xl text-text-main/70 max-w-xl">
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga 

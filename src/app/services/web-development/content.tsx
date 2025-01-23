@@ -116,16 +116,16 @@ export default function WebDevelopmentContent() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-12"
       >
-        <div className="flex items-center gap-3 sm:gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6">
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-primary/10 rounded-xl flex items-center justify-center">
             <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-primary" />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-poppins">Jasa Pembuatan Website</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold font-poppins">Jasa Pembuatan Website Terlengkap</h1>
         </div>
         
         <div className="prose prose-lg max-w-none mb-12 sm:mb-16">
           <p className="text-lg sm:text-xl text-text-main/70 font-poppins font-normal">
-            Wujudkan presence online bisnis Anda dengan website profesional yang dibangun khusus sesuai kebutuhan. Kami hadirkan solusi website modern dengan performa tinggi dan desain menarik.
+            Wujudkan presensi online bisnis Anda dengan website profesional yang dibangun khusus sesuai kebutuhan. Kami hadirkan solusi website modern dengan performa tinggi dan desain menarik.
           </p>
         </div>
 
