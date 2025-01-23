@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.2",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "fs": "^0.0.1-security",
     "lucide-react": "^0.473.0",
     "motion": "^11.18.1",
@@ -16,10 +20,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "satori": "^0.12.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
