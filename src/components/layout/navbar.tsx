@@ -1,10 +1,11 @@
 'use client'
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
-import { ChevronDown, Globe, Layout, Menu, Smartphone, X } from 'lucide-react'
+import { ChevronDown, Globe, Layout, Menu, MessageCircle, Smartphone, X } from 'lucide-react'
 import { AnimatePresence, motion } from "motion/react"
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 const navItems = [
@@ -30,14 +31,58 @@ const navItems = [
       },
     ]
   },
-  { href: '/portfolio', label: 'Portofolio' },
-  { href: '/about', label: 'Tentang' }
+  { href: '/#about', label: 'Tentang Kami' },
+  { href: '/#clients', label: 'Portofolio' },
 ]
 
+const SCROLL_OFFSET = -80 // Height of navbar + some padding
+
 export default function Navbar() {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  const handleAnchorClick = async (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Don't handle non-anchor links or WhatsApp
+    if (!href.startsWith('/#') || href.includes('whatsapp')) {
+      return
+    }
+
+    e.preventDefault()
+    const targetId = href.replace('/#', '')
+    
+    // Close mobile menu
+    setIsOpen(false)
+
+    // If we're not on the home page, navigate first
+    if (pathname !== '/') {
+      router.push('/')
+      // Wait for navigation and DOM update
+      setTimeout(() => {
+        const element = document.getElementById(targetId)
+        if (element) {
+          const offsetPosition = element.offsetTop + SCROLL_OFFSET
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          })
+        }
+      }, 100)
+      return
+    }
+
+    // If we're already on the home page
+    const element = document.getElementById(targetId)
+    if (element) {
+      const offsetPosition = element.offsetTop + SCROLL_OFFSET
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +117,7 @@ export default function Navbar() {
             <span className="leading-none">{COMPANY_NAME}</span>
           </Link>
 
-          {/* Desktop Navigation with Clean Dropdown */}
+          {/* Desktop Navigation with Smooth Scroll */}
           <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
             {navItems.map((item) => (
               <div key={item.href} className="relative group">
@@ -93,6 +138,7 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
+                              onClick={(e) => handleAnchorClick(e, child.href)}
                               className="flex items-center gap-3 px-4 py-2.5 text-text-main/70 hover:text-blue-primary hover:bg-gray-50/80 transition-colors"
                             >
                               <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -108,6 +154,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={item.href}
+                    onClick={(e) => handleAnchorClick(e, item.href)}
                     className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right"
                   >
                     {item.label}
@@ -117,7 +164,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Updated CTA Button */}
           <div className="hidden md:block">
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -125,9 +172,10 @@ export default function Navbar() {
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium"
             >
-              Hubungi Kami
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
             </motion.a>
           </div>
 
@@ -140,7 +188,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Navigation with Clean Dropdown */}
+        {/* Mobile Navigation with Smooth Scroll */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -169,7 +217,7 @@ export default function Navbar() {
                                 <Link
                                   key={child.href}
                                   href={child.href}
-                                  onClick={() => setIsOpen(false)}
+                                  onClick={(e) => handleAnchorClick(e, child.href)}
                                   className="flex items-center gap-3 py-2 text-text-main/70 hover:text-blue-primary transition-colors"
                                 >
                                   <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -185,7 +233,7 @@ export default function Navbar() {
                     ) : (
                       <Link
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleAnchorClick(e, item.href)}
                         className="block py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
                       >
                         {item.label}
@@ -193,15 +241,18 @@ export default function Navbar() {
                     )}
                   </div>
                 ))}
-                <a
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="block py-2 text-blue-primary font-medium"
-                >
-                  Hubungi Kami
-                </a>
+                <div className="pt-2 mt-2 border-t border-gray-100">
+                  <a
+                    href={getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-2 py-2.5 px-4 bg-blue-primary text-white rounded-full font-medium hover:bg-blue-primary/90 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                </div>
               </div>
             </motion.div>
           )}
