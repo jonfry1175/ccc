@@ -38,7 +38,7 @@ const useCases = [
     Icon: Store,
     title: 'E-Commerce',
     subtitle: 'Buka Toko Online Professional Anda',
-    description: 'Platform e-commerce lengkap dengan fitur bisnis modern:',
+    description: 'Tingkatkan penjualan Anda dengan platform e-commerce yang powerful. Kami hadirkan solusi toko online yang tidak hanya menarik, tapi juga mudah dikelola:',
     features: [
       'Sistem pembayaran dan checkout yang aman',
       'Manajemen produk dan inventori real-time',
@@ -51,7 +51,7 @@ const useCases = [
     Icon: Building2,
     title: 'Company Profile',
     subtitle: 'Tingkatkan Kredibilitas Bisnis Anda',
-    description: 'Tampilkan profesionalitas bisnis Anda dengan website company profile yang elegan. Dilengkapi dengan:',
+    description: 'Bangun kepercayaan klien dengan website profesional yang mencerminkan identitas brand Anda. Tampilkan keunggulan bisnis Anda melalui:',
     features: [
       'Desain premium yang mencerminkan brand identity',
       'Halaman portofolio dan testimoni yang menarik',
@@ -64,7 +64,7 @@ const useCases = [
     Icon: GraduationCap,
     title: 'Website Pendidikan',
     subtitle: 'Platform Pembelajaran Modern',
-    description: 'Hadirkan pengalaman belajar digital yang interaktif dengan fitur lengkap:',
+    description: 'Transformasi digital untuk institusi pendidikan Anda. Hadirkan pengalaman belajar yang interaktif dan efektif dengan:',
     features: [
       'Sistem manajemen pembelajaran (LMS) yang powerful',
       'Portal siswa/mahasiswa dengan login personal',
@@ -77,7 +77,7 @@ const useCases = [
     Icon: Share2,
     title: 'Portal Informasi & Sosial Media',
     subtitle: 'Bangun Komunitas Online Anda',
-    description: 'Platform interaktif untuk berbagi informasi dan membangun engagement:',
+    description: 'Ciptakan ruang digital yang menghubungkan audiens Anda. Kembangkan komunitas yang aktif dan loyal dengan platform yang dilengkapi:',
     features: [
       'Sistem manajemen konten yang mudah digunakan',
       'Fitur komentar dan diskusi real-time',
@@ -90,7 +90,7 @@ const useCases = [
     Icon: Globe,
     title: 'Landing Page',
     subtitle: 'Konversi Pengunjung Menjadi Pelanggan',
-    description: 'Landing page yang dioptimalkan untuk konversi dengan:',
+    description: 'Maksimalkan peluang konversi dengan landing page yang dirancang khusus untuk penjualan. Tingkatkan ROI marketing Anda dengan:',
     features: [
       'Desain yang fokus pada call-to-action',
       'Form capture leads yang efektif',
