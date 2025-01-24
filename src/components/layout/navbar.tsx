@@ -1,6 +1,7 @@
 'use client'
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { ChevronDown, Globe, Layout, Menu, MessageCircle, Smartphone, X } from 'lucide-react'
 import { AnimatePresence, motion } from "motion/react"
 import Image from 'next/image'
@@ -169,9 +170,16 @@ export default function Navbar() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href={getWhatsAppLink()}
+              
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                sendGTMEvent({
+                  event: 'clickCTAButton',
+                })
+
+                router.push(getWhatsAppLink())
+              }}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium"
             >
               <MessageCircle className="w-4 h-4" />
