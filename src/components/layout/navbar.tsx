@@ -180,7 +180,7 @@ export default function Navbar() {
 
                 router.push(getWhatsAppLink())
               }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
