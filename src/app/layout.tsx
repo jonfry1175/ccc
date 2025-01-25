@@ -1,8 +1,8 @@
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
-import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Geist, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 
@@ -31,15 +31,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className="scroll-smooth">
-      <GoogleTagManager gtmId="AW-11565537272" />
+      
       <body className={`${geist.variable} ${poppins.variable} antialiased`}>
-        <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=AW-11565537272" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
-        </noscript>
         <Navbar />
         {children}
         <Footer />
       </body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=AW-11565537272" />
+      <Script id="_next-gtm-init" dangerouslySetInnerHTML={{
+        __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11565537272');
+          `
+      }} />
     </html>
   );
 }

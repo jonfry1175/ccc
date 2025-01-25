@@ -175,7 +175,10 @@ export default function Navbar() {
               rel="noopener noreferrer"
               onClick={() => {
                 sendGTMEvent({
-                  event: 'clickCTAButton',
+                  event: 'conversion',
+                  value: {
+                    send_to: 'AW-11565537272/W0gdCLmEkIwaEPiv8Ior'
+                  }
                 })
 
                 router.push(getWhatsAppLink())
