@@ -1,4 +1,4 @@
-# Meta Solusi Digital Website 
+# Meta Solusi Digital Website
 
 This is the official website for Meta Solusi Digital, built with Next.js and deployed on Vercel.
 
@@ -20,7 +20,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deployment
 
@@ -29,17 +29,20 @@ This project is deployed on VPS. The production site is live at [metasolusidigit
 ### Deployment Steps
 
 1. SSH into VPS and navigate to project directory:
+
 ```bash
 cd /var/www/metasolusidigital-web
 ```
 
 2. Pull latest changes and install dependencies:
+
 ```bash
 git pull origin main
 npm install
 ```
 
 3. Build and restart:
+
 ```bash
 # Build the project
 npm run build
@@ -56,7 +59,7 @@ pm2 restart meta-solusi-digital
 Required environment variables should be set in your .env file:
 
 ```env
-PORT=3001
+PORT=3000
 ```
 
 ## Project Structure
@@ -80,4 +83,4 @@ src/
 
 ## License
 
-Copyright © 2024 Meta Solusi Digital. All rights reserved. 
+Copyright © 2024 Meta Solusi Digital. All rights reserved.
