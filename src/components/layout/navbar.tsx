@@ -11,22 +11,22 @@ import { useEffect, useState } from 'react'
 
 const navItems = [
   { href: '/', label: 'Beranda' },
-  { 
-    href: '#', 
+  {
+    href: '#',
     label: 'Layanan',
     children: [
-      { 
-        href: '/services/web-development', 
+      {
+        href: '/services/web-development',
         label: 'Jasa Pembuatan Website',
         icon: Globe
       },
-      { 
-        href: '/services/web-applications', 
+      {
+        href: '/services/web-applications',
         label: 'Aplikasi Web',
         icon: Layout
       },
-      { 
-        href: '/services/mobile-applications', 
+      {
+        href: '/services/mobile-applications',
         label: 'Aplikasi Mobile',
         icon: Smartphone
       },
@@ -53,7 +53,7 @@ export default function Navbar() {
 
     e.preventDefault()
     const targetId = href.replace('/#', '')
-    
+
     // Close mobile menu
     setIsOpen(false)
 
@@ -97,18 +97,17 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        }`}
     >
       <nav className="container mx-auto">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link 
+          <Link
             href="/"
             className="text-xl font-bold text-text-main hover:text-blue-primary transition-colors flex items-end gap-2"
           >
-            <Image 
+            <Image
               src="/logo-m.png"
               alt="Company Logo"
               width={32}
@@ -170,7 +169,7 @@ export default function Navbar() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              
+
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
@@ -181,7 +180,11 @@ export default function Navbar() {
                   }
                 })
 
-                router.push(getWhatsAppLink())
+                // Delay 100-300ms before pushing
+                setTimeout(() => {
+                  router.push(getWhatsAppLink())
+                }, 200)
+
               }}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium cursor-pointer"
             >
