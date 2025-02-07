@@ -180,8 +180,6 @@ export default function Navbar() {
                   }
                 })
 
-                console.log('Sending GTM event WhatsApp')
-
                 // Delay 100-300ms before pushing
                 setTimeout(() => {
                   router.push(getWhatsAppLink())

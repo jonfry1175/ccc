@@ -8,15 +8,10 @@ import Pricing from '@/components/sections/pricing'
 import Services from '@/components/sections/services'
 import WhyUs from '@/components/sections/why-us'
 import { sendGTMEvent } from '@next/third-parties/google'
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 
 export default function Home() {
-  // useLayoutEffect runs synchronously after all DOM mutations
-  // This ensures the event is sent exactly once, before the browser repaints
-  useLayoutEffect(() => {
-    // Add this to check dataLayer
-    console.log('Current dataLayer:', JSON.stringify(window.dataLayer))
-
+  useEffect(() => {
     sendGTMEvent({
       event: 'conversion',
       value: {
@@ -24,10 +19,7 @@ export default function Home() {
       }
     })
 
-    // Check dataLayer after event
-    setTimeout(() => {
-      console.log('DataLayer after event:', JSON.stringify(window.dataLayer))
-    }, 100)
+    console.log(window.dataLayer)
   }, [])
 
   return (
