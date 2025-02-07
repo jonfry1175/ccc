@@ -176,9 +176,11 @@ export default function Navbar() {
                 sendGTMEvent({
                   event: 'conversion',
                   value: {
-                    send_to: 'AW-11565537272/W0gdCLmEkIwaEPiv8Ior'
+                    send_to: 'AW-11565537272/eck8CPC2vJQaEPiv8Ior'
                   }
                 })
+
+                console.log('Sending GTM event WhatsApp')
 
                 // Delay 100-300ms before pushing
                 setTimeout(() => {
