@@ -14,12 +14,8 @@ export default function Home() {
   useEffect(() => {
     sendGTMEvent({
       event: 'conversion',
-      value: {
-        send_to: 'AW-11565537272/W0gdCLmEkIwaEPiv8Ior'
-      }
+      value: 'AW-11565537272/W0gdCLmEkIwaEPiv8Ior'
     })
-
-    console.log(window.dataLayer)
   }, [])
 
   return (
