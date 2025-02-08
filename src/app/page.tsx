@@ -9,13 +9,24 @@ import Services from '@/components/sections/services'
 import WhyUs from '@/components/sections/why-us'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { useEffect } from 'react'
+import { getGTMConversionTag } from '@/config/analytics'
 
 export default function Home() {
   useEffect(() => {
-    sendGTMEvent({
-      event: 'conversion',
-      value: 'AW-11565537272/W0gdCLmEkIwaEPiv8Ior'
-    })
+    const sendEvent = () => {
+      if (window.dataLayer) {
+        sendGTMEvent({
+          event: 'conversion',
+          value: getGTMConversionTag('PAGE_VIEW')
+        })
+      } else {
+        console.warn('window.dataLayer is not defined')
+      }
+    }
+
+    // Delay sending event to ensure GTM is loaded
+    const timeoutId = setTimeout(sendEvent, 2000)
+    return () => clearTimeout(timeoutId)
   }, [])
 
   return (

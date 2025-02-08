@@ -175,7 +175,7 @@ export default function Navbar() {
               onClick={() => {
                 sendGTMEvent({
                   event: 'conversion',
-                  value: 'AW-11565537272/eck8CPC2vJQaEPiv8Ior'
+                  value: 'eck8CPC2vJQaEPiv8Ior'
                 })
 
                 // Delay 100-300ms before pushing
