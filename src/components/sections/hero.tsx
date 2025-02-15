@@ -3,7 +3,6 @@
 import { getWhatsAppLink } from '@/lib/constants'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from "motion/react"
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 function AnimatedContent() {
@@ -30,13 +29,13 @@ function AnimatedContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
               Transformasi Digital{' '}
               <span className="text-blue-primary">Bisnis Anda</span>{' '}
               Dimulai dari sini
             </h1>
-            <p className="text-xl text-text-main/70 max-w-xl">
-              Kami menciptakan solusi digital yang inovatif - dari website responsif hingga 
+            <p className="text-xl text-white/80 max-w-xl">
+              Kami menciptakan solusi digital yang inovatif - dari website responsif hingga
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>
           </motion.div>
@@ -59,25 +58,8 @@ function AnimatedContent() {
           </motion.div>
         </div>
 
-        {/* Hero Image - Hidden on mobile */}
-        <motion.div 
-          className="relative hidden lg:block"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-primary/20 to-purple-500/20 rounded-xl blur-xl" />
-            <Image
-              src="/hero-image.jpeg"
-              alt="Software Development"
-              width={600}
-              height={400}
-              className="rounded-xl shadow-2xl object-cover relative"
-              priority
-            />
-          </div>
-        </motion.div>
+        {/* Right column space preserved but empty for balance */}
+        <div className="hidden lg:block" />
       </div>
     </div>
   )
@@ -89,32 +71,18 @@ function StaticContent() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 opacity-0">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
               Transformasi Digital{' '}
               <span className="text-blue-primary">Bisnis Anda</span>{' '}
               Dimulai dari sini
             </h1>
-            <p className="text-xl text-text-main/70 max-w-xl">
-              Kami menciptakan solusi digital yang inovatif - dari website responsif hingga 
+            <p className="text-xl text-white/80 max-w-xl">
+              Kami menciptakan solusi digital yang inovatif - dari website responsif hingga
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>
           </div>
         </div>
-
-        {/* Hero Image - Hidden on mobile */}
-        <div className="relative opacity-0 hidden lg:block">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-primary/20 to-purple-500/20 rounded-xl blur-xl" />
-            <Image
-              src="/hero-image.jpeg"
-              alt="Software Development"
-              width={600}
-              height={400}
-              className="rounded-xl shadow-2xl object-cover relative"
-              priority
-            />
-          </div>
-        </div>
+        <div className="hidden lg:block" />
       </div>
     </div>
   )
@@ -128,17 +96,19 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center bg-gradient-to-b from-blue-50 to-white pt-20 relative overflow-hidden">
-      {/* Background Image - Hidden on mobile */}
-      <div className="absolute inset-0 z-0 hidden lg:block">
-        <Image
-          src="/hero-image.jpeg"
-          alt="Software Development Background"
-          fill
-          className="object-cover opacity-[0.02] blur-2xl"
-          priority
-          sizes="100vw"
-        />
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-gray-900">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/60 z-10" /> {/* Overlay */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-video-background.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {isMounted ? <AnimatedContent /> : <StaticContent />}
