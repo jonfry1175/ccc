@@ -2,7 +2,7 @@
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
 import { sendGTMEvent } from '@next/third-parties/google'
-import { ChevronDown, Globe, Layout, Menu, Smartphone, X } from 'lucide-react'
+import { ChevronDown, Globe, Layout, Menu, Smartphone, Megaphone, X } from 'lucide-react'
 import { BsWhatsapp } from 'react-icons/bs'
 import { AnimatePresence, motion } from "motion/react"
 import Image from 'next/image'
@@ -31,6 +31,11 @@ const navItems = [
         label: 'Aplikasi Mobile',
         icon: Smartphone
       },
+      {
+        href: '/services/digital-marketing',
+        label: 'Digital Marketing',
+        icon: Megaphone
+      }
     ]
   },
   { href: '/#about', label: 'Tentang Kami' },

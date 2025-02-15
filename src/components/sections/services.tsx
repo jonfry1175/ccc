@@ -1,7 +1,7 @@
 'use client'
 
 import type { LucideIcon } from 'lucide-react'
-import { Globe, Layout, Smartphone } from 'lucide-react'
+import { Globe, Layout, Smartphone, Megaphone } from 'lucide-react'
 import { motion } from "motion/react"
 import Link from 'next/link'
 import { useState } from 'react'
@@ -36,6 +36,13 @@ const services: Service[] = [
     Icon: Smartphone,
     href: '/services/mobile-applications'
   },
+  {
+    id: 4,
+    title: 'Digital Marketing',
+    description: 'Kami membantu bisnis Anda tumbuh di era digital dengan strategi pemasaran yang terukur dan efektif, mulai dari social media marketing, SEO, hingga email marketing.',
+    Icon: Megaphone,
+    href: '/services/digital-marketing'
+  }
 ]
 
 export default function Services() {
