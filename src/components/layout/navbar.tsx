@@ -124,9 +124,16 @@ export default function Navbar() {
                 alt="Company Logo"
                 width={32}
                 height={32}
-                className="h-8 w-auto"
+                className="h-8 w-auto md:block hidden"
               />
-              <span>{COMPANY_NAME}</span>
+              <span className="md:block hidden">{COMPANY_NAME}</span>
+              <Image
+                src="/logo-m.png"
+                alt="Company Logo"
+                width={24}
+                height={24}
+                className="h-6 w-auto md:hidden block"
+              />
             </div>
           </Link>
 
@@ -139,10 +146,10 @@ export default function Navbar() {
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
                       className={`transition-colors font-medium text-right flex items-center gap-1 ${isScrolled
-                          ? 'text-text-main/70 hover:text-blue-primary'
-                          : pathname === '/'
-                            ? 'text-white/80 hover:text-white'
-                            : 'text-text-main/70 hover:text-blue-primary'
+                        ? 'text-text-main/70 hover:text-blue-primary'
+                        : pathname === '/'
+                          ? 'text-white/80 hover:text-white'
+                          : 'text-text-main/70 hover:text-blue-primary'
                         }`}
                     >
                       {item.label}
@@ -174,10 +181,10 @@ export default function Navbar() {
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
                     className={`transition-colors font-medium text-right ${isScrolled
-                        ? 'text-text-main/70 hover:text-blue-primary'
-                        : pathname === '/'
-                          ? 'text-white/80 hover:text-white'
-                          : 'text-text-main/70 hover:text-blue-primary'
+                      ? 'text-text-main/70 hover:text-blue-primary'
+                      : pathname === '/'
+                        ? 'text-white/80 hover:text-white'
+                        : 'text-text-main/70 hover:text-blue-primary'
                       }`}
                   >
                     {item.label}
@@ -233,7 +240,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t"
+              className="md:hidden bg-white/95 backdrop-blur-sm border-t fixed top-20 left-0 right-0 shadow-lg"
             >
               <div className="container py-4 space-y-4">
                 {navItems.map((item) => (
@@ -242,7 +249,7 @@ export default function Navbar() {
                       <>
                         <button
                           onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                          className="flex items-center justify-between w-full py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                          className="flex items-center justify-between w-full py-2 text-text-main hover:text-blue-primary transition-colors font-medium"
                         >
                           {item.label}
                           <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
@@ -256,7 +263,7 @@ export default function Navbar() {
                                   key={child.href}
                                   href={child.href}
                                   onClick={(e) => handleAnchorClick(e, child.href)}
-                                  className="flex items-center gap-3 py-2 text-text-main/70 hover:text-blue-primary transition-colors"
+                                  className="flex items-center gap-3 py-2 text-text-main hover:text-blue-primary transition-colors"
                                 >
                                   <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <IconComponent className="w-4 h-4 text-blue-primary" />
@@ -272,12 +279,7 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         onClick={(e) => handleAnchorClick(e, item.href)}
-                        className={`transition-colors font-medium text-right ${isScrolled
-                            ? 'text-text-main/70 hover:text-blue-primary'
-                            : pathname === '/'
-                              ? 'text-white/80 hover:text-white'
-                              : 'text-text-main/70 hover:text-blue-primary'
-                          }`}
+                        className="block py-2 text-text-main hover:text-blue-primary transition-colors font-medium"
                       >
                         {item.label}
                       </Link>

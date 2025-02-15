@@ -30,14 +30,14 @@ function AnimatedContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-5xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               <span className="text-white">Transformasi Digital</span>{' '}
               <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
                 Bisnis Anda
               </span>{' '}
               <span className="text-white">Dimulai dari sini</span>
             </h1>
-            <p className="text-gray-300 text-lg">
+            <p className="text-gray-300 text-base md:text-lg max-w-[90%] md:max-w-none">
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>
@@ -51,7 +51,7 @@ function AnimatedContent() {
           >
             <Link
               href="/konsultasi"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
             >
               Mulai Konsultasi Gratis
               <ArrowRight className="w-4 h-4" />
@@ -123,10 +123,10 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-gray-900">
+    <section id="hero" className="min-h-[90vh] md:min-h-screen flex items-center relative overflow-hidden bg-gray-900">
       {/* Video Background with Fallback Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-black/70 md:bg-black/60 z-10" />
         {/* Fallback image for mobile */}
         <Image
           src="/hero-fallback.jpg"
