@@ -55,43 +55,42 @@ const clients: Client[] = [
 
 function ClientCard({ client }: { client: Client }) {
   return (
-    <GlareCard className="min-w-[300px] sm:min-w-[360px] mx-2">
-      <div className="relative aspect-[2/1] w-full bg-gray-50">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary/5 to-purple-500/5" />
+    <GlareCard className="min-w-[280px] sm:min-w-[320px] mx-2 bg-transparent">
+      <div className="relative aspect-[16/9] w-full">
         <Image
           src={client.image}
           alt={`${client.name} project`}
           fill
-          className="object-contain p-4 transition-all duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 300px, 360px"
+          className="object-contain transition-all duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 280px, 320px"
         />
         <div
           className="absolute inset-0 bg-gradient-to-b from-blue-primary/90 to-blue-900/90 
             opacity-0 group-hover:opacity-95 transition-all duration-500 
-            flex items-center justify-center p-4 md:p-8
-            touch:group-active:opacity-95 md:touch:group-active:opacity-0"
+            flex items-center justify-center p-3
+            touch:group-active:opacity-95"
         >
           <p className="text-sm text-white/90 leading-relaxed 
             transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500
-            touch:group-active:translate-y-0 md:touch:group-active:translate-y-4"
+            touch:group-active:translate-y-0"
           >
             {client.description}
           </p>
         </div>
       </div>
 
-      <div className="p-4 md:p-6 relative flex flex-col h-[120px] md:h-[140px]">
-        <h3 className="text-base md:text-lg font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300 line-clamp-3">
+      <div className="p-3 relative flex flex-col min-h-[80px] bg-white">
+        <h3 className="text-sm font-semibold text-text-main group-hover:text-blue-primary transition-colors duration-300 line-clamp-2">
           {client.name}
         </h3>
-        <div className="mt-auto md:mb-2">
+        <div className="mt-2 flex flex-wrap gap-2">
           {client.isGovernment && (
-            <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full">
+            <span className="inline-flex px-2 py-0.5 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full">
               Government
             </span>
           )}
           {client.label && (
-            <span className="inline-block px-2 md:px-3 py-0.5 md:py-1 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full ml-2">
+            <span className="inline-flex px-2 py-0.5 bg-blue-primary/10 text-blue-primary text-xs font-medium rounded-full">
               {client.label}
             </span>
           )}
@@ -128,7 +127,7 @@ export default function Clients() {
           </p>
         </motion.div>
 
-        <div ref={containerRef} className="relative w-full">
+        <div ref={containerRef} className="relative w-full touch-pan-x">
           <div className="overflow-hidden">
             <motion.div
               className="flex gap-4 py-4"
@@ -143,6 +142,9 @@ export default function Clients() {
                   repeatType: "loop"
                 }
               }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
             >
               {sliderContent.map((client, index) => (
                 <ClientCard key={`${client.id}-${index}`} client={client} />
