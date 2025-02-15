@@ -4,6 +4,7 @@ import { getWhatsAppLink } from '@/lib/constants'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
+import { GlareCard } from '@/components/ui/glare-card'
 
 type Client = {
   id: number
@@ -54,11 +55,7 @@ const clients: Client[] = [
 
 function ClientCard({ client }: { client: Client }) {
   return (
-    <div
-      className="group relative bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden min-w-[300px] sm:min-w-[360px] mx-2 flex-shrink-0"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+    <GlareCard className="min-w-[300px] sm:min-w-[360px] mx-2">
       <div className="relative aspect-[2/1] w-full bg-gray-50">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-primary/5 to-purple-500/5" />
         <Image
@@ -100,7 +97,7 @@ function ClientCard({ client }: { client: Client }) {
           )}
         </div>
       </div>
-    </div>
+    </GlareCard>
   )
 }
 
