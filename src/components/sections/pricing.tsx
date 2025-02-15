@@ -2,6 +2,7 @@
 
 import { getWhatsAppLink } from '@/lib/constants'
 import { Check } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 type PricingFeature = {
   text: string
@@ -80,54 +81,63 @@ const formatPrice = (price: number) => {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-white">
-      <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
+    <section id="pricing" className="py-12 sm:py-16 bg-white">
+      <div className="container px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-8 sm:mb-12"
+        >
+          <span className="text-xs sm:text-sm font-medium text-blue-primary uppercase tracking-wider">
             Paket Harga Layanan
           </span>
-          <h2 className="text-4xl font-bold mt-4 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mt-2 mb-3">
             Pilihan Paket Website
           </h2>
-          <p className="text-text-main/70 text-lg">
+          <p className="text-base sm:text-lg text-text-main/70">
             Solusi website yang sesuai dengan kebutuhan dan budget Anda
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {pricingTiers.map((tier) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+          {pricingTiers.map((tier, index) => (
+            <motion.div
               key={tier.id}
-              className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <div className="p-8 bg-[#0F172A] text-white">
-                <h3 className="text-xl font-semibold text-blue-primary mb-4">
+              <div className="p-5 sm:p-6 bg-[#0F172A] text-white">
+                <h3 className="text-lg font-semibold text-blue-primary mb-2">
                   {tier.name}
                 </h3>
                 {tier.isCustom ? (
-                  <div className="text-3xl font-bold text-white">Hubungi Kami</div>
+                  <div className="text-2xl font-bold text-white">Hubungi Kami</div>
                 ) : (
                   <div>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-2xl font-bold text-white">Rp</span>
-                      <span className="text-4xl font-bold text-white tracking-tight">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-xl font-bold text-white">Rp</span>
+                      <span className="text-3xl font-bold text-white tracking-tight">
                         {formatPrice(tier.price!)}
                       </span>
                     </div>
-                    <div className="text-base text-white/80 font-medium">per Tahun</div>
+                    <div className="text-sm text-white/80 font-medium">per Tahun</div>
                   </div>
                 )}
               </div>
 
-              <div className="p-8 flex-grow flex flex-col">
-                <p className="text-base font-semibold text-text-main mb-6">
+              <div className="p-5 sm:p-6 flex-grow flex flex-col bg-white">
+                <p className="text-sm font-semibold text-text-main mb-4">
                   {tier.subtitle}
                 </p>
-                <ul className="space-y-4 mb-8 flex-grow">
+                <ul className="space-y-3 mb-6 flex-grow">
                   {tier.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-text-main/70 text-base">{feature.text}</span>
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-text-main/70">{feature.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -136,13 +146,13 @@ export default function Pricing() {
                     href={getWhatsAppLink(`Halo, saya tertarik dengan ${tier.name} untuk website.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center py-4 px-6 rounded-full bg-blue-primary text-white hover:bg-blue-primary/90 transition-colors font-semibold text-base"
+                    className="block text-center py-2.5 px-5 rounded-full bg-blue-primary text-white hover:bg-blue-primary/90 transition-all duration-300 font-semibold text-sm group-hover:shadow-lg group-hover:shadow-blue-primary/25"
                   >
                     {tier.isCustom ? 'Hubungi Kami' : 'Pilih Paket'}
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
