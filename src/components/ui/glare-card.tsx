@@ -33,7 +33,7 @@ export function GlareCard({ children, className = '' }: GlareCardProps) {
         "--duration": "300ms",
         "--foil-size": "100%",
         "--opacity": "0",
-        "--radius": "16px",
+        "--radius": "12px",
         "--easing": "ease",
         "--transition": "var(--duration) var(--easing)",
     } as React.CSSProperties
@@ -48,9 +48,21 @@ export function GlareCard({ children, className = '' }: GlareCardProps) {
         backgroundBlendMode: "hue, hue, hue, overlay",
     } as React.CSSProperties
 
-    const updateStyles = () => {
+    const updateStyles = (x: number, y: number, withRotate = true) => {
         if (refElement.current) {
             const { background, rotate, glare } = state.current
+            background.x = 50 + x / 4 - 12.5
+            background.y = 50 + y / 3 - 16.67
+            glare.x = x
+            glare.y = y
+
+            if (withRotate) {
+                const deltaX = x - 50
+                const deltaY = y - 50
+                rotate.x = -(deltaX / 3.5) * 0.4
+                rotate.y = (deltaY / 2) * 0.4
+            }
+
             refElement.current.style.setProperty("--m-x", `${glare.x}%`)
             refElement.current.style.setProperty("--m-y", `${glare.y}%`)
             refElement.current.style.setProperty("--r-x", `${rotate.x}deg`)
@@ -60,61 +72,70 @@ export function GlareCard({ children, className = '' }: GlareCardProps) {
         }
     }
 
+    const handleTouchMove = (event: React.TouchEvent) => {
+        event.preventDefault()
+        const touch = event.touches[0]
+        const rect = event.currentTarget.getBoundingClientRect()
+        const x = ((touch.clientX - rect.left) / rect.width) * 100
+        const y = ((touch.clientY - rect.top) / rect.height) * 100
+        updateStyles(x, y, false)
+    }
+
     return (
         <div
             style={containerStyle}
             className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform"
             ref={refElement}
             onPointerMove={(event) => {
-                const rotateFactor = 0.4
-                const rect = event.currentTarget.getBoundingClientRect()
-                const position = {
-                    x: event.clientX - rect.left,
-                    y: event.clientY - rect.top,
+                if (window.matchMedia('(hover: hover)').matches) {
+                    const rect = event.currentTarget.getBoundingClientRect()
+                    const x = ((event.clientX - rect.left) / rect.width) * 100
+                    const y = ((event.clientY - rect.top) / rect.height) * 100
+                    updateStyles(x, y)
                 }
-                const percentage = {
-                    x: (100 / rect.width) * position.x,
-                    y: (100 / rect.height) * position.y,
+            }}
+            onTouchMove={handleTouchMove}
+            onTouchStart={() => {
+                if (refElement.current) {
+                    refElement.current.style.setProperty("--duration", "0s")
+                    refElement.current.style.setProperty("--opacity", "0.6")
                 }
-                const delta = {
-                    x: percentage.x - 50,
-                    y: percentage.y - 50,
+            }}
+            onTouchEnd={() => {
+                if (refElement.current) {
+                    refElement.current.style.removeProperty("--duration")
+                    refElement.current.style.setProperty("--opacity", "0")
+                    refElement.current.style.setProperty("--r-x", "0deg")
+                    refElement.current.style.setProperty("--r-y", "0deg")
                 }
-
-                const { background, rotate, glare } = state.current
-                background.x = 50 + percentage.x / 4 - 12.5
-                background.y = 50 + percentage.y / 3 - 16.67
-                rotate.x = -(delta.x / 3.5)
-                rotate.y = delta.y / 2
-                rotate.x *= rotateFactor
-                rotate.y *= rotateFactor
-                glare.x = percentage.x
-                glare.y = percentage.y
-
-                updateStyles()
             }}
             onPointerEnter={() => {
-                isPointerInside.current = true
-                if (refElement.current) {
-                    setTimeout(() => {
-                        if (isPointerInside.current) {
-                            refElement.current?.style.setProperty("--duration", "0s")
-                        }
-                    }, 300)
+                if (window.matchMedia('(hover: hover)').matches) {
+                    isPointerInside.current = true
+                    if (refElement.current) {
+                        setTimeout(() => {
+                            if (isPointerInside.current) {
+                                refElement.current?.style.setProperty("--duration", "0s")
+                            }
+                        }, 300)
+                    }
                 }
             }}
             onPointerLeave={() => {
-                isPointerInside.current = false
-                if (refElement.current) {
-                    refElement.current.style.removeProperty("--duration")
-                    refElement.current?.style.setProperty("--r-x", `0deg`)
-                    refElement.current?.style.setProperty("--r-y", `0deg`)
+                if (window.matchMedia('(hover: hover)').matches) {
+                    isPointerInside.current = false
+                    if (refElement.current) {
+                        refElement.current.style.removeProperty("--duration")
+                        refElement.current.style.setProperty("--r-x", "0deg")
+                        refElement.current.style.setProperty("--r-y", "0deg")
+                        refElement.current.style.setProperty("--opacity", "0")
+                    }
                 }
             }}
         >
-            <div className="h-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] rounded-[var(--radius)] border border-slate-800/10 hover:[--opacity:0.6] hover:[--duration:200ms] hover:[--easing:linear] hover:filter-none overflow-hidden">
+            <div className="h-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] rounded-[var(--radius)] border border-slate-800/5 hover:[--opacity:0.6] hover:[--duration:200ms] hover:[--easing:linear] hover:filter-none overflow-hidden">
                 <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
-                    <div className={`h-full w-full bg-slate-950/5 ${className}`}>
+                    <div className={`h-full w-full ${className}`}>
                         {children}
                     </div>
                 </div>
