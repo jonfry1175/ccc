@@ -1,13 +1,7 @@
 import { COMPANY_NAME } from '@/lib/constants'
-import { Copyright, Facebook, Instagram, Linkedin, } from 'lucide-react'
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa6'
+import { BiCopyright } from 'react-icons/bi'
 import Link from 'next/link'
-
-const SOCIAL_LINKS = {
-  facebook: 'Meta Solusi Digital',
-  instagram: 'metasolusdigitalco',
-  tiktok: 'metasolusdigitalco',
-  linkedin: 'Meta Solusi Digital'
-}
 
 export default function Footer() {
   return (
@@ -17,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <Copyright className="w-5 h-5 text-blue-primary" />
+              <BiCopyright className="w-5 h-5 text-blue-primary" />
               <span className="font-semibold text-lg">{COMPANY_NAME}</span>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -27,7 +21,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Layanan</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Layanan</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="#services" className="text-gray-300 hover:text-white transition-colors">
@@ -54,7 +48,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Perusahaan</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Perusahaan</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="#about" className="text-gray-300 hover:text-white transition-colors">
@@ -81,31 +75,31 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Ikuti Kami</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Ikuti Kami</h3>
             <div className="flex space-x-4">
               <a
-                href={`https://facebook.com/${SOCIAL_LINKS.facebook}`}
+                href="https://www.facebook.com/metasolusidigitalco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-all duration-300 group"
               >
-                <Facebook className="w-5 h-5" />
+                <FaFacebookF className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
               <a
-                href={`https://instagram.com/${SOCIAL_LINKS.instagram}`}
+                href="https://www.instagram.com/metasolusidigitalco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-all duration-300 group"
               >
-                <Instagram className="w-5 h-5" />
+                <FaInstagram className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
               <a
-                href={`https://linkedin.com/company/${SOCIAL_LINKS.linkedin}`}
+                href="https://www.tiktok.com/@metasolusidigitalco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-primary transition-all duration-300 group"
               >
-                <Linkedin className="w-5 h-5" />
+                <FaTiktok className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               </a>
             </div>
           </div>
@@ -113,7 +107,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2">
-            <Copyright className="w-4 h-4" />
+            <BiCopyright className="w-4 h-4" />
             <span>{new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</span>
           </p>
         </div>
