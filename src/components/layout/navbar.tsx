@@ -108,12 +108,16 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className={`text-xl font-bold transition-colors flex items-center gap-2 ${isScrolled ? 'text-text-main' : 'text-blue-200'
+            className={`text-xl font-bold transition-colors flex items-center gap-2 ${isScrolled
+              ? 'text-text-main'
+              : pathname === '/'
+                ? 'text-blue-200'
+                : 'text-text-main'
               }`}
           >
-            <div className={`flex items-center gap-2 ${!isScrolled
-                ? 'bg-blue-950/40 backdrop-blur-sm px-4 py-2.5 rounded-full border border-blue-800/40'
-                : ''
+            <div className={`flex items-center gap-2 ${!isScrolled && pathname === '/'
+              ? 'bg-gradient-to-r from-blue-950/50 to-blue-900/30 backdrop-blur-sm px-4 py-2.5 rounded-full'
+              : ''
               }`}>
               <Image
                 src="/logo-m.png"
@@ -135,8 +139,10 @@ export default function Navbar() {
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
                       className={`transition-colors font-medium text-right flex items-center gap-1 ${isScrolled
-                        ? 'text-text-main/70 hover:text-blue-primary'
-                        : 'text-white/80 hover:text-white'
+                          ? 'text-text-main/70 hover:text-blue-primary'
+                          : pathname === '/'
+                            ? 'text-white/80 hover:text-white'
+                            : 'text-text-main/70 hover:text-blue-primary'
                         }`}
                     >
                       {item.label}
@@ -168,8 +174,10 @@ export default function Navbar() {
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
                     className={`transition-colors font-medium text-right ${isScrolled
-                      ? 'text-text-main/70 hover:text-blue-primary'
-                      : 'text-white/80 hover:text-white'
+                        ? 'text-text-main/70 hover:text-blue-primary'
+                        : pathname === '/'
+                          ? 'text-white/80 hover:text-white'
+                          : 'text-text-main/70 hover:text-blue-primary'
                       }`}
                   >
                     {item.label}
@@ -264,7 +272,12 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         onClick={(e) => handleAnchorClick(e, item.href)}
-                        className="block py-2 text-text-main/70 hover:text-blue-primary transition-colors font-medium"
+                        className={`transition-colors font-medium text-right ${isScrolled
+                            ? 'text-text-main/70 hover:text-blue-primary'
+                            : pathname === '/'
+                              ? 'text-white/80 hover:text-white'
+                              : 'text-text-main/70 hover:text-blue-primary'
+                          }`}
                       >
                         {item.label}
                       </Link>
