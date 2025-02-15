@@ -4,7 +4,8 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from "motion/react"
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { getWhatsAppLink } from '@/lib/constants'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 function AnimatedContent() {
   return (
@@ -49,13 +50,23 @@ function AnimatedContent() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-start gap-4 pt-4"
           >
-            <Link
-              href="/konsultasi"
+            <motion.a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                sendGTMEvent({
+                  event: 'conversion',
+                  value: 'eck8CPC2vJQaEPiv8Ior'
+                })
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
             >
               Mulai Konsultasi Gratis
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </motion.a>
           </motion.div>
         </div>
 
