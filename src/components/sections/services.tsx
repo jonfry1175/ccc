@@ -46,26 +46,26 @@ export default function Services() {
   }
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="container">
+    <section id="services" className="py-12 sm:py-16 bg-gray-50">
+      <div className="container px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-8 sm:mb-12"
         >
-          <span className="text-sm font-medium text-blue-primary uppercase tracking-wider">
+          <span className="text-xs sm:text-sm font-medium text-blue-primary uppercase tracking-wider">
             Layanan Kami
           </span>
-          <h2 className="text-4xl font-bold mt-4 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mt-2 mb-3">
             Solusi Digital untuk Bisnis Anda
           </h2>
-          <p className="text-text-main/70 text-lg">
+          <p className="text-base sm:text-lg text-text-main/70">
             Kami menyediakan layanan pengembangan website dan aplikasi yang komprehensif
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-4 max-w-3xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -73,22 +73,22 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
+              className="bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
             >
               <button
                 onClick={() => toggleAccordion(service.id)}
-                className="w-full flex items-center p-6 text-left"
+                className="w-full flex items-center p-4 sm:p-5 text-left"
               >
-                <div className="w-14 h-14 bg-blue-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <service.Icon className="w-7 h-7 text-blue-primary" />
+                <div className="w-12 h-12 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <service.Icon className="w-6 h-6 text-blue-primary" />
                 </div>
-                <span className="text-xl font-semibold ml-4 text-text-main">
+                <span className="text-base sm:text-lg font-semibold ml-3 text-text-main">
                   {service.title}
                 </span>
                 <motion.svg
                   animate={{ rotate: openId === service.id ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
-                  className="ml-auto w-6 h-6 text-text-main/30"
+                  className="ml-auto w-5 h-5 text-text-main/30"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -106,18 +106,18 @@ export default function Services() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="px-6 pb-6 pt-2"
+                  className="px-4 sm:px-5 pb-4 sm:pb-5"
                 >
-                  <p className="text-text-main/70 leading-relaxed mb-4">
+                  <p className="text-sm sm:text-base text-text-main/70 leading-relaxed mb-3">
                     {service.description}
                   </p>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center text-blue-primary hover:text-blue-primary/80 font-medium"
+                    className="inline-flex items-center text-blue-primary hover:text-blue-primary/80 font-medium text-sm"
                   >
                     Pelajari lebih lanjut
                     <svg
-                      className="w-4 h-4 ml-2"
+                      className="w-4 h-4 ml-1.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
