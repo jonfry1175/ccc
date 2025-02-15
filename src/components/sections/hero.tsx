@@ -3,7 +3,8 @@
 import { getWhatsAppLink } from '@/lib/constants'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from "motion/react"
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import Image from 'next/image'
 
 function AnimatedContent() {
   return (
@@ -90,25 +91,60 @@ function StaticContent() {
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false)
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsMounted(true)
+
+    // Set up intersection observer for lazy loading
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && videoRef.current) {
+            videoRef.current.src = '/hero-video-background.mp4'
+            videoRef.current.load()
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-gray-900">
-      {/* Video Background */}
+      {/* Video Background with Fallback Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10" /> {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        {/* Fallback image for mobile */}
+        <Image
+          src="/hero-fallback.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover lg:hidden"
+        />
+        {/* Video for desktop */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/hero-video-background.mp4" type="video/mp4" />
-        </video>
+          preload="none"
+          onLoadedData={() => setIsVideoLoaded(true)}
+          className={`hidden lg:block w-full h-full object-cover ${isVideoLoaded ? 'opacity-100' : 'opacity-0'
+            } transition-opacity duration-500`}
+        />
       </div>
 
       {isMounted ? <AnimatedContent /> : <StaticContent />}
