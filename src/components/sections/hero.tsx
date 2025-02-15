@@ -1,10 +1,10 @@
 'use client'
 
-import { getWhatsAppLink } from '@/lib/constants'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { motion } from "motion/react"
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function AnimatedContent() {
   return (
@@ -16,9 +16,9 @@ function AnimatedContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-primary/10 border border-blue-primary/20">
-              <Sparkles className="w-4 h-4 text-blue-primary" />
-              <span className="text-sm font-medium text-blue-primary">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-950/40 backdrop-blur-sm border border-blue-800/40 w-fit">
+              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-blue-200 text-sm font-medium">
                 Meta Solusi Digital
               </span>
             </div>
@@ -30,12 +30,14 @@ function AnimatedContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
-              Transformasi Digital{' '}
-              <span className="text-blue-primary">Bisnis Anda</span>{' '}
-              Dimulai dari sini
+            <h1 className="text-5xl font-bold leading-tight">
+              <span className="text-white">Transformasi Digital</span>{' '}
+              <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
+                Bisnis Anda
+              </span>{' '}
+              <span className="text-white">Dimulai dari sini</span>
             </h1>
-            <p className="text-xl text-white/80 max-w-xl">
+            <p className="text-gray-300 text-lg">
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>
@@ -47,15 +49,13 @@ function AnimatedContent() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-start gap-4 pt-4"
           >
-            <a
-              href={getWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-all font-semibold group hover:shadow-lg hover:shadow-blue-primary/25"
+            <Link
+              href="/konsultasi"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
             >
               Mulai Konsultasi Gratis
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
 
@@ -72,12 +72,14 @@ function StaticContent() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 opacity-0">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
-              Transformasi Digital{' '}
-              <span className="text-blue-primary">Bisnis Anda</span>{' '}
-              Dimulai dari sini
+            <h1 className="text-5xl font-bold leading-tight">
+              <span className="text-white">Transformasi Digital</span>{' '}
+              <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
+                Bisnis Anda
+              </span>{' '}
+              <span className="text-white">Dimulai dari sini</span>
             </h1>
-            <p className="text-xl text-white/80 max-w-xl">
+            <p className="text-gray-300 text-lg">
               Kami menciptakan solusi digital yang inovatif - dari website responsif hingga
               aplikasi enterprise yang mengoptimalkan proses bisnis Anda
             </p>

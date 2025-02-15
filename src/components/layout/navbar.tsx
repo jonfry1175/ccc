@@ -98,7 +98,9 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-white/80 backdrop-blur-lg shadow-sm'
+          : 'bg-transparent'
         }`}
     >
       <nav className="container mx-auto">
@@ -106,7 +108,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold text-text-main hover:text-blue-primary transition-colors flex items-end gap-2"
+            className={`text-xl font-bold transition-colors flex items-end gap-2 ${isScrolled ? 'text-text-main' : 'text-white'
+              }`}
           >
             <Image
               src="/logo-m.png"
@@ -126,7 +129,10 @@ export default function Navbar() {
                   <>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                      className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right flex items-center gap-1"
+                      className={`transition-colors font-medium text-right flex items-center gap-1 ${isScrolled
+                          ? 'text-text-main/70 hover:text-blue-primary'
+                          : 'text-white/80 hover:text-white'
+                        }`}
                     >
                       {item.label}
                       <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -156,7 +162,10 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className="text-text-main/70 hover:text-blue-primary transition-colors font-medium text-right"
+                    className={`transition-colors font-medium text-right ${isScrolled
+                        ? 'text-text-main/70 hover:text-blue-primary'
+                        : 'text-white/80 hover:text-white'
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -195,7 +204,10 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 md:hidden text-text-main hover:text-blue-primary transition-colors"
+            className={`p-2 md:hidden transition-colors ${isScrolled
+                ? 'text-text-main hover:text-blue-primary'
+                : 'text-white/80 hover:text-white'
+              }`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
