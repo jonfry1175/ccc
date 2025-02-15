@@ -2,7 +2,8 @@
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
 import { sendGTMEvent } from '@next/third-parties/google'
-import { ChevronDown, Globe, Layout, Menu, MessageCircle, Smartphone, X } from 'lucide-react'
+import { ChevronDown, Globe, Layout, Menu, Smartphone, X } from 'lucide-react'
+import { BsWhatsapp } from 'react-icons/bs'
 import { AnimatePresence, motion } from "motion/react"
 import Image from 'next/image'
 import Link from 'next/link'
@@ -186,7 +187,7 @@ export default function Navbar() {
               }}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-colors font-medium cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4" />
+              <BsWhatsapp className="w-4 h-4" />
               WhatsApp
             </motion.a>
           </div>
@@ -261,7 +262,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className="flex items-center justify-center gap-2 py-2.5 px-4 bg-blue-primary text-white rounded-full font-medium hover:bg-blue-primary/90 transition-colors"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <BsWhatsapp className="w-4 h-4" />
                     WhatsApp
                   </a>
                 </div>
