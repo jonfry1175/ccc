@@ -56,9 +56,16 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false)
+    setActiveDropdown(null)
+  }, [pathname])
+
   const handleAnchorClick = async (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     // Don't handle non-anchor links or WhatsApp
     if (!href.startsWith('/#') || href.includes('whatsapp')) {
+      setIsOpen(false) // Close menu for regular navigation
       return
     }
 
@@ -67,6 +74,7 @@ export default function Navbar() {
 
     // Close mobile menu
     setIsOpen(false)
+    setActiveDropdown(null)
 
     // If we're not on the home page, navigate first
     if (pathname !== '/') {

@@ -1,7 +1,7 @@
 'use client'
 
 import type { LucideIcon } from 'lucide-react'
-import { Globe, Layout, Smartphone, Megaphone } from 'lucide-react'
+import { Globe, Layout, Smartphone, Megaphone, Users } from 'lucide-react'
 import { motion } from "motion/react"
 import Link from 'next/link'
 import { useState } from 'react'
@@ -42,6 +42,13 @@ const services: Service[] = [
     description: 'Kami membantu bisnis Anda tumbuh di era digital dengan strategi pemasaran yang terukur dan efektif, mulai dari social media marketing, SEO, hingga email marketing.',
     Icon: Megaphone,
     href: '/services/digital-marketing'
+  },
+  {
+    id: 5,
+    title: 'Social Media Management',
+    description: 'Kami membantu mengembangkan dan mengelola presence brand Anda di media sosial secara profesional. Tingkatkan engagement dan awareness melalui strategi konten yang terukur.',
+    Icon: Users,
+    href: '/services/social-media-management'
   }
 ]
 
