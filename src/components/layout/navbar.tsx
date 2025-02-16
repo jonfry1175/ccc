@@ -35,6 +35,11 @@ const navItems = [
         href: '/services/digital-marketing',
         label: 'Digital Marketing',
         icon: Megaphone
+      },
+      {
+        href: '/services/social-media-management',
+        label: 'Social Media Management',
+        icon: Smartphone
       }
     ]
   },
