@@ -1,7 +1,6 @@
 'use client'
 
 import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
-import { sendGTMEvent } from '@next/third-parties/google'
 import { ChevronDown, Globe, Layout, Menu, Smartphone, Megaphone, X } from 'lucide-react'
 import { BsWhatsapp } from 'react-icons/bs'
 import { AnimatePresence, motion } from "motion/react"
@@ -221,11 +220,6 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                sendGTMEvent({
-                  event: 'conversion',
-                  value: 'AW-11565537272/eck8CPC2vJQaEPiv8Ior'
-                })
-
                 // Delay 100-300ms before pushing
                 setTimeout(() => {
                   router.push(getWhatsAppLink())
