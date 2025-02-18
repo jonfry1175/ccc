@@ -56,7 +56,7 @@ function AnimatedContent() {
               rel="noopener noreferrer"
               onClick={() => {
                 sendGTMEvent({
-                  event: 'conversion',
+                  event: 'whatsapp',
                   value: 'eck8CPC2vJQaEPiv8Ior'
                 })
               }}

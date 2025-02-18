@@ -112,8 +112,8 @@ export const WHATSAPP_MESSAGE =
 
 export const getWhatsAppLink = (message: string = WHATSAPP_MESSAGE) => {
   sendGTMEvent({
-    event: "conversion",
-    value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+    event: "whatsapp",
+    value: "eck8CPC2vJQaEPiv8Ior",
   });
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
