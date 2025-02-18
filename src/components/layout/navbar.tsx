@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 const navItems = [
   { href: '/', label: 'Beranda' },
@@ -220,6 +221,12 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
+                console.log('clicked')
+                sendGTMEvent({
+                  event: "whatsapp",
+                  value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+                });
+
                 // Delay 100-300ms before pushing
                 setTimeout(() => {
                   router.push(getWhatsAppLink())

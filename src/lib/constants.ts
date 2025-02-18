@@ -1,5 +1,3 @@
-import { sendGTMEvent } from "@next/third-parties/google";
-
 export const COMPANY_NAME = "Meta Solusi Digital";
 export const PHONE = "+62 821-1880-7755";
 export const WEBSITE = "metasolusdigital.com";
@@ -111,10 +109,5 @@ export const WHATSAPP_MESSAGE =
   "Halo, saya tertarik dengan layanan website dari Meta Solusi Digital.";
 
 export const getWhatsAppLink = (message: string = WHATSAPP_MESSAGE) => {
-  sendGTMEvent({
-    event: "whatsapp",
-    value: "eck8CPC2vJQaEPiv8Ior",
-  });
-
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
