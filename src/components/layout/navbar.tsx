@@ -221,7 +221,6 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                console.log('clicked')
                 sendGTMEvent({
                   event: "whatsapp",
                   value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",

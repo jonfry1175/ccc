@@ -3,6 +3,7 @@
 import { getWhatsAppLink } from '@/lib/constants'
 import { Check } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 type PricingFeature = {
   text: string
@@ -10,6 +11,7 @@ type PricingFeature = {
 
 type PricingTier = {
   id: number
+  google_ads_id: string
   name: string
   price?: number
   subtitle: string
@@ -20,6 +22,7 @@ type PricingTier = {
 const pricingTiers: PricingTier[] = [
   {
     id: 1,
+    google_ads_id: 'AW-11565537272/nysJCJC67J8aEPiv8Ior',
     name: 'Paket Starter',
     price: 4000000,
     subtitle: 'Paket Startup yang Tepat untuk Memulai:',
@@ -34,6 +37,7 @@ const pricingTiers: PricingTier[] = [
   {
     id: 2,
     name: 'Paket Bisnis',
+    google_ads_id: 'AW-11565537272/WG5ACLny3p8aEPiv8Ior',
     price: 5500000,
     subtitle: 'Solusi Lengkap untuk Bisnis Berkembang:',
     features: [
@@ -47,6 +51,7 @@ const pricingTiers: PricingTier[] = [
   {
     id: 3,
     name: 'Paket Premium',
+    google_ads_id: 'AW-11565537272/IwcRCN_Z7J8aEPiv8Ior',
     price: 8000000,
     subtitle: 'Performa Maksimal untuk Bisnis Anda:',
     features: [
@@ -60,6 +65,7 @@ const pricingTiers: PricingTier[] = [
   {
     id: 4,
     name: 'Paket Enterprise',
+    google_ads_id: 'AW-11565537272/ocxOCN7b7J8aEPiv8Ior',
     subtitle: 'Solusi Kustom untuk Kebutuhan Spesifik:',
     features: [
       { text: 'Halaman Responsif Tanpa Batas' },
@@ -142,14 +148,23 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <a
-                    href={getWhatsAppLink(`Halo, saya tertarik dengan ${tier.name} untuk website.`)}
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      sendGTMEvent({
+                        event: "whatsapp",
+                        value: tier.google_ads_id,
+                      });
+
+                      window.open(getWhatsAppLink(`Halo, saya tertarik dengan ${tier.name} untuk website.`), '_blank', 'noopener,noreferrer')
+                    }}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center py-2.5 px-5 rounded-full bg-blue-primary text-white hover:bg-blue-primary/90 transition-all duration-300 font-semibold text-sm group-hover:shadow-lg group-hover:shadow-blue-primary/25"
+                    className="cursor-pointer block text-center py-2.5 px-5 rounded-full bg-blue-primary text-white hover:bg-blue-primary/90 transition-all duration-300 font-semibold text-sm group-hover:shadow-lg group-hover:shadow-blue-primary/25"
                   >
                     {tier.isCustom ? 'Hubungi Kami' : 'Pilih Paket'}
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

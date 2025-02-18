@@ -1,10 +1,14 @@
 'use client'
 
 import { getWhatsAppLink } from '@/lib/constants'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { ArrowRight } from 'lucide-react'
 import { motion } from "motion/react"
+import { useRouter } from 'next/navigation'
 
 export default function About() {
+  const router = useRouter()
+
   return (
     <section id="about" className="py-12 sm:py-16 bg-white">
       <div className="container px-4 sm:px-6">
@@ -48,14 +52,23 @@ export default function About() {
               transition={{ delay: 0.4 }}
               className="pt-4"
             >
-              <a
-                href={getWhatsAppLink()}
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-primary hover:gap-3 transition-all font-semibold text-sm sm:text-base"
+                onClick={() => {
+                  sendGTMEvent({
+                    event: "whatsapp",
+                    value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+                  });
+
+                  router.push(getWhatsAppLink())
+                }}
+                className="cursor-pointer inline-flex items-center gap-2 text-blue-primary hover:gap-3 transition-all font-semibold text-sm sm:text-base"
               >
                 Mulai Diskusi <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
+              </motion.a>
             </motion.div>
           </div>
         </div>

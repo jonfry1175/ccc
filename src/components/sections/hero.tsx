@@ -56,9 +56,9 @@ function AnimatedContent() {
               rel="noopener noreferrer"
               onClick={() => {
                 sendGTMEvent({
-                  event: 'whatsapp',
-                  value: 'eck8CPC2vJQaEPiv8Ior'
-                })
+                  event: "whatsapp",
+                  value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+                });
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

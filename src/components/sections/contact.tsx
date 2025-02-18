@@ -5,6 +5,7 @@ import { Mail, Send } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -60,15 +61,23 @@ export default function Contact() {
                   <p className="text-sm sm:text-base text-text-main/70 mb-5 sm:mb-6">
                     Cara tercepat untuk mendapatkan respon dari tim kami
                   </p>
-                  <a
-                    href={getWhatsAppLink()}
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      sendGTMEvent({
+                        event: "whatsapp",
+                        value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+                      });
+
+                      window.open(getWhatsAppLink(), '_blank', 'noopener,noreferrer')
+                    }}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-all duration-300 font-semibold text-sm sm:text-base w-full group-hover:shadow-lg group-hover:shadow-blue-primary/25"
+                    className="cursor-pointer inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 transition-all duration-300 font-semibold text-sm sm:text-base w-full group-hover:shadow-lg group-hover:shadow-blue-primary/25"
                   >
                     <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
                     Hubungi via WhatsApp
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

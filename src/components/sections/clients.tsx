@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { GlareCard } from '@/components/ui/glare-card'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 type Client = {
   id: number
@@ -162,17 +163,26 @@ export default function Clients() {
           <p className="text-text-main/70 mb-6 px-4">
             Dan masih banyak lagi project yang telah kami kembangkan untuk klien kami
           </p>
-          <a
-            href={getWhatsAppLink()}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              sendGTMEvent({
+                event: "whatsapp",
+                value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+              })
+
+              window.open(getWhatsAppLink(), '_blank', 'noopener,noreferrer')
+            }}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 
+            className="cursor-pointer inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 
               bg-blue-primary text-white rounded-full hover:bg-blue-primary/90 
               transition-all duration-300 font-medium text-sm sm:text-base
               hover:shadow-lg hover:shadow-blue-primary/25"
           >
             MULAI PROJECT
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>
