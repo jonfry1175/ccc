@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { getWhatsAppLink } from '@/lib/constants'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { BackgroundPaths } from '@/components/ui/background-paths'
+import { HeroIllustration } from './hero-illustration'
 
 function AnimatedContent() {
   return (
@@ -70,8 +71,15 @@ function AnimatedContent() {
           </motion.div>
         </div>
 
-        {/* Right column space preserved but empty for balance */}
-        <div className="hidden lg:block" />
+        {/* Right column with animated illustration */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden lg:block h-[600px]"
+        >
+          <HeroIllustration />
+        </motion.div>
       </div>
     </div>
   )
@@ -96,7 +104,7 @@ function StaticContent() {
             </p>
           </div>
         </div>
-        <div className="hidden lg:block" />
+        <div className="hidden lg:block h-[600px]" />
       </div>
     </div>
   )
