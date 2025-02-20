@@ -1,18 +1,18 @@
-export function Logo({ className = '', fill = 'currentColor' }: { className?: string, fill?: string }) {
+import Image from 'next/image'
+
+interface LogoProps {
+    className?: string
+}
+
+export function Logo({ className = '' }: LogoProps) {
     return (
-        <svg
-            viewBox="0 0 100 60"
+        <Image
+            src="/logo-m.png"
+            alt="Meta Solusi Digital Logo"
+            width={100}
+            height={60}
             className={className}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M20 10 L40 50 L60 10 L80 50 L100 10"
-                stroke={fill}
-                strokeWidth="12"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
+            priority
+        />
     )
 } 

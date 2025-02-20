@@ -139,12 +139,10 @@ export default function Navbar() {
               }`}>
               <Logo
                 className="h-6 w-auto md:block hidden"
-                fill={isScrolled || pathname !== '/' ? 'currentColor' : '#fff'}
               />
               <span className="md:block hidden">{COMPANY_NAME}</span>
               <Logo
                 className="h-5 w-auto md:hidden block"
-                fill={isScrolled || pathname !== '/' ? 'currentColor' : '#fff'}
               />
             </div>
           </Link>
@@ -157,7 +155,7 @@ export default function Navbar() {
                   <>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                      className={`transition-colors font-medium text-right flex items-center gap-1 ${isScrolled
+                      className={`transition-colors font-medium flex items-center gap-1 ${isScrolled
                         ? 'text-text-main/70 hover:text-blue-primary'
                         : pathname === '/'
                           ? 'text-white/80 hover:text-white'
@@ -167,8 +165,10 @@ export default function Navbar() {
                       {item.label}
                       <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                     </button>
-                    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="bg-white rounded-xl shadow-lg py-2 min-w-[240px] border border-gray-100">
+                    <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="bg-slate-900/90 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.3)] py-3 min-w-[280px] border border-blue-500/20 backdrop-blur-xl relative overflow-hidden">
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-blue-600/5 to-blue-900/20 opacity-80"></div>
+                        <div className="absolute top-0 left-[20%] right-[20%] h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
                         {item.children.map((child) => {
                           const IconComponent = child.icon
                           return (
@@ -176,12 +176,22 @@ export default function Navbar() {
                               key={child.href}
                               href={child.href}
                               onClick={(e) => handleAnchorClick(e, child.href)}
-                              className="flex items-center gap-3 px-4 py-2.5 text-text-main/70 hover:text-blue-primary hover:bg-gray-50/80 transition-colors"
+                              className="flex items-center gap-3 px-4 py-3 text-blue-100/70 hover:text-white relative group/item transition-colors"
                             >
-                              <div className="w-8 h-8 bg-blue-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <IconComponent className="w-4 h-4 text-blue-primary" />
+                              <div className="w-9 h-9 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-200 group-hover/item:scale-110 group-hover/item:shadow-[0_0_20px_-3px_rgba(59,130,246,0.4)]">
+                                <IconComponent className="w-4 h-4 text-blue-400 transition-transform duration-200 group-hover/item:scale-110" />
                               </div>
-                              <span className="font-medium">{child.label}</span>
+                              <div className="space-y-0.5">
+                                <span className="font-medium block">{child.label}</span>
+                                <span className="text-xs text-blue-200/50 block opacity-0 translate-y-1 group-hover/item:opacity-100 group-hover/item:translate-y-0 transition-all duration-200">
+                                  {child.label === 'Jasa Pembuatan Website' && 'Website profesional & responsif'}
+                                  {child.label === 'Aplikasi Web' && 'Solusi aplikasi berbasis web'}
+                                  {child.label === 'Aplikasi Mobile' && 'Aplikasi Android & iOS'}
+                                  {child.label === 'Digital Marketing' && 'Strategi pemasaran digital'}
+                                  {child.label === 'Social Media Management' && 'Pengelolaan media sosial'}
+                                </span>
+                              </div>
+                              <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"></div>
                             </Link>
                           )
                         })}
@@ -192,7 +202,7 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`transition-colors font-medium text-right ${isScrolled
+                    className={`transition-colors font-medium text-right flex items-center gap-1 ${isScrolled
                       ? 'text-text-main/70 hover:text-blue-primary'
                       : pathname === '/'
                         ? 'text-white/80 hover:text-white'
@@ -200,6 +210,7 @@ export default function Navbar() {
                       }`}
                   >
                     {item.label}
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                   </Link>
                 )}
               </div>

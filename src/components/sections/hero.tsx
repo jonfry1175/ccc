@@ -7,6 +7,7 @@ import { getWhatsAppLink } from '@/lib/constants'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { BackgroundPaths } from '@/components/ui/background-paths'
 import { HeroIllustration } from './hero-illustration'
+import { Button } from '@/components/ui/button'
 
 function AnimatedContent() {
   return (
@@ -51,23 +52,27 @@ function AnimatedContent() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-start gap-4 pt-4"
           >
-            <motion.a
-              href={getWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                sendGTMEvent({
-                  event: "whatsapp",
-                  value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
-                });
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+            <Button
+              asChild
+              variant="glossy"
+              size="lg"
+              className="w-full sm:w-auto group"
             >
-              Mulai Konsultasi Gratis
-              <ArrowRight className="w-4 h-4" />
-            </motion.a>
+              <motion.a
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  sendGTMEvent({
+                    event: "whatsapp",
+                    value: "AW-11565537272/eck8CPC2vJQaEPiv8Ior",
+                  });
+                }}
+              >
+                Mulai Konsultasi Gratis
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </motion.a>
+            </Button>
           </motion.div>
         </div>
 
