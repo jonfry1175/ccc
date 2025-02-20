@@ -4,11 +4,11 @@ import { COMPANY_NAME, getWhatsAppLink } from '@/lib/constants'
 import { ChevronDown, Globe, Layout, Menu, Smartphone, Megaphone, X } from 'lucide-react'
 import { BsWhatsapp } from 'react-icons/bs'
 import { AnimatePresence, motion } from "motion/react"
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { sendGTMEvent } from '@next/third-parties/google'
+import { Logo } from '@/components/ui/logo'
 
 const navItems = [
   { href: '/', label: 'Beranda' },
@@ -126,31 +126,25 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className={`text-xl font-bold transition-colors flex items-center gap-2 ${isScrolled
+            className={`text-lg font-bold transition-colors flex items-center gap-1.5 ${isScrolled
               ? 'text-text-main'
               : pathname === '/'
                 ? 'text-blue-200'
                 : 'text-text-main'
               }`}
           >
-            <div className={`flex items-center gap-2 ${!isScrolled && pathname === '/'
-              ? 'bg-gradient-to-r from-blue-950/50 to-blue-900/30 backdrop-blur-sm px-4 py-2.5 rounded-full'
+            <div className={`flex items-center gap-1.5 ${!isScrolled && pathname === '/'
+              ? 'bg-gradient-to-r from-blue-950/50 to-blue-900/30 backdrop-blur-sm px-3 py-2 rounded-full'
               : ''
               }`}>
-              <Image
-                src="/logo-m.png"
-                alt="Company Logo"
-                width={32}
-                height={32}
-                className="h-8 w-auto md:block hidden"
+              <Logo
+                className="h-6 w-auto md:block hidden"
+                fill={isScrolled || pathname !== '/' ? 'currentColor' : '#fff'}
               />
               <span className="md:block hidden">{COMPANY_NAME}</span>
-              <Image
-                src="/logo-m.png"
-                alt="Company Logo"
-                width={24}
-                height={24}
-                className="h-6 w-auto md:hidden block"
+              <Logo
+                className="h-5 w-auto md:hidden block"
+                fill={isScrolled || pathname !== '/' ? 'currentColor' : '#fff'}
               />
             </div>
           </Link>
