@@ -2,10 +2,10 @@
 
 import { ArrowRight } from 'lucide-react'
 import { motion } from "motion/react"
-import { useEffect, useState, useRef } from 'react'
-import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { getWhatsAppLink } from '@/lib/constants'
 import { sendGTMEvent } from '@next/third-parties/google'
+import { BackgroundPaths } from '@/components/ui/background-paths'
 
 function AnimatedContent() {
   return (
@@ -104,61 +104,22 @@ function StaticContent() {
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false)
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsMounted(true)
-
-    // Set up intersection observer for lazy loading
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && videoRef.current) {
-            videoRef.current.src = '/hero-video-background.mp4'
-            videoRef.current.load()
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
-
-    return () => {
-      observer.disconnect()
-    }
   }, [])
 
   return (
-    <section id="hero" className="min-h-[90vh] md:min-h-screen flex items-center relative overflow-hidden bg-gray-900">
-      {/* Video Background with Fallback Image */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/70 md:bg-black/60 z-10" />
-        {/* Fallback image for mobile */}
-        <Image
-          src="/hero-fallback.jpg"
-          alt="Background"
-          fill
-          priority
-          className="object-cover lg:hidden"
-        />
-        {/* Video for desktop */}
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          onLoadedData={() => setIsVideoLoaded(true)}
-          className={`hidden lg:block w-full h-full object-cover ${isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            } transition-opacity duration-500`}
-        />
-      </div>
+    <section id="hero" className="min-h-[90vh] md:min-h-screen flex items-center relative overflow-hidden bg-black">
+      <BackgroundPaths
+        pathColor="rgb(255 255 255 / 0.6)"
+        pathCount={36}
+        animationDuration={25}
+        strokeWidth={0.5}
+        className="absolute inset-0 z-0"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
+      </BackgroundPaths>
 
       {isMounted ? <AnimatedContent /> : <StaticContent />}
     </section>
