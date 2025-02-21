@@ -1,43 +1,50 @@
-import Footer from "@/components/layout/footer";
-import Navbar from "@/components/layout/navbar";
 import type { Metadata } from "next";
-import { Geist, Poppins } from "next/font/google";
+import { Sora, Poppins } from "next/font/google";
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { Toaster } from "@/components/ui/toaster";
+export const metadata: Metadata = {
+  title: "Marina Prima Sukses",
+  applicationName: "Marina Prima Sukses",
+  keywords: "Marina Prima Sukses",
+  manifest: "/manifest.json",
+  description: "Marina Prima Sukses",
+  icons: {
+    icon: [
+      {
+        url: "/assets/iconweb.png",
+        sizes: "32x32",
+        type: "image/png"
+      }
+    ],
+    shortcut: ["/assets/iconweb.png"]
+  }
+};
 
-
-const geist = Geist({
-  variable: "--font-geist",
+// Import font dengan variabel yang jelas
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
-  display: "swap"
+  weight: ["400", "500", "600", "700"] // Tambahkan bobot font yang ingin digunakan
 });
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"] // Tambahkan bobot font yang ingin digunakan
 });
 
-export const metadata: Metadata = {
-  title: "Meta Solusi Digital - Digital Transformation Partner",
-  description: "Solusi Digital Yang Mengakselerasi Kesuksesan Bisnis Anda",
-};
-
+// Layout Utama
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className={`${geist.variable} ${poppins.variable} antialiased`}>
-        <Navbar />
+    <html lang="en">
+      <body className={`${sora.variable} ${poppins.variable} antialiased`}>
         {children}
-        <Footer />
+        <Toaster />
       </body>
-      <GoogleTagManager gtmId="AW-11565537272" />
-      <GoogleTagManager gtmId="GTM-M5QBHP2X" />
     </html>
   );
 }
