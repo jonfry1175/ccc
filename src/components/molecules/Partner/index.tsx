@@ -2,7 +2,6 @@ import { partners } from "@/lib/DataPartner";
 import Image from "next/image";
 
 export default function Partner() {
-  console.log(partners);
   return (
     <section className="px-4 py-16 bg-white md:py-24">
       <div className="container max-w-6xl mx-auto">

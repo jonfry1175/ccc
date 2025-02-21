@@ -110,7 +110,8 @@ export default function Contact() {
               />
               <Button
                 type="submit"
-                className="w-full bg-color4 hover:bg-white text-white hover:text-color1 hover:border hover:border-2 hover:border-color4"
+                variant={"outline"}
+                className="w-full bg-color4 hover:bg-white text-white hover:text-color1  hover:border-color4"
               >
                 Submit
               </Button>
