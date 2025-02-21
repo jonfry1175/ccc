@@ -50,7 +50,7 @@ export default function Contact() {
   return (
     <section className="flex items-center justify-center min-h-screen px-4 py-16 bg-white md:py-24">
       <div className="container max-w-6xl mx-auto">
-        <h1 className="mb-8 text-3xl font-bold text-center text-color1">
+        <h1 className="mb-8 text-[36px] font-bold text-center text-color1">
           Contact Us
         </h1>
         <div className="flex items-center justify-center">
@@ -108,7 +108,10 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full bg-color3">
+              <Button
+                type="submit"
+                className="w-full bg-color4 hover:bg-white text-white hover:text-color1 hover:border hover:border-2 hover:border-color4"
+              >
                 Submit
               </Button>
             </form>

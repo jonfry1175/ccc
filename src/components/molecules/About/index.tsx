@@ -6,10 +6,10 @@ export default function About() {
     <section className="px-4 py-16 md:py-24 ">
       <div className="container max-w-6xl mx-auto ">
         <div className="mb-16 space-y-4 text-center">
-          <h1 className="text-3xl font-bold text-bgcolor1 md:text-4xl">
+          <h1 className="text-3xl font-bold text-color1 md:text-4xl">
             About MSP
           </h1>
-          <p className="max-w-6xl mx-auto text-lg text-color1">
+          <p className="max-w-6xl mx-auto  text-color1">
             Marina Prima Sukses (MPS) has been in the business of manpower
             deployment since 1993. At MPS, we take pride in being a dynamic
             force in the realm of manpower solutions, specializing in meeting

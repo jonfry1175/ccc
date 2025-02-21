@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-lg bg-color3">
+    <nav className="shadow-lg bg-white sticky top-0 z-50 transition-all">
       <div className="max-w-6xl px-4 mx-auto">
         <div className="flex justify-between">
           <div className="flex space-x-7">
@@ -24,9 +24,6 @@ const Navbar = () => {
                   alt="Lloyd's Register"
                   width={70}
                   height={50}
-                  style={{
-                    filter: "invert(100%) brightness(200%)"
-                  }}
                 />
               </Link>
             </div>
@@ -34,59 +31,65 @@ const Navbar = () => {
           <div className="items-center hidden space-x-1 md:flex">
             <Link
               href="/"
-              className="px-2 py-4 transition duration-300 text-color1 hover:text-gray-900"
+              className="px-2 py-4 transition duration-300 text-color1 hover:text-color1"
             >
               <p>Home</p>
             </Link>
             <Link
               href="/about"
-              className="px-2 py-4 transition duration-300 text-color1 hover:text-gray-900"
+              className="px-2 py-4 transition duration-300 text-color1 hover:text-color1"
             >
               <p>About</p>
             </Link>
             <Link
               href="/contact"
-              className="px-2 py-4 transition duration-300 text-color1 hover:text-gray-900"
+              className="px-2 py-4 transition duration-300 text-color1 hover:text-color1"
             >
               <p>Contact</p>
             </Link>
           </div>
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center md:hidden transition-all">
             <button
               className="outline-none mobile-menu-button"
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 text-color1 transition-all" />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className="w-6 h-6 text-color1" />
               )}
             </button>
           </div>
         </div>
       </div>
-      {isOpen && (
-        <div className="md:hidden">
-          <Link
-            href="/"
-            className="block px-4 py-2 text-sm transition duration-300 hover:bg-gray-200"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="block px-4 py-2 text-sm transition duration-300 hover:bg-gray-200"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="block px-4 py-2 text-sm transition duration-300 hover:bg-gray-200"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
+
+      {/* Mobile Menu with Animation */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "opacity-100 max-h-40 translate-y-0"
+            : "opacity-0 max-h-0 -translate-y-4"
+        } overflow-hidden`}
+      >
+        <Link
+          href="/"
+          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white h"
+        >
+          Home
+        </Link>
+        <Link
+          href="/about"
+          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white h"
+        >
+          About
+        </Link>
+        <Link
+          href="/contact"
+          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white h"
+        >
+          Contact
+        </Link>
+      </div>
     </nav>
   );
 };

@@ -10,9 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        color1: "#0C1120",
-        color2: "#34678F",
+        color1: "#010033",
+        color2: "#4F9EE1",
         color3: "#4791A6",
+        color4: "#866D4B",
         textColor: "#BEBFC0",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

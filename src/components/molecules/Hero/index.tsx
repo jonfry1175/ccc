@@ -8,21 +8,22 @@ export default function Hero() {
         <div className="flex flex-col-reverse items-center gap-8 lg:flex-row lg:gap-12">
           <div className="space-y-6 text-center lg:w-1/2 lg:text-left">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none ">
+              <h1 className="flex flex-col text-3xl font-bold tracking-tighter text-white text-[48px] gap-4">
                 <span className="block">Marina</span>
-                <span className="block text-color3">Prima</span>
+                <span className="block text-color2">Prima</span>
                 <span className="block">Sukses</span>
               </h1>
-              <p className="max-w-[600px] text-textColor md:text-xl dark:text-gray-400">
+
+              <p className="max-w-[600px] text-white  dark:text-gray-400">
                 Specialized Recruiting & Staffing for Hospitality, Restaurant &
                 Deck Engineering Professionals.
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row md:min-[400px]:flex-row">
-              <Button className="text-textColor bg-color2 hover:bg-color2/50">
+              <Button className="text-white bg-color2 hover:bg-color3">
                 Get Started
               </Button>
-              <Button className="text-textColor bg-color2/90 hover:bg-gray-700">
+              <Button className="text-white bg-color2/90 hover:bg-color3">
                 Learn More
               </Button>
             </div>

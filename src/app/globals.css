@@ -5,9 +5,22 @@
 h1 {
   font-family: var(--font-sora);
 }
+label {
+  font-family: var(--font-poppins);
+}
+input {
+  font-family: var(--font-poppins);
+}
+.form-input {
+  font-family: var(--font-poppins);
+}
+.form-label {
+  font-family: var(--font-poppins);
+}
 
 p {
   font-family: var(--font-poppins);
+  font-size: 14px;
 }
 button {
   font-family: var(--font-poppins);
@@ -74,6 +87,17 @@ Link {
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;

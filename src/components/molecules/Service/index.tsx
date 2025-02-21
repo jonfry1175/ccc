@@ -22,9 +22,9 @@ export default function Services() {
   ];
 
   return (
-    <section className="px-4 py-16 md:py-24 bg-color1">
+    <section className="px-4 py-16 md:py-24 bg-color4">
       <div className="container max-w-6xl mx-auto">
-        <h1 className="mb-12 text-3xl font-bold text-center text-textColor md:text-4xl">
+        <h1 className="mb-12 text-3xl font-bold text-center text-white md:text-4xl">
           Our Services
         </h1>
 

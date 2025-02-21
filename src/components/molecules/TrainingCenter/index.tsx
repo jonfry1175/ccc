@@ -1,6 +1,8 @@
+import GalleryImageCard from "@/components/atoms/GalleryImageCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { crews } from "@/lib/DataCrew";
 import { trainings } from "@/lib/DataTraining";
+import Image from "next/image";
 
 export default function TrainingCenter() {
   return (
@@ -18,15 +20,13 @@ export default function TrainingCenter() {
         </div>
         <div className="grid grid-cols-1 gap-6 mt-4 md:grid-cols-3">
           {trainings.map((training, index) => (
-            <Card key={index} className="bg-white ">
-              <CardContent className="px-6 pt-6 space-y-4 text-center">
-                <img
-                  src={training.image}
-                  alt="crew"
-                  className="object-cover w-full h-48"
-                />
-              </CardContent>
-            </Card>
+            <GalleryImageCard
+              key={index}
+              src={training.image}
+              alt="training"
+              width={300}
+              height={300}
+            />
           ))}
         </div>
       </div>
