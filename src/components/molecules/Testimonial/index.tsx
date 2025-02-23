@@ -25,8 +25,8 @@ export default function Testimonial() {
 
   return (
     <section className="px-4 py-16 md:py-24 bg-color4">
-      <div className="container max-w-6xl mx-auto">
-        <h1 className="mb-12 text-3xl font-bold text-center text-white md:text-4xl">
+      <div className="container max-w-6xl mx-auto px-10">
+        <h1 className="mb-12 text-3xl font-bold text-center text-color1 md:text-4xl">
           What People Say
         </h1>
 
@@ -37,16 +37,12 @@ export default function Testimonial() {
                 <div className="flex justify-start">
                   <Quote className="w-8 h-8 opacity-50 text-color1" />
                 </div>
-                <p className="text-gray-600 min-h-[80px]">
-                  {testimonial.quote}
-                </p>
+                <p className="text-color1 min-h-[80px]">{testimonial.quote}</p>
                 <div className="pt-4 space-y-1">
                   <h1 className="font-semibold text-color1">
                     {testimonial.name}
                   </h1>
-                  <p className="text-sm text-gray-500">
-                    {testimonial.position}
-                  </p>
+                  <p className="text-sm text-color4">{testimonial.position}</p>
                 </div>
               </CardContent>
             </Card>

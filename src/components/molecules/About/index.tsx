@@ -3,8 +3,8 @@ import { FaRegEye } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
 export default function About() {
   return (
-    <section className="px-4 py-16 md:py-24 ">
-      <div className="container max-w-6xl mx-auto ">
+    <section id="about" className="px-4 py-16 md:py-24 ">
+      <div className="max-w-6xl px-10 mx-auto ">
         <div className="mb-16 space-y-4 text-center">
           <h1 className="text-3xl font-bold text-color1 md:text-4xl">
             About MSP

@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function TrainingCenter() {
   return (
     <section className="px-4 py-16 bg-white md:py-24">
-      <div className="container max-w-6xl mx-auto">
+      <div className="container max-w-6xl mx-auto px-10">
         <h1 className="mb-12 text-3xl font-bold text-center text-color1 md:text-4xl">
           Training Facility
         </h1>

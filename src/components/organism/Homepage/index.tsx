@@ -11,16 +11,14 @@ import React from "react";
 export default function Homepage() {
   return (
     <main className="">
-      <section className="">
-        <Hero />
-        <About />
-        <Crew />
-        <TrainingCenter />
-        <Services />
-        <Partner />
-        <Testimonial />
-        <Contact />
-      </section>
+      <Hero />
+      <About />
+      <Crew />
+      <TrainingCenter />
+      <Services />
+      <Partner />
+      <Testimonial />
+      <Contact />
     </main>
   );
 }

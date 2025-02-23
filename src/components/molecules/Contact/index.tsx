@@ -48,7 +48,10 @@ export default function Contact() {
   }
 
   return (
-    <section className="flex items-center justify-center min-h-screen px-4 py-16 bg-white md:py-24">
+    <section
+      id="contact"
+      className="flex items-center justify-center min-h-screen px-4 py-16 bg-white md:py-24"
+    >
       <div className="container max-w-6xl mx-auto">
         <h1 className="mb-8 text-[36px] font-bold text-center text-color1">
           Contact Us
@@ -111,7 +114,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 variant={"outline"}
-                className="w-full bg-color4 hover:bg-white text-white hover:text-color1  hover:border-color4"
+                className="w-full bg-color1 hover:bg-white text-white hover:text-color1  hover:border-color1"
               >
                 Submit
               </Button>

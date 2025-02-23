@@ -15,33 +15,27 @@ interface Props {
   height?: number;
 }
 
-export default function GalleryImageCard({
-  src,
-  alt,
-  width = 300,
-  height = 300
-}: Props) {
+export default function GalleryImageCard({ src, alt, width, height }: Props) {
   return (
-    <Card className="bg-white border-2 border-color4 rounded-lg">
-      <CardContent className="px-6 pt-6 space-y-4 text-center">
+    <Card className="relative overflow-hidden border-none rounded-lg">
+      <CardContent className="p-0">
         <Dialog>
           {/* Gambar kecil jadi trigger untuk membuka dialog */}
           <DialogTrigger asChild>
-            <Image
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              loading="lazy"
-              className="object-cover w-full h-48 rounded-md cursor-pointer hover:scale-105 transition-transform duration-200"
-            />
+            <div className="relative w-full h-48 cursor-pointer hover:scale-105 transition-transform duration-200">
+              <Image
+                src={src}
+                alt={alt}
+                layout="fill"
+                objectFit="cover"
+                className=""
+              />
+            </div>
           </DialogTrigger>
 
           {/* Dialog menampilkan gambar resolusi penuh */}
-          <DialogContent className="max-w-4xl p-4 bg-white rounded-lg ">
-            <DialogHeader>
-              {/* <DialogTitle className="text-center">{alt}</DialogTitle> */}
-            </DialogHeader>
+          <DialogContent className="max-w-4xl p-4 bg-white rounded-lg">
+            <DialogHeader></DialogHeader>
             <div className="flex justify-center">
               <Image
                 src={src}
