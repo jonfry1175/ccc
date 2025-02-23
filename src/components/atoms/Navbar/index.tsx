@@ -40,7 +40,7 @@ const Navbar = () => {
         isScrolled ? "bg-opacity-50 backdrop-blur-lg bg-color4" : "bg-color4"
       }`}
     >
-      <div className="max-w-6xl px-10 mx-auto">
+      <div className="max-w-6xl px-2 mx-auto">
         <div className="flex justify-between">
           <div className="flex space-x-7">
             <div>
@@ -54,7 +54,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="items-center hidden space-x-1 md:flex">
+          <div className="items-center hidden space-x-1 px-10 md:flex">
             <Link
               href="/"
               className={`px-2 py-4 transition duration-300 text-color1 hover:underline ${
@@ -74,14 +74,21 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="#about"
-              onClick={() => handleScroll("about")}
+              href={patname.startsWith("/article") ? "/#about" : "#about"}
+              onClick={() => {
+                if (!patname.startsWith("/article")) handleScroll("about");
+                setIsOpen(false);
+              }}
               className="px-2 py-4 transition duration-300 text-color1 hover:text-color1"
             >
               <p>About</p>
             </Link>
             <Link
-              href="#contact"
+              href={patname.startsWith("/article") ? "/#contact" : "#contact"}
+              onClick={() => {
+                if (!patname.startsWith("/article")) handleScroll("contact");
+                setIsOpen(false);
+              }}
               className="px-2 py-4 transition duration-300 text-color1 hover:text-color1"
             >
               <p>Contact</p>
@@ -104,40 +111,48 @@ const Navbar = () => {
 
       {/* Mobile Menu with Animation */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden transition-all px-4 gap-4 pb-2 bg-color4 duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 max-h-40 translate-y-0"
             : "opacity-0 max-h-0 -translate-y-4"
-        } overflow-hidden`}
+        }`}
       >
-        <Link
-          href="/"
-          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white"
-        >
-          Home
-        </Link>
-        <Link
-          href="/article"
-          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white"
-        >
-          Article
-        </Link>
-        <Link
-          href="#about"
-          onClick={() => {
-            handleScroll("about");
-            setIsOpen(false);
-          }}
-          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white"
-        >
-          About
-        </Link>
-        <Link
-          href="#contact"
-          className="block px-4 py-2 text-sm transition duration-300 hover:bg-color1 hover:text-white"
-        >
-          Contact
-        </Link>
+        <div className="overflow-hidden gap-4  ">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="block py-2 text-sm transition pl-2 duration-300 hover:bg-color1 hover:text-white rounded-md"
+          >
+            Home
+          </Link>
+          <Link
+            href="/article"
+            onClick={() => setIsOpen(false)}
+            className="block py-2 text-sm transition pl-2 duration-300 hover:bg-color1 hover:text-white rounded-md"
+          >
+            Article
+          </Link>
+          <Link
+            href={patname.startsWith("/article") ? "/#about" : "#about"}
+            onClick={() => {
+              if (!patname.startsWith("/article")) handleScroll("about");
+              setIsOpen(false);
+            }}
+            className="block py-2 text-sm transition pl-2 duration-300 hover:bg-color1 hover:text-white rounded-md"
+          >
+            About
+          </Link>
+          <Link
+            href={patname.startsWith("/article") ? "/#contact" : "#contact"}
+            onClick={() => {
+              if (!patname.startsWith("/article")) handleScroll("contact");
+              setIsOpen(false);
+            }}
+            className="block py-2 text-sm transition pl-2 duration-300 hover:bg-color1 hover:text-white rounded-md"
+          >
+            Contact
+          </Link>
+        </div>
       </div>
     </nav>
   );
