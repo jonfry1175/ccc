@@ -13,7 +13,7 @@ export default {
         color1: "#010033",
         color2: "#4F9EE1",
         color3: "#4791A6",
-        color4: "#866D4B",
+        color4: "#AAA295",
         textColor: "#BEBFC0",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

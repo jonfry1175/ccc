@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
           {/* Logo dan Alamat */}
           <div className="text-left">
-            <Image
+            {/* <Image
               src="/images/Logo/logomps1.png"
               alt="Lloyd's Register"
               width={120}
@@ -19,15 +19,15 @@ export default function Footer() {
               // style={{
               //   filter: "invert(100%) brightness(200%)"
               // }}
-            />
+            /> */}
           </div>
 
           {/* Get in Touch */}
-          <div className="mr-10 text-left text-color1">
+          <div className="w-full text-left text-color1">
             <h1 className="text-[36px] font-bold text-hero mb-4">
               Get in Touch
             </h1>
-            <div className="flex flex-col items-start gap-3 md:flex-row-1">
+            <div className="flex flex-wrap items-center gap-6">
               <Link
                 href="mailto:info@mpsjakarta.com"
                 className="flex items-center gap-2 text-black no-underline"
@@ -39,21 +39,31 @@ export default function Footer() {
               </Link>
               <Link
                 href="tel:+6282143931809"
-                className="flex items-center justify-center gap-2 text-black no-underline"
+                className="flex items-center gap-2 text-black no-underline"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-md bg-hijau">
                   <FaWhatsapp className="w-6 h-6 text-color1" />
                 </div>
                 <p className="text-[14px] text-color1">(+62)82143931809</p>
               </Link>
+              <Link
+                href={"https://www.instagram.com/mpsjakarta/"}
+                target="_blank"
+                className="flex items-center gap-2 text-black no-underline"
+              >
+                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-hijau">
+                  <FaInstagram className="w-6 h-6 text-color1" />
+                </div>
+                <p className="text-[14px] text-color1">@mpsjakarta</p>
+              </Link>
             </div>
           </div>
         </div>
 
-        <hr className="my-4 border-t-2 border-hijau" />
+        {/* <hr className="my-4 border-t-2 border-hijau" /> */}
 
         {/* Gambar footer responsive */}
-        <div className="grid grid-cols-2 gap-6 mt-4 items-center sm:grid-cols-4 sm:gap-10 md:justify-center">
+        {/* <div className="grid grid-cols-2 gap-6 mt-4 items-center sm:grid-cols-4 sm:gap-10 md:justify-center">
           <Image
             src="/images/Logo/iso.png"
             alt="ISO Logo"
@@ -82,7 +92,7 @@ export default function Footer() {
             height={40}
             className="object-contain mx-auto"
           />
-        </div>
+        </div> */}
       </div>
     </footer>
   );

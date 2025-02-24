@@ -1,33 +1,32 @@
-import GalleryImageCard from "@/components/atoms/GalleryImageCard";
-import { Card, CardContent } from "@/components/ui/card";
-import { crews } from "@/lib/DataCrew";
+import CarouselComponent from "@/components/atoms/CarouselImage";
+
 import { trainings } from "@/lib/DataTraining";
-import Image from "next/image";
 
 export default function TrainingCenter() {
+  // Convert data trainings jadi format yang sesuai untuk CarouselComponent
+  const trainingImages = trainings.map((training) => ({
+    src: training.image,
+    alt: `Training Image ${training.id}`
+  }));
+
   return (
     <section className="px-4 py-16 bg-white md:py-24">
       <div className="container max-w-6xl mx-auto px-10">
         <h1 className="mb-12 text-3xl font-bold text-center text-color1 md:text-4xl">
           Training Facility
         </h1>
-        <div className="">
+        <div className=""></div>
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 ">
           <video
             src="/images/training/11.mp4"
             controls
-            className="w-full h-auto max-h-[500px] rounded-lg object-cover aspect-video"
+            className="w-full h-[400px] md:h-[600px] object-cover rounded-lg"
           ></video>
-        </div>
-        <div className="grid grid-cols-1 gap-6 mt-4 md:grid-cols-3">
-          {trainings.map((training, index) => (
-            <GalleryImageCard
-              key={index}
-              src={training.image}
-              alt="training"
-              width={300}
-              height={300}
-            />
-          ))}
+          <CarouselComponent
+            images={trainingImages}
+            loop={false}
+            slidesToScroll={1}
+          />
         </div>
       </div>
     </section>

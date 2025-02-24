@@ -17,7 +17,7 @@ interface Props {
 
 export default function GalleryImageCard({ src, alt, width, height }: Props) {
   return (
-    <Card className="relative overflow-hidden border-none rounded-lg">
+    <Card className="relative overflow-hidden border-none  bg-inherit">
       <CardContent className="p-0">
         <Dialog>
           {/* Gambar kecil jadi trigger untuk membuka dialog */}
@@ -27,7 +27,7 @@ export default function GalleryImageCard({ src, alt, width, height }: Props) {
                 src={src}
                 alt={alt}
                 layout="fill"
-                objectFit="cover"
+                objectFit="fit"
                 className=""
               />
             </div>

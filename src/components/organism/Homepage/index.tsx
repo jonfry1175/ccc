@@ -1,7 +1,9 @@
 import About from "@/components/molecules/About";
+import Certified from "@/components/molecules/Certified";
 import Contact from "@/components/molecules/Contact";
 import Crew from "@/components/molecules/Crew";
 import Hero from "@/components/molecules/Hero";
+import ImpactCard from "@/components/molecules/Impact";
 import Partner from "@/components/molecules/Partner";
 import Services from "@/components/molecules/Service";
 import Testimonial from "@/components/molecules/Testimonial";
@@ -13,6 +15,8 @@ export default function Homepage() {
     <main className="">
       <Hero />
       <About />
+      <Certified />
+      <ImpactCard />
       <Crew />
       <TrainingCenter />
       <Services />

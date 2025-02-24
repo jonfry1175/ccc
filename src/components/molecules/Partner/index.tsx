@@ -9,16 +9,9 @@ export default function Partner() {
           Our Partner
         </h1>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {partners.map((partner, index) => (
-            <div
-              key={index}
-              className={`${
-                partners.length % 2 !== 0 && index === partners.length - 1
-                  ? "md:col-span-2 flex justify-center"
-                  : ""
-              }`}
-            >
+            <div key={index}>
               <Image
                 src={partner.image}
                 alt="Partner"
