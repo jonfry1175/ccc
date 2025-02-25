@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="h-[100vh] relative flex items-center bg-navy-DEFAULT overflow-hidden">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-DEFAULT via-navy-DEFAULT/95 to-navy-DEFAULT/90 z-10"></div>
+      {/* Background overlay with stronger gradient for better navbar text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-DEFAULT/90 via-navy-DEFAULT/80 to-navy-DEFAULT/90 z-10"></div>
 
       {/* Background image for large screens */}
-      <div className="absolute inset-0 opacity-20 z-0 hidden lg:block">
+      <div className="absolute inset-0 opacity-30 z-0">
         <Image
           src="/images/hero.jpg"
           alt="Background"
@@ -19,15 +19,15 @@ export default function Hero() {
       </div>
 
       <div className="container px-6 md:px-10 mx-auto max-w-6xl z-20">
-        <div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-12">
+        <div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-12 pt-16">
           <div className="space-y-8 text-center lg:w-1/2 lg:text-left">
             <div className="space-y-4">
               <div className="inline-block lg:block border-b-2 border-gold pb-2 mb-2 w-3/4 lg:w-1/2">
-                <h2 className="text-xl text-gold uppercase tracking-wider font-medium mb-1">Professional Staffing Services</h2>
+                <h2 className="text-xl text-gold uppercase tracking-wider font-medium mb-1 text-shadow-md">Professional Staffing Services</h2>
               </div>
               <h1 className="flex flex-col text-4xl font-bold tracking-tighter text-white lg:text-5xl gap-2">
                 <span className="block text-shadow-lg drop-shadow-md">Marina</span>
-                <span className="block text-color2 drop-shadow-lg">Prima</span>
+                <span className="block text-[#2163AD] drop-shadow-lg">Prima</span>
                 <span className="block text-gold drop-shadow-lg">Sukses</span>
               </h1>
 

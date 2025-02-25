@@ -37,8 +37,8 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-transparent py-4"
+        ? "bg-white shadow-md py-2"
+        : "bg-navy-DEFAULT/10 backdrop-blur-sm py-4"
         }`}
     >
       <div className="max-w-6xl px-6 mx-auto">
@@ -60,8 +60,8 @@ const Navbar = () => {
             <Link
               href="/"
               className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-white hover:text-gold"
+                ? "text-navy-DEFAULT hover:text-gold"
+                : "text-[#2163AD] hover:text-gold text-shadow-md"
                 } ${patname === "/" ? "border-b-2 border-gold" : ""}`}
             >
               <p className="text-[15px]">Home</p>
@@ -70,8 +70,8 @@ const Navbar = () => {
             <Link
               href="/article"
               className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-white hover:text-gold"
+                ? "text-navy-DEFAULT hover:text-gold"
+                : "text-[#2163AD] hover:text-gold text-shadow-md"
                 } ${patname.startsWith("/article") ? "border-b-2 border-gold" : ""}`}
             >
               <p className="text-[15px]">Article</p>
@@ -84,8 +84,8 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
               className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-white hover:text-gold"
+                ? "text-navy-DEFAULT hover:text-gold"
+                : "text-[#2163AD] hover:text-gold text-shadow-md"
                 }`}
             >
               <p className="text-[15px]">About</p>
@@ -97,8 +97,8 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
               className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-white hover:text-gold"
+                ? "text-navy-DEFAULT hover:text-gold"
+                : "text-[#2163AD] hover:text-gold text-shadow-md"
                 }`}
             >
               <p className="text-[15px]">Contact</p>
@@ -110,9 +110,9 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-white"}`} />
+                <X className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-[#2163AD] drop-shadow-md"}`} />
               ) : (
-                <Menu className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-white"}`} />
+                <Menu className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-[#2163AD] drop-shadow-md"}`} />
               )}
             </button>
           </div>
@@ -132,8 +132,8 @@ const Navbar = () => {
             href="/"
             onClick={() => setIsOpen(false)}
             className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-white hover:bg-white/10 hover:text-gold"
+              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
               }`}
           >
             Home
@@ -142,8 +142,8 @@ const Navbar = () => {
             href="/article"
             onClick={() => setIsOpen(false)}
             className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-white hover:bg-white/10 hover:text-gold"
+              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
               }`}
           >
             Article
@@ -155,8 +155,8 @@ const Navbar = () => {
               setIsOpen(false);
             }}
             className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-white hover:bg-white/10 hover:text-gold"
+              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
               }`}
           >
             About
@@ -168,8 +168,8 @@ const Navbar = () => {
               setIsOpen(false);
             }}
             className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-white hover:bg-white/10 hover:text-gold"
+              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
               }`}
           >
             Contact
