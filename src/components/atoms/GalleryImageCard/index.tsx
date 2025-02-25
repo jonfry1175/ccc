@@ -17,24 +17,24 @@ interface Props {
 
 export default function GalleryImageCard({ src, alt, width, height }: Props) {
   return (
-    <Card className="relative overflow-hidden border-none  bg-inherit">
+    <Card className="relative overflow-hidden border-none bg-transparent shadow-none">
       <CardContent className="p-0">
         <Dialog>
           {/* Gambar kecil jadi trigger untuk membuka dialog */}
           <DialogTrigger asChild>
-            <div className="relative w-full h-48 cursor-pointer hover:scale-105 transition-transform duration-200">
+            <div className="relative w-full h-48 cursor-pointer hover:scale-105 transition-all duration-300 flex items-center justify-center bg-white rounded-lg p-5 shadow-md hover:shadow-lg">
               <Image
                 src={src}
                 alt={alt}
                 layout="fill"
-                objectFit="fit"
-                className=""
+                objectFit="contain"
+                className="p-3"
               />
             </div>
           </DialogTrigger>
 
           {/* Dialog menampilkan gambar resolusi penuh */}
-          <DialogContent className="max-w-4xl p-4 bg-white rounded-lg">
+          <DialogContent className="max-w-4xl p-6 bg-white rounded-lg shadow-xl">
             <DialogHeader></DialogHeader>
             <div className="flex justify-center">
               <Image

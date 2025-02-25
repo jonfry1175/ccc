@@ -5,13 +5,16 @@ import { certifiedsData } from "@/lib/DataCertified";
 
 export default function Certified() {
   return (
-    <section className="px-4 py-16 md:py-24 bg-color4">
-      <div className="container max-w-6xl mx-auto px-10">
-        <h1 className="mb-12 text-3xl font-bold text-center text-color1 md:text-4xl">
-          Certified By
-        </h1>
+    <section className="py-16 md:py-24 bg-[#E6DFD2]">
+      <div className="container max-w-6xl mx-auto px-4 md:px-10">
+        <div className="text-center mb-14">
+          <h2 className="inline-block text-3xl font-bold text-navy-DEFAULT md:text-4xl relative">
+            <span className="relative z-10">Certified By</span>
+            <span className="absolute bottom-0 left-0 w-full h-3 bg-gold opacity-30 z-0"></span>
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           {certifiedsData.map((testimonial, index) => (
             <GalleryImageCard
               key={index}

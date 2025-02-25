@@ -52,12 +52,12 @@ export default function Contact() {
 
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="mb-16 text-center">
-          <h2 className="text-gold uppercase tracking-wider font-medium mb-1">Get In Touch</h2>
-          <h1 className="text-3xl font-bold text-white md:text-5xl mb-6 relative inline-block">
-            Contact <span className="text-gold">Us</span>
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gold rounded-full"></span>
+          <h2 className="text-gold uppercase tracking-wider font-medium mb-3">Get In Touch</h2>
+          <h1 className="text-3xl font-bold md:text-5xl mb-6 relative inline-block">
+            <span className="text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] relative z-10">Contact</span> <span className="text-gold">Us</span>
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gold rounded-full"></span>
           </h1>
-          <p className="max-w-3xl mx-auto text-white/80 text-[16px] leading-relaxed mt-8">
+          <p className="max-w-3xl mx-auto text-white/90 text-[16px] leading-relaxed mt-8 font-medium">
             We're here to assist you with any inquiries you might have about our services.
             Please fill out the form below, and one of our representatives will contact you shortly.
           </p>
@@ -72,7 +72,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-gold font-medium text-xl mb-2">Phone</h3>
-                <p className="text-white/90 text-[16px]">+62 21 5366 7356</p>
+                <p className="text-white font-semibold text-[17px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">+62 21 5366 7356</p>
               </div>
             </div>
 
@@ -82,7 +82,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-gold font-medium text-xl mb-2">Email</h3>
-                <p className="text-white/90 text-[16px]">mps.marinaprima@gmail.com</p>
+                <p className="text-white font-semibold text-[17px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">mps.marinaprima@gmail.com</p>
               </div>
             </div>
 
@@ -92,7 +92,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-gold font-medium text-xl mb-2">Address</h3>
-                <p className="text-white/90 text-[16px]">
+                <p className="text-white font-semibold text-[17px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Indofood Tower 15<sup>th</sup> Floor, JL. Jend. Sudirman Kav.76-78
                   Jakarta 12910 - Indonesia
                 </p>

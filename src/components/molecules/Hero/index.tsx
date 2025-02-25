@@ -31,7 +31,7 @@ export default function Hero() {
                 <span className="block text-gold drop-shadow-lg">Sukses</span>
               </h1>
 
-              <p className="max-w-[600px] text-white text-opacity-90 text-lg leading-relaxed font-medium drop-shadow-md mx-auto lg:mx-0 lg:pr-10">
+              <p className="max-w-[600px] text-white text-xl leading-relaxed font-semibold drop-shadow-lg mx-auto lg:mx-0 lg:pr-10 bg-navy-DEFAULT/40 p-3 rounded-md backdrop-blur-sm border-l-4 border-gold">
                 Specialized Recruiting & Staffing for Hospitality, Restaurant &
                 Deck Engineering Professionals.
               </p>
@@ -44,35 +44,24 @@ export default function Hero() {
                 Learn More
               </Button>
             </div>
-
-            <div className="hidden lg:flex gap-8 mt-10 pt-4 border-t border-white/20 text-white">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">15+</p>
-                <p className="text-sm uppercase mt-1">Years Experience</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">500+</p>
-                <p className="text-sm uppercase mt-1">Professionals Placed</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">98%</p>
-                <p className="text-sm uppercase mt-1">Client Satisfaction</p>
-              </div>
-            </div>
           </div>
           <div className="lg:w-1/2 w-full max-w-[400px] lg:max-w-[500px] mx-auto">
-            <div className="relative w-full overflow-hidden rounded-lg shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-DEFAULT/70 via-transparent to-transparent z-10"></div>
+            <div className="relative w-full overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.03] transition-all duration-500 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-DEFAULT/80 via-navy-DEFAULT/20 to-transparent z-10 
+                group-hover:from-navy-DEFAULT/70 group-hover:via-navy-DEFAULT/10 transition-all duration-500"></div>
+
+              <div className="absolute inset-0 border border-gold/30 rounded-xl z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
               <Image
                 src="/images/hero.jpg"
                 alt="Cruise ship in tropical waters"
-                className="object-cover"
+                className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
                 width={800}
                 height={600}
                 priority
               />
-              <div className="absolute bottom-0 left-0 w-full p-4 z-20">
-                <p className="text-white font-medium text-shadow-md">Connecting talent with opportunity in maritime industries</p>
+              <div className="absolute bottom-0 left-0 w-full p-5 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <p className="text-white font-medium text-shadow-lg text-lg">Connecting talent with opportunity in maritime industries</p>
               </div>
             </div>
           </div>
