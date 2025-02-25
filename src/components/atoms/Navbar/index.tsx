@@ -36,36 +36,43 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`shadow-md sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-opacity-90 backdrop-blur-lg bg-navy-light" : "bg-white"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-white shadow-md py-2"
+          : "bg-transparent py-4"
         }`}
     >
-      <div className="max-w-6xl px-4 mx-auto">
+      <div className="max-w-6xl px-6 mx-auto">
         <div className="flex justify-between items-center">
           <div className="flex space-x-7">
             <div>
-              <Link href="/" className="flex items-center px-2 py-4">
+              <Link href="/" className="flex items-center">
                 <Image
                   src="/images/Logo/logomps1.png"
                   alt="Lloyd's Register"
                   width={70}
                   height={50}
+                  className={isScrolled ? "" : "drop-shadow-md"}
                 />
               </Link>
             </div>
           </div>
-          <div className="items-center hidden space-x-3 px-10 md:flex">
+          <div className="items-center hidden space-x-6 md:flex">
             <Link
               href="/"
-              className={`px-2 py-4 transition duration-300 font-medium text-navy-DEFAULT hover:text-gold ${patname === "/" ? "text-gold border-b-2 border-gold" : ""
-                }`}
+              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-white hover:text-gold"
+                } ${patname === "/" ? "border-b-2 border-gold" : ""}`}
             >
               <p className="text-[15px]">Home</p>
             </Link>
 
             <Link
               href="/article"
-              className={`px-2 py-4 transition duration-300 font-medium text-navy-DEFAULT hover:text-gold ${patname.startsWith("/article") ? "text-gold border-b-2 border-gold" : ""
-                }`}
+              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-white hover:text-gold"
+                } ${patname.startsWith("/article") ? "border-b-2 border-gold" : ""}`}
             >
               <p className="text-[15px]">Article</p>
             </Link>
@@ -76,7 +83,10 @@ const Navbar = () => {
                 if (!patname.startsWith("/article")) handleScroll("about");
                 setIsOpen(false);
               }}
-              className={`px-2 py-4 transition duration-300 font-medium text-navy-DEFAULT hover:text-gold`}
+              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-white hover:text-gold"
+                }`}
             >
               <p className="text-[15px]">About</p>
             </Link>
@@ -86,7 +96,10 @@ const Navbar = () => {
                 if (!patname.startsWith("/article")) handleScroll("contact");
                 setIsOpen(false);
               }}
-              className={`px-2 py-4 transition duration-300 font-medium text-navy-DEFAULT hover:text-gold`}
+              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-white hover:text-gold"
+                }`}
             >
               <p className="text-[15px]">Contact</p>
             </Link>
@@ -97,9 +110,9 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-gold transition-all" />
+                <X className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-white"}`} />
               ) : (
-                <Menu className="w-6 h-6 text-gold" />
+                <Menu className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-white"}`} />
               )}
             </button>
           </div>
@@ -108,23 +121,30 @@ const Navbar = () => {
 
       {/* Mobile Menu with Animation */}
       <div
-        className={`md:hidden transition-all px-4 gap-4 pb-2 bg-white duration-300 ease-in-out ${isOpen
+        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out ${isScrolled ? "bg-white" : "bg-navy-DEFAULT/90 backdrop-blur-sm"
+          } ${isOpen
             ? "opacity-100 max-h-40 translate-y-0 shadow-md"
-            : "opacity-0 max-h-0 -translate-y-4"
+            : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"
           }`}
       >
-        <div className="overflow-hidden gap-4">
+        <div className="overflow-hidden gap-4 py-2">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm transition pl-2 duration-300 text-navy-DEFAULT hover:bg-gold/10 hover:text-gold rounded-md font-medium"
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-white hover:bg-white/10 hover:text-gold"
+              }`}
           >
             Home
           </Link>
           <Link
             href="/article"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm transition pl-2 duration-300 text-navy-DEFAULT hover:bg-gold/10 hover:text-gold rounded-md font-medium"
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-white hover:bg-white/10 hover:text-gold"
+              }`}
           >
             Article
           </Link>
@@ -134,7 +154,10 @@ const Navbar = () => {
               if (!patname.startsWith("/article")) handleScroll("about");
               setIsOpen(false);
             }}
-            className="block py-2 text-sm transition pl-2 duration-300 text-navy-DEFAULT hover:bg-gold/10 hover:text-gold rounded-md font-medium"
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-white hover:bg-white/10 hover:text-gold"
+              }`}
           >
             About
           </Link>
@@ -144,7 +167,10 @@ const Navbar = () => {
               if (!patname.startsWith("/article")) handleScroll("contact");
               setIsOpen(false);
             }}
-            className="block py-2 text-sm transition pl-2 duration-300 text-navy-DEFAULT hover:bg-gold/10 hover:text-gold rounded-md font-medium"
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-white hover:bg-white/10 hover:text-gold"
+              }`}
           >
             Contact
           </Link>

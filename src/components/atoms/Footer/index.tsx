@@ -1,98 +1,125 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaInstagram } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-6 mt-8 text-white bg-color4 sm:mx-auto md:mx-auto lg:mx-auto">
-      <div className="max-w-6xl px-10 mx-auto">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
-          {/* Logo dan Alamat */}
-          <div className="text-left">
-            {/* <Image
-              src="/images/Logo/logomps1.png"
-              alt="Lloyd's Register"
-              width={120}
-              height={50}
-              // style={{
-              //   filter: "invert(100%) brightness(200%)"
-              // }}
-            /> */}
+    <footer className="py-16 bg-navy-DEFAULT text-white relative">
+      {/* Visual divider at the top of the footer */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold/20 via-gold/50 to-gold/20"></div>
+
+      <div className="max-w-6xl px-6 md:px-10 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6 text-gold">
+              Marina Prima Sukses
+            </h3>
+            <p className="text-white/80 mb-6 text-[15px] leading-relaxed">
+              We specialize in providing skilled manpower solutions for the hospitality industry,
+              connecting talent with opportunities since 1993.
+            </p>
+            <div className="flex space-x-4">
+              <Link
+                href="#"
+                className="bg-navy-light hover:bg-gold transition-colors duration-300 p-2 rounded-full"
+              >
+                <FaFacebook className="w-5 h-5 text-white" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/mpsjakarta/"
+                target="_blank"
+                className="bg-navy-light hover:bg-gold transition-colors duration-300 p-2 rounded-full"
+              >
+                <FaInstagram className="w-5 h-5 text-white" />
+              </Link>
+              <Link
+                href="#"
+                className="bg-navy-light hover:bg-gold transition-colors duration-300 p-2 rounded-full"
+              >
+                <FaLinkedin className="w-5 h-5 text-white" />
+              </Link>
+            </div>
           </div>
 
-          {/* Get in Touch */}
-          <div className="w-full text-left text-color1">
-            <h1 className="text-[36px] font-bold text-hero mb-4">
-              Get in Touch
-            </h1>
-            <div className="flex flex-wrap items-center gap-6">
-              <Link
-                href="mailto:info@mpsjakarta.com"
-                className="flex items-center gap-2 text-black no-underline"
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-hijau">
-                  <MdOutlineEmail className="w-6 h-6 text-color1" />
-                </div>
-                <p className="text-[14px] text-color1">info@mpsjakarta.com</p>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6 text-gold">
+              Quick Links
+            </h3>
+            <nav className="flex flex-col space-y-3">
+              <Link href="#" className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]">
+                Home
               </Link>
-              <Link
-                href="tel:+6282143931809"
-                className="flex items-center gap-2 text-black no-underline"
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-hijau">
-                  <FaWhatsapp className="w-6 h-6 text-color1" />
-                </div>
-                <p className="text-[14px] text-color1">(+62)82143931809</p>
+              <Link href="#about" className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]">
+                About
               </Link>
-              <Link
-                href={"https://www.instagram.com/mpsjakarta/"}
-                target="_blank"
-                className="flex items-center gap-2 text-black no-underline"
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-hijau">
-                  <FaInstagram className="w-6 h-6 text-color1" />
-                </div>
-                <p className="text-[14px] text-color1">@mpsjakarta</p>
+              <Link href="#services" className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]">
+                Services
               </Link>
+              <Link href="#contact" className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]">
+                Contact
+              </Link>
+              <Link href="#career" className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]">
+                Careers
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6 text-gold">
+              Contact Us
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <FaLocationDot className="w-5 h-5 text-gold mt-1" />
+                <p className="text-white/80 text-[15px]">
+                  Indofood Tower 15<sup>th</sup> Floor, JL. Jend. Sudirman Kav.76-78
+                  Jakarta 12910 - Indonesia
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MdOutlineEmail className="w-5 h-5 text-gold" />
+                <Link
+                  href="mailto:mps.marinaprima@gmail.com"
+                  className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]"
+                >
+                  mps.marinaprima@gmail.com
+                </Link>
+              </div>
+              <div className="flex items-center space-x-3">
+                <FaWhatsapp className="w-5 h-5 text-gold" />
+                <Link
+                  href="tel:+6221536673356"
+                  className="text-white/80 hover:text-gold transition-colors duration-300 text-[15px]"
+                >
+                  +62 21 5366 7356
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* <hr className="my-4 border-t-2 border-hijau" /> */}
-
-        {/* Gambar footer responsive */}
-        {/* <div className="grid grid-cols-2 gap-6 mt-4 items-center sm:grid-cols-4 sm:gap-10 md:justify-center">
-          <Image
-            src="/images/Logo/iso.png"
-            alt="ISO Logo"
-            width={100}
-            height={40}
-            className="object-contain mx-auto"
-          />
-          <Image
-            src="/images/Logo/BP3MI.png"
-            alt="BP3MI Logo"
-            width={100}
-            height={40}
-            className="object-contain mx-auto"
-          />
-          <Image
-            src="/images/Logo/1.png"
-            alt="Custom Logo 1"
-            width={50}
-            height={50}
-            className="object-contain mx-auto"
-          />
-          <Image
-            src="/images/Logo/2.png"
-            alt="Custom Logo 2"
-            width={150}
-            height={40}
-            className="object-contain mx-auto"
-          />
-        </div> */}
+        <div className="mt-12 pt-8 border-t border-navy-light/30">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-white/70 text-sm">
+              © {currentYear} Marina Prima Sukses. All rights reserved.
+            </p>
+            <div className="mt-4 md:mt-0">
+              <Link href="#" className="text-white/70 hover:text-gold text-sm mx-3">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-white/70 hover:text-gold text-sm mx-3">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
