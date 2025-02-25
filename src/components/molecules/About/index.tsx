@@ -3,13 +3,13 @@ import { FaRegEye } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
 export default function About() {
   return (
-    <section id="about" className="px-4 py-16 md:py-24 ">
+    <section id="about" className="px-4 py-16 md:py-24 bg-white">
       <div className="max-w-6xl px-10 mx-auto ">
-        <div className="mb-16 space-y-4 text-center">
-          <h1 className="text-3xl font-bold text-color1 md:text-4xl">
-            About MSP
+        <div className="mb-16 space-y-5 text-center">
+          <h1 className="text-3xl font-bold text-navy-DEFAULT md:text-4xl mb-2">
+            About <span className="text-gold">MSP</span>
           </h1>
-          <p className="max-w-6xl mx-auto  text-color1">
+          <p className="max-w-6xl mx-auto text-navy-DEFAULT text-[16px] leading-relaxed">
             Marina Prima Sukses (MPS) has been in the business of manpower
             deployment since 1993. At MPS, we take pride in being a dynamic
             force in the realm of manpower solutions, specializing in meeting
@@ -27,16 +27,15 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
-          {/* Global Reach */}
-          <div className="space-y-4 text-center">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-color1">
-              {/* <Globe2 /> */}
-              <FaRegHandshake className="w-8 h-8 text-textColor" />
+          {/* Commitment */}
+          <div className="space-y-4 text-center p-6 rounded-lg bg-elegant-beige/20 hover:shadow-md transition duration-300">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-navy-DEFAULT shadow-md">
+              <FaRegHandshake className="w-8 h-8 text-gold" />
             </div>
-            <h3 className="text-xl font-semibold text-color1">
-              Our commitment
+            <h3 className="text-xl font-semibold text-navy-DEFAULT">
+              Our <span className="text-gold">commitment</span>
             </h3>
-            <p className="text-color1">
+            <p className="text-navy-DEFAULT text-[15px] leading-relaxed">
               We are committed to forging a strong partnership with you,
               leveraging our 31 years of industry experience and cutting-edge
               manpower solutions to deliver exceptional talent and foster mutual
@@ -44,26 +43,30 @@ export default function About() {
             </p>
           </div>
 
-          {/* Industry Excellence */}
-          <div className="space-y-4 text-center">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-color1">
-              <FaRegEye className="w-8 h-8 text-textColor" />
+          {/* Vision */}
+          <div className="space-y-4 text-center p-6 rounded-lg bg-elegant-beige/20 hover:shadow-md transition duration-300">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-navy-DEFAULT shadow-md">
+              <FaRegEye className="w-8 h-8 text-gold" />
             </div>
-            <h3 className="text-xl font-semibold text-color1">Our vision</h3>
-            <p className="text-color1">
+            <h3 className="text-xl font-semibold text-navy-DEFAULT">
+              Our <span className="text-gold">vision</span>
+            </h3>
+            <p className="text-navy-DEFAULT text-[15px] leading-relaxed">
               To be the premier partner for hospitality establishments seeking a
               reliable, skilled, and dedicated manpower that enhances their
               service delivery and guest satisfaction.
             </p>
           </div>
 
-          {/* Expert Team */}
-          <div className="space-y-4 text-center">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-color1">
-              <GoGoal className="w-8 h-8 text-textColor" />
+          {/* Mission */}
+          <div className="space-y-4 text-center p-6 rounded-lg bg-elegant-beige/20 hover:shadow-md transition duration-300">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-navy-DEFAULT shadow-md">
+              <GoGoal className="w-8 h-8 text-gold" />
             </div>
-            <h1 className="text-xl font-semibold text-color1">Our mission</h1>
-            <p className="text-color1">
+            <h3 className="text-xl font-semibold text-navy-DEFAULT">
+              Our <span className="text-gold">mission</span>
+            </h3>
+            <p className="text-navy-DEFAULT text-[15px] leading-relaxed">
               Our mission is to be the global partner of choice for hospitality
               businesses in need of a reliable and skilled manpower. By
               fostering cross-cultural collaboration and delivering tailor-made

@@ -20,13 +20,13 @@ import { toast } from "@/hooks/use-toast";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
-    message: "name must be at least 2 characters."
+    message: "Name must be at least 2 characters."
   }),
   email: z.string().email({
-    message: "email must be a valid email."
+    message: "Please enter a valid email address."
   }),
   message: z.string().min(10, {
-    message: "message must be at least 10 characters."
+    message: "Message must be at least 10 characters."
   })
 });
 
@@ -50,30 +50,30 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex items-center justify-center min-h-screen px-4 py-16 bg-white md:py-24"
+      className="flex items-center justify-center min-h-screen px-4 py-16 bg-navy-DEFAULT md:py-24"
     >
       <div className="container max-w-6xl mx-auto">
-        <h1 className="mb-8 text-[36px] font-bold text-center text-color1">
-          Contact Us
+        <h1 className="mb-8 text-[36px] font-bold text-center text-white">
+          Contact <span className="text-gold">Us</span>
         </h1>
         <div className="flex items-center justify-center">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full max-w-lg space-y-6"
+              className="w-full max-w-lg space-y-6 bg-white p-8 rounded-lg shadow-lg"
             >
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
-                      Username
+                    <FormLabel className="block text-left text-navy-DEFAULT font-medium text-[15px]">
+                      Full Name
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="john doe" {...field} />
+                      <Input placeholder="John Doe" className="border-gray-300 focus:border-gold" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-[13px]" />
                   </FormItem>
                 )}
               />
@@ -82,13 +82,13 @@ export default function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
+                    <FormLabel className="block text-left text-navy-DEFAULT font-medium text-[15px]">
                       Email
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="you@example.com" className="border-gray-300 focus:border-gold" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-[13px]" />
                   </FormItem>
                 )}
               />
@@ -97,24 +97,24 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
+                    <FormLabel className="block text-left text-navy-DEFAULT font-medium text-[15px]">
                       Message
                     </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Your message here..."
+                        className="border-gray-300 focus:border-gold"
                         {...field}
                         rows={5}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500 text-[13px]" />
                   </FormItem>
                 )}
               />
               <Button
                 type="submit"
-                variant={"outline"}
-                className="w-full bg-color1 hover:bg-white text-white hover:text-color1  hover:border-color1"
+                className="w-full bg-gold text-white hover:bg-gold-dark font-medium"
               >
                 Submit
               </Button>
