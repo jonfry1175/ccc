@@ -36,11 +36,17 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? "bg-white shadow-md py-2"
-        : "bg-navy-DEFAULT/10 backdrop-blur-sm py-4"
-        }`}
+      className={`shadow-lg sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-opacity-50 backdrop-blur-lg !text-color1 bg-gold"
+          : "bg-gold py-2 text-color1"
+      }`}
     >
+      {/* <nav
+      className={`shadow-lg sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-opacity-50 backdrop-blur-lg bg-color4" : "bg-color4"
+      }`}
+    ></nav> */}
       <div className="max-w-6xl px-6 mx-auto">
         <div className="flex justify-between items-center">
           <div className="flex space-x-7">
@@ -59,49 +65,41 @@ const Navbar = () => {
           <div className="items-center hidden space-x-6 md:flex">
             <Link
               href="/"
-              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:text-gold"
-                : "text-[#2163AD] hover:text-gold text-shadow-md"
-                } ${patname === "/" ? "border-b-2 border-gold" : ""}`}
+              className={`px-2 py-2 transition duration-300 font-medium ${
+                isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-color1 hover:text-gold text-shadow-md"
+              } ${patname === "/" ? "border-b-2 border-color1" : ""}`}
             >
               <p className="text-[15px]">Home</p>
             </Link>
 
             <Link
-              href="/article"
-              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:text-gold"
-                : "text-[#2163AD] hover:text-gold text-shadow-md"
-                } ${patname.startsWith("/article") ? "border-b-2 border-gold" : ""}`}
+              href="/partnership"
+              className={`px-2 py-2 transition duration-300 font-medium ${
+                isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-color1 hover:text-gold text-shadow-md"
+              } ${
+                patname === "/partnership" ? "border-b-2 border-color1" : ""
+              }`}
             >
-              <p className="text-[15px]">Article</p>
+              <p className="text-[15px]">Partnership</p>
             </Link>
 
             <Link
-              href={patname.startsWith("/article") ? "/#about" : "#about"}
+              href={"/candidate"}
               onClick={() => {
-                if (!patname.startsWith("/article")) handleScroll("about");
+                if (!patname.startsWith("/candidate")) handleScroll("about");
                 setIsOpen(false);
               }}
-              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:text-gold"
-                : "text-[#2163AD] hover:text-gold text-shadow-md"
-                }`}
+              className={`px-2 py-2 transition duration-300 font-medium ${
+                isScrolled
+                  ? "text-navy-DEFAULT hover:text-gold"
+                  : "text-color1 hover:text-gold text-shadow-md"
+              } ${patname === "/candidate" ? "border-b-2 border-color1" : ""}`}
             >
-              <p className="text-[15px]">About</p>
-            </Link>
-            <Link
-              href={patname.startsWith("/article") ? "/#contact" : "#contact"}
-              onClick={() => {
-                if (!patname.startsWith("/article")) handleScroll("contact");
-                setIsOpen(false);
-              }}
-              className={`px-2 py-2 transition duration-300 font-medium ${isScrolled
-                ? "text-navy-DEFAULT hover:text-gold"
-                : "text-[#2163AD] hover:text-gold text-shadow-md"
-                }`}
-            >
-              <p className="text-[15px]">Contact</p>
+              <p className="text-[15px]">Apply as Candidate</p>
             </Link>
           </div>
           <div className="flex items-center md:hidden transition-all">
@@ -110,9 +108,17 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-[#2163AD] drop-shadow-md"}`} />
+                <X
+                  className={`w-6 h-6 transition-all ${
+                    isScrolled ? "text-gold" : "text-color1 drop-shadow-md"
+                  }`}
+                />
               ) : (
-                <Menu className={`w-6 h-6 transition-all ${isScrolled ? "text-gold" : "text-[#2163AD] drop-shadow-md"}`} />
+                <Menu
+                  className={`w-6 h-6 transition-all ${
+                    isScrolled ? "text-gold" : "text-color1 drop-shadow-md"
+                  }`}
+                />
               )}
             </button>
           </div>
@@ -121,58 +127,50 @@ const Navbar = () => {
 
       {/* Mobile Menu with Animation */}
       <div
-        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out ${isScrolled ? "bg-white" : "bg-navy-DEFAULT/90 backdrop-blur-sm"
-          } ${isOpen
+        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out ${
+          isScrolled ? "bg-white" : "bg-navy-DEFAULT/90 backdrop-blur-sm"
+        } ${
+          isOpen
             ? "opacity-100 max-h-40 translate-y-0 shadow-md"
             : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"
-          }`}
+        }`}
       >
         <div className="overflow-hidden gap-4 py-2">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
-              }`}
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
+              isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-color1 hover:bg-white/10 hover:text-gold"
+            }`}
           >
             Home
           </Link>
           <Link
-            href="/article"
+            href="/partnership"
             onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
-              }`}
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
+              isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-color1 hover:bg-white/10 hover:text-gold"
+            }`}
           >
-            Article
+            Partnership
           </Link>
           <Link
-            href={patname.startsWith("/article") ? "/#about" : "#about"}
+            href={"/candidate"}
             onClick={() => {
-              if (!patname.startsWith("/article")) handleScroll("about");
+              if (!patname.startsWith("/candidate")) handleScroll("about");
               setIsOpen(false);
             }}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
-              }`}
+            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
+              isScrolled
+                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
+                : "text-color1 hover:bg-white/10 hover:text-gold"
+            }`}
           >
-            About
-          </Link>
-          <Link
-            href={patname.startsWith("/article") ? "/#contact" : "#contact"}
-            onClick={() => {
-              if (!patname.startsWith("/article")) handleScroll("contact");
-              setIsOpen(false);
-            }}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${isScrolled
-              ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-              : "text-[#2163AD] hover:bg-white/10 hover:text-gold"
-              }`}
-          >
-            Contact
+            Apply as Candidate
           </Link>
         </div>
       </div>

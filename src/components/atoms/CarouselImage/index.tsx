@@ -35,7 +35,7 @@ export default function CarouselComponent({
   slidesToScroll = 1
 }: Props) {
   return (
-    <div>
+    <div className="relative">
       <Carousel
         opts={{
           align: "start",
@@ -81,6 +81,10 @@ export default function CarouselComponent({
             </CarouselItem>
           ))}
         </CarouselContent>
+
+        {/* 🚀 Tombol Navigasi */}
+        <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-700 transition" />
+        <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-700 transition" />
       </Carousel>
     </div>
   );

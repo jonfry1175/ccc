@@ -4,8 +4,9 @@ export default function ImpactCard() {
   return (
     <section id="about" className="px-4 py-16 md:py-24 ">
       <div className="max-w-6xl px-10 mx-auto text-center">
-        <h1 className="text-3xl font-bold text-color1 md:text-4xl">
+        <h1 className="inline-block text-3xl font-bold text-color1 md:text-4xl relative">
           Our Impact
+          <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
         </h1>
 
         <div className="max-w-full  md:w-full mx-4 md:mx-auto">

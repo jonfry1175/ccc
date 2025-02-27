@@ -11,9 +11,10 @@ export default function TrainingCenter() {
 
   return (
     <section className="px-4 py-16 bg-white md:py-24">
-      <div className="container max-w-6xl mx-auto px-10">
-        <h1 className="mb-12 text-3xl font-bold text-center text-color1 md:text-4xl">
+      <div className="text-center max-w-6xl mx-auto px-10">
+        <h1 className="inline-block text-3xl font-bold text-color1 md:text-4xl relative">
           Training Facility
+          <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
         </h1>
         <div className=""></div>
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 ">
