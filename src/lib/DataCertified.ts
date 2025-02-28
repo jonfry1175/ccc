@@ -2,7 +2,7 @@ export const certifiedsData = [
   {
     id: 1,
     image: "/images/Logo/1.png",
-    name: "DISHUB"
+    name: "DINAS PERHUBUNGAN INDONESIA"
   },
   {
     id: 2,

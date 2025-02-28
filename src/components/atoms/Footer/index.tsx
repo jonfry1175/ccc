@@ -129,7 +129,8 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-navy-light/30">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-color1 text-sm">
-              © {currentYear} Marina Prima Sukses. All rights reserved.
+              © {currentYear} Marina Prima Sukses. All rights reserved by Meta
+              Solusi Digital.
             </p>
             <div className="mt-4 md:mt-0">
               <Link

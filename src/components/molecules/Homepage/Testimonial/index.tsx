@@ -28,7 +28,7 @@ export default function Testimonial() {
       <div className="container max-w-6xl mx-auto px-10">
         <div className="text-center">
           <h1 className="inline-block mb-12 text-3xl text-center font-bold text-color1 md:text-4xl relative">
-            <span className="text-center">What Will People Say</span>
+            <span className="text-center">What People Say</span>
             <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
           </h1>
         </div>

@@ -10,7 +10,7 @@ export default function ImpactCard() {
         </h1>
 
         <div className="max-w-full  md:w-full mx-4 md:mx-auto">
-          <div className="bg-color1 mt-8 text-color4 rounded-lg">
+          <div className="bg-gold mt-8 text-color1 rounded-lg">
             <div
               style={{
                 display: "flex",
@@ -26,7 +26,7 @@ export default function ImpactCard() {
                   margin: "1rem"
                 }}
               >
-                <h4 className="text-color4 text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
+                <h4 className="text-color1 text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
                   <NumberTicker value={9000} delay={-1000000} direction="up" />+
                 </h4>
                 <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
