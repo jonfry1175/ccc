@@ -44,7 +44,7 @@ export default function Testimonial() {
                   <h1 className="font-semibold text-color1">
                     {testimonial.name}
                   </h1>
-                  <p className="text-sm text-color4">{testimonial.position}</p>
+                  <p className="text-sm text-color1">{testimonial.position}</p>
                 </div>
               </CardContent>
             </Card>

@@ -34,8 +34,10 @@ export default function About() {
               {/* <Globe2 /> */}
               <FaRegHandshake className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white">Our commitment</h3>
-            <p className="text-white px-4 pb-4">
+            <h3 className="text-xl font-semibold text-color1">
+              Our commitment
+            </h3>
+            <p className="text-color1 px-4 pb-4">
               We are committed to forging a strong partnership with you,
               leveraging our 31 years of industry experience and cutting-edge
               manpower solutions to deliver exceptional talent and foster mutual
@@ -48,8 +50,8 @@ export default function About() {
             <div className="flex items-center justify-center w-16 mt-4 h-16 mx-auto rounded-full bg-color1">
               <FaRegEye className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white">Our vision</h3>
-            <p className="text-white px-4 pb-4">
+            <h3 className="text-xl font-semibold text-color1">Our vision</h3>
+            <p className="text-color1 px-4 pb-4">
               To be the premier partner for hospitality establishments seeking a
               reliable, skilled, and dedicated manpower that enhances their
               service delivery and guest satisfaction.
@@ -61,8 +63,8 @@ export default function About() {
             <div className="flex items-center justify-center w-16 mt-4 h-16 mx-auto rounded-full bg-color1">
               <GoGoal className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-xl font-semibold text-white">Our mission</h1>
-            <p className="text-white px-4 pb-4">
+            <h1 className="text-xl font-semibold text-color1">Our mission</h1>
+            <p className="text-color1 px-4 pb-4">
               Our mission is to be the global partner of choice for hospitality
               businesses in need of a reliable and skilled manpower. By
               fostering cross-cultural collaboration and delivering tailor-made
