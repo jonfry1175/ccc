@@ -24,7 +24,7 @@ export default function Hero() {
             <div className="space-y-4">
               <div className="inline-block lg:block border-b-2 border-gold pb-2 mb-2 w-3/4 lg:w-1/2">
                 <h2 className="text-xl text-gold uppercase tracking-wider font-medium mb-1 text-shadow-md">
-                  Professional Manning Services
+                  Professional Manning Service
                 </h2>
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold tracking-tighter text-white space-y-2">
