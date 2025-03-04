@@ -59,7 +59,7 @@ export default function ImpactCard() {
                 }}
               >
                 <h4 className="text-impact text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
-                  <NumberTicker value={30} />
+                  <NumberTicker value={32} />
                   Years
                 </h4>
                 <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
