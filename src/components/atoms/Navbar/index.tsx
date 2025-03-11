@@ -81,62 +81,12 @@ const Navbar = () => {
                   ? "text-navy-DEFAULT hover:text-gold"
                   : "text-color1 hover:text-gold text-shadow-md"
               } ${
-                pathname === "/about" ? "border-b-2 border-color1" : ""
+                ["/about", "/what-we-do", "/services", "/articles", "/contact"].includes(pathname) 
+                  ? "border-b-2 border-color1" 
+                  : ""
               }`}
             >
-              <p className="text-[15px]">About Us</p>
-            </Link>
-
-            <Link
-              href="/what-we-do"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${
-                pathname === "/what-we-do" ? "border-b-2 border-color1" : ""
-              }`}
-            >
-              <p className="text-[15px]">What We Do</p>
-            </Link>
-
-            <Link
-              href="/services"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${
-                pathname === "/services" ? "border-b-2 border-color1" : ""
-              }`}
-            >
-              <p className="text-[15px]">Services</p>
-            </Link>
-
-            <Link
-              href="/articles"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${
-                pathname === "/articles" ? "border-b-2 border-color1" : ""
-              }`}
-            >
-              <p className="text-[15px]">Articles</p>
-            </Link>
-
-            <Link
-              href="/contact"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${
-                pathname === "/contact" ? "border-b-2 border-color1" : ""
-              }`}
-            >
-              <p className="text-[15px]">Contact</p>
+              <p className="text-[15px]">Company</p>
             </Link>
 
             <Link
@@ -179,7 +129,7 @@ const Navbar = () => {
           isScrolled ? "bg-white" : "bg-navy-DEFAULT/90 backdrop-blur-sm"
         } ${
           isOpen
-            ? "opacity-100 max-h-96 translate-y-0 shadow-md"
+            ? "opacity-100 max-h-screen translate-y-0 shadow-md"
             : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"
         }`}
       >
@@ -195,6 +145,7 @@ const Navbar = () => {
           >
             Home
           </Link>
+          
           <Link
             href="/about"
             onClick={() => setIsOpen(false)}
@@ -204,52 +155,9 @@ const Navbar = () => {
                 : "text-color1 hover:bg-white/10 hover:text-gold"
             }`}
           >
-            About Us
+            Company
           </Link>
-          <Link
-            href="/what-we-do"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
-            }`}
-          >
-            What We Do
-          </Link>
-          <Link
-            href="/services"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
-            }`}
-          >
-            Services
-          </Link>
-          <Link
-            href="/articles"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
-            }`}
-          >
-            Articles
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
-            }`}
-          >
-            Contact
-          </Link>
+          
           <Link
             href="/candidate"
             onClick={() => setIsOpen(false)}

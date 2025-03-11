@@ -96,29 +96,33 @@ export default function Hero() {
         <div className="absolute inset-0 bg-navy-DEFAULT/60"></div>
       </div>
 
-      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
-        <div className="space-y-16">
-          {/* Main title only */}
-          <h1 className="text-6xl md:text-8xl font-bold text-gold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] bg-navy-DEFAULT/70 py-6 px-8 inline-block rounded-lg">
-            Marina Prima Sukses
-          </h1>
+      <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
+        <div className="bg-navy-DEFAULT/85 border-2 border-gold/70 rounded-2xl shadow-2xl p-12 backdrop-blur-sm">
+          {/* Main title with gold accents */}
+          <div className="mb-14">
+            <div className="w-32 h-1 bg-gold mx-auto mb-8"></div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-wider relative inline-block">
+              <span className="relative z-20 text-gold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Marina Prima Sukses</span>
+            </h1>
+            <div className="w-64 h-1 bg-gold mx-auto mt-8"></div>
+          </div>
           
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-            <Link href="/">
-              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl transition-shadow">
-                HOME
+          {/* Buttons inside container */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-2">
+            <Link href="/about">
+              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                COMPANY
               </ThemedButton>
             </Link>
             
             <Link href="/candidate">
-              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl transition-shadow">
+              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 APPLY AS CANDIDATE
               </ThemedButton>
             </Link>
             
             <Link href="/contact">
-              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl transition-shadow">
+              <ThemedButton variant="primary" size="xl" className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 CONTACT US
               </ThemedButton>
             </Link>
