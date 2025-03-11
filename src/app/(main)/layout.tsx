@@ -1,17 +1,14 @@
-import Footer from "@/components/atoms/Footer";
-import Navbar from "@/components/atoms/Navbar";
 import React from "react";
+import ClientLayout from "@/components/atoms/ClientLayout";
 
 interface props {
   children: React.ReactNode;
 }
 
-export default function layout({ children }: props) {
+export default function Layout({ children }: props) {
   return (
     <div>
-      <Navbar />
-      <div className="min-h-screen mx-auto ">{children}</div>
-      <Footer />
+      <ClientLayout>{children}</ClientLayout>
     </div>
   );
 }

@@ -1,88 +1,132 @@
+"use client";
+
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+import ThemedButton from "@/components/atoms/ThemedButton";
 
 export default function Hero() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    
+    if (videoElement) {
+      const handleLoadedData = () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+        setIsVideoLoaded(true);
+      };
+      
+      const handleVideoError = () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+        setVideoError(true);
+        setIsVideoLoaded(true); // Hide the loader
+      };
+      
+      videoElement.addEventListener('loadeddata', handleLoadedData);
+      videoElement.addEventListener('error', handleVideoError);
+      
+      // Fallback: if video takes too long to load, show content anyway
+      timeoutRef.current = setTimeout(() => {
+        setIsVideoLoaded(true);
+      }, 5000); // 5 second timeout
+      
+      // Clean up event listeners on component unmount
+      return () => {
+        videoElement.removeEventListener('loadeddata', handleLoadedData);
+        videoElement.removeEventListener('error', handleVideoError);
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
+    }
+  }, []); // Empty dependency array to run only on mount
+
   return (
-    <section className="relative min-h-screen py-4 bg-color1 flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/hero.jpg"
-          className="absolute w-full h-full object-cover"
-        >
-          <source src="/videos/hero-video-background.mp4" type="video/mp4" />
-          {/* Fallback image if video doesn't load */}
-          <Image
-            src="/images/hero.jpg"
-            alt="Background"
-            className="object-cover w-full h-full"
-            width={1920}
-            height={1080}
-          />
-        </video>
-        {/* Overlay for better readability */}
-        <div className="absolute inset-0 bg-color1 opacity-30"></div>
-      </div>
-
-      <div className="relative py-0 md:py-8 px-6 md:px-10 mx-auto max-w-6xl z-20">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-12 pt-20 lg:pt-0">
-          {/* Text Section */}
-          <div className="lg:w-1/2 text-center lg:text-left space-y-8">
-            <div className="space-y-4">
-              <div className="inline-block lg:block border-b-2 border-gold pb-2 mb-2 w-3/4 lg:w-1/2">
-                <h2 className="text-xl text-gold uppercase tracking-wider font-medium mb-1 text-shadow-md">
-                  Professional Manning Service
-                </h2>
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-bold tracking-tighter text-white space-y-2">
-                <span className="block text-white">Marina</span>
-                <span className="block text-white">Prima</span>
-                <span className="block text-white">Sukses</span>
-              </h1>
-              <p className="max-w-lg text-white text-xl leading-relaxed font-semibold bg-navy-DEFAULT/40 p-4 rounded-md backdrop-blur-sm border-l-4 border-gold">
-                Specialized Recruiting & Manning for Hospitality, Restaurant &
-                Deck Engineering Professionals.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-gold text-white shadow-md px-8 font-semibold hover:bg-gold-dark"
-              >
-                Get Started
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-gold text-gold px-8 font-semibold hover:bg-gold/10 hover:text-gold-light"
-              >
-                Learn More
-              </Button>
+        {/* Loading indicator */}
+        {!isVideoLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-navy-DEFAULT to-navy-light z-10">
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gold mb-8 tracking-wider drop-shadow-lg">
+                MARINA PRIMA SUKSES
+              </h2>
+              <div className="w-16 h-16 border-4 border-t-transparent border-gold rounded-full animate-spin mb-6"></div>
+              <p className="text-gold text-lg">Loading ocean view...</p>
             </div>
           </div>
-          {/* Image Section */}
-          <div className="lg:w-1/2 max-w-[400px] lg:max-w-[500px] mx-auto">
-            <div className="relative w-full overflow-hidden rounded-xl shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-DEFAULT/80 via-navy-DEFAULT/20 to-transparent z-10 transition-all duration-500 group-hover:from-navy-DEFAULT/70 group-hover:via-navy-DEFAULT/10"></div>
-              <div className="absolute inset-0 border border-gold/30 rounded-xl z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <Image
-                src="/images/hero.jpg"
-                alt="Cruise ship in tropical waters"
-                className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
-                width={800}
-                height={600}
-                priority
-              />
-              <div className="absolute bottom-0 left-0 w-full p-5 z-20 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
-                <p className="text-white font-medium text-lg text-shadow-lg">
-                  Connecting talent with opportunity in maritime industries
-                </p>
-              </div>
-            </div>
+        )}
+        
+        {/* Fallback image if video failed */}
+        {videoError && (
+          <Image
+            src="/images/hero.jpg"
+            alt="Ocean Background"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            priority
+          />
+        )}
+        
+        {/* Video background */}
+        {!videoError && (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <source src="/videos/hero-video-background.mp4" type="video/mp4" />
+          </video>
+        )}
+        
+        {/* Overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-DEFAULT/70 to-navy-light/60"></div>
+      </div>
+
+      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
+        <div className="space-y-12">
+          {/* Main text */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-wider drop-shadow-lg relative">
+              <span className="relative inline-block">
+                PROFESSIONAL MANNING SERVICE
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gold/20 via-gold to-gold/20 transform scale-x-100"></span>
+              </span>
+            </h1>
+            <h2 className="text-4xl md:text-6xl font-bold text-gold tracking-wider drop-shadow-lg">
+              Marina Prima Sukses
+            </h2>
+            <p className="text-xl text-elegant-cream mt-4 max-w-3xl mx-auto">
+              Specialized Recruiting & Manning for Hospitality, Restaurant & Deck Engineering Professionals.
+            </p>
+          </div>
+          
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <Link href="/contact">
+              <ThemedButton variant="primary" size="xl">
+                GET STARTED
+              </ThemedButton>
+            </Link>
+            
+            <Link href="/about">
+              <ThemedButton variant="secondary" size="xl">
+                LEARN MORE
+              </ThemedButton>
+            </Link>
           </div>
         </div>
       </div>

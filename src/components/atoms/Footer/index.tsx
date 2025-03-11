@@ -58,31 +58,31 @@ export default function Footer() {
             </h3>
             <nav className="flex flex-col space-y-3">
               <Link
-                href="#"
+                href="/"
                 className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
               >
                 Home
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
               >
                 About
               </Link>
               <Link
-                href="#services"
+                href="/services"
                 className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
               >
                 Services
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
               >
                 Contact
               </Link>
               <Link
-                href="#career"
+                href="/careers"
                 className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
               >
                 Careers
@@ -133,13 +133,13 @@ export default function Footer() {
             </p>
             <div className="mt-4 md:mt-0">
               <Link
-                href="#"
+                href="/privacy-policy"
                 className="text-color1 hover:text-gold text-sm mx-3"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#"
+                href="/terms-of-service"
                 className="text-color1 hover:text-gold text-sm mx-3"
               >
                 Terms of Service

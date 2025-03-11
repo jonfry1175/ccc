@@ -1,43 +1,27 @@
 import { FaRegHandshake } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
+import SectionHeading from "@/components/atoms/SectionHeading";
+
 export default function About() {
   return (
-    <section id="about" className="px-4 py-8 md:py-12 ">
-      <div className="max-w-6xl px-10 mx-auto ">
-        <div className="mb-16 space-y-4 text-center">
-          <h1 className="inline-block text-3xl font-bold text-color1 md:text-4xl relative">
-            About MSP
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
-          </h1>
-          <p className="max-w-6xl mx-auto  text-color1">
-            Marina Prima Sukses (MPS) has been in the business of manpower
-            deployment since 1993. At MPS, we take pride in being a dynamic
-            force in the realm of manpower solutions, specializing in meeting
-            the unique staffing needs of the hospitality industry. Since our
-            establishment, we have been at the forefront of providing tailored,
-            reliable, and skilled manpower to elevate the service standards of
-            our clients in the hospitality sector. We have been working with
-            several big names in the industry, such as an Italian company called
-            MSC Cruise, which we serve needed manpower to join onboard and some
-            notable hotels around. With our experience over the years of serving
-            professional manpower who are dedicated to their works and give in
-            their best, we stand as the right channel to give you that
-            satisfying personnel you desire for the growth of your business.
-          </p>
-        </div>
+    <section id="about" className="px-4 py-16 md:py-24">
+      <div className="max-w-6xl px-10 mx-auto">
+        <SectionHeading 
+          title="About MSP"
+          subtitle="Marina Prima Sukses (MPS) has been in the business of manpower deployment since 1993. At MPS, we take pride in being a dynamic force in the realm of manpower solutions, specializing in meeting the unique staffing needs of the hospitality industry."
+        />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
           {/* Global Reach */}
-          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold">
-            <div className="flex items-center justify-center w-16 mt-4 h-16 mx-auto rounded-full bg-color1">
-              {/* <Globe2 /> */}
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
               <FaRegHandshake className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-color1">
               Our commitment
             </h3>
-            <p className="text-color1 px-4 pb-4">
+            <p className="text-color1 px-6 pb-8">
               We are committed to forging a strong partnership with you,
               leveraging our 31 years of industry experience and cutting-edge
               manpower solutions to deliver exceptional talent and foster mutual
@@ -46,12 +30,12 @@ export default function About() {
           </div>
 
           {/* Industry Excellence */}
-          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold">
-            <div className="flex items-center justify-center w-16 mt-4 h-16 mx-auto rounded-full bg-color1">
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
               <FaRegEye className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-color1">Our vision</h3>
-            <p className="text-color1 px-4 pb-4">
+            <p className="text-color1 px-6 pb-8">
               To be the premier partner for hospitality establishments seeking a
               reliable, skilled, and dedicated manpower that enhances their
               service delivery and guest satisfaction.
@@ -59,19 +43,17 @@ export default function About() {
           </div>
 
           {/* Expert Team */}
-          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold">
-            <div className="flex items-center justify-center w-16 mt-4 h-16 mx-auto rounded-full bg-color1">
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
               <GoGoal className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-xl font-semibold text-color1">Our mission</h1>
-            <p className="text-color1 px-4 pb-4">
+            <h3 className="text-xl font-semibold text-color1">Our mission</h3>
+            <p className="text-color1 px-6 pb-8">
               Our mission is to be the global partner of choice for hospitality
               businesses in need of a reliable and skilled manpower. By
               fostering cross-cultural collaboration and delivering tailor-made
               manpower solutions, we aim to contribute to the success of our
-              clients worldwide. At the heart of our mission is a commitment to
-              excellence, integrity, and building lasting partnerships within
-              the ever-evolving hospitality landscape.
+              clients worldwide.
             </p>
           </div>
         </div>

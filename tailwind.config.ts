@@ -71,6 +71,9 @@ export default {
           "5": "hsl(var(--chart-5))"
         }
       },
+      boxShadow: {
+        'glow': '0 0 15px rgba(121, 178, 246, 0.6)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
