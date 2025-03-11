@@ -93,23 +93,24 @@ export default function Hero() {
         )}
         
         {/* Overlay for better readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-DEFAULT/70 to-navy-light/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-DEFAULT/80 to-navy-light/70"></div>
       </div>
 
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
         <div className="space-y-12">
           {/* Main text */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-wider drop-shadow-lg relative">
-              <span className="relative inline-block">
-                PROFESSIONAL MANNING SERVICE
-                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gold/20 via-gold to-gold/20 transform scale-x-100"></span>
-              </span>
-            </h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-gold tracking-wider drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl font-bold text-gold tracking-wider drop-shadow-lg">
               Marina Prima Sukses
-            </h2>
-            <p className="text-xl text-elegant-cream mt-4 max-w-3xl mx-auto">
+            </h1>
+            
+            <div className="bg-navy-DEFAULT/60 py-3 px-4 rounded-md inline-block">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-wider drop-shadow-lg">
+                PROFESSIONAL MANNING SERVICE
+              </h2>
+            </div>
+            
+            <p className="text-xl text-white font-medium mt-4 max-w-3xl mx-auto bg-navy-DEFAULT/60 py-3 px-4 rounded-md">
               Specialized Recruiting & Manning for Hospitality, Restaurant & Deck Engineering Professionals.
             </p>
           </div>
