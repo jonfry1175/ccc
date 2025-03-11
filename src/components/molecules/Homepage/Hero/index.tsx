@@ -4,17 +4,28 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="relative min-h-screen py-4 bg-color1 flex items-center overflow-hidden">
-      {/* Background overlay for better readability */}
-
-      {/* Background image */}
-      <div className="absolute inset-0 opacity-30 ">
-        <Image
-          src="/images/hero.jpg"
-          alt="Background"
-          className="object-cover w-full h-full"
-          width={1920}
-          height={1080}
-        />
+      {/* Background video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/hero.jpg"
+          className="absolute w-full h-full object-cover"
+        >
+          <source src="/videos/hero-video-background.mp4" type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+          <Image
+            src="/images/hero.jpg"
+            alt="Background"
+            className="object-cover w-full h-full"
+            width={1920}
+            height={1080}
+          />
+        </video>
+        {/* Overlay for better readability */}
+        <div className="absolute inset-0 bg-color1 opacity-30"></div>
       </div>
 
       <div className="relative py-0 md:py-8 px-6 md:px-10 mx-auto max-w-6xl z-20">
