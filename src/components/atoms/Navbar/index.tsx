@@ -14,13 +14,6 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleScroll = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     const handleScrollEffect = () => {
       if (window.scrollY > 50) {

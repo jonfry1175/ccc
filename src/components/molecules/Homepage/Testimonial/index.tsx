@@ -40,7 +40,7 @@ export default function Testimonial() {
           </h1>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             We pride ourselves on the relationships we build with our clients and candidates. 
-            Here's what some of them have to say about working with Marina Prima Sukses.
+            Here&apos;s what some of them have to say about working with Marina Prima Sukses.
           </p>
         </div>
         
@@ -56,7 +56,7 @@ export default function Testimonial() {
                 </div>
                 
                 <p className="text-navy-DEFAULT/80 min-h-[120px] italic leading-relaxed relative z-10">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 
                 <div className="pt-6 flex items-center space-x-4 border-t border-gold/10">
