@@ -1,5 +1,4 @@
 import CarouselComponent from "@/components/atoms/CarouselImage";
-import GalleryImageCard from "@/components/atoms/GalleryImageCard";
 
 import { crews } from "@/lib/DataCrew";
 

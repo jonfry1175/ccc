@@ -1,5 +1,3 @@
-import { Quote } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import GalleryImageCard from "@/components/atoms/GalleryImageCard";
 import { certifiedsData } from "@/lib/DataCertified";
 

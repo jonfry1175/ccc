@@ -29,22 +29,24 @@ export function NumberTicker({
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
   useEffect(() => {
-    isInView &&
+    if (isInView) {
       setTimeout(() => {
         motionValue.set(direction === "down" ? 0 : value);
       }, delay * 1000);
+    }
   }, [motionValue, isInView, delay, value, direction]);
 
   useEffect(
-    () =>
-      springValue.on("change", (latest) => {
+    () => {
+      return springValue.on("change", (latest) => {
         if (ref.current) {
           ref.current.textContent = Intl.NumberFormat("en-US", {
             minimumFractionDigits: decimalPlaces,
             maximumFractionDigits: decimalPlaces
           }).format(Number(latest.toFixed(decimalPlaces)));
         }
-      }),
+      });
+    },
     [springValue, decimalPlaces]
   );
 

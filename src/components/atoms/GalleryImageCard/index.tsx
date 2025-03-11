@@ -19,8 +19,6 @@ interface Props {
 export default function GalleryImageCard({
   src,
   alt,
-  width,
-  height,
   name
 }: Props) {
   return (

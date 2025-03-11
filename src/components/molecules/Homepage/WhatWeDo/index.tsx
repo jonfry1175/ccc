@@ -1,6 +1,3 @@
-import { FaRegHandshake } from "react-icons/fa6";
-import { FaRegEye } from "react-icons/fa";
-import { GoGoal } from "react-icons/go";
 export default function WhatWeDo() {
   return (
     <section id="about" className="px-4 py-16 md:py-24 bg-gold ">
