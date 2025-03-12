@@ -1,97 +1,61 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-const Navbar = () => {
+interface NavbarProps {
+  onHomeClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const router = useRouter();
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleNavigation = (path: string) => {
+    if (path === "/" && onHomeClick) {
+      onHomeClick();
+    } else {
+      router.push(path);
+    }
+    setIsOpen(false);
   };
 
-  useEffect(() => {
-    const handleScrollEffect = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScrollEffect);
-    return () => window.removeEventListener("scroll", handleScrollEffect);
-  }, []);
-
   return (
-    <nav
-      className={`shadow-lg sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-opacity-50 backdrop-blur-lg !text-color1 bg-gold"
-          : "bg-gold py-2 text-color1"
-      }`}
-    >
-      {/* <nav
-      className={`shadow-lg sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-opacity-50 backdrop-blur-lg bg-color4" : "bg-color4"
-      }`}
-    ></nav> */}
+    <nav className="shadow-lg bg-gold py-2 text-color1 sticky top-0 z-50">
       <div className="max-w-6xl px-6 mx-auto">
         <div className="flex justify-between items-center">
-          <div className="flex space-x-7">
-            <div>
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/images/Logo/logomps1.png"
-                  alt="Marina Prima Sukses"
-                  width={70}
-                  height={50}
-                  className={isScrolled ? "" : "drop-shadow-md"}
-                />
-              </Link>
-            </div>
+          <div onClick={() => handleNavigation("/")} className="cursor-pointer">
+            <Image
+              src="/images/Logo/logomps1.png"
+              alt="Marina Prima Sukses"
+              width={70}
+              height={50}
+              className="drop-shadow-md"
+            />
           </div>
           <div className="items-center hidden space-x-6 md:flex">
-            <Link
-              href="/"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${pathname === "/" ? "border-b-2 border-color1" : ""}`}
-            >
-              <p className="text-[15px]">Home</p>
-            </Link>
-
-            <Link
-              href="/about"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${
-                ["/about", "/what-we-do", "/services", "/articles", "/contact"].includes(pathname) 
-                  ? "border-b-2 border-color1" 
-                  : ""
+            <button
+              onClick={() => handleNavigation("/")}
+              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
+                pathname === "/" ? "border-b-2 border-color1" : ""
               }`}
             >
-              <p className="text-[15px]">Company</p>
-            </Link>
+              <p className="text-[15px]">Home</p>
+            </button>
 
-            <Link
-              href="/candidate"
-              className={`px-2 py-2 transition duration-300 font-medium ${
-                isScrolled
-                  ? "text-navy-DEFAULT hover:text-gold"
-                  : "text-color1 hover:text-gold text-shadow-md"
-              } ${pathname === "/candidate" ? "border-b-2 border-color1" : ""}`}
+            <button
+              onClick={() => handleNavigation("/apply-now")}
+              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
+                pathname === "/apply-now" ? "border-b-2 border-color1" : ""
+              }`}
             >
-              <p className="text-[15px]">Apply as Candidate</p>
-            </Link>
+              <p className="text-[15px]">Apply Now</p>
+            </button>
           </div>
           <div className="flex items-center md:hidden transition-all">
             <button
@@ -99,69 +63,41 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X
-                  className={`w-6 h-6 transition-all ${
-                    isScrolled ? "text-gold" : "text-color1 drop-shadow-md"
-                  }`}
-                />
+                <X className="w-6 h-6 text-color1 drop-shadow-md" />
               ) : (
-                <Menu
-                  className={`w-6 h-6 transition-all ${
-                    isScrolled ? "text-gold" : "text-color1 drop-shadow-md"
-                  }`}
-                />
+                <Menu className="w-6 h-6 text-color1 drop-shadow-md" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu with Animation */}
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out ${
-          isScrolled ? "bg-white" : "bg-navy-DEFAULT/90 backdrop-blur-sm"
-        } ${
+        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out bg-navy-DEFAULT/90 backdrop-blur-sm ${
           isOpen
             ? "opacity-100 max-h-screen translate-y-0 shadow-md"
             : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"
         }`}
       >
         <div className="overflow-hidden gap-4 py-2">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
+          <button
+            onClick={() => handleNavigation("/")}
+            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
+              pathname === "/" ? "border-b-2 border-color1" : ""
             }`}
           >
             Home
-          </Link>
-          
-          <Link
-            href="/about"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
+          </button>
+
+          <button
+            onClick={() => handleNavigation("/apply-now")}
+            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
+              pathname === "/apply-now" ? "border-b-2 border-color1" : ""
             }`}
           >
-            Company
-          </Link>
-          
-          <Link
-            href="/candidate"
-            onClick={() => setIsOpen(false)}
-            className={`block py-2 text-sm transition pl-2 duration-300 rounded-md font-medium ${
-              isScrolled
-                ? "text-navy-DEFAULT hover:bg-gold/10 hover:text-gold"
-                : "text-color1 hover:bg-white/10 hover:text-gold"
-            }`}
-          >
-            Apply as Candidate
-          </Link>
+            Apply Now
+          </button>
         </div>
       </div>
     </nav>

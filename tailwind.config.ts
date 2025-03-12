@@ -41,7 +41,7 @@ export default {
           foreground: "hsl(var(--popover-foreground))"
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#AAA295",
           foreground: "hsl(var(--primary-foreground))"
         },
         secondary: {
@@ -72,7 +72,7 @@ export default {
         }
       },
       boxShadow: {
-        'glow': '0 0 15px rgba(121, 178, 246, 0.6)',
+        glow: "0 0 15px rgba(121, 178, 246, 0.6)"
       },
       borderRadius: {
         lg: "var(--radius)",

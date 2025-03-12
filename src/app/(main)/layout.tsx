@@ -6,9 +6,5 @@ interface props {
 }
 
 export default function Layout({ children }: props) {
-  return (
-    <div>
-      <ClientLayout>{children}</ClientLayout>
-    </div>
-  );
+  return <div>{children}</div>;
 }

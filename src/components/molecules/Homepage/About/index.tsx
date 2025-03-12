@@ -1,17 +1,11 @@
 import { FaRegHandshake } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
-import SectionHeading from "@/components/atoms/SectionHeading";
 
 export default function About() {
   return (
     <section id="about" className="px-4 py-16 md:py-24">
       <div className="max-w-6xl px-10 mx-auto">
-        <SectionHeading 
-          title="About MSP"
-          subtitle="Marina Prima Sukses (MPS) has been in the business of manpower deployment since 1993. At MPS, we take pride in being a dynamic force in the realm of manpower solutions, specializing in meeting the unique staffing needs of the hospitality industry."
-        />
-
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
           {/* Global Reach */}
           <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">

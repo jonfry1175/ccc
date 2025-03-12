@@ -22,7 +22,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="px-4 py-16 md:py-24 bg-gold">
+    <section className="px-4 py-16 md:py-24 bg-white">
       <div className=" max-w-6xl mx-auto px- text-center">
         <h1 className="inline-block mb-12 text-3xl font-bold text-color1 md:text-4xl relative">
           Our Services
@@ -32,7 +32,7 @@ export default function Services() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="transition-shadow bg-white border-none shadow-lg hover:shadow-xl"
+              className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg"
             >
               <CardContent className="px-6 pt-6 space-y-4 text-center">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto rounded-full bg-gray-50">
