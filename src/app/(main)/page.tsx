@@ -92,7 +92,7 @@ export default function Home() {
                   variant="outline"
                   size="lg"
                   className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
-                  onClick={() => setActiveSection("section3")}
+                  onClick={() => router.push("/training-center")}
                 >
                   Training Center
                 </Button>
