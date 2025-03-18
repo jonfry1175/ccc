@@ -5,10 +5,14 @@ export const cruise = [
   },
   {
     id: 2,
-    image: "/images/cruise/2.jpg"
+    image: "/images/cruise/4.jpg"
   },
   {
     id: 3,
-    image: "/images/cruise/3.jpg"
+    image: "/images/cruise/5.jpg"
+  },
+  {
+    id: 4,
+    image: "/images/cruise/6.jpg"
   }
 ];
