@@ -40,8 +40,9 @@ export default function WhatWeDo() {
                   <img
                     src={service.image}
                     alt="Service Image"
-                    className="w-full h-40 object-cover rounded-md"
+                    className="w-full h-40 object-cover rounded-md filter invert-[11%] sepia-[31%] saturate-[800%] hue-rotate-[180deg]"
                   />
+
                   <p className="text-color1">{service.description}</p>
                 </CardContent>
               </Card>
