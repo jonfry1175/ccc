@@ -1,51 +1,45 @@
-import { Users, GraduationCap, LineChart } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-
 export default function Services() {
-  const services = [
+  const UniqueValue = [
     {
-      icon: Users,
-      title: "Recruitment & Placement",
-      description:
-        "Job to job recruitment solutions for cruise lines and maritime professionals."
+      id: 1,
+      value: "Fully Compliant with MLC 2006 Standards & ISO 9001:2015 Certified"
     },
     {
-      icon: GraduationCap,
-      title: "Training Programs",
-      description: "Industry-standard training and certification programs."
+      id: 2,
+      value:
+        "Our recruitment team & office staff are composed of experienced former seafarers with extensive expertise in both the cruise line and hospitality industries."
     },
     {
-      icon: LineChart,
-      title: "Career Development",
-      description: "Professional growth and career development opportunities."
+      id: 3,
+      value:
+        "We uphold the highest ethical standards, ensuring that no application or processing fees are charged beyond those mandated by our principals."
+    },
+    {
+      id: 4,
+      value:
+        "Every cruise line client is assigned a dedicated crew coordinator, supported by a specialized processing and scheduling team for seamless operations."
+    },
+    {
+      id: 5,
+      value:
+        "We have forged strong partnerships with top hospitality institutions across Indonesia, which giving us priority access to exceptional graduates/candidates."
     }
   ];
-
   return (
-    <section className="px-4 py-16 md:py-24 bg-white">
-      <div className=" max-w-6xl mx-auto px- text-center">
-        <h1 className="inline-block mb-12 text-3xl font-bold text-color1 md:text-4xl relative">
-          Our Services
-          <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
-        </h1>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg"
-            >
-              <CardContent className="px-6 pt-6 space-y-4 text-center">
-                <div className="flex items-center justify-center w-12 h-12 mx-auto rounded-full bg-gray-50">
-                  <service.icon className="w-6 h-6 text-color1" />
-                </div>
-                <h1 className="text-xl font-semibold text-color1">
-                  {service.title}
-                </h1>
-                <p className="text-color1">{service.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <section id="about" className="px-4 py-16 md:py-24">
+      <div className="max-w-6xl px-10 mx-auto">
+        <section className="bg-white py-5 text-color1">
+          <div className="max-w-6xl mx-auto space-y-4 px-4">
+            <h1 className="text-3xl  font-bold">
+              Our Unique Value Proposition
+            </h1>
+            {UniqueValue.map((item) => (
+              <li key={item.id} className="text-color1 max-w-2xl mx-auto mb-12">
+                {item.value}
+              </li>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

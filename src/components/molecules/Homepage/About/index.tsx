@@ -1,45 +1,56 @@
+import { FaRegHandshake } from "react-icons/fa6";
+import { FaRegEye } from "react-icons/fa";
+import { GoGoal } from "react-icons/go";
+
 export default function About() {
-  const UniqueValue = [
-    {
-      id: 1,
-      value: "Fully Compliant with MLC 2006 Standards & ISO 9001:2015 Certified"
-    },
-    {
-      id: 2,
-      value:
-        "Our recruitment team & office staff are composed of experienced former seafarers with extensive expertise in both the cruise line and hospitality industries."
-    },
-    {
-      id: 3,
-      value:
-        "We uphold the highest ethical standards, ensuring that no application or processing fees are charged beyond those mandated by our principals."
-    },
-    {
-      id: 4,
-      value:
-        "Every cruise line client is assigned a dedicated crew coordinator, supported by a specialized processing and scheduling team for seamless operations."
-    },
-    {
-      id: 5,
-      value:
-        "We have forged strong partnerships with top hospitality institutions across Indonesia, which giving us priority access to exceptional graduates/candidates."
-    }
-  ];
   return (
     <section id="about" className="px-4 py-16 md:py-24">
       <div className="max-w-6xl px-10 mx-auto">
-        <section className="bg-white py-5 text-color1">
-          <div className="max-w-6xl mx-auto space-y-4 px-4">
-            <h1 className="text-3xl  font-bold">
-              Our Unique Value Proposition
-            </h1>
-            {UniqueValue.map((item) => (
-              <li key={item.id} className="text-color1 max-w-2xl mx-auto mb-12">
-                {item.value}
-              </li>
-            ))}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
+          {/* Global Reach */}
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
+              <FaRegHandshake className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-semibold text-color1">
+              Our commitment
+            </h3>
+            <p className="text-color1 px-6 pb-8">
+              We are committed to forging a strong partnership with you,
+              leveraging our 31 years of industry experience and cutting-edge
+              manpower solutions to deliver exceptional talent and foster mutual
+              growth and success.
+            </p>
           </div>
-        </section>
+
+          {/* Industry Excellence */}
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
+              <FaRegEye className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-semibold text-color1">Our vision</h3>
+            <p className="text-color1 px-6 pb-8">
+              To be the premier partner for hospitality establishments seeking a
+              reliable, skilled, and dedicated manpower that enhances their
+              service delivery and guest satisfaction.
+            </p>
+          </div>
+
+          {/* Expert Team */}
+          <div className="space-y-4 text-center border-2 rounded-md border-gold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-color1">
+              <GoGoal className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-semibold text-color1">Our mission</h3>
+            <p className="text-color1 px-6 pb-8">
+              Our mission is to be the global partner of choice for hospitality
+              businesses in need of a reliable and skilled manpower. By
+              fostering cross-cultural collaboration and delivering tailor-made
+              manpower solutions, we aim to contribute to the success of our
+              clients worldwide.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
