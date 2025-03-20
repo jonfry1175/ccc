@@ -3,7 +3,7 @@ import { articles } from "@/lib/DataArticle";
 
 export default function ArticlePage() {
   return (
-    <section id="articles" className="min-h-screen px-4 bg-gold md:py-24">
+    <section id="articles" className="min-h-screen px-4 bg-white md:py-24">
       <div className="max-w-6xl mx-auto px-10 py-12">
         <div className="text-center mb-12">
           <h1 className="inline-block mb-12 text-3xl font-bold text-color1 md:text-4xl relative">

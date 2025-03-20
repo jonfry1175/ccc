@@ -1,8 +1,10 @@
 "use client";
 
 import Footer from "@/components/atoms/Footer";
+import MarqueeImageHero from "@/components/atoms/MarqueeImageHero";
 import Navbar from "@/components/atoms/Navbar";
 import About from "@/components/molecules/Homepage/About";
+import ArticlePage from "@/components/molecules/Homepage/Article";
 import Certified from "@/components/molecules/Homepage/Certified";
 import Hero from "@/components/molecules/Homepage/Hero";
 import ImpactCard from "@/components/molecules/Homepage/Impact";
@@ -40,7 +42,7 @@ export default function Homepage({ onBackToHome }: HomepageProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Hero />
+          <MarqueeImageHero />
         </motion.div>
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -83,6 +85,13 @@ export default function Homepage({ onBackToHome }: HomepageProps) {
           transition={{ delay: 0.8 }}
         >
           <Partner />
+        </motion.div>
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          <ArticlePage />
         </motion.div>
       </main>
 

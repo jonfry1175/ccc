@@ -84,7 +84,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center text-center text-white"
               >
-                <h1 className="text-6xl font-bold md:text-1xl">HELLO!</h1>
+                <h1 className="text-6xl font-bold md:text-1xl mb-4">HELLO!</h1>
                 <h2 className="text-xl md:text-3xl">
                   WELCOME TO MARINA PRIMA SUKSES
                 </h2>

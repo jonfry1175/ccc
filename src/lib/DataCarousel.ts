@@ -1,7 +1,7 @@
 export const cruise = [
   {
     id: 1,
-    image: "/images/cruise/1.jpg"
+    image: "/images/cruise/7.jpg"
   },
   {
     id: 2,

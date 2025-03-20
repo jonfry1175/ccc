@@ -56,6 +56,17 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
             >
               <p className="text-[15px]">Apply Now</p>
             </button>
+
+            <button
+              onClick={() => handleNavigation("/training-center")}
+              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
+                pathname === "/training-center"
+                  ? "border-b-2 border-color1"
+                  : ""
+              }`}
+            >
+              <p className="text-[15px]">Training Center</p>
+            </button>
           </div>
           <div className="flex items-center md:hidden transition-all">
             <button
@@ -97,6 +108,14 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
             }`}
           >
             Apply Now
+          </button>
+          <button
+            onClick={() => handleNavigation("/training-center")}
+            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
+              pathname === "/training-center" ? "border-b-2 border-color1" : ""
+            }`}
+          >
+            Training-center
           </button>
         </div>
       </div>

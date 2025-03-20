@@ -33,6 +33,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Navbar from "@/components/atoms/Navbar";
+import PhoneNumberInput from "@/components/atoms/PhoneNumber";
 
 const departments = [
   { label: "Galley", value: "galley" },
@@ -374,46 +375,11 @@ export default function CandidatePage() {
                     </span>
                   </div>
                   <div className="flex gap-2">
-                    <FormField
-                      control={form.control}
-                      name="whatsappCountryCode"
-                      render={({ field }) => (
-                        <FormItem className="w-24">
-                          <FormControl>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <SelectTrigger>
-                                <SelectValue placeholder="+62" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                {countryCodes.map((code) => (
-                                  <SelectItem
-                                    key={code.value}
-                                    value={code.value}
-                                  >
-                                    {code.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="whatsappNumber"
-                      render={({ field }) => (
-                        <FormItem className="flex-1">
-                          <FormControl>
-                            <Input placeholder="WhatsApp Number" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
+                    <PhoneNumberInput
+                      onChange={(value) =>
+                        form.setValue("whatsappNumber", value)
+                      }
+                      error={form.formState.errors.whatsappNumber?.message}
                     />
                   </div>
                 </div>

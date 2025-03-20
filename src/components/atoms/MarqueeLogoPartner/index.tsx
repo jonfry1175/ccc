@@ -34,7 +34,7 @@ const MarqueLogo = ({ img, id }: { img: string; id: number }) => {
 
 export default function MarqueeDemo() {
   return (
-    <div className="relative flex  px-5 w-full flex-col items-center justify-center overflow-hidden  ">
+    <div className="relative flex  px-5 w-full flex-col bg-white rounded-lg items-center justify-center overflow-hidden  ">
       <Marquee
         pauseOnHover
         className="[--duration:20s] pauseOnHover max-w-full   md:mx-auto py-10"

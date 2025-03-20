@@ -99,8 +99,8 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <FaLocationDot className="w-5 h-5 text-color1 mt-1" />
                 <p className="text-color1 text-[15px]">
-                  Indofood Tower 15<sup>th</sup> Floor, JL. Jend. Sudirman
-                  Kav.76-78 Jakarta 12910 - Indonesia
+                  Lorong 101 Timur No. 73, Kec. Koja, Jakarta Utara, 14220,
+                  Indonesia
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -109,16 +109,16 @@ export default function Footer() {
                   href="mailto:mps.marinaprima@gmail.com"
                   className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
                 >
-                  mps.marinaprima@gmail.com
+                  nfo@mpsjakarta.com
                 </Link>
               </div>
               <div className="flex items-center space-x-3">
                 <FaWhatsapp className="w-5 h-5 text-color1" />
                 <Link
-                  href="tel:+6221536673356"
+                  href="tel:+62214354959"
                   className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
                 >
-                  +62 21 5366 7356
+                  (+62)21-435-4959
                 </Link>
               </div>
             </div>

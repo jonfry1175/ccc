@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/atoms/Navbar";
+import PhoneNumberInput from "@/components/atoms/PhoneNumber";
 
 // Define the Country interface
 interface Country {
@@ -185,46 +186,9 @@ export default function ContactForm() {
                     </span>
                   </div>
                   <div className="flex gap-2">
-                    <FormField
-                      control={form.control}
-                      name="countryCode"
-                      render={({ field }) => (
-                        <FormItem className="w-24">
-                          <FormControl>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <SelectTrigger>
-                                <SelectValue placeholder="+62" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                {countryCodes.map((code) => (
-                                  <SelectItem
-                                    key={code.value}
-                                    value={code.value}
-                                  >
-                                    {code.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phoneNumber"
-                      render={({ field }) => (
-                        <FormItem className="flex-1">
-                          <FormControl>
-                            <Input placeholder="Phone Number" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
+                    <PhoneNumberInput
+                      error={form.formState.errors.phoneNumber?.message}
+                      onChange={(value) => form.setValue("phoneNumber", value)}
                     />
                   </div>
                 </div>

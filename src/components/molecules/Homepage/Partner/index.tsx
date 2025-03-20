@@ -2,7 +2,7 @@ import MarqueeDemo from "@/components/atoms/MarqueeLogoPartner";
 
 export default function Partner() {
   return (
-    <section className="px-4 py-16 bg-white md:py-20">
+    <section className="px-4 py-16 bg-color4 md:py-20">
       <div className=" max-w-6xl mx-auto text-center">
         <h1 className="inline-block mb-6 text-3xl text-center font-bold text-navy-DEFAULT md:text-4xl relative">
           <span className="text-center relative z-10 text-color1">
