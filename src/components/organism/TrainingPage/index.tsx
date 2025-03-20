@@ -36,7 +36,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
 
       <section className="bg-white py-5 text-color1">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
-          <h1 className="text-3xl text-center font-bold">
+          <h1 className="text-4xl text-center font-bold mb-8">
             MPS Training Division
           </h1>
           <p>
@@ -60,9 +60,9 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-color4 mt-4 mb-4 py-5 text-color1">
+      <section className="bg-color4 mt-4 mb-4 py-8   text-color1">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
-          <h1 className="text-3xl font-bold text-center">
+          <h1 className="text-4xl font-bold text-center mb-8">
             MPS Training Programs
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -72,9 +72,9 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
                 className="space-y-4 text-center border-2 rounded-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
               >
                 <CardContent className="px-6 pt-6 space-y-4 text-center">
-                  <h2 className="text-xl font-semibold text-color1">
+                  <p className="text-[16px] font-semibold text-color1">
                     {service.title}
-                  </h2>
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -84,7 +84,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
 
       <section className="bg-white mt-4 mb-4 py-5 text-color1">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
-          <h1 className="text-3xl text-center font-bold">
+          <h1 className="text-4xl text-center font-bold">
             Rising Stars of Our Program
           </h1>
           <CarouselComponent

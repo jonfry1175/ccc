@@ -53,7 +53,7 @@ export default function CarouselComponent({
               <Dialog>
                 <DialogTrigger asChild>
                   <div className="bg-customBlack2 rounded-lg overflow-hidden cursor-pointer">
-                    <div className="relative h-[150px] md:h-[600px]">
+                    <div className="relative h-[150px] md:h-[400px]">
                       <Image
                         src={image.src || "/placeholder.svg"}
                         alt={image.alt || "placeholder"}
