@@ -1,4 +1,10 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function Services() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+
   const UniqueValue = [
     {
       id: 1,
@@ -25,19 +31,37 @@ export default function Services() {
         "We have forged strong partnerships with top hospitality institutions across Indonesia, which giving us priority access to exceptional graduates/candidates."
     }
   ];
+
   return (
-    <section id="about" className="px-4 py-16 md:py-24">
+    <section id="about" className="px-4 py-16 md:py-24" ref={sectionRef}>
       <div className="max-w-6xl px-10 mx-auto">
         <section className="bg-white py-5 text-color1">
           <div className="max-w-6xl mx-auto space-y-4 px-4">
-            <h1 className="text-3xl  font-bold">
+            <motion.h1
+              className="text-3xl font-bold"
+              initial={{ opacity: 0, y: -20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+            >
               Our Unique Value Proposition
-            </h1>
-            {UniqueValue.map((item) => (
-              <li key={item.id} className="text-color1 max-w-2xl mx-auto mb-12">
-                {item.value}
-              </li>
-            ))}
+            </motion.h1>
+            <div className="text-left w-full">
+              <ul className="space-y-4 list-disc pl-5 w-full">
+                {UniqueValue.map((item, index) => (
+                  <motion.li
+                    key={item.id}
+                    className="text-color1 w-full text-left ml-0"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={
+                      isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+                    }
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    {item.value}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
       </div>

@@ -5,7 +5,9 @@ const reviews = [
   { id: 1, img: "/images/cruise/4.jpg" },
   { id: 2, img: "/images/cruise/5.jpg" },
   { id: 3, img: "/images/cruise/6.jpg" },
-  { id: 4, img: "/images/cruise/7.jpg" }
+  { id: 4, img: "/images/cruise/7.jpg" },
+  { id: 5, img: "/images/cruise/8.jpg" },
+  { id: 6, img: "/images/cruise/9.jpg" }
 ];
 
 const firstRow = reviews;

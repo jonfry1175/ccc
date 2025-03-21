@@ -53,9 +53,6 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-color1">
-              Quick Links
-            </h3>
             <nav className="flex flex-col space-y-3">
               <Link
                 href="/"
@@ -98,10 +95,13 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <FaLocationDot className="w-5 h-5 text-color1 mt-1" />
-                <p className="text-color1 text-[15px]">
+                <Link
+                  href="https://maps.app.goo.gl/FXgSJvUu21Ht2JH38"
+                  className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
+                >
                   Lorong 101 Timur No. 73, Kec. Koja, Jakarta Utara, 14220,
                   Indonesia
-                </p>
+                </Link>
               </div>
               <div className="flex items-center space-x-3">
                 <MdOutlineEmail className="w-5 h-5 text-color1" />
@@ -109,7 +109,7 @@ export default function Footer() {
                   href="mailto:mps.marinaprima@gmail.com"
                   className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
                 >
-                  nfo@mpsjakarta.com
+                  info@mpsjakarta.com
                 </Link>
               </div>
               <div className="flex items-center space-x-3">

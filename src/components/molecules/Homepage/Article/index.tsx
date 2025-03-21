@@ -25,7 +25,6 @@ export default function ArticlePage() {
             title: article.title,
             description: article.description
           }))}
-          loop
           slidesToScroll={1}
         />
       </div>
