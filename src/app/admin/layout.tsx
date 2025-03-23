@@ -118,19 +118,6 @@ export default function AdminLayout({
                 Partners
               </Link>
             </li>
-            <li>
-              <Link
-                href="/admin/uploads"
-                className={`flex items-center p-2 rounded-md ${
-                  pathname === "/admin/uploads"
-                    ? "bg-blue-100 text-blue-700"
-                    : "hover:bg-gray-100"
-                }`}
-              >
-                <Folder className="mr-2 h-5 w-5" />
-                Uploads
-              </Link>
-            </li>
           </ul>
           <div className="pt-4 mt-4 border-t">
             <Button
