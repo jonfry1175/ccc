@@ -1,5 +1,25 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 
+async function executeSql(query: string): Promise<void> {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/rpc/raw_sql`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({
+      query: query
+    })
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text || `SQL execution failed with status ${response.status}`);
+  }
+}
+
 export const migration = {
   name: '002_setup_storage',
   up: async (supabase: SupabaseClient) => {
@@ -14,9 +34,9 @@ export const migration = {
       console.error('Error creating bucket:', bucketError);
     }
 
-    // Create storage policies using SQL
-    const { error: policiesError } = await supabase.rpc('exec_sql', {
-      sql_string: `
+    try {
+      // Create storage policies using SQL
+      await executeSql(`
         -- Create policy for authenticated users to view files
         CREATE POLICY IF NOT EXISTS "Allow authenticated users to view files"
         ON storage.objects
@@ -30,29 +50,21 @@ export const migration = {
         FOR INSERT
         TO service_role
         WITH CHECK (bucket_id = 'marina-prima-sukses-web');
-      `
-    });
-
-    if (policiesError) {
-      console.error('Error creating storage policies:', policiesError);
-      
-      // Try to create policies one by one with alternative approach
-      // This part is more complex as there's no direct REST API for policies
-      // It's best to handle this through Supabase UI if the migration fails
+      `);
+    } catch (error: any) {
+      console.error('Error creating storage policies:', error.message);
     }
   },
   
   down: async (supabase: SupabaseClient) => {
-    // Remove policies and bucket on rollback
-    const { error: policiesError } = await supabase.rpc('exec_sql', {
-      sql_string: `
+    try {
+      // Remove policies using SQL
+      await executeSql(`
         DROP POLICY IF EXISTS "Allow authenticated users to view files" ON storage.objects;
         DROP POLICY IF EXISTS "Allow service role to upload files" ON storage.objects;
-      `
-    });
-    
-    if (policiesError) {
-      console.error('Error removing storage policies:', policiesError);
+      `);
+    } catch (error: any) {
+      console.error('Error removing storage policies:', error.message);
     }
     
     // Delete bucket
