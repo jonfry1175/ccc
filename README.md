@@ -9,6 +9,7 @@ Website for Marina Prima Sukses company with candidate and partner application f
 - Admin dashboard to view submissions
 - Secure authentication for admin access
 - File management for uploaded documents
+- Database migration system for schema management
 
 ## Tech Stack
 
@@ -45,11 +46,27 @@ npm run dev
 
 ## Supabase Setup
 
-### Database Tables
+### Database Migration System
 
-1. Create the following tables in your Supabase project:
+The application uses a migration system to manage database schema changes. Migrations are automatically tracked in a `migrations` table and only run once.
 
-**candidates**
+1. Log in to the admin dashboard at `/admin/login`
+2. Go to the Admin Dashboard
+3. Click "Run Migrations" to set up the database schema
+4. Migrations will create:
+   - `candidate` table for job applications
+   - `partner` table for partnership requests
+   - Storage bucket for file uploads
+   - Storage policies for secure access
+
+Adding new migrations:
+1. Create a new migration file in `src/lib/migrations/` with an incremented number prefix
+2. Export a migration object with `name`, `up` (and optionally `down`) methods
+3. Add the migration to the exports in `src/lib/migrations/migrations.ts`
+
+### Database Schema
+
+**candidate**
 - id (integer, primary key)
 - created_at (timestamp with time zone)
 - first_name (text)
@@ -64,7 +81,7 @@ npm run dev
 - cv_url (text)
 - certificate_url (text)
 
-**partners**
+**partner**
 - id (integer, primary key)
 - created_at (timestamp with time zone)
 - first_name (text)
@@ -78,8 +95,24 @@ npm run dev
 
 ### Storage Setup
 
-1. Create a bucket named `marina-prima-sukses-web` with private access
-2. Set up appropriate security policies for file access
+1. Create a bucket named `marina-prima-sukses-web` in Supabase Storage
+2. Set bucket access level to "private"
+3. Create a storage policy for secure file uploads:
+
+Navigate to Supabase Dashboard > Storage > Policies and add these policies:
+
+**For authenticated uploads (Admin)**
+- Type: `INSERT`
+- Allowed roles: `authenticated`
+- Policy definition: `true`
+
+**For viewing files (Admin)**
+- Type: `SELECT`
+- Allowed roles: `authenticated`
+- Policy definition: `true`
+
+**API server uploads (for form submissions)**
+Service role key is used in the API route to handle uploads from unauthenticated users
 
 ### Authentication Setup
 
@@ -111,6 +144,8 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 npm run create-admin
 ```
 
+4. Log in to the admin dashboard and run migrations to set up the database.
+
 ## Admin Access
 
 Access the admin dashboard at `/admin/login` with these credentials:
@@ -124,7 +159,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 

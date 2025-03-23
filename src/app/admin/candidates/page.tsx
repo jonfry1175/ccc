@@ -24,7 +24,7 @@ export default function CandidatesPage() {
     async function fetchCandidates() {
       try {
         const { data, error } = await supabase
-          .from('candidates')
+          .from('candidate')
           .select('*')
           .order('created_at', { ascending: false });
 

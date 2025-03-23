@@ -120,7 +120,7 @@ export default function ContactForm() {
       const fullPhoneNumber = `${values.countryCode}${values.phoneNumber}`;
       
       // Insert data into Supabase
-      const { error } = await supabase.from('partners').insert({
+      const { error } = await supabase.from('partner').insert({
         first_name: values.firstName,
         last_name: values.lastName,
         email: values.email,
@@ -131,7 +131,10 @@ export default function ContactForm() {
         message: values.message
       });
       
-      if (error) throw error;
+      if (error) {
+        console.error('Database insertion error:', error);
+        throw new Error('Failed to submit your partnership request. Please try again.');
+      }
       
       toast({
         title: "Partnership Request Submitted Successfully",
@@ -140,12 +143,12 @@ export default function ContactForm() {
       
       // Reset form
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting form:', error);
       toast({
         variant: "destructive",
         title: "Submission Failed",
-        description: "There was an error submitting your request. Please try again.",
+        description: error.message || "There was an error submitting your request. Please try again.",
       });
     } finally {
       setIsSubmitting(false);

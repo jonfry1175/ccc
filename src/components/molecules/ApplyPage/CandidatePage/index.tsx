@@ -135,27 +135,37 @@ export default function CandidatePage() {
       const timestamp = new Date().getTime();
       const userId = `${data.firstName.toLowerCase()}_${data.lastName.toLowerCase()}_${timestamp}`;
       
-      // Upload files to Supabase Storage
+      // Upload files to Supabase Storage via API route
       let cvUrl = '';
       let certificateUrl = '';
       
       if (data.cv) {
-        const cvPath = `${userId}/cv_${data.cv.name}`;
-        await uploadFile('marina-prima-sukses-web', cvPath, data.cv);
-        cvUrl = getFileUrl('marina-prima-sukses-web', cvPath);
+        try {
+          const cvPath = `${userId}/cv_${data.cv.name}`;
+          await uploadFile('marina-prima-sukses-web', cvPath, data.cv);
+          cvUrl = getFileUrl('marina-prima-sukses-web', cvPath);
+        } catch (error) {
+          console.error('CV upload error:', error);
+          throw new Error('Failed to upload CV. Please try again.');
+        }
       }
       
       if (data.certificate) {
-        const certPath = `${userId}/cert_${data.certificate.name}`;
-        await uploadFile('marina-prima-sukses-web', certPath, data.certificate);
-        certificateUrl = getFileUrl('marina-prima-sukses-web', certPath);
+        try {
+          const certPath = `${userId}/cert_${data.certificate.name}`;
+          await uploadFile('marina-prima-sukses-web', certPath, data.certificate);
+          certificateUrl = getFileUrl('marina-prima-sukses-web', certPath);
+        } catch (error) {
+          console.error('Certificate upload error:', error);
+          throw new Error('Failed to upload Certificate. Please try again.');
+        }
       }
       
       // Format WhatsApp number with country code
       const whatsappNumber = `${data.whatsappCountryCode}${data.whatsappNumber}`;
       
       // Save candidate data to Supabase Database
-      const { error } = await supabase.from('candidates').insert({
+      const { error } = await supabase.from('candidate').insert({
         first_name: data.firstName,
         last_name: data.lastName,
         date_of_birth: data.dateOfBirth.toISOString(),
@@ -169,7 +179,10 @@ export default function CandidatePage() {
         certificate_url: certificateUrl
       });
       
-      if (error) throw error;
+      if (error) {
+        console.error('Database insertion error:', error);
+        throw new Error('Failed to save your application. Please try again.');
+      }
       
       toast({
         title: "Application Submitted Successfully",
@@ -179,12 +192,12 @@ export default function CandidatePage() {
       // Reset form
       form.reset();
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting form:', error);
       toast({
         variant: "destructive",
         title: "Submission Failed",
-        description: "There was an error submitting your application. Please try again.",
+        description: error.message || "There was an error submitting your application. Please try again.",
       });
     } finally {
       setIsSubmitting(false);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -17,9 +17,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { InfoIcon } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -46,7 +45,8 @@ export default function LoginPage() {
   async function onSubmit(data: FormValues) {
     try {
       setIsLoading(true);
-      const { error } = await supabase.auth.signInWithPassword({
+      
+      const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password
       });
@@ -57,11 +57,12 @@ export default function LoginPage() {
 
       toast({
         title: "Login Successful",
-        description: "Redirecting to admin dashboard..."
+        description: "Redirecting to dashboard..."
       });
 
-      // Redirect to admin dashboard
+      // Redirect to dashboard
       router.push("/admin/dashboard");
+      
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -127,15 +128,7 @@ export default function LoginPage() {
             </form>
           </Form>
         </CardContent>
-        <CardFooter className="justify-center">
-          <div className="flex items-center text-sm text-muted-foreground bg-blue-50 p-3 rounded-md">
-            <InfoIcon className="h-4 w-4 mr-2 text-blue-500" />
-            <p>
-              Admin credentials: <span className="font-medium">admin@mpsjakarta.com</span> / <span className="font-medium">mps2025</span>
-            </p>
-          </div>
-        </CardFooter>
       </Card>
     </div>
   );
-} 
+}

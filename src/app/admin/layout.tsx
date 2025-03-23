@@ -19,17 +19,37 @@ export default function AdminLayout({
 
   useEffect(() => {
     async function checkAuth() {
-      const { data } = await supabase.auth.getSession();
-      setIsLoggedIn(!!data.session);
-      setIsLoading(false);
+      try {
+        const { data } = await supabase.auth.getSession();
+        const hasSession = !!data.session;
+        setIsLoggedIn(hasSession);
+        
+        // If not logged in and not on login page, redirect to login
+        if (!hasSession && pathname !== "/admin/login") {
+          router.push("/admin/login");
+        }
+        
+        // If logged in and on login page, redirect to dashboard
+        if (hasSession && pathname === "/admin/login") {
+          router.push("/admin/dashboard");
+        }
+      } catch (error) {
+        console.error("Auth check error:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     checkAuth();
-  }, []);
+  }, [pathname, router]);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push("/admin/login");
+    try {
+      await supabase.auth.signOut();
+      router.push("/admin/login");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
   if (isLoading) {
@@ -40,13 +60,14 @@ export default function AdminLayout({
     );
   }
 
-  if (!isLoggedIn && pathname !== "/admin/login") {
-    router.push("/admin/login");
-    return null;
-  }
-
+  // For login page, just render the children without the admin layout
   if (pathname === "/admin/login") {
     return <>{children}</>;
+  }
+
+  // If not logged in, show nothing while redirect happens
+  if (!isLoggedIn) {
+    return null;
   }
 
   return (

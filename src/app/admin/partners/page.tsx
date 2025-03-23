@@ -29,7 +29,7 @@ export default function PartnersPage() {
     async function fetchPartners() {
       try {
         const { data, error } = await supabase
-          .from('partners')
+          .from('partner')
           .select('*')
           .order('created_at', { ascending: false });
 
