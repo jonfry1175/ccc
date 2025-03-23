@@ -17,8 +17,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { InfoIcon } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -37,8 +38,8 @@ export default function LoginPage() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      password: ""
+      email: "admin@mpsjakarta.com",
+      password: "mps2025"
     }
   });
 
@@ -79,6 +80,9 @@ export default function LoginPage() {
           <CardTitle className="text-2xl font-bold text-center">
             Admin Login
           </CardTitle>
+          <CardDescription className="text-center">
+            Sign in to access the admin dashboard
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -92,7 +96,7 @@ export default function LoginPage() {
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="admin@example.com"
+                        placeholder="admin@mpsjakarta.com"
                         {...field}
                       />
                     </FormControl>
@@ -123,6 +127,14 @@ export default function LoginPage() {
             </form>
           </Form>
         </CardContent>
+        <CardFooter className="justify-center">
+          <div className="flex items-center text-sm text-muted-foreground bg-blue-50 p-3 rounded-md">
+            <InfoIcon className="h-4 w-4 mr-2 text-blue-500" />
+            <p>
+              Admin credentials: <span className="font-medium">admin@mpsjakarta.com</span> / <span className="font-medium">mps2025</span>
+            </p>
+          </div>
+        </CardFooter>
       </Card>
     </div>
   );

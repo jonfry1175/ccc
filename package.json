@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-admin": "node scripts/create-admin.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",
@@ -24,6 +25,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.475.0",

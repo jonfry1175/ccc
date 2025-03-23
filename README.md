@@ -30,6 +30,7 @@ npm install
 3. Set up environment variables by creating a `.env.local` file:
 
 ```
+NEXT_PUBLIC_SUPABASE_URL=https://nrxfjvpjxlzamlgbfqqg.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ```
@@ -80,10 +81,18 @@ npm run dev
 1. Create a bucket named `marina-prima-sukses-web` with private access
 2. Set up appropriate security policies for file access
 
-### Authentication
+### Authentication Setup
 
 1. Enable Email/Password authentication in your Supabase project
-2. Create an admin user through the Supabase dashboard
+2. Create the admin user by running:
+
+```bash
+npm run create-admin
+```
+
+This will create a static admin user with the following credentials:
+- Email: `admin@mpsjakarta.com`
+- Password: `mps2025`
 
 ## Deployment
 
@@ -91,13 +100,22 @@ npm run dev
 2. Set the environment variables in your hosting platform:
 
 ```
+NEXT_PUBLIC_SUPABASE_URL=https://nrxfjvpjxlzamlgbfqqg.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ```
 
+3. After deployment, create the admin user by running the create-admin script:
+
+```bash
+npm run create-admin
+```
+
 ## Admin Access
 
-Access the admin dashboard at `/admin/login` with the admin credentials created in Supabase.
+Access the admin dashboard at `/admin/login` with these credentials:
+- Email: `admin@mpsjakarta.com`
+- Password: `mps2025`
 
 ## Learn More
 
