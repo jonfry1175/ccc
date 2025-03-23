@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserIcon, BuildingIcon } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -86,20 +86,6 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
-
-      <Card className="col-span-3">
-        <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
-          <CardDescription>
-            The latest submissions from candidates and partners
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">
-            View detailed information in the Candidates and Partners tabs.
-          </p>
-        </CardContent>
-      </Card>
     </div>
   );
 } 
