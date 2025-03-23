@@ -8,8 +8,6 @@ Website for Marina Prima Sukses company with candidate and partner application f
 - Partner application form for business partnerships
 - Admin dashboard to view submissions
 - Secure authentication for admin access
-- File management for uploaded documents
-- Database migration system for schema management
 
 ## Tech Stack
 
@@ -45,24 +43,6 @@ npm run dev
 5. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ## Supabase Setup
-
-### Database Migration System
-
-The application uses a migration system to manage database schema changes. Migrations are automatically tracked in a `migrations` table and only run once.
-
-1. Log in to the admin dashboard at `/admin/login`
-2. Go to the Admin Dashboard
-3. Click "Run Migrations" to set up the database schema
-4. Migrations will create:
-   - `candidate` table for job applications
-   - `partner` table for partnership requests
-   - Storage bucket for file uploads
-   - Storage policies for secure access
-
-Adding new migrations:
-1. Create a new migration file in `src/lib/migrations/` with an incremented number prefix
-2. Export a migration object with `name`, `up` (and optionally `down`) methods
-3. Add the migration to the exports in `src/lib/migrations/migrations.ts`
 
 ### Database Schema
 
@@ -144,8 +124,6 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 npm run create-admin
 ```
 
-4. Log in to the admin dashboard and run migrations to set up the database.
-
 ## Admin Access
 
 Access the admin dashboard at `/admin/login` with these credentials:
@@ -163,6 +141,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js .
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details..
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
