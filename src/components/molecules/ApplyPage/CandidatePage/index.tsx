@@ -34,6 +34,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Navbar from "@/components/atoms/Navbar";
 import PhoneNumberInput from "@/components/atoms/PhoneNumber";
+import { useToast } from "@/components/ui/use-toast";
+import { supabase, uploadFile, getFileUrl } from "@/lib/supabase";
 
 const departments = [
   { label: "Galley", value: "galley" },
@@ -104,6 +106,8 @@ export default function CandidatePage() {
     null
   );
   const [calendarMonth, setCalendarMonth] = useState<Date>(new Date());
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -123,9 +127,68 @@ export default function CandidatePage() {
     ? positions.filter((position) => position.department === selectedDepartment)
     : [];
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data: FormValues) => {
+    try {
+      setIsSubmitting(true);
+      
+      // Generate unique IDs for file uploads
+      const timestamp = new Date().getTime();
+      const userId = `${data.firstName.toLowerCase()}_${data.lastName.toLowerCase()}_${timestamp}`;
+      
+      // Upload files to Supabase Storage
+      let cvUrl = '';
+      let certificateUrl = '';
+      
+      if (data.cv) {
+        const cvPath = `${userId}/cv_${data.cv.name}`;
+        await uploadFile('marina-prima-sukses-web', cvPath, data.cv);
+        cvUrl = getFileUrl('marina-prima-sukses-web', cvPath);
+      }
+      
+      if (data.certificate) {
+        const certPath = `${userId}/cert_${data.certificate.name}`;
+        await uploadFile('marina-prima-sukses-web', certPath, data.certificate);
+        certificateUrl = getFileUrl('marina-prima-sukses-web', certPath);
+      }
+      
+      // Format WhatsApp number with country code
+      const whatsappNumber = `${data.whatsappCountryCode}${data.whatsappNumber}`;
+      
+      // Save candidate data to Supabase Database
+      const { error } = await supabase.from('candidates').insert({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        date_of_birth: data.dateOfBirth.toISOString(),
+        gender: data.gender,
+        passport_id: data.passportId,
+        email: data.email,
+        whatsapp_number: whatsappNumber,
+        department: data.department,
+        position: data.position,
+        cv_url: cvUrl,
+        certificate_url: certificateUrl
+      });
+      
+      if (error) throw error;
+      
+      toast({
+        title: "Application Submitted Successfully",
+        description: "Thank you for your application. We will be in touch soon!",
+      });
+      
+      // Reset form
+      form.reset();
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -569,8 +632,8 @@ export default function CandidatePage() {
                 )}
               />
 
-              <Button type="submit" className="w-full">
-                Submit Application
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Application"}
               </Button>
             </form>
           </Form>

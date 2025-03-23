@@ -26,6 +26,8 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/atoms/Navbar";
 import PhoneNumberInput from "@/components/atoms/PhoneNumber";
+import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/lib/supabase";
 
 // Define the Country interface
 interface Country {
@@ -65,7 +67,9 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
   const [countries, setCountries] = useState<Country[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { toast } = useToast();
 
   // Initialize form
   const form = useForm<FormValues>({
@@ -84,29 +88,68 @@ export default function ContactForm() {
   });
 
   // Fetch countries from API
-  useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch("https://hafapilar.com/api/country");
-        const data = await response.json();
-        const sortedCountries = data.sort((a: any, b: any) =>
-          a.name.localeCompare(b.name)
-        );
-        setCountries(sortedCountries);
-      } catch (error) {
-        console.error("Error fetching countries:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const fetchCountries = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      const sortedCountries = data
+        .map((country: any) => ({
+          id: country.cca2,
+          name: country.name.common
+        }))
+        .sort((a: Country, b: Country) => a.name.localeCompare(b.name));
+      setCountries(sortedCountries);
+    } catch (error) {
+      console.error("Error fetching countries:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchCountries();
   }, []);
 
   // Form submission handler
-  function onSubmit(values: FormValues) {
-    console.log(values);
-    // Handle form submission logic here
+  async function onSubmit(values: FormValues) {
+    try {
+      setIsSubmitting(true);
+      
+      // Format phone number with country code
+      const fullPhoneNumber = `${values.countryCode}${values.phoneNumber}`;
+      
+      // Insert data into Supabase
+      const { error } = await supabase.from('partners').insert({
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        phone_number: fullPhoneNumber,
+        company_name: values.companyName,
+        company_website: values.companyWebsite,
+        country: values.country,
+        message: values.message
+      });
+      
+      if (error) throw error;
+      
+      toast({
+        title: "Partnership Request Submitted Successfully",
+        description: "Thank you for your interest! We will be in touch soon.",
+      });
+      
+      // Reset form
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -228,7 +271,6 @@ export default function ContactForm() {
                 />
 
                 {/* Country */}
-                {/* Country */}
                 <FormField
                   control={form.control}
                   name="country"
@@ -293,8 +335,8 @@ export default function ContactForm() {
               </div>
 
               {/* Submit Button */}
-              <Button type="submit" className="w-full">
-                Submit Application
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Application"}
               </Button>
             </form>
           </Form>

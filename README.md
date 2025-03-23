@@ -1,24 +1,103 @@
-This is [Next](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
+# Marina Prima Sukses Web Application
 
-## Getting Started
+Website for Marina Prima Sukses company with candidate and partner application forms.
 
-First, run the development server:
+## Features
+
+- Candidate job application with file uploads (CV and certificates)
+- Partner application form for business partnerships
+- Admin dashboard to view submissions
+- Secure authentication for admin access
+- File management for uploaded documents
+
+## Tech Stack
+
+- Next.js 15.x (React 19.x)
+- TypeScript
+- Tailwind CSS
+- Supabase (Authentication, Database, Storage)
+- Shadcn UI Components
+
+## Local Development
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up environment variables by creating a `.env.local` file:
+
+```
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Database Tables
+
+1. Create the following tables in your Supabase project:
+
+**candidates**
+- id (integer, primary key)
+- created_at (timestamp with time zone)
+- first_name (text)
+- last_name (text)
+- date_of_birth (timestamp with time zone)
+- gender (text)
+- passport_id (text)
+- email (text)
+- whatsapp_number (text)
+- department (text)
+- position (text)
+- cv_url (text)
+- certificate_url (text)
+
+**partners**
+- id (integer, primary key)
+- created_at (timestamp with time zone)
+- first_name (text)
+- last_name (text)
+- email (text)
+- phone_number (text)
+- company_name (text)
+- company_website (text)
+- country (text)
+- message (text)
+
+### Storage Setup
+
+1. Create a bucket named `marina-prima-sukses-web` with private access
+2. Set up appropriate security policies for file access
+
+### Authentication
+
+1. Enable Email/Password authentication in your Supabase project
+2. Create an admin user through the Supabase dashboard
+
+## Deployment
+
+1. Deploy to Vercel or your preferred hosting service
+2. Set the environment variables in your hosting platform:
+
+```
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+
+## Admin Access
+
+Access the admin dashboard at `/admin/login` with the admin credentials created in Supabase.
 
 ## Learn More
 
