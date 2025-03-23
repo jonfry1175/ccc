@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 
 // Create a Supabase client with the service role key
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://nrxfjvpjxlzamlgbfqqg.supabase.co';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 // This client has admin privileges and should only be used in secure server environments
