@@ -31,7 +31,7 @@ export default function MarqueeImageHero() {
     <div className="relative flex px-5 w-full flex-col bg-gold items-center justify-center overflow-hidden">
       <Marquee
         pauseOnHover
-        className="[--duration:20s] pauseOnHover max-w-full md:mx-auto py-10"
+        className="[--duration:30s] pauseOnHover max-w-full md:mx-auto py-10"
       >
         {firstRow.map((review) => (
           <MarqueLogo key={review.id} {...review} />

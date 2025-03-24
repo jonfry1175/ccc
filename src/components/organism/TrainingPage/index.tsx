@@ -60,25 +60,21 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-color4 mt-4 mb-4 py-8   text-color1">
+      <section className="bg-color4 mt-4 mb-4 py-8 text-color1">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl font-bold text-center mb-8">
-            MPS Training Programs
+            Our Top 5 Training Courses
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ul className="list-decimal list-inside ">
             {ProgramsTraining.map((service, index) => (
-              <Card
+              <li
                 key={index}
-                className="space-y-4 text-center border-2 rounded-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                className="text-[16px] font-semibold text-color1 p-4"
               >
-                <CardContent className="px-6 pt-6 space-y-4 text-center">
-                  <p className="text-[16px] font-semibold text-color1">
-                    {service.title}
-                  </p>
-                </CardContent>
-              </Card>
+                {service.title}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -87,15 +83,27 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
           <h1 className="text-4xl text-center font-bold">
             Rising Stars of Our Program
           </h1>
-          <CarouselComponent
-            images={trainings.map((training) => ({
-              src: training.image,
-              alt: `Training ${training.id}`
-            }))}
-            loop={true}
-            dragFree={true}
-            slidesToScroll={1}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <video
+              src="/images/training/11.mp4"
+              controls
+              className="w-full h-[150px] md:h-[400px] object-cover rounded-lg"
+            ></video>
+            <video
+              src="/images/training/12.mp4"
+              controls
+              className="w-full h-[150px] md:h-[400px] object-cover rounded-lg"
+            ></video>
+            <CarouselComponent
+              images={trainings.map((training) => ({
+                src: training.image,
+                alt: `Training ${training.id}`
+              }))}
+              loop={false}
+              dragFree={true}
+              slidesToScroll={1}
+            />
+          </div>
         </div>
       </section>
     </div>

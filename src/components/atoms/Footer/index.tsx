@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold/20 via-gold/50 to-gold/20"></div>
 
       <div className="max-w-6xl px-6 md:px-10 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-semibold mb-6 text-color1">
@@ -49,42 +49,6 @@ export default function Footer() {
                 <FaLinkedin className="w-5 h-5 text-color4" />
               </Link>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <nav className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
-              >
-                About
-              </Link>
-              <Link
-                href="/services"
-                className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
-              >
-                Services
-              </Link>
-              <Link
-                href="/contact"
-                className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/careers"
-                className="text-color1 hover:text-color1/50 transition-colors duration-300 text-[15px]"
-              >
-                Careers
-              </Link>
-            </nav>
           </div>
 
           {/* Contact Info */}

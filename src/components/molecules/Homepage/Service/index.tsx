@@ -8,7 +8,8 @@ export default function Services() {
   const UniqueValue = [
     {
       id: 1,
-      value: "Fully Compliant with MLC 2006 Standards & ISO 9001:2015 Certified"
+      value:
+        "Fully Compliant with MLC 2006 Standards & ISO 9001:2015 Certified."
     },
     {
       id: 2,
@@ -38,7 +39,7 @@ export default function Services() {
         <section className="bg-white py-5 text-color1">
           <div className="max-w-6xl mx-auto space-y-4 px-4">
             <motion.h1
-              className="text-3xl font-bold"
+              className="text-3xl font-bold mb-20"
               initial={{ opacity: 0, y: -20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}

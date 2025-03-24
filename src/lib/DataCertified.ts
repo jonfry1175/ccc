@@ -2,7 +2,7 @@ export const certifiedsData = [
   {
     id: 1,
     image: "/images/Logo/1.png",
-    name: "DINAS PERHUBUNGAN INDONESIA (SIUPPAK)"
+    name: "KEMENTRIAN PERHUBUNGAN INDONESIA (SIUPPAK)"
   },
   {
     id: 2,
