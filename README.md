@@ -1,6 +1,6 @@
 # Marina Prima Sukses Web Application
 
-Website for Marina Prima Sukses company with candidate and partner application forms.
+Website for company Marina Prima Sukses company with candidate and partner application forms.
 
 ## Features
 
