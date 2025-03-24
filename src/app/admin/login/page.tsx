@@ -37,8 +37,8 @@ export default function LoginPage() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "admin@mpsjakarta.com",
-      password: "mps2025"
+      email: "",
+      password: ""
     }
   });
 
@@ -97,7 +97,6 @@ export default function LoginPage() {
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="admin@mpsjakarta.com"
                         {...field}
                       />
                     </FormControl>
