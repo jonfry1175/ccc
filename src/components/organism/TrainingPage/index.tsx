@@ -1,14 +1,20 @@
+"use client";
 import CarouselComponent from "@/components/atoms/CarouselImage";
 import Navbar from "@/components/atoms/Navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { trainings } from "@/lib/DataTraining";
 import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface TrainingPageProps {
   onBackToHome?: () => void;
 }
 
 export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+
   const ProgramsTraining = [
     {
       id: 1,
@@ -60,19 +66,32 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-color4 mt-4 mb-4 py-8 text-color1">
+      <section
+        className="bg-color4 mt-4 mb-4 py-8 text-color1"
+        ref={sectionRef}
+      >
         <div className="max-w-6xl mx-auto space-y-4 px-4">
-          <h1 className="text-4xl font-bold text-center mb-8">
+          <motion.h1
+            className="text-4xl font-bold text-center mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
+          >
             Our Top 5 Training Courses
-          </h1>
-          <ul className="list-decimal list-inside ">
+          </motion.h1>
+          <ul className="list-decimal list-inside">
             {ProgramsTraining.map((service, index) => (
-              <li
+              <motion.li
                 key={index}
                 className="text-[16px] font-semibold text-color1 p-4"
+                initial={{ opacity: 0, x: -50 }}
+                animate={
+                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+                }
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {service.title}
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
