@@ -40,8 +40,12 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section> */}
 
-      <section className="bg-white py-5 text-color1">
-        <div className="max-w-6xl mx-auto space-y-4 px-4">
+      <section className="relative bg-white text-white py-40">
+        <div
+          className="absolute inset-0 bg-center blur-sm"
+          style={{ backgroundImage: "url('/images/imagetraining.jpg')" }}
+        />
+        <div className="relative max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl text-center font-bold mb-8">
             MPS Training Division
           </h1>
@@ -66,10 +70,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section
-        className="bg-color4 mt-4 mb-4 py-8 text-color1"
-        ref={sectionRef}
-      >
+      <section className="bg-white  mb-4 py-8 text-color1" ref={sectionRef}>
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <motion.h1
             className="text-4xl font-bold text-center mb-8"
@@ -97,7 +98,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-white mt-4 mb-4 py-5 text-color1">
+      <section className="bg-color4 mt-4  py-5 text-color1">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl text-center font-bold">
             Rising Stars of Our Program
