@@ -1,4 +1,4 @@
-# Marina Prima Sukses Web Application
+# Marina Prima Sukses Web Application.
 
 Website for company Marina Prima Sukses company with candidate and partner application forms.
 
@@ -47,6 +47,7 @@ npm run dev
 ### Database Schema
 
 **candidate**
+
 - id (integer, primary key)
 - created_at (timestamp with time zone)
 - first_name (text)
@@ -62,6 +63,7 @@ npm run dev
 - certificate_url (text)
 
 **partner**
+
 - id (integer, primary key)
 - created_at (timestamp with time zone)
 - first_name (text)
@@ -82,11 +84,13 @@ npm run dev
 Navigate to Supabase Dashboard > Storage > Policies and add these policies:
 
 **For authenticated uploads (Admin)**
+
 - Type: `INSERT`
 - Allowed roles: `authenticated`
 - Policy definition: `true`
 
 **For viewing files (Admin)**
+
 - Type: `SELECT`
 - Allowed roles: `authenticated`
 - Policy definition: `true`
@@ -104,6 +108,7 @@ npm run create-admin
 ```
 
 This will create a static admin user with the following credentials:
+
 - Email: `admin@mpsjakarta.com`
 - Password: `mps2025`
 
@@ -127,6 +132,7 @@ npm run create-admin
 ## Admin Access
 
 Access the admin dashboard at `/admin/login` with these credentials:
+
 - Email: `admin@mpsjakarta.com`
 - Password: `mps2025`
 
