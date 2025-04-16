@@ -38,29 +38,33 @@ import { useToast } from "@/components/ui/use-toast";
 import { supabase, uploadFile, getFileUrl } from "@/lib/supabase";
 
 const departments = [
-  { label: "Galley", value: "galley" },
-  { label: "Cabin Crew", value: "cabin-crew" },
-  { label: "Flight Deck", value: "flight-deck" },
-  { label: "Ground Staff", value: "ground-staff" }
+  { label: "Deck & Engine Department", value: "deck-engine" },
+  { label: "Housekeeping Department", value: "housekeeping" }
 ];
 
 const positions = [
-  { label: "Chef", value: "chef", department: "galley" },
-  { label: "Assistant Chef", value: "assistant-chef", department: "galley" },
-  { label: "Steward", value: "steward", department: "galley" },
-  {
-    label: "Flight Attendant",
-    value: "flight-attendant",
-    department: "cabin-crew"
-  },
-  { label: "Purser", value: "purser", department: "cabin-crew" },
-  { label: "Pilot", value: "pilot", department: "flight-deck" },
-  { label: "Co-Pilot", value: "co-pilot", department: "flight-deck" },
-  {
-    label: "Check-in Agent",
-    value: "check-in-agent",
-    department: "ground-staff"
-  }
+  // Deck & Engine Department
+  { label: "AB Sailor", value: "ab-sailor", department: "deck-engine" },
+  { label: "Carpenter", value: "carpenter", department: "deck-engine" },
+  { label: "Deck Fitter", value: "deck-fitter", department: "deck-engine" },
+  { label: "Deck Pool Safety Guard", value: "deck-pool-safety-guard", department: "deck-engine" },
+  { label: "Fireman", value: "fireman", department: "deck-engine" },
+  { label: "Ordinary Seaman", value: "ordinary-seaman", department: "deck-engine" },
+  { label: "Pest Control Technician", value: "pest-control-technician", department: "deck-engine" },
+  { label: "Waste Operator", value: "waste-operator", department: "deck-engine" },
+  { label: "Asst. Fitter Mechanic", value: "asst-fitter-mechanic", department: "deck-engine" },
+  { label: "Fitter Mechanic", value: "fitter-mechanic", department: "deck-engine" },
+  { label: "Oiler", value: "oiler", department: "deck-engine" },
+  { label: "Plumber", value: "plumber", department: "deck-engine" },
+  { label: "Upholsterer", value: "upholsterer", department: "deck-engine" },
+  { label: "Wiper", value: "wiper", department: "deck-engine" },
+
+  // Housekeeping Department
+  { label: "Cabin Steward", value: "cabin-steward", department: "housekeeping" },
+  { label: "Hotel Cleaner", value: "hotel-cleaner", department: "housekeeping" },
+  { label: "Crew Cleaner", value: "crew-cleaner", department: "housekeeping" },
+  { label: "Laundry Operator", value: "laundry-operator", department: "housekeeping" },
+  { label: "Tailor", value: "tailor", department: "housekeeping" }
 ];
 
 const countryCodes = [
@@ -480,7 +484,7 @@ export default function CandidatePage() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Galley" />
+                            <SelectValue placeholder="Deck & Engine Department" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -515,7 +519,7 @@ export default function CandidatePage() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select Galley Position" />
+                            <SelectValue placeholder="Select Deck & Engine Position" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
