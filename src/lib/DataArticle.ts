@@ -10,6 +10,40 @@ interface Article {
 
 export const articles: Article[] = [
   {
+    category: "News",
+    date: "09 June 2025",
+    title: "Why Choose Our Jakarta-Based MSC Cruises Manning Agency",
+    description:
+      "If you’re looking to start a career at sea with one of the world’s most prestigious cruise lines, MSC Cruises, choosing the right manning agency is your first—and most important—step. At our Jakarta-based MSC Cruises manning agency, we specialize in connecting talented Indonesian seafarers with global cruise ship opportunities. Here's why hundreds of applicants trust us with their journey:",
+    image: "/images/article/msc.jpg",
+    slug: "why-choose-our-jakarta-based-msc-cruises-manning-agency",
+    content: `
+            
+                  <h5>1. We Are an Official Hiring Partner for MSC Cruises</h5>
+                  <p>As an authorized MSC Cruises agency in Jakarta, we follow strict international standards in recruitment, training, and deployment. That means you can trust the process is transparent, professional, and fully compliant with industry requirements</p>
+                
+                  
+                  <h5>2. Local Office, Global Access</h5>
+                  <p>Our agency is strategically located in Jakarta, giving easier access to aspiring crew members across Indonesia. You no longer need to go through unclear middlemen or distant offices. You can walk into our Jakarta office and speak directly to professionals who understand the cruise industry inside out.</p>
+                 
+                  
+                  <h5>3. End-to-End Support<h5>
+                  <p>From CV preparation and interview guidance to visa processing and embarkation, we offer full support throughout your application. We don’t just recruit — we mentor, guide, and stand by you until you’re safely on board.</p>
+                  
+                  <h5>4. Zero Hidden Fees</h5>
+                  <p>We maintain a strict “no hidden fee” policy. Transparency is one of our strongest values. We clearly communicate any costs related to medical exams, certifications, or visa processing. There are no placement fees or unethical deductions from your salary.</p>
+                 
+                  
+                  <h5>5. Built for Indonesian Migrant Workers</h5>
+                  <p>We believe Indonesian crew have what it takes to shine on the world stage. That’s why our training, onboarding, and communication are tailored to support Bahasa Indonesia-speaking applicants and prepare them for the English-speaking cruise environment.</p>
+                  
+                  <h5>✨ Start Your Cruise Career Today</h5>
+                  <p>If you searched for “MSC Cruises agency Jakarta”, you’ve found the right partner.  We’re here to make your dream of working at sea a reality — with honesty, support, and professionalism.</p>
+                  
+                 
+              `
+  },
+  {
     category: "Tips",
     date: "22 Mar 2024",
     title: "Begini Tipsnya Supaya Bisa Sukses Kerja di Kapal Pesiar",

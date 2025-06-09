@@ -29,7 +29,7 @@ export async function generateMetadata({
       description: article.description,
       images: [article.image]
     },
-    metadataBase: new URL("https://project-mps-web.vercel.app") // Ganti sesuai domain kamu
+    metadataBase: new URL("https://www.mpsjakarta.com/") // Ganti sesuai domain kamu
   };
 }
 

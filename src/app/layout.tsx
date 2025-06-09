@@ -3,11 +3,12 @@ import { Sora, Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
-  title: "Marina Prima Sukses",
+  title: "Official MSC Cruises Manning Agency | Jakarta, Indonesia",
   applicationName: "Marina Prima Sukses",
   keywords: "Marina Prima Sukses",
   manifest: "/manifest.json",
-  description: "Marina Prima Sukses",
+  description:
+    "We are an authorized MSC Cruises Manning Agency based in Jakarta, Indonesia, connecting qualified Indonesian crew to global cruise ship careers.",
   icons: {
     icon: [
       {
