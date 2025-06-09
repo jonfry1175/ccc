@@ -88,7 +88,7 @@ export default function Home() {
                 <h2 className="text-xl md:text-3xl">
                   WELCOME TO MARINA PRIMA SUKSES
                 </h2>
-                <h2 className="text-xl md:text-md mt-4">
+                <h2 className="text-xl md:text-md mt-4 italic">
                   MSC Cruises Hiring Agency in Jakarta - Bridging Indonesian
                   Workers to Global Shores
                 </h2>
