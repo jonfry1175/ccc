@@ -1,131 +1,167 @@
-"use client";
+import { homePageMetadata } from "./metadata";
+import HomePageClient from "./home-page-client";
+import Script from "next/script";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import Homepage from "@/components/organism/Homepage";
-import { useRouter, usePathname } from "next/navigation";
+export const metadata = homePageMetadata;
+
+// Rich structured data for better SEO
+const structuredData = {
+  organization: {
+    "@context": "https://schema.org",
+    "@type": "EmploymentAgency",
+    "name": "Marina Prima Sukses",
+    "alternateName": "MPS Jakarta",
+    "url": "https://mpsjakarta.com",
+    "logo": "https://mpsjakarta.com/images/Logo/logomps1.png",
+    "description": "Official MSC Cruises Manning Agency in Jakarta, Indonesia. Recruiting Indonesian crew for international cruise ships since establishment.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jakarta",
+      "addressRegion": "DKI Jakarta",
+      "addressCountry": "ID",
+      "postalCode": "12000"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "recruitment",
+      "email": "admin@mpsjakarta.com",
+      "availableLanguage": ["English", "Indonesian"]
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "knowsAbout": [
+      "MSC Cruises recruitment",
+      "Cruise ship jobs",
+      "Maritime training",
+      "Indonesian crew placement"
+    ]
+  },
+  jobPosting: {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Cruise Ship Crew - Multiple Positions Available",
+    "description": "Join MSC Cruises through Marina Prima Sukses. We are recruiting for Housekeeping, F&B, Kitchen, Deck, Engine, and Entertainment positions.",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Marina Prima Sukses",
+      "sameAs": "https://mpsjakarta.com"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "name": "MSC Cruises Fleet (International)"
+    },
+    "employmentType": "FULL_TIME",
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 1200,
+        "maxValue": 5000,
+        "unitText": "MONTH"
+      }
+    },
+    "datePosted": new Date().toISOString().split('T')[0],
+    "validThrough": new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+  },
+  faq: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apa itu Marina Prima Sukses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Marina Prima Sukses adalah agen resmi MSC Cruises di Jakarta yang merekrut crew Indonesia untuk kapal pesiar internasional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What positions are available for Indonesian crew?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recruit for Housekeeping, Food & Beverage, Galley, Deck, Engine, Entertainment, and Guest Services departments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa syarat untuk bekerja di kapal pesiar MSC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Syarat dasar: Paspor valid, kemampuan bahasa Inggris, pengalaman kerja relevan, sertifikat STCW, dan lulus tes kesehatan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long is the contract for cruise ship work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typical contracts range from 6-10 months depending on position, with 2 months vacation between contracts."
+        }
+      }
+    ]
+  }
+};
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [currentVideo, setCurrentVideo] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const videos = ["/videos/hero-video-background.mp4", "/videos/video2.mp4"];
-  const router = useRouter();
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname === "/") {
-      setActiveSection(null);
-    }
-  }, [pathname]);
-
-  const handleVideoEnd = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentVideo((prev) => (prev + 1) % videos.length);
-      setIsTransitioning(false);
-    }, 500); // Waktu transisi (0.5 detik)
-  };
-
   return (
-    <div
-      className={`relative w-full ${
-        activeSection === null ? "h-screen overflow-hidden" : "min-h-screen"
-      }`}
-    >
-      {/* Video Background */}
-      {activeSection === null && (
-        <div className="absolute inset-0">
-          <AnimatePresence mode="wait">
-            {!isTransitioning && (
-              <motion.video
-                key={currentVideo}
-                autoPlay
-                muted
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover"
-                onEnded={handleVideoEnd}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <source src={videos[currentVideo]} type="video/mp4" />
-                Your browser does not support the video tag.
-              </motion.video>
-            )}
-          </AnimatePresence>
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-      )}
-
-      {/* Content */}
-      <div
-        className={`${
-          activeSection === null
-            ? "relative z-10 flex h-full flex-col items-center justify-center"
-            : "w-full"
-        }`}
-      >
-        <AnimatePresence mode="wait">
-          {activeSection === null ? (
-            <motion.div
-              key="main"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="flex flex-col items-center gap-8"
-            >
-              <motion.div
-                initial={{ y: -50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-col items-center text-center text-white"
-              >
-                <h1 className="text-6xl font-bold md:text-1xl mb-4">HELLO!</h1>
-                <h2 className="text-xl md:text-3xl">
-                  WELCOME TO MARINA PRIMA SUKSES
-                </h2>
-                <h2 className="text-xl md:text-md mt-4 italic">
-                  MSC Cruises Hiring Agency in Jakarta - Bridging Indonesian
-                  Workers to Global Shores
-                </h2>
-              </motion.div>
-
-              <div className="flex flex-col gap-4 md:flex-row md:gap-8">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
-                  onClick={() => setActiveSection("Company Profile")}
-                >
-                  Bussiness Profile
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
-                  onClick={() => router.push("/apply-now")}
-                >
-                  Apply Now
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
-                  onClick={() => router.push("/training-center")}
-                >
-                  Training Center
-                </Button>
-              </div>
-            </motion.div>
-          ) : (
-            <Homepage onBackToHome={() => setActiveSection(null)} />
-          )}
-        </AnimatePresence>
+    <>
+      {/* Structured Data for SEO */}
+      <Script
+        id="organization-schema-home"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData.organization)
+        }}
+      />
+      <Script
+        id="job-posting-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData.jobPosting)
+        }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData.faq)
+        }}
+      />
+      
+      {/* SEO-optimized content for crawlers */}
+      <div className="sr-only">
+        <h1>Marina Prima Sukses - Official MSC Cruises Manning Agency Jakarta Indonesia</h1>
+        <p>Marina Prima Sukses (MPS Jakarta) adalah agen perekrutan resmi MSC Cruises di Indonesia. Kami menghubungkan pekerja Indonesia berbakat dengan peluang karir menarik di kapal pesiar mewah di seluruh dunia.</p>
+        
+        <h2>Lowongan Kerja Kapal Pesiar untuk WNI</h2>
+        <p>Bergabunglah dengan ribuan crew Indonesia sukses yang bekerja di kapal MSC Cruises. Kami menawarkan layanan rekrutmen, pelatihan, dan penempatan kerja.</p>
+        
+        <h3>Departemen yang Tersedia:</h3>
+        <ul>
+          <li>Housekeeping dan Akomodasi</li>
+          <li>Food and Beverage Service</li>
+          <li>Kitchen dan Galley</li>
+          <li>Deck Department</li>
+          <li>Engine Department</li>
+          <li>Entertainment dan Guest Services</li>
+        </ul>
+        
+        <h3>Mengapa Memilih Marina Prima Sukses?</h3>
+        <ul>
+          <li>Agen resmi MSC Cruises di Indonesia</li>
+          <li>Proses rekrutmen transparan</li>
+          <li>Training center berstandar internasional</li>
+          <li>Pendampingan hingga keberangkatan</li>
+          <li>Gaji kompetitif dalam USD</li>
+        </ul>
       </div>
-    </div>
+      
+      {/* Client Component */}
+      <HomePageClient />
+    </>
   );
 }

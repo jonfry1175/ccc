@@ -78,6 +78,9 @@ const countryCodes = [
   { label: "+91", value: "+91" }
 ];
 
+// Check if we're in a browser environment
+const isBrowser = typeof window !== "undefined";
+
 const formSchema = z.object({
   firstName: z.string().min(1, { message: "First name is required" }),
   lastName: z.string().min(1, { message: "Last name is required" }),
@@ -91,8 +94,8 @@ const formSchema = z.object({
   whatsappNumber: z.string().min(1, { message: "WhatsApp number is required" }),
   department: z.string().min(1, { message: "Department is required" }),
   position: z.string().min(1, { message: "Position is required" }),
-  cv: z.instanceof(File).optional(),
-  certificate: z.instanceof(File).optional()
+  cv: isBrowser ? z.instanceof(File).optional() : z.any().optional(),
+  certificate: isBrowser ? z.instanceof(File).optional() : z.any().optional()
 });
 
 type FormValues = z.infer<typeof formSchema>;

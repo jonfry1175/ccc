@@ -5,10 +5,18 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/admin/*"],
+        crawlDelay: 1
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
         disallow: ["/api/", "/admin/"],
-        allow: "/"
+        crawlDelay: 0
       }
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`
+    sitemap: "https://mpsjakarta.com/sitemap.xml",
+    host: "https://mpsjakarta.com"
   };
 }
