@@ -9,27 +9,27 @@ export default function Services() {
     {
       id: 1,
       value:
-        "Fully Compliant with MLC 2006 Standards & ISO 9001:2015 Certified."
+        "Sepenuhnya Memenuhi Standar MLC 2006 & Bersertifikat ISO 9001:2015."
     },
     {
       id: 2,
       value:
-        "Our recruitment team & office staff are composed of experienced former seafarers with extensive expertise in both the cruise line and hospitality industries."
+        "Tim rekrutmen & staf kantor kami terdiri dari mantan pelaut berpengalaman dengan keahlian luas di industri kapal pesiar dan perhotelan."
     },
     {
       id: 3,
       value:
-        "We uphold the highest ethical standards, ensuring that no application or processing fees are charged beyond those mandated by our principals."
+        "Kami menjunjung tinggi standar etika tertinggi, memastikan tidak ada biaya aplikasi atau pemrosesan yang dibebankan di luar yang diamanatkan oleh prinsipal kami."
     },
     {
       id: 4,
       value:
-        "Every cruise line client is assigned a dedicated crew coordinator, supported by a specialized processing and scheduling team for seamless operations."
+        "Setiap klien jalur pelayaran ditugaskan seorang koordinator kru yang berdedikasi, didukung oleh tim pemrosesan dan penjadwalan khusus untuk operasi yang lancar."
     },
     {
       id: 5,
       value:
-        "We have forged strong partnerships with top hospitality institutions across Indonesia, which giving us priority access to exceptional graduates/candidates."
+        "Kami telah menjalin kemitraan yang kuat dengan institusi perhotelan terkemuka di seluruh Indonesia, yang memberi kami akses prioritas ke lulusan/kandidat luar biasa."
     }
   ];
 
@@ -44,7 +44,7 @@ export default function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
             >
-              Our Unique Value Proposition
+              Proposisi Nilai Unik Kami
             </motion.h1>
             <div className="text-left w-full">
               <ul className="space-y-4 list-disc pl-5 w-full">

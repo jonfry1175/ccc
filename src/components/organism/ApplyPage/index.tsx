@@ -12,41 +12,41 @@ const departments = [
   {
     name: "Bar",
     description:
-      "Positions: Head Bartender, Bartender, Asst. Bartender, Bar Boy, Bar Waiter",
+      "Posisi: Kepala Bartender, Bartender, Asisten Bartender, Bar Boy, Pelayan Bar",
     image: "/images/crew/4.jpeg"
   },
   {
-    name: "Deck",
+    name: "Dek",
     description:
-      "Positions: AB Sailor, Ordinary Seaman, Fireman, Carpenter, Upholsterer, Waste Operator",
+      "Posisi: Pelaut AB, Pelaut Biasa, Petugas Pemadam Kebakaran, Tukang Kayu, Tukang Jok, Operator Limbah",
     image: "/images/crew/10.jpeg"
   },
   {
-    name: "Engine",
-    description: "Positions: Plumber, Fitter, Oiler, Wiper",
+    name: "Mesin",
+    description: "Posisi: Tukang Ledeng, Fitter, Oiler, Wiper",
     image: "/images/crew/8.jpeg"
   },
   {
-    name: "Galley",
+    name: "Dapur",
     description:
-      "Positions: CDP, DCDP, Commis, Commis II, Commis III, Galley Utility, Kitchen Steward",
+      "Posisi: CDP, DCDP, Commis, Commis II, Commis III, Utilitas Dapur, Steward Dapur",
     image: "/images/crew/2.jpeg"
   },
   {
     name: "Hotel",
     description:
-      "Positions: Cabin Steward, Floor Runner, Hotel Cleaner, Room Attendant, Crew Cleaner, Linen Keeper",
+      "Posisi: Pramugara Kabin, Pelari Lantai, Pembersih Hotel, Petugas Kamar, Pembersih Kru, Penjaga Linen",
     image: "/images/crew/6.jpeg"
   },
   {
-    name: "Restaurant",
+    name: "Restoran",
     description:
-      "Positions: Head Waiter, Waiter, Asst. Waiter, Buffet Attendant, Wine Keeper, Mess Attendant",
+      "Posisi: Kepala Pelayan, Pelayan, Asisten Pelayan, Petugas Prasmanan, Penjaga Anggur, Petugas Mess",
     image: "/images/crew/12.jpeg"
   },
   {
     name: "Spa",
-    description: "Positions: Massage Therapist, Nail Specialist",
+    description: "Posisi: Terapis Pijat, Spesialis Kuku",
     image: "/images/crew/14.jpeg"
   }
 ];
@@ -85,20 +85,19 @@ export default function ApplyPage() {
           className="flex flex-col items-center gap-6"
         >
           <span className="inline-flex items-center rounded-full bg-white/70 px-5 py-2 text-sm font-medium uppercase tracking-[0.2em] text-primaryRed shadow-md backdrop-blur">
-            Careers
+            Karir
           </span>
           <div className="space-y-4">
             <h1 className="text-3xl font-semibold text-darkGray md:text-5xl">
-              Apply with Us Today
+              Lamar Bersama Kami Hari Ini
             </h1>
             <p className="mx-auto max-w-2xl text-base text-slate-600 md:text-lg">
-              Discover the career of your dreams and join a dedicated crew that
-              delivers exceptional hospitality at sea.
+              Temukan karir impian Anda dan bergabunglah dengan kru berdedikasi yang memberikan perhotelan luar biasa di laut.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" className="bg-primaryRed hover:bg-primaryRed/90">
-              <Link href="/apply-now/candidate">Apply as Candidate</Link>
+              <Link href="/apply-now/candidate">Lamar sebagai Kandidat</Link>
             </Button>
             <Button
               asChild
@@ -106,7 +105,7 @@ export default function ApplyPage() {
               variant="outline"
               className="border-primaryRed/30 bg-white/80 text-darkGray shadow-sm backdrop-blur hover:border-primaryRed hover:bg-white"
             >
-              <Link href="/apply-now/partner">Become a Partner</Link>
+              <Link href="/apply-now/partner">Menjadi Mitra</Link>
             </Button>
           </div>
         </motion.section>
@@ -119,11 +118,10 @@ export default function ApplyPage() {
         >
           <div className="space-y-1">
             <h2 className="text-2xl font-semibold text-darkGray md:text-3xl">
-              Select your preferred department
+              Pilih departemen pilihan Anda
             </h2>
             <p className="text-sm text-slate-600 md:text-base">
-              Explore opportunities tailored to your expertise. Each role comes
-              with dedicated training and international placement support.
+              Jelajahi peluang yang disesuaikan dengan keahlian Anda. Setiap peran dilengkapi dengan pelatihan khusus dan dukungan penempatan internasional.
             </p>
           </div>
 
@@ -155,7 +153,7 @@ export default function ApplyPage() {
                     size="lg"
                     className="mt-auto w-full bg-darkGray text-white hover:bg-darkGray/90"
                   >
-                    <Link href="/apply-now/candidate">Apply</Link>
+                    <Link href="/apply-now/candidate">Lamar</Link>
                   </Button>
                 </CardContent>
               </Card>
