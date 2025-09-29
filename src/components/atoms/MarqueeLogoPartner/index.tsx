@@ -4,16 +4,16 @@ import Image from "next/image";
 const reviews = [
   {
     id: 1,
-    img: "/images/partner/1.png"
+    img: "/images/partner/1.png",
   },
   {
     id: 2,
-    img: "/images/partner/2.png"
+    img: "/images/partner/2.png",
   },
   {
     id: 3,
-    img: "/images/partner/3.png"
-  }
+    img: "/images/partner/3.png",
+  },
 ];
 
 const firstRow = reviews; // Ambil semua logo tanpa pemotongan

@@ -9,4 +9,4 @@ export default function ArticlesPage() {
       <ArticlePage />
     </main>
   );
-} 
+}

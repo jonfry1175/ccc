@@ -14,29 +14,27 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
-import { 
-  ExternalLink, 
-  ChevronDown, 
-  ChevronUp 
-} from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function PartnersPage() {
   const [partners, setPartners] = useState<Partner[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [expandedRows, setExpandedRows] = useState<{[key: number]: boolean}>({});
+  const [expandedRows, setExpandedRows] = useState<{ [key: number]: boolean }>(
+    {},
+  );
 
   useEffect(() => {
     async function fetchPartners() {
       try {
         const { data, error } = await supabase
-          .from('partner')
-          .select('*')
-          .order('created_at', { ascending: false });
+          .from("partner")
+          .select("*")
+          .order("created_at", { ascending: false });
 
         if (error) throw error;
         setPartners(data || []);
       } catch (error) {
-        console.error('Error fetching partners:', error);
+        console.error("Error fetching partners:", error);
       } finally {
         setIsLoading(false);
       }
@@ -48,7 +46,7 @@ export default function PartnersPage() {
   const toggleRow = (id: number) => {
     setExpandedRows((prev) => ({
       ...prev,
-      [id]: !prev[id]
+      [id]: !prev[id],
     }));
   };
 
@@ -64,9 +62,7 @@ export default function PartnersPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Partners</h1>
-        <p className="text-muted-foreground">
-          All partnership applications
-        </p>
+        <p className="text-muted-foreground">All partnership applications</p>
       </div>
 
       <Card>
@@ -95,7 +91,7 @@ export default function PartnersPage() {
               ) : (
                 partners.map((partner) => (
                   <React.Fragment key={partner.id}>
-                    <TableRow 
+                    <TableRow
                       className="cursor-pointer"
                       onClick={() => toggleRow(partner.id)}
                     >
@@ -113,9 +109,13 @@ export default function PartnersPage() {
                       <TableCell>
                         <div>{partner.company_name}</div>
                         {partner.company_website && (
-                          <a 
-                            href={partner.company_website.startsWith('http') ? partner.company_website : `https://${partner.company_website}`} 
-                            target="_blank" 
+                          <a
+                            href={
+                              partner.company_website.startsWith("http")
+                                ? partner.company_website
+                                : `https://${partner.company_website}`
+                            }
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-xs text-blue-500 flex items-center"
                             onClick={(e) => e.stopPropagation()}
@@ -132,10 +132,15 @@ export default function PartnersPage() {
                     </TableRow>
                     {expandedRows[partner.id] && (
                       <TableRow>
-                        <TableCell colSpan={6} className="bg-muted/30 px-8 py-4">
+                        <TableCell
+                          colSpan={6}
+                          className="bg-muted/30 px-8 py-4"
+                        >
                           <div className="space-y-4">
                             <div>
-                              <h4 className="font-semibold">Contact Information</h4>
+                              <h4 className="font-semibold">
+                                Contact Information
+                              </h4>
                               <p>Phone: {partner.phone_number}</p>
                             </div>
                             <div>
@@ -157,4 +162,4 @@ export default function PartnersPage() {
       </Card>
     </div>
   );
-} 
+}

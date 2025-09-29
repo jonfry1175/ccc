@@ -3,7 +3,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import React from "react";
@@ -12,7 +12,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger
+  DialogTrigger,
 } from "@/components/ui/dialog";
 
 interface CarouselImage {
@@ -31,7 +31,7 @@ export default function CarouselComponent({
   images,
   loop = false,
   dragFree = true,
-  slidesToScroll = 1
+  slidesToScroll = 1,
 }: Props) {
   return (
     <div className="relative">
@@ -40,7 +40,7 @@ export default function CarouselComponent({
           align: "start",
           loop,
           dragFree,
-          slidesToScroll
+          slidesToScroll,
         }}
         className="w-full cursor-grab active:cursor-grabbing"
       >

@@ -7,16 +7,16 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: ["/api/", "/admin/", "/admin/*"],
-        crawlDelay: 1
+        crawlDelay: 1,
       },
       {
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/api/", "/admin/"],
-        crawlDelay: 0
-      }
+        crawlDelay: 0,
+      },
     ],
     sitemap: "https://mpsjakarta.com/sitemap.xml",
-    host: "https://mpsjakarta.com"
+    host: "https://mpsjakarta.com",
   };
 }

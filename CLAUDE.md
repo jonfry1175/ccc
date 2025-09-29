@@ -24,6 +24,7 @@ supabase db reset        # Reset database and run migrations
 This is a Next.js 15 application for Marina Prima Sukses company, featuring job applications and partner submissions with an admin dashboard.
 
 ### Tech Stack
+
 - **Framework**: Next.js 15.x with React 19.x (using latest features)
 - **Language**: TypeScript with strict mode
 - **Database**: Supabase (PostgreSQL with RLS)
@@ -62,6 +63,7 @@ This is a Next.js 15 application for Marina Prima Sukses company, featuring job 
 ### Important Configuration
 
 - **Environment Variables** (required in `.env.local`):
+
   ```
   NEXT_PUBLIC_SUPABASE_URL
   NEXT_PUBLIC_SUPABASE_ANON_KEY

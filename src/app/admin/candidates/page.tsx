@@ -24,14 +24,14 @@ export default function CandidatesPage() {
     async function fetchCandidates() {
       try {
         const { data, error } = await supabase
-          .from('candidate')
-          .select('*')
-          .order('created_at', { ascending: false });
+          .from("candidate")
+          .select("*")
+          .order("created_at", { ascending: false });
 
         if (error) throw error;
         setCandidates(data || []);
       } catch (error) {
-        console.error('Error fetching candidates:', error);
+        console.error("Error fetching candidates:", error);
       } finally {
         setIsLoading(false);
       }
@@ -41,7 +41,7 @@ export default function CandidatesPage() {
   }, []);
 
   const openFile = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   if (isLoading) {
@@ -56,9 +56,7 @@ export default function CandidatesPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Candidates</h1>
-        <p className="text-muted-foreground">
-          All candidate job applications
-        </p>
+        <p className="text-muted-foreground">All candidate job applications</p>
       </div>
 
       <Card>
@@ -133,4 +131,4 @@ export default function CandidatesPage() {
       </Card>
     </div>
   );
-} 
+}

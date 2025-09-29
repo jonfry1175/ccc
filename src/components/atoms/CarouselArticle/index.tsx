@@ -3,7 +3,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
@@ -29,7 +29,7 @@ export default function CarouselArticle({
   articles,
   loop = false,
   dragFree = true,
-  slidesToScroll = 1
+  slidesToScroll = 1,
 }: Props) {
   return (
     <div className="relative">
@@ -38,7 +38,7 @@ export default function CarouselArticle({
           align: "start",
           loop,
           dragFree,
-          slidesToScroll
+          slidesToScroll,
         }}
         className="w-full cursor-grab active:cursor-grabbing"
       >

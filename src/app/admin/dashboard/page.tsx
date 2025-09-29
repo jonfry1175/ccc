@@ -14,22 +14,23 @@ export default function AdminDashboard() {
     async function fetchStats() {
       try {
         // Get candidates count
-        const { count: candidatesCount, error: candidatesError } = await supabase
-          .from('candidate')
-          .select('*', { count: 'exact', head: true });
+        const { count: candidatesCount, error: candidatesError } =
+          await supabase
+            .from("candidate")
+            .select("*", { count: "exact", head: true });
 
         if (candidatesError) throw candidatesError;
         setTotalCandidates(candidatesCount || 0);
 
         // Get partners count
         const { count: partnersCount, error: partnersError } = await supabase
-          .from('partner')
-          .select('*', { count: 'exact', head: true });
+          .from("partner")
+          .select("*", { count: "exact", head: true });
 
         if (partnersError) throw partnersError;
         setTotalPartners(partnersCount || 0);
       } catch (error) {
-        console.error('Error fetching dashboard stats:', error);
+        console.error("Error fetching dashboard stats:", error);
       } finally {
         setIsLoading(false);
       }
@@ -88,4 +89,4 @@ export default function AdminDashboard() {
       </div>
     </div>
   );
-} 
+}

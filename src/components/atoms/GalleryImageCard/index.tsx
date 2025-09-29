@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger
+  DialogTrigger,
 } from "@/components/ui/dialog";
 
 interface Props {
@@ -16,11 +16,7 @@ interface Props {
   height?: number;
 }
 
-export default function GalleryImageCard({
-  src,
-  alt,
-  name
-}: Props) {
+export default function GalleryImageCard({ src, alt, name }: Props) {
   return (
     <Card className="relative overflow-hidden border-none bg-transparent shadow-none">
       <CardContent className="p-0">

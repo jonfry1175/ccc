@@ -3,7 +3,7 @@ import {
   FaWhatsapp,
   FaInstagram,
   FaFacebook,
-  FaLinkedin
+  FaLinkedin,
 } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";

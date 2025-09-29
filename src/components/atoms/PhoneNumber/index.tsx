@@ -9,7 +9,7 @@ interface PhoneNumberInputProps {
 
 const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
   error,
-  onChange
+  onChange,
 }) => {
   const [phone, setPhone] = useState("");
 
@@ -24,7 +24,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
         }}
         inputProps={{
           name: "whatsapp",
-          required: true
+          required: true,
         }}
         enableSearch={true}
         searchClass="w-full"
@@ -35,7 +35,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
           maxWidth: "540px", // Default max width
           height: "40px",
           margin: "0 auto",
-          borderRadius: "10px"
+          borderRadius: "10px",
         }}
         dropdownStyle={{
           height: "auto",
@@ -45,7 +45,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
           maxWidth: "540px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
           position: "absolute",
-          zIndex: 50
+          zIndex: 50,
         }}
       />
 

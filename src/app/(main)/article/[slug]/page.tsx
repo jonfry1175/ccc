@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 // ✅ Fungsi metadata dinamis berdasarkan slug
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ slug: string }>; // Menggunakan Promise sesuai error
 }): Promise<Metadata> {
@@ -17,7 +17,7 @@ export async function generateMetadata({
     return {
       title: "Article Not Found - MSP Cruises",
       description:
-        "Explore the latest cruise travel tips and news from MSP Cruises."
+        "Explore the latest cruise travel tips and news from MSP Cruises.",
     };
   }
 
@@ -27,15 +27,15 @@ export async function generateMetadata({
     openGraph: {
       title: article.title,
       description: article.description,
-      images: [article.image]
+      images: [article.image],
     },
-    metadataBase: new URL("https://www.mpsjakarta.com/") // Ganti sesuai domain kamu
+    metadataBase: new URL("https://www.mpsjakarta.com/"), // Ganti sesuai domain kamu
   };
 }
 
 // ✅ Komponen Artikel dengan Slug
 export default async function ArticlePageSlug({
-  params
+  params,
 }: {
   params: Promise<{ slug: string }>; // Menggunakan Promise
 }) {

@@ -8,7 +8,7 @@ import { Database, Folder, Home, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function AdminLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -23,12 +23,12 @@ export default function AdminLayout({
         const { data } = await supabase.auth.getSession();
         const hasSession = !!data.session;
         setIsLoggedIn(hasSession);
-        
+
         // If not logged in and not on login page, redirect to login
         if (!hasSession && pathname !== "/admin/login") {
           router.push("/admin/login");
         }
-        
+
         // If logged in and on login page, redirect to dashboard
         if (hasSession && pathname === "/admin/login") {
           router.push("/admin/dashboard");
@@ -138,4 +138,4 @@ export default function AdminLayout({
       </div>
     </div>
   );
-} 
+}

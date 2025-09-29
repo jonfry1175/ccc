@@ -13,18 +13,24 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters"
-  })
+    message: "Password must be at least 6 characters",
+  }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -38,17 +44,17 @@ export default function LoginPage() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   });
 
   async function onSubmit(data: FormValues) {
     try {
       setIsLoading(true);
-      
+
       const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: data.email,
-        password: data.password
+        password: data.password,
       });
 
       if (error) {
@@ -57,17 +63,16 @@ export default function LoginPage() {
 
       toast({
         title: "Login Successful",
-        description: "Redirecting to dashboard..."
+        description: "Redirecting to dashboard...",
       });
 
       // Redirect to dashboard
       router.push("/admin/dashboard");
-      
     } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Login Failed",
-        description: error.message || "Invalid credentials"
+        description: error.message || "Invalid credentials",
       });
     } finally {
       setIsLoading(false);
@@ -95,10 +100,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input
-                        type="email"
-                        {...field}
-                      />
+                      <Input type="email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -117,11 +119,7 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={isLoading}
-              >
+              <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Logging in..." : "Login"}
               </Button>
             </form>

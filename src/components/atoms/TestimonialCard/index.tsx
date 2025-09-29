@@ -22,7 +22,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   avatar,
   bgColor = "bg-white",
   borderColor = "border-gold/20",
-  quoteIcon = true
+  quoteIcon = true,
 }) => (
   <Card
     className={`${bgColor} border ${borderColor} shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group`}
