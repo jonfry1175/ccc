@@ -8,7 +8,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ import {
   Clock10,
   FileCheck2,
   GraduationCap,
-  UsersRound
+  UsersRound,
 } from "lucide-react";
 
 const departments = [
@@ -27,42 +27,42 @@ const departments = [
     name: "Bar",
     description:
       "Posisi: Kepala Bartender, Bartender, Asisten Bartender, Bar Boy, Pelayan Bar",
-    image: "/images/crew/4.jpeg"
+    image: "/images/crew/4.jpeg",
   },
   {
     name: "Dek",
     description:
       "Posisi: Pelaut AB, Pelaut Biasa, Petugas Pemadam Kebakaran, Tukang Kayu, Tukang Jok, Operator Limbah",
-    image: "/images/crew/10.jpeg"
+    image: "/images/crew/10.jpeg",
   },
   {
     name: "Mesin",
     description: "Posisi: Tukang Ledeng, Fitter, Oiler, Wiper",
-    image: "/images/crew/8.jpeg"
+    image: "/images/crew/8.jpeg",
   },
   {
     name: "Dapur",
     description:
       "Posisi: CDP, DCDP, Commis, Commis II, Commis III, Utilitas Dapur, Steward Dapur",
-    image: "/images/crew/2.jpeg"
+    image: "/images/crew/2.jpeg",
   },
   {
     name: "Hotel",
     description:
       "Posisi: Pramugara Kabin, Pelari Lantai, Pembersih Hotel, Petugas Kamar, Pembersih Kru, Penjaga Linen",
-    image: "/images/crew/6.jpeg"
+    image: "/images/crew/6.jpeg",
   },
   {
     name: "Restoran",
     description:
       "Posisi: Kepala Pelayan, Pelayan, Asisten Pelayan, Petugas Prasmanan, Penjaga Anggur, Petugas Mess",
-    image: "/images/crew/12.jpeg"
+    image: "/images/crew/12.jpeg",
   },
   {
     name: "Spa",
     description: "Posisi: Terapis Pijat, Spesialis Kuku",
-    image: "/images/crew/14.jpeg"
-  }
+    image: "/images/crew/14.jpeg",
+  },
 ];
 
 const highlights: Array<{
@@ -75,20 +75,21 @@ const highlights: Array<{
     icon: UsersRound,
     label: "Profesional Siap Berlayar",
     value: "2.500+",
-    description: "Talenta perhotelan yang terlatih dan tersertifikasi internasional"
+    description:
+      "Talenta perhotelan yang terlatih dan tersertifikasi internasional",
   },
   {
     icon: GraduationCap,
     label: "Program Pelatihan",
     value: "15",
-    description: "Kurikulum khusus kapal pesiar dengan pelatih berpengalaman"
+    description: "Kurikulum khusus kapal pesiar dengan pelatih berpengalaman",
   },
   {
     icon: BriefcaseBusiness,
     label: "Kemitraan Global",
     value: "40+",
-    description: "Perusahaan mitra di Asia, Timur Tengah, dan Eropa"
-  }
+    description: "Perusahaan mitra di Asia, Timur Tengah, dan Eropa",
+  },
 ];
 
 const processSteps: Array<{
@@ -100,20 +101,20 @@ const processSteps: Array<{
     icon: FileCheck2,
     title: "Lengkapi Profil",
     description:
-      "Kirimkan data terbaru Anda dan unggah dokumen pendukung secara aman."
+      "Kirimkan data terbaru Anda dan unggah dokumen pendukung secara aman.",
   },
   {
     icon: GraduationCap,
     title: "Pelatihan Intensif",
     description:
-      "Ikuti program persiapan kerja dan simulasi layanan sesuai standar internasional."
+      "Ikuti program persiapan kerja dan simulasi layanan sesuai standar internasional.",
   },
   {
     icon: Clock10,
     title: "Penempatan Cepat",
     description:
-      "Tim kami menghubungkan Anda dengan peluang kapal pesiar dan hospitality terbaik."
-  }
+      "Tim kami menghubungkan Anda dengan peluang kapal pesiar dan hospitality terbaik.",
+  },
 ];
 
 export default function ApplyPage() {
@@ -157,11 +158,17 @@ export default function ApplyPage() {
               Wujudkan Karier Maritim dan Perhotelan Kelas Dunia
             </h1>
             <p className="mx-auto max-w-2xl text-base text-slate-600 md:text-lg">
-              Temukan peluang kerja di kapal pesiar, hotel, dan spa premium. Kami mendampingi Anda sejak pendaftaran hingga penempatan kerja di luar negeri.
+              Temukan peluang kerja di kapal pesiar, hotel, dan spa premium.
+              Kami mendampingi Anda sejak pendaftaran hingga penempatan kerja di
+              luar negeri.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="bg-primaryRed hover:bg-primaryRed/90">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primaryRed hover:bg-primaryRed/90"
+            >
               <Link href="/apply-now/candidate">Lamar sebagai Kandidat</Link>
             </Button>
             <Button
@@ -211,46 +218,165 @@ export default function ApplyPage() {
               Pilih departemen pilihan Anda
             </h2>
             <p className="text-sm text-slate-600 md:text-base">
-              Jelajahi peluang yang disesuaikan dengan keahlian Anda. Setiap peran dilengkapi dengan pelatihan khusus dan dukungan penempatan internasional.
+              Jelajahi peluang yang disesuaikan dengan keahlian Anda. Setiap
+              peran dilengkapi dengan pelatihan khusus dan dukungan penempatan
+              internasional.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {departments.map((department) => (
-              <Card
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            {departments.map((department, index) => (
+              <motion.div
                 key={department.name}
-                className="group relative flex h-full flex-col overflow-hidden border border-slate-200 bg-white text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8 }}
+                className="group relative"
               >
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primaryRed via-primaryGold to-primaryRed/80" />
-
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={department.image}
-                    alt={department.name}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                <Card className="relative flex h-full min-h-[480px] flex-col overflow-hidden border-0 bg-white text-left shadow-xl shadow-slate-200/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primaryRed/20">
+                  {/* Animated top border */}
+                  <motion.span
+                    className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primaryRed via-primaryGold to-primaryRed"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-darkGray/40 via-darkGray/5 to-transparent opacity-0 transition group-hover:opacity-100" />
-                </div>
-                <CardContent className="flex flex-1 flex-col gap-5 p-6">
-                  <div className="space-y-3">
-                    <CardTitle className="text-xl font-semibold text-darkGray">
-                      {department.name}
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed text-slate-600">
-                      {department.description}
-                    </CardDescription>
+
+                  {/* Glowing border effect on hover */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primaryRed/20 via-primaryGold/20 to-primaryRed/20 opacity-0 blur-sm transition-opacity duration-500 group-hover:opacity-100" />
+
+                  {/* Enhanced image container */}
+                  <div className="relative aspect-[5/4] w-full overflow-hidden">
+                    <Image
+                      src={department.image}
+                      alt={department.name}
+                      fill
+                      className="object-cover transition duration-700 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+
+                    {/* Multi-layered overlay effects */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-darkGray/60 via-darkGray/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-80" />
+
+                    {/* Animated shine effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.6 }}
+                    />
+
+                    {/* Department name overlay */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 + 0.5 }}
+                        className="rounded-lg bg-white/95 backdrop-blur-sm px-4 py-2 shadow-lg"
+                      >
+                        <h3 className="text-lg font-bold text-darkGray">
+                          Departemen {department.name}
+                        </h3>
+                      </motion.div>
+                    </div>
                   </div>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="mt-auto w-full rounded-full bg-primaryRed text-white shadow-sm transition hover:bg-primaryRed/90"
-                  >
-                    <Link href="/apply-now/candidate">Lamar</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+
+                  {/* Enhanced content area */}
+                  <CardContent className="flex flex-1 flex-col gap-6 p-8">
+                    <div className="space-y-4">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: index * 0.1 + 0.6 }}
+                      >
+                        <CardTitle className="text-2xl font-bold text-darkGray group-hover:text-primaryRed transition-colors duration-300">
+                          {department.name}
+                        </CardTitle>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: index * 0.1 + 0.7 }}
+                      >
+                        <CardDescription className="text-base leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                          {department.description}
+                        </CardDescription>
+                      </motion.div>
+                    </div>
+
+                    {/* Enhanced button */}
+                    <motion.div
+                      className="mt-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.8 }}
+                    >
+                      <Button
+                        asChild
+                        size="lg"
+                        className="relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-primaryRed to-primaryRed/90 py-4 text-white shadow-lg transition-all duration-300 hover:from-primaryRed/90 hover:to-primaryRed hover:shadow-xl hover:shadow-primaryRed/30"
+                      >
+                        <Link href="/apply-now/candidate">
+                          <motion.span
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="flex items-center justify-center gap-2 font-semibold"
+                          >
+                            Lamar Sekarang
+                            <motion.span
+                              initial={{ x: 0 }}
+                              whileHover={{ x: 4 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              →
+                            </motion.span>
+                          </motion.span>
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+
+                  {/* Floating elements */}
+                  <div className="pointer-events-none absolute top-4 right-4">
+                    <motion.div
+                      animate={{
+                        rotate: 360,
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        rotate: {
+                          duration: 20,
+                          repeat: Infinity,
+                          ease: "linear",
+                        },
+                        scale: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      className="h-3 w-3 rounded-full bg-gradient-to-r from-primaryGold to-primaryRed opacity-60"
+                    />
+                  </div>
+
+                  <div className="pointer-events-none absolute bottom-4 right-4">
+                    <motion.div
+                      animate={{
+                        y: [0, -8, 0],
+                        opacity: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="h-2 w-2 rounded-full bg-primaryGold/60"
+                    />
+                  </div>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </motion.section>
@@ -269,7 +395,9 @@ export default function ApplyPage() {
               Pendampingan penuh hingga Anda siap berangkat
             </h2>
             <p className="text-sm text-slate-600 md:text-base">
-              Kami memandu setiap kandidat melalui tiga tahapan utama yang memastikan kesiapan profesional dan dokumen sesuai standar internasional.
+              Kami memandu setiap kandidat melalui tiga tahapan utama yang
+              memastikan kesiapan profesional dan dokumen sesuai standar
+              internasional.
             </p>
           </div>
 
@@ -278,10 +406,7 @@ export default function ApplyPage() {
               const stepNumber = String(index + 1).padStart(2, "0");
 
               return (
-                <li
-                  key={title}
-                  className="group relative pl-14 md:pl-16"
-                >
+                <li key={title} className="group relative pl-14 md:pl-16">
                   <span className="absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg ring-2 ring-primaryRed/20">
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed text-white">
                       <Icon className="h-5 w-5" aria-hidden />
