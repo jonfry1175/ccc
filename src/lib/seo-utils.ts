@@ -1,6 +1,6 @@
 // SEO utility functions for optimizing content
 
-export function generateBreadcrumbSchema(items: Array<{name: string; url: string}>) {
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -69,7 +69,7 @@ export function generateReviewSchema(reviews: Array<{
   date: string;
 }>) {
   const aggregateRating = reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -112,7 +112,7 @@ export function generateSlug(text: string): string {
 // Meta description optimizer (ensures 150-160 chars)
 export function optimizeMetaDescription(text: string): string {
   if (text.length <= 160) return text;
-  
+
   // Cut at last complete word before 157 chars and add ellipsis
   const truncated = text.substring(0, 157);
   const lastSpace = truncated.lastIndexOf(' ');
@@ -126,11 +126,11 @@ export function generateAltText(filename: string, context?: string): string {
     .replace(/\.[^/.]+$/, '')
     .replace(/[-_]/g, ' ')
     .replace(/\b\w/g, l => l.toUpperCase());
-  
+
   if (context) {
     return `${context} - ${baseName}`;
   }
-  
+
   // Add context based on common patterns
   if (filename.includes('logo')) {
     return `Marina Prima Sukses ${baseName}`;
@@ -141,6 +141,6 @@ export function generateAltText(filename: string, context?: string): string {
   if (filename.includes('ship') || filename.includes('cruise')) {
     return `MSC Cruises ${baseName}`;
   }
-  
+
   return baseName;
 }

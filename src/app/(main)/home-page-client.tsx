@@ -10,7 +10,12 @@ export default function HomePageClient() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const videos = ["/videos/hero-video-background.mp4", "/videos/video2.mp4"];
+  const videos = [
+    "/videos/CCC1.mp4",
+    "/videos/CCC2.mp4",
+    "/videos/CCC3.mp4",
+    "/videos/CCC4.mp4",
+  ];
   const router = useRouter();
   const pathname = usePathname();
 

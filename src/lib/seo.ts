@@ -90,7 +90,7 @@ export function generatePageMetadata({
   images?: Array<{ url: string; width?: number; height?: number; alt?: string }>;
 }): Metadata {
   const url = `${baseUrl}${path}`;
-  
+
   return {
     title,
     description,
