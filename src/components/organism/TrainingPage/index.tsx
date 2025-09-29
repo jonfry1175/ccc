@@ -1,12 +1,12 @@
-"use client";
-import CarouselComponent from "@/components/atoms/CarouselImage";
-import Navbar from "@/components/atoms/Navbar";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { trainings } from "@/lib/DataTraining";
-import Image from "next/image";
-import React, { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+'use client';
+import CarouselComponent from '@/components/atoms/CarouselImage';
+import Navbar from '@/components/atoms/Navbar';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { trainings } from '@/lib/DataTraining';
+import Image from 'next/image';
+import React, { useRef } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface TrainingPageProps {
   onBackToHome?: () => void;
@@ -21,40 +21,40 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
     {
       id: 1,
       title:
-        "Kursus Komunikasi dan Bahasa di lingkungan perhotelan, dek & mesin",
+        'Kursus Komunikasi dan Bahasa di lingkungan perhotelan, dek & mesin',
       description:
-        "Perkuat kemampuan komunikasi kru front office, housekeeping, dan operasional kapal dengan praktik bilingual yang relevan."
+        'Perkuat kemampuan komunikasi kru front office, housekeeping, dan operasional kapal dengan praktik bilingual yang relevan.'
     },
     {
       id: 2,
-      title: "Program Keunggulan Perhotelan & Tata Graha",
+      title: 'Program Keunggulan Perhotelan & Tata Graha',
       description:
-        "Optimalkan standar kamar dan area publik melalui SOP kebersihan, efisiensi kerja, dan hospitality mindset."
+        'Optimalkan standar kamar dan area publik melalui SOP kebersihan, efisiensi kerja, dan hospitality mindset.'
     },
     {
       id: 3,
-      title: "Pelatihan Bartending & Layanan Pelanggan",
+      title: 'Pelatihan Bartending & Layanan Pelanggan',
       description:
-        "Bangun service attitude kelas premium dengan kurikulum mixology, upselling, dan penanganan tamu profesional."
+        'Bangun service attitude kelas premium dengan kurikulum mixology, upselling, dan penanganan tamu profesional.'
     },
     {
       id: 4,
-      title: "Pelatihan Kerja dan Keselamatan",
+      title: 'Pelatihan Kerja dan Keselamatan',
       description:
-        "Berikan pengalaman simulasi untuk mitigasi risiko, keselamatan kerja, dan kepatuhan regulasi industri."
+        'Berikan pengalaman simulasi untuk mitigasi risiko, keselamatan kerja, dan kepatuhan regulasi industri.'
     },
     {
       id: 5,
-      title: "Teknik Spa & Pijat Profesional",
+      title: 'Teknik Spa & Pijat Profesional',
       description:
-        "Kuasi teknik terapi tubuh dengan modul anatomi, etika layanan, dan pengalaman spa khas MPS."
+        'Kuasi teknik terapi tubuh dengan modul anatomi, etika layanan, dan pengalaman spa khas CCC.'
     }
   ];
 
   const heroHighlights = [
-    { label: "Instruktur Industri", value: "20+" },
-    { label: "Jam Praktikum", value: "120" },
-    { label: "Alumni Terserap", value: "92%" }
+    { label: 'Instruktur Industri', value: '20+' },
+    { label: 'Jam Praktikum', value: '120' },
+    { label: 'Alumni Terserap', value: '92%' }
   ];
 
   return (
@@ -64,7 +64,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
       <section className="relative isolate overflow-hidden bg-darkGray">
         <Image
           src="/images/imagetraining.jpg"
-          alt="Peserta pelatihan MPS sedang mengikuti sesi kelas"
+          alt="Peserta pelatihan CCC sedang mengikuti sesi kelas"
           fill
           priority
           sizes="100vw"
@@ -74,10 +74,10 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         <div className="relative mx-auto flex min-h-[520px] max-w-6xl flex-col justify-center gap-10 px-4 py-24 text-primaryWhite">
           <div className="max-w-3xl space-y-6">
             <p className="inline-flex items-center rounded-full bg-primaryRed/60 px-4 py-1 text-sm font-semibold uppercase tracking-wide">
-              MPS Training Center
+              CCC Training Center
             </p>
             <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-              Divisi Pelatihan MPS: Mencetak Talenta Hospitality Unggul
+              Divisi Pelatihan CCC: Mencetak Talenta Hospitality Unggul
             </h1>
             <p className="text-base text-primaryWhite/90 md:text-lg">
               Fasilitas pelatihan terpadu kami dirancang untuk memperkuat keahlian
@@ -156,7 +156,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
                     <CardContent className="flex flex-1 flex-col gap-4 p-6">
                       <span className="flex items-center gap-3 text-sm font-semibold text-primaryRed">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primaryRed/10 text-base">
-                          {String(index + 1).padStart(2, "0")}
+                          {String(index + 1).padStart(2, '0')}
                         </span>
                         Modul Unggulan
                       </span>
@@ -189,7 +189,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
               <p className="text-base text-darkGray/80 md:max-w-xl">
                 Ikuti keseruan simulasi kelas, praktik lapangan, dan cerita
                 keberhasilan para peserta yang sudah merasakan peningkatan
-                karier mereka bersama MPS.
+                karier mereka bersama CCC.
               </p>
             </div>
             <Button
@@ -218,7 +218,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
                     </p>
                     <p className="text-base text-darkGray">
                       Dokumentasi praktik peserta angkatan terbaru di fasilitas
-                      premium MPS.
+                      premium CCC.
                     </p>
                   </div>
                 </CardContent>
