@@ -9,12 +9,14 @@ Platform Christianity Crisis Center dapat di-deploy ke berbagai hosting provider
 ## 📋 Pre-requisites
 
 ### 1. Account Requirements
+
 - ✅ **GitHub Account** (untuk source code management)
 - ✅ **Supabase Account** (untuk database dan storage)
 - ✅ **Vercel Account** (untuk hosting - recommended)
 - ✅ **Domain** (opsional, bisa gunakan subdomain gratis)
 
 ### 2. Local Development Setup
+
 ```bash
 # Clone repository
 git clone [repository-url]
@@ -28,6 +30,7 @@ cp .env.example .env.local
 ```
 
 ### 3. Environment Variables Required
+
 ```bash
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
@@ -43,6 +46,7 @@ NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 ## 🗄️ Database Setup (Supabase)
 
 ### Step 1: Create Supabase Project
+
 1. Login ke [supabase.com](https://supabase.com)
 2. Click **"New Project"**
 3. Fill project details:
@@ -51,6 +55,7 @@ NEXT_PUBLIC_SITE_URL=https://yourdomain.com
    - **Region**: Singapore (recommended untuk Indonesia)
 
 ### Step 2: Database Schema Setup
+
 ```sql
 -- Create candidates table
 CREATE TABLE candidate (
@@ -70,7 +75,7 @@ CREATE TABLE candidate (
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'reviewed', 'matched', 'hired', 'rejected'))
 );
 
--- Create partners table  
+-- Create partners table
 CREATE TABLE partner (
   id SERIAL PRIMARY KEY,
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -110,9 +115,10 @@ CREATE POLICY "Public can insert partners" ON partner
 ```
 
 ### Step 3: Storage Setup
+
 ```sql
 -- Create storage bucket
-INSERT INTO storage.buckets (id, name, public) 
+INSERT INTO storage.buckets (id, name, public)
 VALUES ('christianity-crisis-center-files', 'christianity-crisis-center-files', false);
 
 -- Storage policies
@@ -136,6 +142,7 @@ CREATE POLICY "Service role can manage files" ON storage.objects
 ```
 
 ### Step 4: Authentication Setup
+
 ```sql
 -- Enable email authentication
 -- (Done via Supabase Dashboard > Authentication > Settings)
@@ -158,17 +165,19 @@ INSERT INTO auth.users (
 ## 🌐 Deployment ke Vercel (Recommended)
 
 ### Step 1: Connect Repository
+
 1. Login ke [vercel.com](https://vercel.com)
 2. Click **"New Project"**
 3. Import dari GitHub repository
 4. Select repository: `christianity-crisis-center-platform`
 
 ### Step 2: Configure Build Settings
+
 ```bash
 # Build Command (default)
 npm run build
 
-# Output Directory (default)  
+# Output Directory (default)
 .next
 
 # Install Command (default)
@@ -179,6 +188,7 @@ npm run dev
 ```
 
 ### Step 3: Environment Variables
+
 Di Vercel Dashboard > Settings > Environment Variables:
 
 ```bash
@@ -192,12 +202,14 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
 ```
 
 ### Step 4: Custom Domain (Optional)
+
 1. Vercel Dashboard > Domains
 2. Add domain: `jobs.christianitycrisis.com`
 3. Update DNS records sesuai instruksi Vercel
 4. Wait for SSL certificate provisioning
 
 ### Step 5: Deploy
+
 ```bash
 # Auto deploy dari GitHub push
 git push origin main
@@ -219,6 +231,7 @@ Publish directory: out
 ```
 
 **netlify.toml**:
+
 ```toml
 [build]
   command = "npm run build"
@@ -236,6 +249,7 @@ Publish directory: out
 ### B. Self-Hosted (VPS/Cloud Server)
 
 **Requirements**:
+
 - Ubuntu 20.04+ atau CentOS 8+
 - Node.js 18+
 - PM2 untuk process management
@@ -262,6 +276,7 @@ pm2 startup
 ```
 
 **Nginx Configuration** (`/etc/nginx/sites-available/ccc-platform`):
+
 ```nginx
 server {
     listen 80;
@@ -286,6 +301,7 @@ server {
 ## 🔧 Post-Deployment Setup
 
 ### 1. Create Admin User
+
 ```bash
 # Via terminal di server atau Vercel CLI
 npm run create-admin
@@ -296,14 +312,16 @@ npm run create-admin
 ```
 
 ### 2. Test Core Functionality
+
 - ✅ Homepage loading correctly
 - ✅ Candidate form submission
-- ✅ Partner form submission  
+- ✅ Partner form submission
 - ✅ File upload working
 - ✅ Admin login functional
 - ✅ Database connections working
 
 ### 3. Configure Domain & SSL
+
 ```bash
 # Jika self-hosted, setup Let's Encrypt
 sudo apt install certbot python3-certbot-nginx
@@ -311,6 +329,7 @@ sudo certbot --nginx -d your-domain.com
 ```
 
 ### 4. Setup Monitoring
+
 ```bash
 # Basic monitoring dengan PM2 (self-hosted)
 pm2 install pm2-server-monit
@@ -326,6 +345,7 @@ pm2 install pm2-server-monit
 ## 📊 Environment-Specific Configurations
 
 ### Development Environment
+
 ```bash
 # .env.local
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
@@ -334,7 +354,8 @@ SUPABASE_SERVICE_ROLE_KEY=local-service-role-key
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-### Staging Environment  
+### Staging Environment
+
 ```bash
 # .env.staging
 NEXT_PUBLIC_SUPABASE_URL=https://staging-project.supabase.co
@@ -344,6 +365,7 @@ NEXT_PUBLIC_SITE_URL=https://staging.christianitycrisis.com
 ```
 
 ### Production Environment
+
 ```bash
 # .env.production
 NEXT_PUBLIC_SUPABASE_URL=https://prod-project.supabase.co
@@ -357,6 +379,7 @@ NEXT_PUBLIC_SITE_URL=https://jobs.christianitycrisis.com
 ## 🔒 Security Checklist
 
 ### Pre-Deployment Security
+
 - ✅ **Environment Variables**: Semua sensitive data di environment variables
 - ✅ **API Keys**: Service role key tidak exposed di client-side
 - ✅ **Database Policies**: RLS enabled dan policies configured
@@ -364,6 +387,7 @@ NEXT_PUBLIC_SITE_URL=https://jobs.christianitycrisis.com
 - ✅ **CORS**: Configured untuk domain yang benar
 
 ### Post-Deployment Security
+
 - ✅ **HTTPS**: SSL certificate active
 - ✅ **Headers**: Security headers configured
 - ✅ **Admin Access**: Strong password dan 2FA enabled
@@ -377,6 +401,7 @@ NEXT_PUBLIC_SITE_URL=https://jobs.christianitycrisis.com
 ### Common Issues
 
 **1. Build Errors**
+
 ```bash
 # Clear cache dan reinstall
 rm -rf .next node_modules
@@ -385,16 +410,19 @@ npm run build
 ```
 
 **2. Database Connection Errors**
+
 - Cek environment variables
 - Verify Supabase project status
 - Check RLS policies
 
 **3. File Upload Issues**
+
 - Verify storage bucket exists
 - Check storage policies
 - Confirm service role key permissions
 
 **4. Authentication Problems**
+
 ```bash
 # Reset admin user
 # Via Supabase dashboard: Auth > Users
@@ -402,6 +430,7 @@ npm run build
 ```
 
 ### Performance Issues
+
 ```bash
 # Check build output
 npm run build --verbose
@@ -416,18 +445,21 @@ ANALYZE=true npm run build
 ## 📈 Monitoring & Maintenance
 
 ### Daily Monitoring
+
 - ✅ Platform accessibility
 - ✅ Form submissions working
 - ✅ File uploads functional
 - ✅ Database performance
 
 ### Weekly Tasks
+
 - ✅ Review new candidate applications
 - ✅ Check partner registrations
 - ✅ Monitor error logs
 - ✅ Performance metrics review
 
 ### Monthly Maintenance
+
 - ✅ Database cleanup dan optimization
 - ✅ Security updates
 - ✅ Backup verification
@@ -439,12 +471,14 @@ ANALYZE=true npm run build
 ## 📞 Support & Escalation
 
 ### Technical Issues
+
 - **Level 1**: Check troubleshooting guide
 - **Level 2**: Community support forum
 - **Level 3**: Contact technical team
 - **Level 4**: Vendor support (Vercel/Supabase)
 
 ### Contact Information
+
 - **Technical Lead**: tech@christianitycrisis.com
 - **DevOps Team**: devops@christianitycrisis.com
 - **Emergency**: +62 812-xxxx-xxxx (24/7)
@@ -452,6 +486,7 @@ ANALYZE=true npm run build
 ---
 
 **Deployment Checklist** ✅
+
 - [ ] Repository connected
 - [ ] Environment variables configured
 - [ ] Database schema deployed

@@ -6,7 +6,7 @@
 **Tujuan:** Membantu sesama anggota komunitas mendapatkan pekerjaan sesuai dengan bidang dan kemampuan masing-masing  
 **Framework:** Next.js 15 dengan TypeScript  
 **Database:** Supabase (PostgreSQL)  
-**Deployment:** Vercel  
+**Deployment:** Vercel
 
 ## Arsitektur Sistem
 
@@ -38,6 +38,7 @@ src/
 ### Database Schema
 
 #### Candidates Table
+
 ```sql
 CREATE TABLE candidate (
   id SERIAL PRIMARY KEY,
@@ -53,7 +54,7 @@ CREATE TABLE candidate (
   position TEXT,   -- Specific role applied for
   cv_url TEXT,     -- Supabase storage URL
   certificate_url TEXT, -- Supabase storage URL
-  
+
   -- Additional fields for community platform
   skills TEXT[],   -- Array of skills
   experience_level TEXT CHECK (experience_level IN ('fresh', 'junior', 'mid', 'senior')),
@@ -65,6 +66,7 @@ CREATE TABLE candidate (
 ```
 
 #### Partners Table
+
 ```sql
 CREATE TABLE partner (
   id SERIAL PRIMARY KEY,
@@ -77,7 +79,7 @@ CREATE TABLE partner (
   company_website TEXT,
   country TEXT DEFAULT 'Indonesia',
   message TEXT, -- Description of hiring needs
-  
+
   -- Additional fields for partner management
   company_size TEXT CHECK (company_size IN ('startup', 'small', 'medium', 'large')),
   industry TEXT, -- Industry category
@@ -88,6 +90,7 @@ CREATE TABLE partner (
 ```
 
 #### Job Postings Table (Future Enhancement)
+
 ```sql
 CREATE TABLE job_posting (
   id SERIAL PRIMARY KEY,
@@ -113,6 +116,7 @@ CREATE TABLE job_posting (
 **Component:** `src/components/molecules/ApplyPage/CandidatePage/index.tsx`
 
 **Fitur:**
+
 - Form registration dengan validasi Zod
 - Upload CV dan sertifikat ke Supabase Storage
 - Dropdown untuk department dan position
@@ -120,6 +124,7 @@ CREATE TABLE job_posting (
 - Auto-generate WhatsApp number formatting
 
 **Validasi:**
+
 ```typescript
 const formSchema = z.object({
   first_name: z.string().min(2, "Nama depan minimal 2 karakter"),
@@ -129,7 +134,7 @@ const formSchema = z.object({
   department: z.string().min(1, "Pilih department"),
   position: z.string().min(1, "Pilih posisi"),
   cv: z.instanceof(File).optional(),
-  certificate: z.instanceof(File).optional()
+  certificate: z.instanceof(File).optional(),
 });
 ```
 
@@ -139,6 +144,7 @@ const formSchema = z.object({
 **Component:** `src/components/molecules/ApplyPage/PartnerPage/index.tsx`
 
 **Fitur:**
+
 - Company profile registration
 - Contact person information
 - Business verification (manual process)
@@ -150,12 +156,14 @@ const formSchema = z.object({
 **Authentication:** Required (Supabase Auth)
 
 **Metrics:**
+
 - Total candidates registered
 - Total partners verified
 - Recent applications
 - Success rate statistics
 
 **Components:**
+
 ```typescript
 // Dashboard Cards
 <Card>
@@ -177,29 +185,37 @@ const formSchema = z.object({
 **Storage:** Supabase Storage bucket `christianity-crisis-center-files`
 
 **Security:**
+
 - File type validation (PDF, DOC, DOCX untuk CV)
 - File size limit (max 5MB)
 - Unique filename generation
 - Server-side validation
 
 ```typescript
-const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+const allowedTypes = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
 const maxSize = 5 * 1024 * 1024; // 5MB
 ```
 
 ## Security Implementation
 
 ### 1. Authentication & Authorization
+
 - **Admin Routes Protection:** Middleware menggunakan Supabase session
 - **Row Level Security (RLS):** Database policies untuk data isolation
 - **API Protection:** Service role key untuk uploads
 
 ### 2. Data Validation
+
 - **Client-side:** Zod schemas untuk form validation
 - **Server-side:** Additional validation di API routes
 - **File Upload:** Type dan size validation
 
 ### 3. Environment Variables
+
 ```bash
 # Required untuk production
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
@@ -210,17 +226,20 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ## Performance Optimizations
 
 ### 1. Next.js Features
+
 - **Server Components:** Default untuk better performance
 - **Image Optimization:** Next.js Image component untuk gallery
 - **Static Generation:** ISG untuk content pages
 - **Route Preloading:** Automatic untuk navigation
 
 ### 2. Database Optimizations
+
 - **Indexing:** Pada email, created_at, dan status fields
 - **Connection Pooling:** Supabase built-in pooling
 - **Query optimization:** Select specific fields only
 
 ### 3. File Storage
+
 - **CDN:** Supabase Storage dengan CDN built-in
 - **Compression:** Client-side image compression sebelum upload
 - **Lazy Loading:** Untuk galleries dan file previews
@@ -228,6 +247,7 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ## Deployment Strategy
 
 ### 1. Vercel Deployment
+
 ```bash
 # Production deployment
 npm run build
@@ -240,6 +260,7 @@ vercel env add SUPABASE_SERVICE_ROLE_KEY
 ```
 
 ### 2. Database Migration
+
 ```sql
 -- Setup RLS policies
 ALTER TABLE candidate ENABLE ROW LEVEL SECURITY;
@@ -251,9 +272,10 @@ CREATE POLICY "Admin can access all data" ON candidate
 ```
 
 ### 3. Storage Bucket Setup
+
 ```sql
 -- Create storage bucket
-INSERT INTO storage.buckets (id, name, public) 
+INSERT INTO storage.buckets (id, name, public)
 VALUES ('christianity-crisis-center-files', 'christianity-crisis-center-files', false);
 
 -- Set storage policies
@@ -264,16 +286,19 @@ CREATE POLICY "Admin can upload files" ON storage.objects
 ## Monitoring dan Analytics
 
 ### 1. Error Tracking
+
 - **Console Logging:** Structured logging untuk debugging
 - **Error Boundaries:** React error boundaries untuk graceful failures
 - **Supabase Monitoring:** Database performance monitoring
 
 ### 2. User Analytics
+
 - **Application Metrics:** Jumlah aplikasi per hari/minggu/bulan
 - **Success Rate:** Percentage kandidat yang mendapat pekerjaan
 - **User Journey:** Tracking dari registration ke hiring
 
 ### 3. Performance Monitoring
+
 - **Core Web Vitals:** LCP, FID, CLS monitoring
 - **Database Performance:** Query execution time
 - **API Response Times:** Upload dan form submission metrics
@@ -281,21 +306,25 @@ CREATE POLICY "Admin can upload files" ON storage.objects
 ## Future Enhancements
 
 ### Phase 1: Basic Job Matching
+
 - Algorithm untuk matching skills dengan job requirements
 - Email notifications untuk candidates dan partners
 - Basic reporting dashboard
 
 ### Phase 2: Advanced Features
+
 - Mobile app (React Native)
 - WhatsApp integration untuk notifications
 - Advanced filtering dan search
 
 ### Phase 3: Community Features
+
 - Community forum untuk job seekers
 - Skill assessment tests
 - Career counseling booking system
 
 ### Phase 4: AI Integration
+
 - AI-powered resume analysis
 - Automated job matching
 - Interview preparation chatbot

@@ -5,6 +5,7 @@ Platform komunitas untuk membantu sesama anggota komunitas mendapatkan pekerjaan
 ## Tujuan Platform
 
 Platform ini dirancang khusus untuk membantu anggota komunitas Christianity Crisis Center dalam:
+
 - Mencari pekerjaan yang sesuai dengan keahlian dan minat mereka
 - Menghubungkan pencari kerja dengan perusahaan mitra
 - Memberikan pelatihan dan pengembangan keterampilan
@@ -31,18 +32,21 @@ Platform ini dirancang khusus untuk membantu anggota komunitas Christianity Cris
 ## Pengaturan Development Lokal
 
 1. **Clone repository**
+
 ```bash
 git clone [repository-url]
 cd project-mps-web
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Setup environment variables**
-Buat file `.env.local` dengan konfigurasi berikut:
+   Buat file `.env.local` dengan konfigurasi berikut:
+
 ```
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
@@ -50,18 +54,20 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ```
 
 4. **Jalankan development server**
+
 ```bash
 npm run dev
 ```
 
 5. **Akses aplikasi**
-Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+   Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
 ## Konfigurasi Database (Supabase)
 
 ### Skema Database
 
 **Tabel: candidate (Data Pencari Kerja)**
+
 - `id` (integer, primary key) - ID unik kandidat
 - `created_at` (timestamp) - Waktu pendaftaran
 - `first_name` (text) - Nama depan
@@ -77,6 +83,7 @@ Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 - `certificate_url` (text) - URL file sertifikat
 
 **Tabel: partner (Data Mitra Perusahaan)**
+
 - `id` (integer, primary key) - ID unik mitra
 - `created_at` (timestamp) - Waktu pendaftaran
 - `first_name` (text) - Nama depan PIC
@@ -116,6 +123,7 @@ Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 1. **Aktifkan Email/Password authentication** di project Supabase Anda
 
 2. **Buat admin user** dengan menjalankan:
+
 ```bash
 npm run create-admin
 ```

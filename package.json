@@ -3,7 +3,13 @@
   "description": "Platform komunitas untuk membantu sesama anggota komunitas mendapatkan pekerjaan sesuai dengan bidang dan kemampuan masing-masing",
   "version": "1.0.0",
   "private": true,
-  "keywords": ["job-platform", "community", "christianity-crisis-center", "employment", "komunitas"],
+  "keywords": [
+    "job-platform",
+    "community",
+    "christianity-crisis-center",
+    "employment",
+    "komunitas"
+  ],
   "author": "Christianity Crisis Center Tech Team",
   "scripts": {
     "dev": "next dev",

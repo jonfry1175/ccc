@@ -20,6 +20,7 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ## 👤 Untuk Pencari Kerja
 
 ### Langkah 1: Mengakses Platform
+
 1. Buka website Christianity Crisis Center Job Platform
 2. Klik tombol **"Apply Now"** di halaman utama
 3. Pilih **"Apply as Candidate"**
@@ -27,19 +28,22 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ### Langkah 2: Mengisi Formulir Aplikasi
 
 #### A. Informasi Pribadi
+
 - **Nama Lengkap**: Isi nama depan dan belakang sesuai KTP
 - **Tanggal Lahir**: Pilih tanggal menggunakan calendar picker
 - **Jenis Kelamin**: Pilih Male atau Female
 - **Nomor Paspor/KTP**: Isi dengan nomor identitas valid
 
 #### B. Informasi Kontak
+
 - **Email**: Gunakan email aktif yang sering Anda cek
-- **WhatsApp**: 
+- **WhatsApp**:
   - Pilih kode negara (+62 untuk Indonesia)
   - Isi nomor tanpa angka 0 di depan
   - Contoh: +62 812-3456-7890
 
 #### C. Preferensi Pekerjaan
+
 - **Department**: Pilih bidang pekerjaan yang diminati:
   - Deck & Engine Department (Teknis kapal)
   - Housekeeping Department (Layanan kebersihan)
@@ -53,7 +57,9 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
   - Contoh untuk F&B: Waiter, Bartender, Sommelier
 
 #### D. Upload Dokumen
+
 📄 **CV/Resume**:
+
 - Format: PDF, DOC, atau DOCX
 - Ukuran maksimal: 5MB
 - Pastikan CV mencantumkan:
@@ -63,18 +69,21 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
   - Kontak yang bisa dihubungi
 
 📜 **Sertifikat** (opsional tapi direkomendasikan):
+
 - Sertifikat keahlian
 - Sertifikat bahasa (TOEFL, IELTS)
 - Sertifikat pelatihan
 - Ijazah pendidikan
 
 ### Langkah 3: Submit Aplikasi
+
 1. Review semua informasi yang telah diisi
 2. Pastikan file CV dan sertifikat sudah terupload
 3. Klik **"Submit Application"**
 4. Tunggu konfirmasi via email
 
 ### Langkah 4: Follow-up
+
 - **Email Konfirmasi**: Anda akan menerima email konfirmasi dalam 24 jam
 - **Status Update**: Tim akan menghubungi jika ada update status aplikasi
 - **Interview**: Jika ada perusahaan yang tertarik, Anda akan dihubungi untuk interview
@@ -84,6 +93,7 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ## 🏢 Untuk Mitra Perusahaan
 
 ### Langkah 1: Registrasi Sebagai Mitra
+
 1. Klik **"Apply Now"** di homepage
 2. Pilih **"Become a Partner"**
 3. Isi formulir pendaftaran mitra
@@ -91,28 +101,33 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ### Langkah 2: Informasi Perusahaan
 
 #### A. Data Perusahaan
+
 - **Nama Perusahaan**: Nama resmi perusahaan
 - **Website**: URL website perusahaan (jika ada)
 - **Negara/Lokasi**: Lokasi utama perusahaan
 - **Ukuran Perusahaan**: Startup, Small, Medium, atau Large
 
 #### B. Kontak PIC (Person in Charge)
+
 - **Nama PIC**: Nama lengkap contact person
 - **Email Perusahaan**: Email resmi untuk komunikasi
 - **Nomor Telepon**: Nomor yang bisa dihubungi untuk koordinasi
 
 #### C. Kebutuhan Tenaga Kerja
+
 - **Jenis Posisi**: Deskripsikan posisi yang dibutuhkan
 - **Jumlah**: Berapa orang yang dibutuhkan
 - **Kualifikasi**: Skill dan pengalaman yang diperlukan
 - **Timeline**: Kapan membutuhkan karyawan
 
 ### Langkah 3: Verifikasi
+
 1. Submit formulir pendaftaran
 2. Tim admin akan melakukan verifikasi dalam 2-3 hari kerja
 3. Setelah diverifikasi, Anda akan mendapat akses ke database kandidat
 
 ### Langkah 4: Akses Kandidat
+
 - **Database Search**: Cari kandidat berdasarkan skill dan pengalaman
 - **CV Review**: Download dan review CV kandidat
 - **Contact Coordination**: Tim akan membantu koordinasi interview
@@ -122,22 +137,27 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ## 👨‍💼 Untuk Administrator
 
 ### Login Admin Dashboard
+
 1. Buka `/admin/login`
 2. Masukkan kredensial admin:
    - **Email**: admin@christianitycrisis.com
    - **Password**: ccc2025admin
 
 ### Dashboard Overview
+
 📊 **Metrics Utama**:
+
 - Total kandidat terdaftar
-- Total mitra terverifikasi  
+- Total mitra terverifikasi
 - Aplikasi bulan ini
 - Success rate penempatan
 
 ### Manajemen Kandidat
+
 **Route**: `/admin/candidates`
 
 **Fitur**:
+
 - 📋 View semua aplikasi kandidat
 - 🔍 Filter berdasarkan department, posisi, tanggal
 - 📥 Download CV dan sertifikat
@@ -145,6 +165,7 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 - 📧 Kirim update via email/WhatsApp
 
 **Status Kandidat**:
+
 - **Pending**: Baru mendaftar, belum direview
 - **Reviewed**: Sudah direview, menunggu matching
 - **Matched**: Ada perusahaan yang tertarik
@@ -152,21 +173,25 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 - **Rejected**: Tidak sesuai kriteria
 
 ### Manajemen Mitra
+
 **Route**: `/admin/partners`
 
 **Fitur**:
+
 - 🏢 View semua pendaftaran mitra
 - ✅ Verifikasi perusahaan
 - 📊 Track job postings dari setiap mitra
 - 📈 Monitor success rate per mitra
 
 **Status Mitra**:
+
 - **Pending**: Baru mendaftar, menunggu verifikasi
 - **Verified**: Sudah diverifikasi, bisa akses kandidat
 - **Active**: Sedang ada job opening aktif
 - **Suspended**: Sementara dinonaktifkan
 
 ### Reports & Analytics
+
 - **Monthly Report**: Statistik bulanan kandidat dan penempatan
 - **Success Rate**: Persentase kandidat yang berhasil ditempatkan
 - **Partner Performance**: Evaluasi performa setiap mitra
@@ -179,18 +204,21 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ### Untuk Kandidat:
 
 #### ✨ CV yang Menarik
+
 - **Gunakan format yang rapi dan profesional**
 - **Highlight pengalaman relevan** dengan posisi yang dilamar
 - **Cantumkan skill bahasa** (English level sangat penting)
 - **Sertakan foto profesional** jika diminta
 
 #### 📱 Optimalisasi Profil
+
 - **Email responsif**: Cek email secara rutin
 - **WhatsApp aktif**: Pastikan nomor WhatsApp selalu aktif
 - **Update skill**: Terus tingkatkan kemampuan dan sertifikasi
 - **Network**: Manfaatkan koneksi dalam komunitas
 
 #### 🎯 Strategi Pencarian Kerja
+
 - **Apply ke multiple positions** yang sesuai skill
 - **Flexible dengan lokasi** untuk lebih banyak peluang
 - **Siapkan mental untuk interview** dalam bahasa Inggris
@@ -199,12 +227,14 @@ Platform Christianity Crisis Center dirancang khusus untuk **membantu sesama ang
 ### Untuk Mitra:
 
 #### 🎯 Job Description yang Efektif
+
 - **Jelas dan spesifik** tentang requirement
 - **Realistic expectations** untuk salary dan benefit
 - **Highlight company culture** yang positif
 - **Berikan timeline yang jelas**
 
 #### 🤝 Relationship Building
+
 - **Komunikasi rutin** dengan tim admin platform
 - **Feedback** setelah hire kandidat
 - **Long-term partnership** untuk sustainability
@@ -248,7 +278,8 @@ A: Ya, tim admin akan membantu cari kandidat sesuai kriteria khusus Anda.
 ### Technical Issues
 
 **Q: File upload gagal, bagaimana solusinya?**  
-A: 
+A:
+
 - Pastikan ukuran file maksimal 5MB
 - Format yang diterima: PDF, DOC, DOCX
 - Coba refresh browser dan upload ulang
@@ -258,7 +289,8 @@ A:
 A: Hubungi technical support atau gunakan fitur reset password di halaman login.
 
 **Q: Website tidak bisa diakses**  
-A: 
+A:
+
 - Cek koneksi internet
 - Clear browser cache
 - Coba browser lain
@@ -269,19 +301,23 @@ A:
 ## 📞 Kontak Support
 
 ### Tim Support Platform
+
 - **Email**: support@christianitycrisis.com
 - **WhatsApp**: +62 821-xxxx-xxxx (24/7 support)
 - **Jam Operasional**: Senin-Jumat 08:00-17:00 WIB
 
 ### Community Manager
+
 - **Email**: community@christianitycrisis.com
 - **WhatsApp Group**: [Link akan diberikan setelah registrasi]
 
 ### Technical Support
+
 - **Email**: tech@christianitycrisis.com
 - **Untuk**: Issues teknis, bug report, feature request
 
 ### Emergency Contact
+
 - **WhatsApp**: +62 812-xxxx-xxxx
 - **Untuk**: Urgent issues, kandidat yang sudah dapat job offer
 
@@ -295,13 +331,13 @@ Platform Christianity Crisis Center berkomitmen untuk:
 ✅ **Transparansi**: Tidak ada hidden fee atau biaya tersembunyi  
 ✅ **Kualitas**: Hanya menghubungkan dengan perusahaan mitra terpercaya  
 ✅ **Support Berkelanjutan**: Pendampingan dari aplikasi hingga penempatan kerja  
-✅ **Pengembangan Komunitas**: Membangun ecosystem yang saling mendukung  
+✅ **Pengembangan Komunitas**: Membangun ecosystem yang saling mendukung
 
 **"Membantu sesama bukan hanya panggilan, tapi juga berkat yang Tuhan percayakan kepada kita. Mari bersama-sama membangun masa depan yang lebih baik untuk seluruh anggota komunitas."**
 
 ---
 
-*Panduan ini akan terus diupdate seiring dengan pengembangan fitur platform. Jika ada pertanyaan atau saran, jangan ragu untuk menghubungi tim support kami.*
+_Panduan ini akan terus diupdate seiring dengan pengembangan fitur platform. Jika ada pertanyaan atau saran, jangan ragu untuk menghubungi tim support kami._
 
 **Terakhir diupdate**: September 2025  
 **Versi Platform**: 1.0  
