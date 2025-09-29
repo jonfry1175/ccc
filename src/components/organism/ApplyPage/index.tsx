@@ -219,9 +219,11 @@ export default function ApplyPage() {
             {departments.map((department) => (
               <Card
                 key={department.name}
-                className="group flex h-full flex-col overflow-hidden border-none bg-white/95 text-left shadow-xl shadow-primaryRed/10 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-primaryRed/40"
+                className="group relative flex h-full flex-col overflow-hidden border border-slate-200 bg-white text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative h-48 w-full overflow-hidden">
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primaryRed via-primaryGold to-primaryRed/80" />
+
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={department.image}
                     alt={department.name}
@@ -229,19 +231,21 @@ export default function ApplyPage() {
                     className="object-cover transition duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-primaryRed shadow">
-                    {department.name}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-darkGray/40 via-darkGray/5 to-transparent opacity-0 transition group-hover:opacity-100" />
                 </div>
-                <CardContent className="flex flex-1 flex-col gap-6 p-6">
-                  <p className="text-sm text-slate-600">
-                    {department.description}
-                  </p>
+                <CardContent className="flex flex-1 flex-col gap-5 p-6">
+                  <div className="space-y-3">
+                    <CardTitle className="text-xl font-semibold text-darkGray">
+                      {department.name}
+                    </CardTitle>
+                    <CardDescription className="text-sm leading-relaxed text-slate-600">
+                      {department.description}
+                    </CardDescription>
+                  </div>
                   <Button
                     asChild
                     size="lg"
-                    className="mt-auto w-full bg-darkGray text-white hover:bg-darkGray/90"
+                    className="mt-auto w-full rounded-full bg-primaryRed text-white shadow-sm transition hover:bg-primaryRed/90"
                   >
                     <Link href="/apply-now/candidate">Lamar</Link>
                   </Button>
@@ -269,24 +273,39 @@ export default function ApplyPage() {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
-            {processSteps.map(({ icon: Icon, title, description }) => (
-              <Card
-                key={title}
-                className="h-full border-none bg-gradient-to-br from-white via-white to-primaryGold/10 shadow-lg shadow-primaryRed/5 ring-1 ring-slate-100"
-              >
-                <CardHeader className="space-y-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed/15 text-primaryRed">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <CardTitle className="text-xl text-darkGray">{title}</CardTitle>
-                  <CardDescription className="text-sm text-slate-600">
-                    {description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
+          <ol className="relative mx-auto max-w-4xl space-y-10 pt-2 before:absolute before:left-6 before:top-8 before:bottom-6 before:w-[2px] before:bg-gradient-to-b before:from-primaryRed/40 before:via-primaryGold/30 before:to-transparent before:content-[''] md:before:left-7">
+            {processSteps.map(({ icon: Icon, title, description }, index) => {
+              const stepNumber = String(index + 1).padStart(2, "0");
+
+              return (
+                <li
+                  key={title}
+                  className="group relative pl-14 md:pl-16"
+                >
+                  <span className="absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg ring-2 ring-primaryRed/20">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed text-white">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </span>
+                  </span>
+
+                  <Card className="relative overflow-hidden border border-slate-200 bg-white/95 shadow-sm transition duration-300 hover:border-primaryRed/40 hover:shadow-xl">
+                    <CardHeader className="space-y-3 p-6 md:space-y-4 md:p-7">
+                      <span className="text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed/80">
+                        Langkah {stepNumber}
+                      </span>
+                      <CardTitle className="text-xl text-darkGray md:text-2xl">
+                        {title}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-slate-600 md:text-base">
+                        {description}
+                      </CardDescription>
+                    </CardHeader>
+                    <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primaryRed/20 via-primaryGold/30 to-primaryRed/20" />
+                  </Card>
+                </li>
+              );
+            })}
+          </ol>
         </motion.section>
       </main>
 

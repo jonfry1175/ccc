@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, CheckCircle2, Headset, Ship, ShieldCheck, Upload } from "lucide-react";
+import {
+  CalendarIcon,
+  CheckCircle2,
+  Headset,
+  Ship,
+  ShieldCheck,
+  Upload,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
@@ -11,7 +18,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import {
   Form,
@@ -19,13 +26,13 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger
+  PopoverTrigger,
 } from "@/components/ui/popover";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
@@ -33,7 +40,7 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -45,7 +52,7 @@ import { supabase, uploadFile, getFileUrl } from "@/lib/supabase";
 
 const departments = [
   { label: "Departemen Deck & Mesin", value: "deck-engine" },
-  { label: "Departemen Tata Graha", value: "housekeeping" }
+  { label: "Departemen Tata Graha", value: "housekeeping" },
 ];
 
 const positions = [
@@ -53,31 +60,71 @@ const positions = [
   { label: "Pelaut AB", value: "ab-sailor", department: "deck-engine" },
   { label: "Tukang Kayu", value: "carpenter", department: "deck-engine" },
   { label: "Fitter Dek", value: "deck-fitter", department: "deck-engine" },
-  { label: "Penjaga Keamanan Kolam Dek", value: "deck-pool-safety-guard", department: "deck-engine" },
-  { label: "Petugas Pemadam Kebakaran", value: "fireman", department: "deck-engine" },
-  { label: "Pelaut Biasa", value: "ordinary-seaman", department: "deck-engine" },
-  { label: "Teknisi Pengendalian Hama", value: "pest-control-technician", department: "deck-engine" },
-  { label: "Operator Limbah", value: "waste-operator", department: "deck-engine" },
-  { label: "Asisten Mekanik Fitter", value: "asst-fitter-mechanic", department: "deck-engine" },
-  { label: "Mekanik Fitter", value: "fitter-mechanic", department: "deck-engine" },
+  {
+    label: "Penjaga Keamanan Kolam Dek",
+    value: "deck-pool-safety-guard",
+    department: "deck-engine",
+  },
+  {
+    label: "Petugas Pemadam Kebakaran",
+    value: "fireman",
+    department: "deck-engine",
+  },
+  {
+    label: "Pelaut Biasa",
+    value: "ordinary-seaman",
+    department: "deck-engine",
+  },
+  {
+    label: "Teknisi Pengendalian Hama",
+    value: "pest-control-technician",
+    department: "deck-engine",
+  },
+  {
+    label: "Operator Limbah",
+    value: "waste-operator",
+    department: "deck-engine",
+  },
+  {
+    label: "Asisten Mekanik Fitter",
+    value: "asst-fitter-mechanic",
+    department: "deck-engine",
+  },
+  {
+    label: "Mekanik Fitter",
+    value: "fitter-mechanic",
+    department: "deck-engine",
+  },
   { label: "Oiler", value: "oiler", department: "deck-engine" },
   { label: "Tukang Ledeng", value: "plumber", department: "deck-engine" },
   { label: "Tukang Jok", value: "upholsterer", department: "deck-engine" },
   { label: "Wiper", value: "wiper", department: "deck-engine" },
 
   // Housekeeping Department
-  { label: "Pramugara Kabin", value: "cabin-steward", department: "housekeeping" },
-  { label: "Pembersih Hotel", value: "hotel-cleaner", department: "housekeeping" },
+  {
+    label: "Pramugara Kabin",
+    value: "cabin-steward",
+    department: "housekeeping",
+  },
+  {
+    label: "Pembersih Hotel",
+    value: "hotel-cleaner",
+    department: "housekeeping",
+  },
   { label: "Pembersih Kru", value: "crew-cleaner", department: "housekeeping" },
-  { label: "Operator Binatu", value: "laundry-operator", department: "housekeeping" },
-  { label: "Penjahit", value: "tailor", department: "housekeeping" }
+  {
+    label: "Operator Binatu",
+    value: "laundry-operator",
+    department: "housekeeping",
+  },
+  { label: "Penjahit", value: "tailor", department: "housekeeping" },
 ];
 
 const preparationChecklist = [
   "Paspor dengan masa berlaku minimal 18 bulan",
   "CV terbaru dalam format PDF (maksimal 10MB)",
   "Sertifikat pengalaman kerja atau pelatihan relevan",
-  "Nomor WhatsApp aktif untuk proses verifikasi"
+  "Nomor WhatsApp aktif untuk proses verifikasi",
 ];
 
 const supportHighlights = [
@@ -85,20 +132,20 @@ const supportHighlights = [
     icon: ShieldCheck,
     title: "Pendampingan Dokumen",
     description:
-      "Tim compliance kami memastikan dokumen Anda sesuai standar perusahaan internasional."
+      "Tim compliance kami memastikan dokumen Anda sesuai standar perusahaan internasional.",
   },
   {
     icon: Ship,
     title: "Jaringan Kapal Pesiar",
     description:
-      "Kemitraan dengan operator kapal pesiar Asia hingga Timur Tengah memperluas pilihan karier Anda."
+      "Kemitraan dengan operator kapal pesiar Asia hingga Timur Tengah memperluas pilihan karier Anda.",
   },
   {
     icon: Headset,
     title: "Tim Support 24/7",
     description:
-      "Konsultasi langsung melalui WhatsApp untuk pertanyaan proses rekrutmen Anda."
-  }
+      "Konsultasi langsung melalui WhatsApp untuk pertanyaan proses rekrutmen Anda.",
+  },
 ];
 
 // Check if we're in a browser environment
@@ -108,7 +155,9 @@ const formSchema = z.object({
   firstName: z.string().min(1, { message: "Nama depan wajib diisi" }),
   lastName: z.string().min(1, { message: "Nama belakang wajib diisi" }),
   dateOfBirth: z.date({ required_error: "Tanggal lahir wajib diisi" }),
-  gender: z.enum(["female", "male"], { required_error: "Jenis kelamin wajib diisi" }),
+  gender: z.enum(["female", "male"], {
+    required_error: "Jenis kelamin wajib diisi",
+  }),
   passportId: z.string().min(1, { message: "ID paspor wajib diisi" }),
   email: z.string().email({ message: "Alamat email tidak valid" }),
   whatsappCountryCode: z
@@ -118,7 +167,7 @@ const formSchema = z.object({
   department: z.string().min(1, { message: "Departemen wajib diisi" }),
   position: z.string().min(1, { message: "Posisi wajib diisi" }),
   cv: isBrowser ? z.instanceof(File).optional() : z.any().optional(),
-  certificate: isBrowser ? z.instanceof(File).optional() : z.any().optional()
+  certificate: isBrowser ? z.instanceof(File).optional() : z.any().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -149,8 +198,8 @@ export default function CandidatePage() {
       whatsappCountryCode: "+62",
       whatsappNumber: "",
       department: "",
-      position: ""
-    }
+      position: "",
+    },
   });
 
   const filteredPositions = selectedDepartment
@@ -160,44 +209,51 @@ export default function CandidatePage() {
   const onSubmit = async (data: FormValues) => {
     try {
       setIsSubmitting(true);
-      
+
       // Generate unique IDs for file uploads
       const timestamp = new Date().getTime();
       const userId = `${data.firstName.toLowerCase()}_${data.lastName.toLowerCase()}_${timestamp}`;
-      
+
       // Upload files to Supabase Storage via API route
-      let cvUrl = '';
-      let certificateUrl = '';
-      
+      let cvUrl = "";
+      let certificateUrl = "";
+
       if (data.cv) {
         try {
           const cvPath = `${userId}/cv_${data.cv.name}`;
-          await uploadFile('marina-prima-sukses-web', cvPath, data.cv);
-          cvUrl = getFileUrl('marina-prima-sukses-web', cvPath);
+          await uploadFile("christianity-crisis-center-files", cvPath, data.cv);
+          cvUrl = getFileUrl("christianity-crisis-center-files", cvPath);
         } catch (error) {
-          console.error('CV upload error:', error);
-          throw new Error('Gagal mengunggah CV. Silakan coba lagi.');
+          console.error("CV upload error:", error);
+          throw new Error("Gagal mengunggah CV. Silakan coba lagi.");
         }
       }
-      
+
       if (data.certificate) {
         try {
           const certPath = `${userId}/cert_${data.certificate.name}`;
-          await uploadFile('marina-prima-sukses-web', certPath, data.certificate);
-          certificateUrl = getFileUrl('marina-prima-sukses-web', certPath);
+          await uploadFile(
+            "christianity-crisis-center-files",
+            certPath,
+            data.certificate
+          );
+          certificateUrl = getFileUrl(
+            "christianity-crisis-center-files",
+            certPath
+          );
         } catch (error) {
-          console.error('Certificate upload error:', error);
-          throw new Error('Gagal mengunggah Sertifikat. Silakan coba lagi.');
+          console.error("Certificate upload error:", error);
+          throw new Error("Gagal mengunggah Sertifikat. Silakan coba lagi.");
         }
       }
-      
+
       // Format WhatsApp number with international prefix
       const whatsappNumber = data.whatsappNumber.startsWith("+")
         ? data.whatsappNumber
         : `+${data.whatsappNumber}`;
-      
+
       // Save candidate data to Supabase Database
-      const { error } = await supabase.from('candidate').insert({
+      const { error } = await supabase.from("candidate").insert({
         first_name: data.firstName,
         last_name: data.lastName,
         date_of_birth: data.dateOfBirth.toISOString(),
@@ -208,28 +264,30 @@ export default function CandidatePage() {
         department: data.department,
         position: data.position,
         cv_url: cvUrl,
-        certificate_url: certificateUrl
+        certificate_url: certificateUrl,
       });
-      
+
       if (error) {
-        console.error('Database insertion error:', error);
-        throw new Error('Gagal menyimpan aplikasi Anda. Silakan coba lagi.');
+        console.error("Database insertion error:", error);
+        throw new Error("Gagal menyimpan aplikasi Anda. Silakan coba lagi.");
       }
-      
+
       toast({
         title: "Aplikasi Berhasil Dikirim",
-        description: "Terima kasih atas aplikasi Anda. Kami akan segera menghubungi Anda!",
+        description:
+          "Terima kasih atas aplikasi Anda. Kami akan segera menghubungi Anda!",
       });
-      
+
       // Reset form
       form.reset();
-      
     } catch (error: any) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       toast({
         variant: "destructive",
         title: "Pengiriman Gagal",
-        description: error.message || "Terjadi kesalahan saat mengirimkan aplikasi Anda. Silakan coba lagi.",
+        description:
+          error.message ||
+          "Terjadi kesalahan saat mengirimkan aplikasi Anda. Silakan coba lagi.",
       });
     } finally {
       setIsSubmitting(false);
@@ -256,7 +314,9 @@ export default function CandidatePage() {
             Lamar Sebagai Kandidat Kapal Pesiar & Hospitality
           </h1>
           <p className="text-base text-slate-600 md:text-lg">
-            Lengkapi formulir di bawah ini untuk memulai proses rekrutmen internasional. Kami akan meninjau dokumen Anda dan menghubungi dalam 3-5 hari kerja.
+            Lengkapi formulir di bawah ini untuk memulai proses rekrutmen
+            internasional. Kami akan meninjau dokumen Anda dan menghubungi dalam
+            3-5 hari kerja.
           </p>
         </section>
 
@@ -278,7 +338,10 @@ export default function CandidatePage() {
                 <ul className="space-y-3 text-sm text-slate-600">
                   {preparationChecklist.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-primaryRed" aria-hidden />
+                      <CheckCircle2
+                        className="mt-0.5 h-4 w-4 text-primaryRed"
+                        aria-hidden
+                      />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -296,7 +359,9 @@ export default function CandidatePage() {
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primaryRed/12 text-primaryRed">
                       <Icon className="h-4 w-4" aria-hidden />
                     </div>
-                    <CardTitle className="text-lg text-darkGray">{title}</CardTitle>
+                    <CardTitle className="text-lg text-darkGray">
+                      {title}
+                    </CardTitle>
                     <CardDescription className="text-sm text-slate-600">
                       {description}
                     </CardDescription>
@@ -316,9 +381,17 @@ export default function CandidatePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
-                <p>WhatsApp: <span className="font-semibold">+62 811-9307-777</span></p>
-                <p>Email: <span className="font-semibold">info@mpsjakarta.com</span></p>
-                <p>Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara</p>
+                <p>
+                  WhatsApp:{" "}
+                  <span className="font-semibold">+62 811-9307-777</span>
+                </p>
+                <p>
+                  Email:{" "}
+                  <span className="font-semibold">info@mpsjakarta.com</span>
+                </p>
+                <p>
+                  Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -332,12 +405,17 @@ export default function CandidatePage() {
                 Lengkapi data pribadi dan posisi impian Anda
               </CardTitle>
               <CardDescription className="text-sm text-slate-600">
-                Data yang Anda kirimkan kami jaga kerahasiaannya dan hanya digunakan untuk proses rekrutmen Marina Prima Sukses.
+                Data yang Anda kirimkan kami jaga kerahasiaannya dan hanya
+                digunakan untuk proses pendampingan karier Christianity Crisis
+                Center.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-8">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 text-left">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-10 text-left"
+                >
                   <section className="space-y-6">
                     <div className="space-y-1">
                       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
@@ -354,7 +432,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Nama Depan <span className="text-primaryRed">*</span>
+                              Nama Depan{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="Nama Depan" {...field} />
@@ -370,7 +449,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Nama Belakang <span className="text-primaryRed">*</span>
+                              Nama Belakang{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="Nama Belakang" {...field} />
@@ -388,7 +468,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem className="flex flex-col">
                             <FormLabel>
-                              Tanggal Lahir <span className="text-primaryRed">*</span>
+                              Tanggal Lahir{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <Popover>
                               <PopoverTrigger asChild>
@@ -409,16 +490,23 @@ export default function CandidatePage() {
                                   </Button>
                                 </FormControl>
                               </PopoverTrigger>
-                              <PopoverContent className="w-auto p-0" align="start">
+                              <PopoverContent
+                                className="w-auto p-0"
+                                align="start"
+                              >
                                 <div className="flex items-center justify-between border-b border-border p-2">
                                   <div className="flex gap-1">
                                     <Select
                                       onValueChange={(month) => {
                                         const newDate = new Date(calendarMonth);
-                                        newDate.setMonth(Number.parseInt(month));
+                                        newDate.setMonth(
+                                          Number.parseInt(month)
+                                        );
                                         setCalendarMonth(newDate);
                                       }}
-                                      value={calendarMonth.getMonth().toString()}
+                                      value={calendarMonth
+                                        .getMonth()
+                                        .toString()}
                                     >
                                       <SelectTrigger className="h-8 w-[110px]">
                                         <SelectValue placeholder="Bulan" />
@@ -436,9 +524,12 @@ export default function CandidatePage() {
                                           "September",
                                           "Oktober",
                                           "November",
-                                          "Desember"
+                                          "Desember",
                                         ].map((month, index) => (
-                                          <SelectItem key={month} value={index.toString()}>
+                                          <SelectItem
+                                            key={month}
+                                            value={index.toString()}
+                                          >
                                             {month}
                                           </SelectItem>
                                         ))}
@@ -448,19 +539,27 @@ export default function CandidatePage() {
                                     <Select
                                       onValueChange={(year) => {
                                         const newDate = new Date(calendarMonth);
-                                        newDate.setFullYear(Number.parseInt(year));
+                                        newDate.setFullYear(
+                                          Number.parseInt(year)
+                                        );
                                         setCalendarMonth(newDate);
                                       }}
-                                      value={calendarMonth.getFullYear().toString()}
+                                      value={calendarMonth
+                                        .getFullYear()
+                                        .toString()}
                                     >
                                       <SelectTrigger className="h-8 w-[90px]">
                                         <SelectValue placeholder="Tahun" />
                                       </SelectTrigger>
                                       <SelectContent className="max-h-[200px]">
                                         {Array.from({ length: 100 }, (_, i) => {
-                                          const year = new Date().getFullYear() - i;
+                                          const year =
+                                            new Date().getFullYear() - i;
                                           return (
-                                            <SelectItem key={year} value={year.toString()}>
+                                            <SelectItem
+                                              key={year}
+                                              value={year.toString()}
+                                            >
                                               {year}
                                             </SelectItem>
                                           );
@@ -476,7 +575,8 @@ export default function CandidatePage() {
                                   month={calendarMonth}
                                   onMonthChange={setCalendarMonth}
                                   disabled={(date) =>
-                                    date > new Date() || date < new Date("1900-01-01")
+                                    date > new Date() ||
+                                    date < new Date("1900-01-01")
                                   }
                                   initialFocus
                                 />
@@ -493,7 +593,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem className="space-y-3">
                             <FormLabel>
-                              Jenis Kelamin <span className="text-primaryRed">*</span>
+                              Jenis Kelamin{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <RadioGroup
@@ -531,7 +632,8 @@ export default function CandidatePage() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>
-                            Nomor Paspor <span className="text-primaryRed">*</span>
+                            Nomor Paspor{" "}
+                            <span className="text-primaryRed">*</span>
                           </FormLabel>
                           <FormControl>
                             <Input placeholder="Nomor Paspor" {...field} />
@@ -550,7 +652,8 @@ export default function CandidatePage() {
                         Kontak & Posisi
                       </p>
                       <p className="text-sm text-slate-500">
-                        Pastikan nomor WhatsApp aktif untuk menerima update status lamaran.
+                        Pastikan nomor WhatsApp aktif untuk menerima update
+                        status lamaran.
                       </p>
                     </div>
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -560,7 +663,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Alamat Email <span className="text-primaryRed">*</span>
+                              Alamat Email{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="anda@contoh.com" {...field} />
@@ -572,10 +676,13 @@ export default function CandidatePage() {
 
                       <div className="space-y-2">
                         <FormLabel>
-                          Nomor WhatsApp <span className="text-primaryRed">*</span>
+                          Nomor WhatsApp{" "}
+                          <span className="text-primaryRed">*</span>
                         </FormLabel>
                         <PhoneNumberInput
-                          onChange={(value) => form.setValue("whatsappNumber", value)}
+                          onChange={(value) =>
+                            form.setValue("whatsappNumber", value)
+                          }
                           error={form.formState.errors.whatsappNumber?.message}
                         />
                       </div>
@@ -586,7 +693,8 @@ export default function CandidatePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Departemen yang Dilamar <span className="text-primaryRed">*</span>
+                              Departemen yang Dilamar{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <Select
                               onValueChange={(value) => {
@@ -603,7 +711,10 @@ export default function CandidatePage() {
                               </FormControl>
                               <SelectContent>
                                 {departments.map((department) => (
-                                  <SelectItem key={department.value} value={department.value}>
+                                  <SelectItem
+                                    key={department.value}
+                                    value={department.value}
+                                  >
                                     {department.label}
                                   </SelectItem>
                                 ))}
@@ -634,7 +745,10 @@ export default function CandidatePage() {
                               </FormControl>
                               <SelectContent>
                                 {filteredPositions.map((position) => (
-                                  <SelectItem key={position.value} value={position.value}>
+                                  <SelectItem
+                                    key={position.value}
+                                    value={position.value}
+                                  >
                                     {position.label}
                                   </SelectItem>
                                 ))}
@@ -662,14 +776,20 @@ export default function CandidatePage() {
                     <FormField
                       control={form.control}
                       name="cv"
-                      render={({ field: { value, onChange, ...fieldProps } }) => (
+                      render={({
+                        field: { value, onChange, ...fieldProps },
+                      }) => (
                         <FormItem>
                           <FormLabel>
-                            Unggah CV Anda <span className="text-primaryRed">*</span>
+                            Unggah CV Anda{" "}
+                            <span className="text-primaryRed">*</span>
                           </FormLabel>
                           <FormControl>
                             <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-primaryRed/40 bg-white/60 p-6 text-center transition hover:border-primaryRed">
-                              <Upload className="h-10 w-10 text-primaryRed" aria-hidden />
+                              <Upload
+                                className="h-10 w-10 text-primaryRed"
+                                aria-hidden
+                              />
                               <p className="text-sm font-medium text-darkGray">
                                 Seret & lepas atau pilih file
                               </p>
@@ -694,13 +814,16 @@ export default function CandidatePage() {
                                 variant="outline"
                                 size="sm"
                                 className="border-primaryRed/40 text-primaryRed hover:border-primaryRed hover:bg-primaryRed/10"
-                                onClick={() => document.getElementById("cv-upload")?.click()}
+                                onClick={() =>
+                                  document.getElementById("cv-upload")?.click()
+                                }
                               >
                                 Pilih File
                               </Button>
                               {value && (
                                 <p className="mt-2 text-sm text-slate-600">
-                                  Terpilih: {value instanceof File ? value.name : ""}
+                                  Terpilih:{" "}
+                                  {value instanceof File ? value.name : ""}
                                 </p>
                               )}
                             </div>
@@ -713,14 +836,20 @@ export default function CandidatePage() {
                     <FormField
                       control={form.control}
                       name="certificate"
-                      render={({ field: { value, onChange, ...fieldProps } }) => (
+                      render={({
+                        field: { value, onChange, ...fieldProps },
+                      }) => (
                         <FormItem>
                           <FormLabel>
-                            Unggah Sertifikat Pengalaman Kerja <span className="text-primaryRed">*</span>
+                            Unggah Sertifikat Pengalaman Kerja{" "}
+                            <span className="text-primaryRed">*</span>
                           </FormLabel>
                           <FormControl>
                             <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-primaryRed/40 bg-white/60 p-6 text-center transition hover:border-primaryRed">
-                              <Upload className="h-10 w-10 text-primaryRed" aria-hidden />
+                              <Upload
+                                className="h-10 w-10 text-primaryRed"
+                                aria-hidden
+                              />
                               <p className="text-sm font-medium text-darkGray">
                                 Seret & lepas atau pilih file
                               </p>
@@ -755,7 +884,8 @@ export default function CandidatePage() {
                               </Button>
                               {value && (
                                 <p className="mt-2 text-sm text-slate-600">
-                                  Terpilih: {value instanceof File ? value.name : ""}
+                                  Terpilih:{" "}
+                                  {value instanceof File ? value.name : ""}
                                 </p>
                               )}
                             </div>

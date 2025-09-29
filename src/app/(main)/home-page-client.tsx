@@ -91,11 +91,11 @@ export default function HomePageClient() {
               >
                 <h1 className="text-6xl font-bold md:text-1xl mb-4">HALO!</h1>
                 <h2 className="text-xl md:text-3xl">
-                  SELAMAT DATANG DI MARINA PRIMA SUKSES
+                  SELAMAT DATANG DI CHRISTIANITY CRISIS CENTER
                 </h2>
                 <h2 className="text-xl md:text-md mt-4 italic">
-                  Agen Rekrutmen MSC Cruises di Jakarta - Menghubungkan Pekerja
-                  Indonesia ke Pesisir Global
+                  Platform Karier Komunitas Kristen di Jakarta - Menghubungkan
+                  Jemaat dengan Peluang Kerja Bermakna
                 </h2>
               </motion.div>
 

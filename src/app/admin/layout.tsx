@@ -75,7 +75,7 @@ export default function AdminLayout({
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md">
         <div className="p-4 border-b">
-          <h2 className="text-xl font-bold">Admin MPS</h2>
+          <h2 className="text-xl font-bold">Admin CCC</h2>
         </div>
         <nav className="p-4">
           <ul className="space-y-2">

@@ -116,7 +116,7 @@ Platform ini telah di-rebuild dengan tujuan baru: **"Membantu sesama anggota kom
 ### Phase 1: Content & Language Update (Immediate)
 
 1. Update UI copy ke bahasa Indonesia
-2. Ganti branding dari "Marina Prima Sukses" ke "Christianity Crisis Center"
+2. Pastikan branding "Christianity Crisis Center" konsisten di seluruh platform
 3. Update email templates dan notifications
 4. Revisi job categories sesuai kebutuhan komunitas
 

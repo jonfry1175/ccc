@@ -19,14 +19,14 @@ Dokumen ini berisi rencana komprehensif untuk menerjemahkan semua copywriting da
 **File**: `src/app/(main)/page.tsx`
 **Teks yang perlu diterjemahkan**:
 
-- ✅ **Sudah Indonesia**: "Mengapa Memilih Marina Prima Sukses?"
+- ✅ **Sudah Indonesia**: "Mengapa Memilih Christianity Crisis Center?"
 - ✅ **Sudah Indonesia**: List items sudah dalam bahasa Indonesia
 
 **File**: `src/app/(main)/home-page-client.tsx`
 **Teks yang perlu diterjemahkan**:
 
 - ❌ "HELLO!" → "HALO!"
-- ❌ "WELCOME TO MARINA PRIMA SUKSES" → "SELAMAT DATANG DI MARINA PRIMA SUKSES"
+- ❌ "WELCOME TO CHRISTIANITY CRISIS CENTER" → "SELAMAT DATANG DI CHRISTIANITY CRISIS CENTER"
 - ❌ "MSC Cruises Hiring Agency in Jakarta - Bridging Indonesian Workers to Global Shores" → "Agen Rekrutmen MSC Cruises di Jakarta - Menghubungkan Pekerja Indonesia ke Pantai Global"
 - ❌ "Business Profile" → "Profil Bisnis"
 - ❌ "Apply Now" → "Daftar Sekarang"
@@ -154,25 +154,25 @@ Dokumen ini berisi rencana komprehensif untuk menerjemahkan semua copywriting da
 **Teks yang perlu diterjemahkan**:
 
 - ❌ "Home" → "Beranda"
-- ❌ "Marina Prima Sukses Jakarta - MSC Cruises official manning agency. Join our cruise ship crew recruitment & training programs today!" → "Marina Prima Sukses Jakarta - agen resmi MSC Cruises. Bergabunglah dengan program rekrutmen & pelatihan kru kapal pesiar kami hari ini!"
+- ❌ "Christianity Crisis Center Jakarta - Platform job matching komunitas Kristen. Bergabunglah dengan program pendampingan & pelatihan karier kami hari ini!" → "Christianity Crisis Center Jakarta - platform job matching komunitas Kristen. Bergabunglah dengan program pendampingan & pelatihan karier kami hari ini!"
 - ❌ "Apply Now" → "Daftar Sekarang"
-- ❌ "Apply for MSC cruise ship jobs or partner with Marina Prima Sukses Jakarta. Indonesia's leading maritime recruitment agency." → "Lamar pekerjaan kapal pesiar MSC atau bermitra dengan Marina Prima Sukses Jakarta. Agen rekrutmen maritim terkemuka Indonesia."
+- ❌ "Apply for community-focused jobs or partner with Christianity Crisis Center Jakarta. Platform pemberdayaan karier terdepan Indonesia." → "Ajukan diri pada peluang kerja komunitas atau bermitra dengan Christianity Crisis Center Jakarta. Platform pemberdayaan karier terdepan Indonesia."
 - ❌ "Candidate Application" → "Aplikasi Kandidat"
-- ❌ "Apply for MSC Cruises crew positions with Marina Prima Sukses. Housekeeping, F&B, deck & engine jobs. Start your cruise career today!" → "Lamar posisi kru MSC Cruises dengan Marina Prima Sukses. Pekerjaan housekeeping, F&B, deck & engine. Mulai karir kapal pesiar Anda hari ini!"
+- ❌ "Apply for career programs with Christianity Crisis Center. Hospitality, F&B, layanan sosial, dan edukasi. Mulai perjalanan karier Anda hari ini!" → "Daftarkan diri pada program karier Christianity Crisis Center. Hospitality, F&B, layanan sosial, dan edukasi. Mulai perjalanan karier Anda hari ini!"
 - ❌ "Partner Application" → "Aplikasi Mitra"
-- ❌ "Partner with Marina Prima Sukses - MSC Cruises official agency Jakarta. Join Indonesia's premier maritime recruitment network." → "Bermitra dengan Marina Prima Sukses - agen resmi MSC Cruises Jakarta. Bergabunglah dengan jaringan rekrutmen maritim premier Indonesia."
+- ❌ "Partner with Christianity Crisis Center - Community empowerment platform Jakarta. Join Indonesia's premier faith-based career network." → "Bermitra dengan Christianity Crisis Center - platform pemberdayaan komunitas Jakarta. Bergabunglah dengan jaringan karier berbasis pelayanan terkemuka di Indonesia."
 - ❌ "Training Center" → "Pusat Pelatihan"
-- ❌ "Marina Prima Sukses Training Center Jakarta - Get certified for cruise ship careers. Professional maritime training for Indonesian crew." → "Pusat Pelatihan Marina Prima Sukses Jakarta - Dapatkan sertifikasi untuk karir kapal pesiar. Pelatihan maritim profesional untuk kru Indonesia."
+- ❌ "Christianity Crisis Center Training Hub Jakarta - Get certified for impactful careers. Pelatihan profesional bagi anggota komunitas Indonesia." → "Pusat Pelatihan Christianity Crisis Center Jakarta - Dapatkan sertifikasi untuk karier berdampak. Pelatihan profesional bagi anggota komunitas Indonesia."
 - ❌ "Articles & News" → "Artikel & Berita"
-- ❌ "Latest cruise ship job updates & maritime news from Marina Prima Sukses Jakarta. MSC Cruises opportunities for Indonesian crew." → "Update pekerjaan kapal pesiar terbaru & berita maritim dari Marina Prima Sukses Jakarta. Peluang MSC Cruises untuk kru Indonesia."
+- ❌ "Latest community career updates & empowerment news from Christianity Crisis Center Jakarta. Opportunities for Indonesian professionals." → "Update peluang karier komunitas & kabar pemberdayaan terbaru dari Christianity Crisis Center Jakarta. Peluang bagi profesional Indonesia."
 
 ### 2. SEO Configuration
 
 **File**: `src/lib/seo.ts`
 **Teks yang perlu diterjemahkan**:
 
-- ❌ Title: "Marina Prima Sukses | Official MSC Cruises Manning Agency Jakarta" → "Marina Prima Sukses | Agen Resmi MSC Cruises Jakarta"
-- ❌ Description: "Marina Prima Sukses - Official MSC Cruises manning agency Jakarta. Recruiting Indonesian crew for international cruise ships. Apply now!" → "Marina Prima Sukses - Agen resmi MSC Cruises Jakarta. Merekrut kru Indonesia untuk kapal pesiar internasional. Daftar sekarang!"
+- ❌ Title: "Christianity Crisis Center | Community Career Platform Jakarta" → "Christianity Crisis Center | Platform Karier Komunitas Jakarta"
+- ❌ Description: "Christianity Crisis Center - Jakarta-based community career platform. Empowering Indonesian talent with holistic coaching and job placement." → "Christianity Crisis Center - platform karier komunitas berbasis di Jakarta. Memberdayakan talenta Indonesia dengan coaching holistik dan penempatan kerja."
 - ❌ Keywords: Beberapa keywords Inggris perlu diterjemahkan
 - ❌ OpenGraph title dan description
 - ❌ Schema.org structured data

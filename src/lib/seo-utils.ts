@@ -16,7 +16,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 export function generateArticleSchema({
   title,
   description,
-  author = "Marina Prima Sukses",
+  author = "Christianity Crisis Center",
   datePublished,
   dateModified,
   image,
@@ -43,7 +43,7 @@ export function generateArticleSchema({
     "dateModified": dateModified || datePublished,
     "publisher": {
       "@type": "Organization",
-      "name": "Marina Prima Sukses",
+      "name": "Christianity Crisis Center",
       "logo": {
         "@type": "ImageObject",
         "url": "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png"
@@ -73,7 +73,7 @@ export function generateReviewSchema(reviews: Array<{
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Marina Prima Sukses",
+    "name": "Christianity Crisis Center",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": aggregateRating.toFixed(1),
@@ -133,7 +133,7 @@ export function generateAltText(filename: string, context?: string): string {
 
   // Add context based on common patterns
   if (filename.includes('logo')) {
-    return `Marina Prima Sukses ${baseName}`;
+    return `Christianity Crisis Center ${baseName}`;
   }
   if (filename.includes('crew') || filename.includes('staff')) {
     return `Indonesian cruise ship ${baseName}`;

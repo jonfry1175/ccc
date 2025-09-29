@@ -15,14 +15,14 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article Not Found - MSP Cruises",
+      title: "Article Not Found - Christianity Crisis Center",
       description:
-        "Explore the latest cruise travel tips and news from MSP Cruises.",
+        "Explore the latest career insights and community stories from Christianity Crisis Center.",
     };
   }
 
   return {
-    title: `${article.title} | MSP Cruises`,
+    title: `${article.title} | Christianity Crisis Center`,
     description: article.description,
     openGraph: {
       title: article.title,

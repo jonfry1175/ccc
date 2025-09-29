@@ -9,12 +9,12 @@ const structuredData = {
   organization: {
     "@context": "https://schema.org",
     "@type": "EmploymentAgency",
-    name: "Marina Prima Sukses",
-    alternateName: "MPS Jakarta",
+    name: "Christianity Crisis Center",
+    alternateName: "CCC Jakarta",
     url: "https://mpsjakarta.com",
     logo: "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png",
     description:
-      "Agen Manning Resmi MSC Cruises di Jakarta, Indonesia. Merekrut kru Indonesia untuk kapal pesiar internasional sejak didirikan.",
+      "Platform pemberdayaan karier komunitas Kristen di Jakarta, Indonesia. Menghubungkan jemaat dengan pelatihan dan peluang kerja bermakna.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Jakarta",
@@ -24,7 +24,7 @@ const structuredData = {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      contactType: "recruitment",
+      contactType: "career services",
       email: "admin@mpsjakarta.com",
       availableLanguage: ["Inggris", "Indonesia"],
     },
@@ -44,10 +44,10 @@ const structuredData = {
     "@type": "JobPosting",
     title: "Kru Kapal Pesiar - Tersedia Banyak Posisi",
     description:
-      "Bergabunglah dengan MSC Cruises melalui Marina Prima Sukses. Kami merekrut untuk posisi Housekeeping, F&B, Dapur, Dek, Mesin, dan Hiburan.",
+      "Bergabunglah dengan jaringan karier Christianity Crisis Center. Kami mendampingi anggota komunitas untuk posisi hospitality, layanan publik, pendidikan, dan sosial.",
     hiringOrganization: {
       "@type": "Organization",
-      name: "Marina Prima Sukses",
+      name: "Christianity Crisis Center",
       sameAs: "https://mpsjakarta.com",
     },
     jobLocation: {
@@ -76,10 +76,10 @@ const structuredData = {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Apa itu Marina Prima Sukses?",
+        name: "Apa itu Christianity Crisis Center?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Marina Prima Sukses adalah agen resmi MSC Cruises di Jakarta yang merekrut crew Indonesia untuk kapal pesiar internasional.",
+          text: "Christianity Crisis Center adalah platform pemberdayaan karier komunitas Kristen di Jakarta yang menyediakan pelatihan, mentoring, dan akses peluang kerja.",
         },
       },
       {
@@ -87,7 +87,7 @@ const structuredData = {
         name: "Posisi apa saja yang tersedia untuk kru Indonesia?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Kami merekrut untuk departemen Housekeeping, Food & Beverage, Galley, Deck, Engine, Entertainment, dan Guest Services.",
+          text: "Kami mendukung berbagai sektor seperti hospitality, kesehatan, pendidikan, layanan sosial, dan administrasi komunitas.",
         },
       },
       {
@@ -95,7 +95,7 @@ const structuredData = {
         name: "Apa syarat untuk bekerja di kapal pesiar MSC?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Syarat dasar: Paspor valid, kemampuan bahasa Inggris, pengalaman kerja relevan, sertifikat STCW, dan lulus tes kesehatan.",
+          text: "Persyaratan umum meliputi komitmen pelayanan, kesiapan mengikuti pelatihan, dan kelengkapan dokumen kerja sesuai sektor yang dituju.",
         },
       },
       {
@@ -103,7 +103,7 @@ const structuredData = {
         name: "Berapa lama kontrak untuk pekerjaan kapal pesiar?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Kontrak tipikal berkisar 6-10 bulan tergantung posisi, dengan 2 bulan liburan antar kontrak.",
+          text: "Durasi kontrak bergantung pada mitra kerja sama; tim CCC membantu menilai setiap tawaran agar sesuai dengan situasi keluarga dan pelayanan Anda.",
         },
       },
     ],
@@ -139,39 +139,40 @@ export default function Home() {
       {/* SEO-optimized content for crawlers */}
       <div className="sr-only">
         <h1>
-          Marina Prima Sukses - Official MSC Cruises Manning Agency Jakarta
+          Christianity Crisis Center - Platform Karier Komunitas Kristen Jakarta
           Indonesia
         </h1>
         <p>
-          Marina Prima Sukses (MPS Jakarta) adalah agen perekrutan resmi MSC
-          Cruises di Indonesia. Kami menghubungkan pekerja Indonesia berbakat
-          dengan peluang karir menarik di kapal pesiar mewah di seluruh dunia.
+          Christianity Crisis Center (CCC Jakarta) adalah pusat pemberdayaan
+          komunitas Kristen di Indonesia. Kami menghubungkan anggota jemaat
+          berbakat dengan peluang karier yang penuh makna di berbagai sektor
+          pelayanan dan profesional.
         </p>
 
-        <h2>Lowongan Kerja Kapal Pesiar untuk WNI</h2>
+        <h2>Peluang Karier untuk Komunitas Kristen Indonesia</h2>
         <p>
-          Bergabunglah dengan ribuan crew Indonesia sukses yang bekerja di kapal
-          MSC Cruises. Kami menawarkan layanan rekrutmen, pelatihan, dan
-          penempatan kerja.
+          Temukan berbagai lowongan kerja komunitas, pelayanan sosial, dan
+          industri hospitality. Kami menawarkan pendampingan karier, pelatihan,
+          serta penempatan kerja yang transparan.
         </p>
 
         <h3>Departemen yang Tersedia:</h3>
         <ul>
-          <li>Housekeeping dan Akomodasi</li>
-          <li>Food and Beverage Service</li>
-          <li>Kitchen dan Galley</li>
-          <li>Deck Department</li>
-          <li>Engine Department</li>
-          <li>Entertainment dan Guest Services</li>
+          <li>Hospitality dan Akomodasi</li>
+          <li>Layanan Publik & Administrasi</li>
+          <li>Kesehatan & Pendampingan</li>
+          <li>Pendidikan & Pelatihan</li>
+          <li>Layanan Sosial Gereja</li>
+          <li>Ekonomi Kreatif & UMKM</li>
         </ul>
 
-        <h3>Mengapa Memilih Marina Prima Sukses?</h3>
+        <h3>Mengapa Memilih Christianity Crisis Center?</h3>
         <ul>
-          <li>Agen resmi MSC Cruises di Indonesia</li>
-          <li>Proses rekrutmen transparan</li>
-          <li>Training center berstandar internasional</li>
-          <li>Pendampingan hingga keberangkatan</li>
-          <li>Gaji kompetitif dalam USD</li>
+          <li>Program karier yang terintegrasi dengan pelayanan gereja</li>
+          <li>Pendampingan spiritual dan profesional</li>
+          <li>Training center dengan fasilitator berpengalaman</li>
+          <li>Jejaring mitra kerja yang terpercaya</li>
+          <li>Dukungan keluarga dan konseling karier</li>
         </ul>
       </div>
 

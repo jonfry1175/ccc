@@ -4,7 +4,7 @@ import { crews } from "@/lib/DataCrew";
 export default function Crew() {
   const crewImages = crews.map((crew) => ({
     src: crew.image,
-    alt: `Crew Member ${crew.id}`
+    alt: `Crew Member ${crew.id}`,
   }));
 
   return (
@@ -17,8 +17,8 @@ export default function Crew() {
           </h1>
           <p className="mt-4 text-primaryRed max-w-2xl mx-auto">
             Meet some of our outstanding crew members who exemplify the high
-            standards of professionalism and expertise that Marina Prima Sukses
-            is known for in the maritime industry.
+            standards of professionalism and expertise that Christianity Crisis
+            Center is known for in the maritime industry.
           </p>
         </div>
 

@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           >
             <Image
               src="/images/Logo/christianity-crisis-center.png"
-              alt="Marina Prima Sukses"
+              alt="Christianity Crisis Center"
               width={70}
               height={50}
               className="drop-shadow-md"
@@ -43,9 +43,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           </div>
           <div className="hidden flex-col text-sm font-semibold text-primaryRed md:flex">
             <span className="uppercase tracking-[0.3em] text-primaryRed/60">
-              Marina Prima Sukses
+              Christianity Crisis Center
             </span>
-            <span className="text-textBlack">MSC Cruises Manning Agency</span>
+            <span className="text-textBlack">Platform Karier Komunitas</span>
           </div>
         </div>
 

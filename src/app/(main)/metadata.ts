@@ -4,41 +4,41 @@ import { generatePageMetadata } from "@/lib/seo";
 export const homePageMetadata: Metadata = generatePageMetadata({
   title: "Beranda",
   description:
-    "Marina Prima Sukses Jakarta - agen resmi MSC Cruises. Bergabunglah dengan program rekrutmen & pelatihan kru kapal pesiar kami hari ini!",
+    "Christianity Crisis Center Jakarta - platform job matching komunitas Kristen dengan pelatihan dan pendampingan karier terintegrasi.",
   path: "/",
 });
 
 export const applyNowMetadata: Metadata = generatePageMetadata({
   title: "Daftar Sekarang",
   description:
-    "Lamar pekerjaan kapal pesiar MSC atau bermitra dengan Marina Prima Sukses Jakarta. Agen rekrutmen maritim terkemuka Indonesia.",
+    "Ajukan diri pada peluang kerja komunitas atau jalin kemitraan pelayanan bersama Christianity Crisis Center Jakarta.",
   path: "/apply-now",
 });
 
 export const candidateMetadata: Metadata = generatePageMetadata({
   title: "Aplikasi Kandidat",
   description:
-    "Lamar posisi kru MSC Cruises dengan Marina Prima Sukses. Pekerjaan housekeeping, F&B, deck & engine. Mulai karir kapal pesiar Anda hari ini!",
+    "Daftarkan profil Anda untuk program karier Christianity Crisis Center. Dukungan pelatihan, mentoring, dan lowongan yang relevan.",
   path: "/apply-now/candidate",
 });
 
 export const partnerMetadata: Metadata = generatePageMetadata({
   title: "Aplikasi Mitra",
   description:
-    "Bermitra dengan Marina Prima Sukses - agen resmi MSC Cruises Jakarta. Bergabunglah dengan jaringan rekrutmen maritim premier Indonesia.",
+    "Bangun kolaborasi pemberdayaan komunitas bersama Christianity Crisis Center Jakarta dan perluas dampak pelayanan Anda.",
   path: "/apply-now/partner",
 });
 
 export const trainingCenterMetadata: Metadata = generatePageMetadata({
   title: "Pusat Pelatihan",
   description:
-    "Pusat Pelatihan Marina Prima Sukses Jakarta - Dapatkan sertifikasi untuk karir kapal pesiar. Pelatihan maritim profesional untuk kru Indonesia.",
+    "Pusat Pelatihan Christianity Crisis Center Jakarta - Program peningkatan keterampilan dan sertifikasi kerja bagi anggota komunitas.",
   path: "/training-center",
 });
 
 export const articlesMetadata: Metadata = generatePageMetadata({
   title: "Artikel & Berita",
   description:
-    "Update pekerjaan kapal pesiar terbaru & berita maritim dari Marina Prima Sukses Jakarta. Peluang MSC Cruises untuk kru Indonesia.",
+    "Wawasan karier, kisah inspiratif, dan berita komunitas terbaru dari Christianity Crisis Center Jakarta.",
   path: "/articles",
 });

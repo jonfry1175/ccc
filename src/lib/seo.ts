@@ -5,26 +5,26 @@ const baseUrl = "https://mpsjakarta.com";
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Marina Prima Sukses | Agen Resmi MSC Cruises Jakarta",
-    template: "%s | Marina Prima Sukses",
+    default: "Christianity Crisis Center | Platform Karier Komunitas",
+    template: "%s | Christianity Crisis Center",
   },
   description:
-    "Marina Prima Sukses - Agen resmi MSC Cruises Jakarta. Merekrut kru Indonesia untuk kapal pesiar internasional. Daftar sekarang!",
+    "Christianity Crisis Center - Platform job matching komunitas Kristen dengan pelatihan, mentoring, dan akses peluang kerja terpercaya.",
   keywords: [
-    "Marina Prima Sukses",
-    "MPS Jakarta",
-    "Agen manning MSC Cruises",
-    "Lowongan kerja kapal pesiar Indonesia",
-    "Perekrutan kru Indonesia",
-    "Perekrutan maritim Jakarta",
-    "Karir kapal pesiar",
-    "MSC Cruises Indonesia",
-    "Pelaut Indonesia",
-    "Lowongan kapal pesiar",
+    "Christianity Crisis Center",
+    "CCC Jakarta",
+    "Pusat karier komunitas Kristen",
+    "Pelatihan kerja jemaat",
+    "Pemberdayaan ekonomi gereja",
+    "Lowongan kerja komunitas",
+    "Program pelatihan CCC",
+    "Mentoring karier Kristen",
+    "Komunitas kerja gereja",
+    "Pelayanan sosial gereja",
   ],
-  authors: [{ name: "Marina Prima Sukses" }],
-  creator: "Marina Prima Sukses",
-  publisher: "Marina Prima Sukses",
+  authors: [{ name: "Christianity Crisis Center" }],
+  creator: "Christianity Crisis Center",
+  publisher: "Christianity Crisis Center",
   robots: {
     index: true,
     follow: true,
@@ -41,24 +41,24 @@ export const defaultMetadata: Metadata = {
     locale: "id_ID",
     alternateLocale: ["en_US"],
     url: baseUrl,
-    siteName: "Marina Prima Sukses",
-    title: "Marina Prima Sukses | Agen Resmi MSC Cruises Jakarta",
+    siteName: "Christianity Crisis Center",
+    title: "Christianity Crisis Center | Platform Karier Komunitas",
     description:
-      "Bergabunglah dengan MSC Cruises bersama Marina Prima Sukses Jakarta. Perekrutan & pelatihan profesional untuk kru kapal pesiar Indonesia. Daftar hari ini!",
+      "Jelajahi jaringan peluang kerja, pelatihan, dan program pemberdayaan komunitas bersama Christianity Crisis Center.",
     images: [
       {
         url: "/images/Logo/christianity-crisis-center.png",
         width: 1200,
         height: 630,
-        alt: "Logo Marina Prima Sukses",
+        alt: "Logo Christianity Crisis Center",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marina Prima Sukses | Agen Manning MSC Cruises",
+    title: "Christianity Crisis Center | Platform Karier Komunitas",
     description:
-      "Agen manning resmi MSC Cruises di Indonesia - menghubungkan kru yang berkualitas dengan peluang global",
+      "Melayani komunitas Kristen dengan akses pekerjaan, pelatihan, dan dukungan profesional berkelanjutan.",
     images: ["/images/Logo/christianity-crisis-center.png"],
   },
   alternates: {
@@ -128,11 +128,11 @@ export function generatePageMetadata({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Marina Prima Sukses",
-  alternateName: "MPS Jakarta",
+  name: "Christianity Crisis Center",
+  alternateName: "CCC Jakarta",
   url: baseUrl,
   logo: `${baseUrl}/images/Logo/christianity-crisis-center.png`,
-  description: "Agen Manning Resmi MSC Cruises di Jakarta, Indonesia",
+  description: "Platform pemberdayaan karier komunitas Kristen di Jakarta, Indonesia",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Jakarta",
@@ -151,9 +151,9 @@ export const organizationSchema = {
 export const recruitmentSchema = {
   "@context": "https://schema.org",
   "@type": "EmploymentAgency",
-  name: "Marina Prima Sukses",
+  name: "Christianity Crisis Center",
   description:
-    "Agen perekrutan maritim yang berspesialisasi dalam penempatan kru kapal pesiar",
+    "Program perekrutan dan pemberdayaan karier bagi komunitas Kristen",
   url: baseUrl,
   areaServed: {
     "@type": "Country",

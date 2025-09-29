@@ -4,52 +4,52 @@ export default function TestimonialCrew() {
   const testimonials = [
     {
       quote:
-        "Thanks to Marina Prima Sukses, I was able to secure a position on a top cruise line. The process was smooth, and they guided me every step of the way, from interviews to deployment. I highly recommendthem to anyone looking for a career at sea!",
+        "Thanks to Christianity Crisis Center, I was able to secure a position with a top hospitality group. The process was smooth, and they guided me every step of the way, from interviews to deployment. I highly recommend them to anyone looking for a meaningful career!",
       name: " Anggi P. ",
       position: "Waiter",
 
-      avatar: "/images/crew/1.jpeg"
+      avatar: "/images/crew/1.jpeg",
     },
     {
       quote:
-        "The staff at Marina Prima Sukses was incredibly professional, supportive and humble. They helped me with my documents, visa, and interview preparation. Now, I am working on a luxury cruise ship andloving every moment!",
+        "The staff at Christianity Crisis Center was incredibly professional, supportive and humble. They helped me with my documents, preparation, and confidence. Now, I am working in a role I love and growing every day!",
       name: "Dandi E.",
       position: "Housekeeping Attendant",
 
-      avatar: "/images/crew/2.jpeg"
+      avatar: "/images/crew/2.jpeg",
     },
     {
       quote:
-        "I never imagined working on a cruise ship until I found Marina Prima Sukses. They connected me with the perfect job, and now I am traveling the world while earning a great income. Thank you for changing mylife!",
+        "I never imagined working in an international environment until I found Christianity Crisis Center. They connected me with the perfect job, and now I am growing while serving others. Thank you for changing my life!",
       name: "Jufri M.",
       position: "Deck Crew",
 
-      avatar: "/images/crew/3.jpeg"
+      avatar: "/images/crew/3.jpeg",
     },
     {
       quote:
-        "Unlike other agencies, Marina Prima Sukses was 100% transparent. There were no hidden fees, and they ensured that I understood the entire process. I feel lucky to have found such a trustworthy hiring partner.",
+        "Unlike other agencies, Christianity Crisis Center was 100% transparent. There were no hidden fees, and they ensured that I understood the entire process. I feel lucky to have found such a trustworthy career partner.",
       name: "Komang W.",
       position: "Bartender",
 
-      avatar: "/images/crew/4.jpeg"
+      avatar: "/images/crew/4.jpeg",
     },
     {
       quote:
-        "I started as a kitchen steward, and with Marina Prima Sukses' support, I have now been promoted to assistant chef! They truly care about crew members’ career growth and provide amazing opportunities.",
+        "I started as a kitchen steward, and with Christianity Crisis Center's support, I have now been promoted to assistant chef! They truly care about members’ career growth and provide amazing opportunities.",
       name: "Naida S.",
       position: "Assistant Chef",
 
-      avatar: "/images/crew/5.jpeg"
+      avatar: "/images/crew/5.jpeg",
     },
     {
       quote:
-        "Choosing Marina Prima Sukses was the best decision of my career. Their guidance, professionalism, and strong connections with cruise lines made it possible for me to land a great job onboard. Highly recommended!",
+        "Choosing Christianity Crisis Center was the best decision of my career. Their guidance, professionalism, and strong connections with partners made it possible for me to land a great job. Highly recommended!",
       name: "Taufik M.",
       position: " Engine Technician",
 
-      avatar: "/images/crew/6.jpeg"
-    }
+      avatar: "/images/crew/6.jpeg",
+    },
   ];
 
   return (
@@ -62,8 +62,8 @@ export default function TestimonialCrew() {
             </span>
           </h1>
           <p className="mt-4 text-primaryRed max-w-2xl mx-auto">
-            Here&apos;s what some of them have to say about working with Marina
-            Prima Sukses.
+            Here&apos;s what some of them have to say about working with
+            Christianity Crisis Center.
           </p>
         </div>
 
