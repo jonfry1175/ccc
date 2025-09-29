@@ -10,35 +10,35 @@ interface Article {
 
 export const articles: Article[] = [
   {
-    category: "News",
-    date: "09 June 2025",
-    title: "Why Choose Our Jakarta-Based MSC Cruises Manning Agency",
+    category: "Berita",
+    date: "09 Juni 2025",
+    title: "Mengapa Memilih Agensi Manning MSC Cruises Kami yang Berbasis di Jakarta",
     description:
-      "If you’re looking to start a career at sea with one of the world’s most prestigious cruise lines, MSC Cruises, choosing the right manning agency is your first—and most important—step. At our Jakarta-based MSC Cruises manning agency, we specialize in connecting talented Indonesian seafarers with global cruise ship opportunities. Here's why hundreds of applicants trust us with their journey:",
+      "Jika Anda ingin memulai karir di laut dengan salah satu jalur pelayaran paling bergengsi di dunia, MSC Cruises, memilih agen manning yang tepat adalah langkah pertama—dan terpenting—Anda. Di agen manning MSC Cruises kami yang berbasis di Jakarta, kami berspesialisasi dalam menghubungkan pelaut Indonesia berbakat dengan peluang kapal pesiar global. Inilah mengapa ratusan pelamar mempercayai kami dengan perjalanan mereka:",
     image: "/images/article/msc.jpg",
-    slug: "why-choose-our-jakarta-based-msc-cruises-manning-agency",
+    slug: "mengapa-memilih-agensi-manning-msc-cruises-kami-di-jakarta",
     content: `
             
-                  <h5>1. We Are an Official Hiring Partner for MSC Cruises</h5>
-                  <p>As an authorized MSC Cruises agency in Jakarta, we follow strict international standards in recruitment, training, and deployment. That means you can trust the process is transparent, professional, and fully compliant with industry requirements</p>
+                  <h5>1. Kami Adalah Mitra Perekrutan Resmi untuk MSC Cruises</h5>
+                  <p>Sebagai agen resmi MSC Cruises di Jakarta, kami mengikuti standar internasional yang ketat dalam rekrutmen, pelatihan, dan penempatan. Itu berarti Anda dapat mempercayai prosesnya transparan, profesional, dan sepenuhnya sesuai dengan persyaratan industri.</p>
                 
                   
-                  <h5>2. Local Office, Global Access</h5>
-                  <p>Our agency is strategically located in Jakarta, giving easier access to aspiring crew members across Indonesia. You no longer need to go through unclear middlemen or distant offices. You can walk into our Jakarta office and speak directly to professionals who understand the cruise industry inside out.</p>
+                  <h5>2. Kantor Lokal, Akses Global</h5>
+                  <p>Agensi kami berlokasi strategis di Jakarta, memberikan akses yang lebih mudah bagi calon anggota kru di seluruh Indonesia. Anda tidak perlu lagi melalui perantara yang tidak jelas atau kantor yang jauh. Anda dapat datang ke kantor kami di Jakarta dan berbicara langsung dengan para profesional yang memahami industri kapal pesiar luar dalam.</p>
                  
                   
-                  <h5>3. End-to-End Support<h5>
-                  <p>From CV preparation and interview guidance to visa processing and embarkation, we offer full support throughout your application. We don’t just recruit — we mentor, guide, and stand by you until you’re safely on board.</p>
+                  <h5>3. Dukungan dari Awal hingga Akhir<h5>
+                  <p>Mulai dari persiapan CV dan panduan wawancara hingga pemrosesan visa dan keberangkatan, kami menawarkan dukungan penuh selama aplikasi Anda. Kami tidak hanya merekrut — kami membimbing, memandu, dan mendampingi Anda sampai Anda aman di atas kapal.</p>
                   
-                  <h5>4. Zero Hidden Fees</h5>
-                  <p>We maintain a strict “no hidden fee” policy. Transparency is one of our strongest values. We clearly communicate any costs related to medical exams, certifications, or visa processing. There are no placement fees or unethical deductions from your salary.</p>
+                  <h5>4. Nol Biaya Tersembunyi</h5>
+                  <p>Kami mempertahankan kebijakan “tanpa biaya tersembunyi” yang ketat. Transparansi adalah salah satu nilai terkuat kami. Kami dengan jelas mengkomunikasikan biaya apa pun yang terkait dengan pemeriksaan medis, sertifikasi, atau pemrosesan visa. Tidak ada biaya penempatan atau pemotongan yang tidak etis dari gaji Anda.</p>
                  
                   
-                  <h5>5. Built for Indonesian Migrant Workers</h5>
-                  <p>We believe Indonesian crew have what it takes to shine on the world stage. That’s why our training, onboarding, and communication are tailored to support Bahasa Indonesia-speaking applicants and prepare them for the English-speaking cruise environment.</p>
+                  <h5>5. Dibangun untuk Pekerja Migran Indonesia</h5>
+                  <p>Kami percaya kru Indonesia memiliki apa yang diperlukan untuk bersinar di panggung dunia. Itulah mengapa pelatihan, orientasi, dan komunikasi kami disesuaikan untuk mendukung pelamar berbahasa Indonesia dan mempersiapkan mereka untuk lingkungan kapal pesiar yang berbahasa Inggris.</p>
                   
-                  <h5>✨ Start Your Cruise Career Today</h5>
-                  <p>If you searched for “MSC Cruises agency Jakarta”, you’ve found the right partner.  We’re here to make your dream of working at sea a reality — with honesty, support, and professionalism.</p>
+                  <h5>✨ Mulai Karir Kapal Pesiar Anda Hari Ini</h5>
+                  <p>Jika Anda mencari “agensi MSC Cruises Jakarta”, Anda telah menemukan mitra yang tepat. Kami di sini untuk mewujudkan impian Anda bekerja di laut — dengan kejujuran, dukungan, dan profesionalisme.</p>
                   
                  
               `
@@ -98,7 +98,7 @@ export const articles: Article[] = [
     `
   },
   {
-    category: "Jobs",
+    category: "Pekerjaan",
     date: "22 Mar 2024",
     title: "Ini Pilihan Profesi Yang Bisa Anda Lakukan di Kapal Pesiar",
     description:

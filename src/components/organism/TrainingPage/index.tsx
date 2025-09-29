@@ -19,12 +19,12 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
     {
       id: 1,
       title:
-        "Communication and Language course in the hospitality, deck & engine environment"
+        "Kursus Komunikasi dan Bahasa di lingkungan perhotelan, dek & mesin"
     },
-    { id: 2, title: "Hospitality & Housekeeping Excellence Program" },
-    { id: 3, title: "Bartending & Customer Services Training" },
-    { id: 4, title: "Work and Safety Training" },
-    { id: 5, title: "Profesional Spa & Massage Techniques" }
+    { id: 2, title: "Program Keunggulan Perhotelan & Tata Graha" },
+    { id: 3, title: "Pelatihan Bartending & Layanan Pelanggan" },
+    { id: 4, title: "Pelatihan Kerja dan Keselamatan" },
+    { id: 5, title: "Teknik Spa & Pijat Profesional" }
   ];
 
   return (
@@ -47,25 +47,23 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         />
         <div className="relative max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl text-center font-bold mb-8">
-            MPS Training Division
+            Divisi Pelatihan MPS
           </h1>
           <p>
-            MPS Training Division is part of our strategic subsidiary unit of
-            PT. Marina Prima Sukses. Our company takes great pride in our
-            state-of-the-art training facility, designed to elevate the skills,
-            performance, and knowledge of our candidate. Nestled within our
-            premises, this facility serves as a dynamic hub where our manpower
-            immerse themselves in hands-on learning experiences.
+            Divisi Pelatihan MPS adalah bagian dari unit anak perusahaan strategis kami dari
+            PT. Marina Prima Sukses. Perusahaan kami sangat bangga dengan fasilitas pelatihan canggih kami, yang dirancang untuk meningkatkan keterampilan,
+            kinerja, dan pengetahuan kandidat kami. Terletak di dalam
+            gedung kami, fasilitas ini berfungsi sebagai pusat dinamis tempat tenaga kerja kami
+            membenamkan diri dalam pengalaman belajar langsung.
           </p>
           <p>
-            From advanced service techniques to cutting-edge hospitality trends,
-            our comprehensive training programs cover every aspect of the
-            industry. Equipped with modern technology and led by industry
-            experts, our courses are tailored to enhance both individual
-            capabilities and team cohesion. By investing in continuous education
-            and practical training, we empower our manpower to deliver
-            exceptional service and stay ahead in the competitive hospitality
-            landscape.
+            Dari teknik layanan tingkat lanjut hingga tren perhotelan terdepan,
+            program pelatihan komprehensif kami mencakup setiap aspek
+            industri. Dilengkapi dengan teknologi modern dan dipimpin oleh para ahli industri,
+            kursus kami dirancang untuk meningkatkan kemampuan individu
+            dan kekompakan tim. Dengan berinvestasi dalam pendidikan berkelanjutan
+            dan pelatihan praktis, kami memberdayakan tenaga kerja kami untuk memberikan
+            layanan luar biasa dan tetap terdepan dalam lanskap perhotelan yang kompetitif.
           </p>
         </div>
       </section>
@@ -78,7 +76,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            Our Top 5 Training Courses
+            5 Kursus Pelatihan Teratas Kami
           </motion.h1>
           <ul className="list-decimal list-inside">
             {ProgramsTraining.map((service, index) => (
@@ -101,7 +99,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
       <section className="bg-lightGold mt-4  py-5 text-primaryRed">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl text-center font-bold">
-            Rising Stars of Our Program
+            Bintang Baru Program Kami
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <video

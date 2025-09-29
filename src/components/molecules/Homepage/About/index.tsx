@@ -13,13 +13,13 @@ export default function About() {
               <FaRegHandshake className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-primaryRed">
-              Our commitment
+              Komitmen Kami
             </h3>
             <p className="text-primaryRed px-6 pb-8">
-              We are committed to forging a strong partnership with you,
-              leveraging our 31 years of industry experience and cutting-edge
-              manpower solutions to deliver exceptional talent and foster mutual
-              growth and success.
+              Kami berkomitmen untuk menjalin kemitraan yang kuat dengan Anda,
+              dengan memanfaatkan 31 tahun pengalaman industri kami dan solusi
+              tenaga kerja terdepan untuk memberikan talenta luar biasa dan
+              mendorong pertumbuhan dan kesuksesan bersama.
             </p>
           </div>
 
@@ -28,11 +28,11 @@ export default function About() {
             <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-primaryRed">
               <FaRegEye className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-primaryRed">Our vision</h3>
+            <h3 className="text-xl font-semibold text-primaryRed">Visi Kami</h3>
             <p className="text-primaryRed px-6 pb-8">
-              To be the premier partner for hospitality establishments seeking a
-              reliable, skilled, and dedicated manpower that enhances their
-              service delivery and guest satisfaction.
+              Menjadi mitra utama bagi perusahaan perhotelan yang mencari
+              tenaga kerja yang andal, terampil, dan berdedikasi yang
+              meningkatkan penyampaian layanan dan kepuasan tamu mereka.
             </p>
           </div>
 
@@ -41,13 +41,13 @@ export default function About() {
             <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-primaryRed">
               <GoGoal className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-primaryRed">Our mission</h3>
+            <h3 className="text-xl font-semibold text-primaryRed">Misi Kami</h3>
             <p className="text-primaryRed px-6 pb-8">
-              Our mission is to be the global partner of choice for hospitality
-              businesses in need of a reliable and skilled manpower. By
-              fostering cross-cultural collaboration and delivering tailor-made
-              manpower solutions, we aim to contribute to the success of our
-              clients worldwide.
+              Misi kami adalah menjadi mitra global pilihan untuk bisnis
+              perhotelan yang membutuhkan tenaga kerja yang andal dan terampil.
+              Dengan memupuk kolaborasi lintas budaya dan memberikan solusi
+              tenaga kerja yang disesuaikan, kami bertujuan untuk
+              berkontribusi pada kesuksesan klien kami di seluruh dunia.
             </p>
           </div>
         </div>

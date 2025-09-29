@@ -50,9 +50,9 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold">Dasbor</h1>
         <p className="text-muted-foreground">
-          Overview of application submissions
+          Gambaran umum pengajuan aplikasi
         </p>
       </div>
 
@@ -60,14 +60,14 @@ export default function AdminDashboard() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Total Candidates
+              Total Kandidat
             </CardTitle>
             <UserIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalCandidates}</div>
             <p className="text-xs text-muted-foreground">
-              Job applications submitted
+              Aplikasi pekerjaan yang diajukan
             </p>
           </CardContent>
         </Card>
@@ -75,14 +75,14 @@ export default function AdminDashboard() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Total Partners
+              Total Mitra
             </CardTitle>
             <BuildingIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalPartners}</div>
             <p className="text-xs text-muted-foreground">
-              Partnership applications
+              Aplikasi kemitraan
             </p>
           </CardContent>
         </Card>

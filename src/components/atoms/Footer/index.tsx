@@ -24,9 +24,7 @@ export default function Footer() {
               Marina Prima Sukses
             </h3>
             <p className="text-primaryRed mb-6 text-[15px] leading-relaxed">
-              We specialize in providing skilled manpower solutions for the
-              hospitality industry, connecting talent with opportunities since
-              1993.
+              Kami berspesialisasi dalam menyediakan solusi tenaga kerja terampil untuk industri perhotelan, menghubungkan talenta dengan peluang sejak tahun 1993.
             </p>
             <div className="flex space-x-4">
               <Link
@@ -54,7 +52,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold mb-6 text-primaryRed">
-              Contact Us
+              Hubungi Kami
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -100,13 +98,13 @@ export default function Footer() {
                 href="/privacy-policy"
                 className="text-primaryRed hover:text-lightGold text-sm mx-3"
               >
-                Privacy Policy
+                Kebijakan Privasi
               </Link>
               <Link
                 href="/terms-of-service"
                 className="text-primaryRed hover:text-lightGold text-sm mx-3"
               >
-                Terms of Service
+                Syarat Layanan
               </Link>
             </div>
           </div>

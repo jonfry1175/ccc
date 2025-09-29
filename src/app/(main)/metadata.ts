@@ -2,43 +2,43 @@ import { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const homePageMetadata: Metadata = generatePageMetadata({
-  title: "Home",
+  title: "Beranda",
   description:
-    "Marina Prima Sukses Jakarta - MSC Cruises official manning agency. Join our cruise ship crew recruitment & training programs today!",
+    "Marina Prima Sukses Jakarta - agen resmi MSC Cruises. Bergabunglah dengan program rekrutmen & pelatihan kru kapal pesiar kami hari ini!",
   path: "/",
 });
 
 export const applyNowMetadata: Metadata = generatePageMetadata({
-  title: "Apply Now",
+  title: "Daftar Sekarang",
   description:
-    "Apply for MSC cruise ship jobs or partner with Marina Prima Sukses Jakarta. Indonesia's leading maritime recruitment agency.",
+    "Lamar pekerjaan kapal pesiar MSC atau bermitra dengan Marina Prima Sukses Jakarta. Agen rekrutmen maritim terkemuka Indonesia.",
   path: "/apply-now",
 });
 
 export const candidateMetadata: Metadata = generatePageMetadata({
-  title: "Candidate Application",
+  title: "Aplikasi Kandidat",
   description:
-    "Apply for MSC Cruises crew positions with Marina Prima Sukses. Housekeeping, F&B, deck & engine jobs. Start your cruise career today!",
+    "Lamar posisi kru MSC Cruises dengan Marina Prima Sukses. Pekerjaan housekeeping, F&B, deck & engine. Mulai karir kapal pesiar Anda hari ini!",
   path: "/apply-now/candidate",
 });
 
 export const partnerMetadata: Metadata = generatePageMetadata({
-  title: "Partner Application",
+  title: "Aplikasi Mitra",
   description:
-    "Partner with Marina Prima Sukses - MSC Cruises official agency Jakarta. Join Indonesia's premier maritime recruitment network.",
+    "Bermitra dengan Marina Prima Sukses - agen resmi MSC Cruises Jakarta. Bergabunglah dengan jaringan rekrutmen maritim premier Indonesia.",
   path: "/apply-now/partner",
 });
 
 export const trainingCenterMetadata: Metadata = generatePageMetadata({
-  title: "Training Center",
+  title: "Pusat Pelatihan",
   description:
-    "Marina Prima Sukses Training Center Jakarta - Get certified for cruise ship careers. Professional maritime training for Indonesian crew.",
+    "Pusat Pelatihan Marina Prima Sukses Jakarta - Dapatkan sertifikasi untuk karir kapal pesiar. Pelatihan maritim profesional untuk kru Indonesia.",
   path: "/training-center",
 });
 
 export const articlesMetadata: Metadata = generatePageMetadata({
-  title: "Articles & News",
+  title: "Artikel & Berita",
   description:
-    "Latest cruise ship job updates & maritime news from Marina Prima Sukses Jakarta. MSC Cruises opportunities for Indonesian crew.",
+    "Update pekerjaan kapal pesiar terbaru & berita maritim dari Marina Prima Sukses Jakarta. Peluang MSC Cruises untuk kru Indonesia.",
   path: "/articles",
 });

@@ -19,13 +19,13 @@ import { toast } from "@/hooks/use-toast";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
-    message: "name must be at least 2 characters."
+    message: "nama harus memiliki setidaknya 2 karakter."
   }),
   email: z.string().email({
-    message: "email must be a valid email."
+    message: "email harus berupa email yang valid."
   }),
   message: z.string().min(10, {
-    message: "message must be at least 10 characters."
+    message: "pesan harus memiliki setidaknya 10 karakter."
   })
 });
 
@@ -42,8 +42,8 @@ export default function Contact() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: "You submitted the following values:",
-      description: "Success submit"
+      title: "Anda mengirimkan nilai-nilai berikut:",
+      description: "Berhasil mengirim"
     });
   }
 
@@ -55,7 +55,7 @@ export default function Contact() {
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
           <h1 className="inline-block mb-12 text-3xl text-center font-bold text-primaryRed md:text-4xl relative">
-            <span className="text-center">Contact Us</span>
+            <span className="text-center">Hubungi Kami</span>
             <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
           </h1>
         </div>
@@ -71,10 +71,10 @@ export default function Contact() {
                 render={({ field }) => (
                   <FormItem className="text-left">
                     <FormLabel className="block text-left text-primaryRed">
-                      Username
+                      Nama Lengkap
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="john doe" {...field} />
+                      <Input placeholder="nama lengkap" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -89,7 +89,7 @@ export default function Contact() {
                       Email
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="anda@contoh.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -101,11 +101,11 @@ export default function Contact() {
                 render={({ field }) => (
                   <FormItem className="text-left">
                     <FormLabel className="block text-left text-primaryRed">
-                      Message
+                      Pesan
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Your message here..."
+                        placeholder="Tulis pesan Anda di sini..."
                         {...field}
                         rows={5}
                       />
@@ -119,7 +119,7 @@ export default function Contact() {
                 variant={"outline"}
                 className="w-full bg-primaryRed hover:bg-white text-white hover:text-primaryRed  hover:border-primaryRed"
               >
-                Submit
+                Kirim
               </Button>
             </form>
           </Form>

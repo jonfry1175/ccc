@@ -55,31 +55,31 @@ export default function CandidatesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Candidates</h1>
-        <p className="text-muted-foreground">All candidate job applications</p>
+        <h1 className="text-3xl font-bold">Kandidat</h1>
+        <p className="text-muted-foreground">Semua aplikasi pekerjaan kandidat</p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Candidate Applications</CardTitle>
+          <CardTitle>Aplikasi Kandidat</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
+                <TableHead>Nama</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Department</TableHead>
-                <TableHead>Position</TableHead>
-                <TableHead>Date Applied</TableHead>
-                <TableHead>Documents</TableHead>
+                <TableHead>Departemen</TableHead>
+                <TableHead>Posisi</TableHead>
+                <TableHead>Tanggal Melamar</TableHead>
+                <TableHead>Dokumen</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {candidates.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={6} className="text-center py-4">
-                    No candidate applications found
+                    Tidak ada aplikasi kandidat yang ditemukan
                   </TableCell>
                 </TableRow>
               ) : (
@@ -116,7 +116,7 @@ export default function CandidatesPage() {
                             onClick={() => openFile(candidate.certificate_url)}
                           >
                             <FileText className="h-4 w-4" />
-                            <span>Cert</span>
+                            <span>Sertifikat</span>
                             <ExternalLink className="h-3 w-3 ml-1" />
                           </Button>
                         )}

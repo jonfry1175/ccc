@@ -27,9 +27,9 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address" }),
+  email: z.string().email({ message: "Silakan masukkan alamat email yang valid" }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters",
+    message: "Kata sandi harus memiliki setidaknya 6 karakter",
   }),
 });
 
@@ -62,8 +62,8 @@ export default function LoginPage() {
       }
 
       toast({
-        title: "Login Successful",
-        description: "Redirecting to dashboard...",
+        title: "Login Berhasil",
+        description: "Mengarahkan ke dasbor...",
       });
 
       // Redirect to dashboard
@@ -71,8 +71,8 @@ export default function LoginPage() {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Login Failed",
-        description: error.message || "Invalid credentials",
+        title: "Login Gagal",
+        description: error.message || "Kredensial tidak valid",
       });
     } finally {
       setIsLoading(false);
@@ -84,10 +84,10 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Admin Login
+            Login Admin
           </CardTitle>
           <CardDescription className="text-center">
-            Sign in to access the admin dashboard
+            Masuk untuk mengakses dasbor admin
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Kata Sandi</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -120,7 +120,7 @@ export default function LoginPage() {
                 )}
               />
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Logging in..." : "Login"}
+                {isLoading ? "Masuk..." : "Masuk"}
               </Button>
             </form>
           </Form>

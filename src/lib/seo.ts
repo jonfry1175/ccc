@@ -5,21 +5,22 @@ const baseUrl = "https://mpsjakarta.com";
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Marina Prima Sukses | Official MSC Cruises Manning Agency Jakarta",
-    template: "%s | Marina Prima Sukses"
+    default: "Marina Prima Sukses | Agen Resmi MSC Cruises Jakarta",
+    template: "%s | Marina Prima Sukses",
   },
-  description: "Marina Prima Sukses - Official MSC Cruises manning agency Jakarta. Recruiting Indonesian crew for international cruise ships. Apply now!",
+  description:
+    "Marina Prima Sukses - Agen resmi MSC Cruises Jakarta. Merekrut kru Indonesia untuk kapal pesiar internasional. Daftar sekarang!",
   keywords: [
     "Marina Prima Sukses",
     "MPS Jakarta",
-    "MSC Cruises manning agency",
-    "cruise ship jobs Indonesia",
-    "Indonesian crew recruitment",
-    "maritime recruitment Jakarta",
-    "cruise ship careers",
+    "Agen manning MSC Cruises",
+    "Lowongan kerja kapal pesiar Indonesia",
+    "Perekrutan kru Indonesia",
+    "Perekrutan maritim Jakarta",
+    "Karir kapal pesiar",
     "MSC Cruises Indonesia",
-    "pelaut Indonesia",
-    "lowongan kapal pesiar"
+    "Pelaut Indonesia",
+    "Lowongan kapal pesiar",
   ],
   authors: [{ name: "Marina Prima Sukses" }],
   creator: "Marina Prima Sukses",
@@ -32,57 +33,67 @@ export const defaultMetadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    alternateLocale: ["id_ID"],
+    locale: "id_ID",
+    alternateLocale: ["en_US"],
     url: baseUrl,
     siteName: "Marina Prima Sukses",
-    title: "Marina Prima Sukses | Official MSC Cruises Manning Agency Jakarta",
-    description: "Join MSC Cruises with Marina Prima Sukses Jakarta. Professional recruitment & training for Indonesian cruise ship crew. Apply today!",
+    title: "Marina Prima Sukses | Agen Resmi MSC Cruises Jakarta",
+    description:
+      "Bergabunglah dengan MSC Cruises bersama Marina Prima Sukses Jakarta. Perekrutan & pelatihan profesional untuk kru kapal pesiar Indonesia. Daftar hari ini!",
     images: [
       {
         url: "/images/Logo/christianity-crisis-center.png",
         width: 1200,
         height: 630,
-        alt: "Marina Prima Sukses Logo"
-      }
-    ]
+        alt: "Logo Marina Prima Sukses",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marina Prima Sukses | MSC Cruises Manning Agency",
-    description: "Indonesia's authorized MSC Cruises manning agency - connecting qualified crew with global opportunities",
-    images: ["/images/Logo/christianity-crisis-center.png"]
+    title: "Marina Prima Sukses | Agen Manning MSC Cruises",
+    description:
+      "Agen manning resmi MSC Cruises di Indonesia - menghubungkan kru yang berkualitas dengan peluang global",
+    images: ["/images/Logo/christianity-crisis-center.png"],
   },
   alternates: {
     canonical: baseUrl,
     languages: {
-      "en-US": baseUrl,
-      "id-ID": `${baseUrl}/id`
-    }
+      "id-ID": baseUrl,
+      "en-US": `${baseUrl}/en`,
+    },
   },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" }
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
-    ]
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export function generatePageMetadata({
   title,
   description,
   path = "",
-  images = []
+  images = [],
 }: {
   title: string;
   description: string;
@@ -98,58 +109,60 @@ export function generatePageMetadata({
       title,
       description,
       url,
-      images: images.length > 0 ? images : defaultMetadata.openGraph?.images
+      images: images.length > 0 ? images : defaultMetadata.openGraph?.images,
     },
     twitter: {
       title,
       description,
-      images: images.length > 0 ? images.map(img => img.url) : defaultMetadata.twitter?.images
+      images:
+        images.length > 0
+          ? images.map((img) => img.url)
+          : defaultMetadata.twitter?.images,
     },
     alternates: {
-      canonical: url
-    }
+      canonical: url,
+    },
   };
 }
 
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Marina Prima Sukses",
-  "alternateName": "MPS Jakarta",
-  "url": baseUrl,
-  "logo": `${baseUrl}/images/Logo/christianity-crisis-center.png`,
-  "description": "Official MSC Cruises Manning Agency in Jakarta, Indonesia",
-  "address": {
+  name: "Marina Prima Sukses",
+  alternateName: "MPS Jakarta",
+  url: baseUrl,
+  logo: `${baseUrl}/images/Logo/christianity-crisis-center.png`,
+  description: "Agen Manning Resmi MSC Cruises di Jakarta, Indonesia",
+  address: {
     "@type": "PostalAddress",
-    "addressLocality": "Jakarta",
-    "addressRegion": "DKI Jakarta",
-    "addressCountry": "ID"
+    addressLocality: "Jakarta",
+    addressRegion: "DKI Jakarta",
+    addressCountry: "ID",
   },
-  "contactPoint": {
+  contactPoint: {
     "@type": "ContactPoint",
-    "contactType": "recruitment",
-    "email": "admin@mpsjakarta.com",
-    "availableLanguage": ["English", "Indonesian"]
+    contactType: "recruitment",
+    email: "admin@mpsjakarta.com",
+    availableLanguage: ["Inggris", "Indonesia"],
   },
-  "sameAs": [
-    "https://www.mpsjakarta.com"
-  ]
+  sameAs: ["https://www.mpsjakarta.com"],
 };
 
 export const recruitmentSchema = {
   "@context": "https://schema.org",
   "@type": "EmploymentAgency",
-  "name": "Marina Prima Sukses",
-  "description": "Maritime recruitment agency specializing in cruise ship crew placement",
-  "url": baseUrl,
-  "areaServed": {
+  name: "Marina Prima Sukses",
+  description:
+    "Agen perekrutan maritim yang berspesialisasi dalam penempatan kru kapal pesiar",
+  url: baseUrl,
+  areaServed: {
     "@type": "Country",
-    "name": "Indonesia"
+    name: "Indonesia",
   },
-  "knowsAbout": [
-    "Cruise ship recruitment",
-    "Maritime training",
-    "Crew placement",
-    "MSC Cruises careers"
-  ]
+  knowsAbout: [
+    "Perekrutan kapal pesiar",
+    "Pelatihan maritim",
+    "Penempatan kru",
+    "Karir MSC Cruises",
+  ],
 };

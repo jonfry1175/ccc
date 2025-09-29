@@ -75,7 +75,7 @@ export default function AdminLayout({
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md">
         <div className="p-4 border-b">
-          <h2 className="text-xl font-bold">MPS Admin</h2>
+          <h2 className="text-xl font-bold">Admin MPS</h2>
         </div>
         <nav className="p-4">
           <ul className="space-y-2">
@@ -89,7 +89,7 @@ export default function AdminLayout({
                 }`}
               >
                 <Home className="mr-2 h-5 w-5" />
-                Dashboard
+                Dasbor
               </Link>
             </li>
             <li>
@@ -102,7 +102,7 @@ export default function AdminLayout({
                 }`}
               >
                 <User className="mr-2 h-5 w-5" />
-                Candidates
+                Kandidat
               </Link>
             </li>
             <li>
@@ -115,7 +115,7 @@ export default function AdminLayout({
                 }`}
               >
                 <Database className="mr-2 h-5 w-5" />
-                Partners
+                Mitra
               </Link>
             </li>
           </ul>
@@ -126,7 +126,7 @@ export default function AdminLayout({
               onClick={handleLogout}
             >
               <LogOut className="mr-2 h-4 w-4" />
-              Logout
+              Keluar
             </Button>
           </div>
         </nav>

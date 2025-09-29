@@ -52,15 +52,15 @@ const countryCodes = [
 
 // Form schema with validation
 const formSchema = z.object({
-  firstName: z.string().min(1, { message: "First name is required" }),
-  lastName: z.string().min(1, { message: "Last name is required" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  countryCode: z.string().min(1, { message: "Country code is required" }),
-  phoneNumber: z.string().min(1, { message: "Phone number is required" }),
-  companyName: z.string().min(1, { message: "Company name is required" }),
-  companyWebsite: z.string().min(1, { message: "Company website is required" }),
-  country: z.string().min(1, { message: "Country is required" }),
-  message: z.string().min(1, { message: "Message is required" })
+  firstName: z.string().min(1, { message: "Nama depan wajib diisi" }),
+  lastName: z.string().min(1, { message: "Nama belakang wajib diisi" }),
+  email: z.string().email({ message: "Alamat email tidak valid" }),
+  countryCode: z.string().min(1, { message: "Kode negara wajib diisi" }),
+  phoneNumber: z.string().min(1, { message: "Nomor telepon wajib diisi" }),
+  companyName: z.string().min(1, { message: "Nama perusahaan wajib diisi" }),
+  companyWebsite: z.string().min(1, { message: "Situs web perusahaan wajib diisi" }),
+  country: z.string().min(1, { message: "Negara wajib diisi" }),
+  message: z.string().min(1, { message: "Pesan wajib diisi" })
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -133,12 +133,12 @@ export default function ContactForm() {
       
       if (error) {
         console.error('Database insertion error:', error);
-        throw new Error('Failed to submit your partnership request. Please try again.');
+        throw new Error('Gagal mengirimkan permintaan kemitraan Anda. Silakan coba lagi.');
       }
       
       toast({
-        title: "Partnership Request Submitted Successfully",
-        description: "Thank you for your interest! We will be in touch soon.",
+        title: "Permintaan Kemitraan Berhasil Dikirim",
+        description: "Terima kasih atas minat Anda! Kami akan segera menghubungi Anda.",
       });
       
       // Reset form
@@ -147,8 +147,8 @@ export default function ContactForm() {
       console.error('Error submitting form:', error);
       toast({
         variant: "destructive",
-        title: "Submission Failed",
-        description: error.message || "There was an error submitting your request. Please try again.",
+        title: "Pengiriman Gagal",
+        description: error.message || "Terjadi kesalahan saat mengirimkan permintaan Anda. Silakan coba lagi.",
       });
     } finally {
       setIsSubmitting(false);
@@ -160,7 +160,7 @@ export default function ContactForm() {
       <Navbar />
       <div className="py-8 pb-4">
         <div>
-          <h1 className="text-2xl text-center text-primaryRed">Apply As Partner</h1>
+          <h1 className="text-2xl text-center text-primaryRed">Lamar Sebagai Mitra</h1>
         </div>
       </div>
       <Card className="w-full max-w-6xl mx-auto mb-4">
@@ -175,10 +175,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base">
-                        First Name <span className="text-red-500">*</span>
+                        Nama Depan <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="First Name" {...field} />
+                        <Input placeholder="Nama Depan" {...field} />
                       </FormControl>
                       <FormMessage className="text-red-500" />
                     </FormItem>
@@ -192,10 +192,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base">
-                        Last Name <span className="text-red-500">*</span>
+                        Nama Belakang <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Last Name" {...field} />
+                        <Input placeholder="Nama Belakang" {...field} />
                       </FormControl>
                       <FormMessage className="text-red-500" />
                     </FormItem>
@@ -209,12 +209,12 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base">
-                        Business Email <span className="text-red-500">*</span>
+                        Email Bisnis <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="john.doe@example.com"
+                          placeholder="anda@contoh.com"
                           {...field}
                         />
                       </FormControl>
@@ -227,7 +227,7 @@ export default function ContactForm() {
                 <div className="space-y-2">
                   <div className="flex">
                     <span className="text-sm font-medium">
-                      Phone Number{" "}
+                      Nomor Telepon{" "}
                       <span className="text-red-500 ml-0.5">*</span>
                     </span>
                   </div>
@@ -246,10 +246,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base">
-                        Company Name <span className="text-red-500">*</span>
+                        Nama Perusahaan <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Company Name" {...field} />
+                        <Input placeholder="Nama Perusahaan" {...field} />
                       </FormControl>
                       <FormMessage className="text-red-500" />
                     </FormItem>
@@ -263,10 +263,10 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base">
-                        Company Website <span className="text-red-500">*</span>
+                        Situs Web Perusahaan <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="www.example.com" {...field} />
+                        <Input placeholder="www.contoh.com" {...field} />
                       </FormControl>
                       <FormMessage className="text-red-500" />
                     </FormItem>
@@ -280,7 +280,7 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem className="col-span-1 md:col-span-2">
                       <FormLabel className="text-base">
-                        Country <span className="text-red-500">*</span>
+                        Negara <span className="text-red-500">*</span>
                       </FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -289,13 +289,13 @@ export default function ContactForm() {
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue>
-                              {field.value || "Select a country"}
+                              {field.value || "Pilih negara"}
                             </SelectValue>
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           {isLoading ? (
-                            <SelectItem value="loading">Loading...</SelectItem>
+                            <SelectItem value="loading">Memuat...</SelectItem>
                           ) : (
                             countries.map((country) => (
                               <SelectItem key={country.id} value={country.name}>
@@ -308,7 +308,7 @@ export default function ContactForm() {
 
                       {form.formState.errors.country && (
                         <p className="text-red-500 text-sm mt-1">
-                          Country is required
+                          Negara wajib diisi
                         </p>
                       )}
                     </FormItem>
@@ -322,11 +322,11 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <FormItem className="col-span-1 md:col-span-2">
                       <FormLabel className="text-base">
-                        Message <span className="text-red-500">*</span>
+                        Pesan <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Leave a message for us"
+                          placeholder="Tinggalkan pesan untuk kami"
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -339,7 +339,7 @@ export default function ContactForm() {
 
               {/* Submit Button */}
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Submitting..." : "Submit Application"}
+                {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
               </Button>
             </form>
           </Form>

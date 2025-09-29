@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
                 pathname === "/" ? "border-b-2 border-primaryRed" : ""
               }`}
             >
-              <p className="text-[15px]">Home</p>
+              <p className="text-[15px]">Beranda</p>
             </button>
 
             <button
@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
                 pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
               }`}
             >
-              <p className="text-[15px]">Apply Now</p>
+              <p className="text-[15px]">Daftar Sekarang</p>
             </button>
 
             <button
@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
                   : ""
               }`}
             >
-              <p className="text-[15px]">Training Center</p>
+              <p className="text-[15px]">Pusat Pelatihan</p>
             </button>
           </div>
           <div className="flex items-center md:hidden transition-all">
@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               pathname === "/" ? "border-b-2 border-primaryRed" : ""
             }`}
           >
-            Home
+            Beranda
           </button>
 
           <button
@@ -107,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
             }`}
           >
-            Apply Now
+            Daftar Sekarang
           </button>
           <button
             onClick={() => handleNavigation("/training-center")}
@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
                 : ""
             }`}
           >
-            Training-center
+            Pusat Pelatihan
           </button>
         </div>
       </div>

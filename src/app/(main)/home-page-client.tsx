@@ -89,13 +89,13 @@ export default function HomePageClient() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center text-center text-white"
               >
-                <h1 className="text-6xl font-bold md:text-1xl mb-4">HELLO!</h1>
+                <h1 className="text-6xl font-bold md:text-1xl mb-4">HALO!</h1>
                 <h2 className="text-xl md:text-3xl">
-                  WELCOME TO MARINA PRIMA SUKSES
+                  SELAMAT DATANG DI MARINA PRIMA SUKSES
                 </h2>
                 <h2 className="text-xl md:text-md mt-4 italic">
-                  MSC Cruises Hiring Agency in Jakarta - Bridging Indonesian
-                  Workers to Global Shores
+                  Agen Rekrutmen MSC Cruises di Jakarta - Menghubungkan Pekerja
+                  Indonesia ke Pesisir Global
                 </h2>
               </motion.div>
 
@@ -104,9 +104,9 @@ export default function HomePageClient() {
                   variant="outline"
                   size="lg"
                   className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
-                  onClick={() => setActiveSection("Company Profile")}
+                  onClick={() => setActiveSection("Profil Bisnis")}
                 >
-                  Business Profile
+                  Profil Bisnis
                 </Button>
                 <Button
                   variant="outline"
@@ -114,7 +114,7 @@ export default function HomePageClient() {
                   className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
                   onClick={() => router.push("/apply-now")}
                 >
-                  Apply Now
+                  Daftar Sekarang
                 </Button>
                 <Button
                   variant="outline"
@@ -122,7 +122,7 @@ export default function HomePageClient() {
                   className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
                   onClick={() => router.push("/training-center")}
                 >
-                  Training Center
+                  Pusat Pelatihan
                 </Button>
               </div>
             </motion.div>

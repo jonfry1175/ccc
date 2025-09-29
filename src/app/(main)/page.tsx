@@ -14,7 +14,7 @@ const structuredData = {
     url: "https://mpsjakarta.com",
     logo: "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png",
     description:
-      "Official MSC Cruises Manning Agency in Jakarta, Indonesia. Recruiting Indonesian crew for international cruise ships since establishment.",
+      "Agen Manning Resmi MSC Cruises di Jakarta, Indonesia. Merekrut kru Indonesia untuk kapal pesiar internasional sejak didirikan.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Jakarta",
@@ -26,25 +26,25 @@ const structuredData = {
       "@type": "ContactPoint",
       contactType: "recruitment",
       email: "admin@mpsjakarta.com",
-      availableLanguage: ["English", "Indonesian"],
+      availableLanguage: ["Inggris", "Indonesia"],
     },
     areaServed: {
       "@type": "Country",
       name: "Indonesia",
     },
     knowsAbout: [
-      "MSC Cruises recruitment",
-      "Cruise ship jobs",
-      "Maritime training",
-      "Indonesian crew placement",
+      "Perekrutan MSC Cruises",
+      "Pekerjaan kapal pesiar",
+      "Pelatihan maritim",
+      "Penempatan kru Indonesia",
     ],
   },
   jobPosting: {
     "@context": "https://schema.org",
     "@type": "JobPosting",
-    title: "Cruise Ship Crew - Multiple Positions Available",
+    title: "Kru Kapal Pesiar - Tersedia Banyak Posisi",
     description:
-      "Join MSC Cruises through Marina Prima Sukses. We are recruiting for Housekeeping, F&B, Kitchen, Deck, Engine, and Entertainment positions.",
+      "Bergabunglah dengan MSC Cruises melalui Marina Prima Sukses. Kami merekrut untuk posisi Housekeeping, F&B, Dapur, Dek, Mesin, dan Hiburan.",
     hiringOrganization: {
       "@type": "Organization",
       name: "Marina Prima Sukses",
@@ -52,7 +52,7 @@ const structuredData = {
     },
     jobLocation: {
       "@type": "Place",
-      name: "MSC Cruises Fleet (International)",
+      name: "Armada MSC Cruises (Internasional)",
     },
     employmentType: "FULL_TIME",
     baseSalary: {
@@ -84,10 +84,10 @@ const structuredData = {
       },
       {
         "@type": "Question",
-        name: "What positions are available for Indonesian crew?",
+        name: "Posisi apa saja yang tersedia untuk kru Indonesia?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We recruit for Housekeeping, Food & Beverage, Galley, Deck, Engine, Entertainment, and Guest Services departments.",
+          text: "Kami merekrut untuk departemen Housekeeping, Food & Beverage, Galley, Deck, Engine, Entertainment, dan Guest Services.",
         },
       },
       {
@@ -100,10 +100,10 @@ const structuredData = {
       },
       {
         "@type": "Question",
-        name: "How long is the contract for cruise ship work?",
+        name: "Berapa lama kontrak untuk pekerjaan kapal pesiar?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Typical contracts range from 6-10 months depending on position, with 2 months vacation between contracts.",
+          text: "Kontrak tipikal berkisar 6-10 bulan tergantung posisi, dengan 2 bulan liburan antar kontrak.",
         },
       },
     ],

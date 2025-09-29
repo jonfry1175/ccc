@@ -61,31 +61,31 @@ export default function PartnersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Partners</h1>
-        <p className="text-muted-foreground">All partnership applications</p>
+        <h1 className="text-3xl font-bold">Mitra</h1>
+        <p className="text-muted-foreground">Semua aplikasi kemitraan</p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Partnership Applications</CardTitle>
+          <CardTitle>Aplikasi Kemitraan</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead></TableHead>
-                <TableHead>Name</TableHead>
+                <TableHead>Nama</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Company</TableHead>
-                <TableHead>Country</TableHead>
-                <TableHead>Date Applied</TableHead>
+                <TableHead>Perusahaan</TableHead>
+                <TableHead>Negara</TableHead>
+                <TableHead>Tanggal Melamar</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {partners.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={6} className="text-center py-4">
-                    No partnership applications found
+                    Tidak ada aplikasi kemitraan yang ditemukan
                   </TableCell>
                 </TableRow>
               ) : (
@@ -139,12 +139,12 @@ export default function PartnersPage() {
                           <div className="space-y-4">
                             <div>
                               <h4 className="font-semibold">
-                                Contact Information
+                                Informasi Kontak
                               </h4>
-                              <p>Phone: {partner.phone_number}</p>
+                              <p>Telepon: {partner.phone_number}</p>
                             </div>
                             <div>
-                              <h4 className="font-semibold">Message</h4>
+                              <h4 className="font-semibold">Pesan</h4>
                               <div className="whitespace-pre-wrap bg-white p-4 rounded-md border mt-2">
                                 {partner.message}
                               </div>

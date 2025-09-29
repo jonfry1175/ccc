@@ -38,33 +38,33 @@ import { useToast } from "@/components/ui/use-toast";
 import { supabase, uploadFile, getFileUrl } from "@/lib/supabase";
 
 const departments = [
-  { label: "Deck & Engine Department", value: "deck-engine" },
-  { label: "Housekeeping Department", value: "housekeeping" }
+  { label: "Departemen Deck & Mesin", value: "deck-engine" },
+  { label: "Departemen Tata Graha", value: "housekeeping" }
 ];
 
 const positions = [
   // Deck & Engine Department
-  { label: "AB Sailor", value: "ab-sailor", department: "deck-engine" },
-  { label: "Carpenter", value: "carpenter", department: "deck-engine" },
-  { label: "Deck Fitter", value: "deck-fitter", department: "deck-engine" },
-  { label: "Deck Pool Safety Guard", value: "deck-pool-safety-guard", department: "deck-engine" },
-  { label: "Fireman", value: "fireman", department: "deck-engine" },
-  { label: "Ordinary Seaman", value: "ordinary-seaman", department: "deck-engine" },
-  { label: "Pest Control Technician", value: "pest-control-technician", department: "deck-engine" },
-  { label: "Waste Operator", value: "waste-operator", department: "deck-engine" },
-  { label: "Asst. Fitter Mechanic", value: "asst-fitter-mechanic", department: "deck-engine" },
-  { label: "Fitter Mechanic", value: "fitter-mechanic", department: "deck-engine" },
+  { label: "Pelaut AB", value: "ab-sailor", department: "deck-engine" },
+  { label: "Tukang Kayu", value: "carpenter", department: "deck-engine" },
+  { label: "Fitter Dek", value: "deck-fitter", department: "deck-engine" },
+  { label: "Penjaga Keamanan Kolam Dek", value: "deck-pool-safety-guard", department: "deck-engine" },
+  { label: "Petugas Pemadam Kebakaran", value: "fireman", department: "deck-engine" },
+  { label: "Pelaut Biasa", value: "ordinary-seaman", department: "deck-engine" },
+  { label: "Teknisi Pengendalian Hama", value: "pest-control-technician", department: "deck-engine" },
+  { label: "Operator Limbah", value: "waste-operator", department: "deck-engine" },
+  { label: "Asisten Mekanik Fitter", value: "asst-fitter-mechanic", department: "deck-engine" },
+  { label: "Mekanik Fitter", value: "fitter-mechanic", department: "deck-engine" },
   { label: "Oiler", value: "oiler", department: "deck-engine" },
-  { label: "Plumber", value: "plumber", department: "deck-engine" },
-  { label: "Upholsterer", value: "upholsterer", department: "deck-engine" },
+  { label: "Tukang Ledeng", value: "plumber", department: "deck-engine" },
+  { label: "Tukang Jok", value: "upholsterer", department: "deck-engine" },
   { label: "Wiper", value: "wiper", department: "deck-engine" },
 
   // Housekeeping Department
-  { label: "Cabin Steward", value: "cabin-steward", department: "housekeeping" },
-  { label: "Hotel Cleaner", value: "hotel-cleaner", department: "housekeeping" },
-  { label: "Crew Cleaner", value: "crew-cleaner", department: "housekeeping" },
-  { label: "Laundry Operator", value: "laundry-operator", department: "housekeeping" },
-  { label: "Tailor", value: "tailor", department: "housekeeping" }
+  { label: "Pramugara Kabin", value: "cabin-steward", department: "housekeeping" },
+  { label: "Pembersih Hotel", value: "hotel-cleaner", department: "housekeeping" },
+  { label: "Pembersih Kru", value: "crew-cleaner", department: "housekeeping" },
+  { label: "Operator Binatu", value: "laundry-operator", department: "housekeeping" },
+  { label: "Penjahit", value: "tailor", department: "housekeeping" }
 ];
 
 const countryCodes = [
@@ -82,18 +82,18 @@ const countryCodes = [
 const isBrowser = typeof window !== "undefined";
 
 const formSchema = z.object({
-  firstName: z.string().min(1, { message: "First name is required" }),
-  lastName: z.string().min(1, { message: "Last name is required" }),
-  dateOfBirth: z.date({ required_error: "Date of birth is required" }),
-  gender: z.enum(["female", "male"], { required_error: "Gender is required" }),
-  passportId: z.string().min(1, { message: "Passport ID is required" }),
-  email: z.string().email({ message: "Invalid email address" }),
+  firstName: z.string().min(1, { message: "Nama depan wajib diisi" }),
+  lastName: z.string().min(1, { message: "Nama belakang wajib diisi" }),
+  dateOfBirth: z.date({ required_error: "Tanggal lahir wajib diisi" }),
+  gender: z.enum(["female", "male"], { required_error: "Jenis kelamin wajib diisi" }),
+  passportId: z.string().min(1, { message: "ID paspor wajib diisi" }),
+  email: z.string().email({ message: "Alamat email tidak valid" }),
   whatsappCountryCode: z
     .string()
-    .min(1, { message: "Country code is required" }),
-  whatsappNumber: z.string().min(1, { message: "WhatsApp number is required" }),
-  department: z.string().min(1, { message: "Department is required" }),
-  position: z.string().min(1, { message: "Position is required" }),
+    .min(1, { message: "Kode negara wajib diisi" }),
+  whatsappNumber: z.string().min(1, { message: "Nomor WhatsApp wajib diisi" }),
+  department: z.string().min(1, { message: "Departemen wajib diisi" }),
+  position: z.string().min(1, { message: "Posisi wajib diisi" }),
   cv: isBrowser ? z.instanceof(File).optional() : z.any().optional(),
   certificate: isBrowser ? z.instanceof(File).optional() : z.any().optional()
 });
@@ -153,7 +153,7 @@ export default function CandidatePage() {
           cvUrl = getFileUrl('marina-prima-sukses-web', cvPath);
         } catch (error) {
           console.error('CV upload error:', error);
-          throw new Error('Failed to upload CV. Please try again.');
+          throw new Error('Gagal mengunggah CV. Silakan coba lagi.');
         }
       }
       
@@ -164,7 +164,7 @@ export default function CandidatePage() {
           certificateUrl = getFileUrl('marina-prima-sukses-web', certPath);
         } catch (error) {
           console.error('Certificate upload error:', error);
-          throw new Error('Failed to upload Certificate. Please try again.');
+          throw new Error('Gagal mengunggah Sertifikat. Silakan coba lagi.');
         }
       }
       
@@ -188,12 +188,12 @@ export default function CandidatePage() {
       
       if (error) {
         console.error('Database insertion error:', error);
-        throw new Error('Failed to save your application. Please try again.');
+        throw new Error('Gagal menyimpan aplikasi Anda. Silakan coba lagi.');
       }
       
       toast({
-        title: "Application Submitted Successfully",
-        description: "Thank you for your application. We will be in touch soon!",
+        title: "Aplikasi Berhasil Dikirim",
+        description: "Terima kasih atas aplikasi Anda. Kami akan segera menghubungi Anda!",
       });
       
       // Reset form
@@ -203,8 +203,8 @@ export default function CandidatePage() {
       console.error('Error submitting form:', error);
       toast({
         variant: "destructive",
-        title: "Submission Failed",
-        description: error.message || "There was an error submitting your application. Please try again.",
+        title: "Pengiriman Gagal",
+        description: error.message || "Terjadi kesalahan saat mengirimkan aplikasi Anda. Silakan coba lagi.",
       });
     } finally {
       setIsSubmitting(false);
@@ -217,7 +217,7 @@ export default function CandidatePage() {
       <div className="py-8 pb-4">
         <div>
           <h1 className="text-2xl text-center text-primaryRed">
-            Apply As Candidate
+            Lamar Sebagai Kandidat
           </h1>
         </div>
       </div>
@@ -233,11 +233,11 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex">
-                        First Name{" "}
+                        Nama Depan{" "}
                         <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="First Name" {...field} />
+                        <Input placeholder="Nama Depan" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -251,10 +251,10 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex">
-                        Last Name <span className="text-red-500 ml-0.5">*</span>
+                        Nama Belakang <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Last Name" {...field} />
+                        <Input placeholder="Nama Belakang" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -268,7 +268,7 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
                       <FormLabel className="flex">
-                        Date of Birth{" "}
+                        Tanggal Lahir{" "}
                         <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <Popover>
@@ -284,7 +284,7 @@ export default function CandidatePage() {
                               {field.value ? (
                                 formatDate(field.value)
                               ) : (
-                                <span>DD/MM/YYYY</span>
+                                <span>HH/BB/TTTT</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -302,22 +302,22 @@ export default function CandidatePage() {
                                 value={calendarMonth.getMonth().toString()}
                               >
                                 <SelectTrigger className="w-[110px] h-8">
-                                  <SelectValue placeholder="Month" />
+                                  <SelectValue placeholder="Bulan" />
                                 </SelectTrigger>
                                 <SelectContent>
                                   {[
-                                    "January",
-                                    "February",
-                                    "March",
+                                    "Januari",
+                                    "Februari",
+                                    "Maret",
                                     "April",
-                                    "May",
-                                    "June",
-                                    "July",
-                                    "August",
+                                    "Mei",
+                                    "Juni",
+                                    "Juli",
+                                    "Agustus",
                                     "September",
-                                    "October",
+                                    "Oktober",
                                     "November",
-                                    "December"
+                                    "Desember"
                                   ].map((month, index) => (
                                     <SelectItem
                                       key={month}
@@ -338,7 +338,7 @@ export default function CandidatePage() {
                                 value={calendarMonth.getFullYear().toString()}
                               >
                                 <SelectTrigger className="w-[90px] h-8">
-                                  <SelectValue placeholder="Year" />
+                                  <SelectValue placeholder="Tahun" />
                                 </SelectTrigger>
                                 <SelectContent className="max-h-[200px]">
                                   {Array.from({ length: 100 }, (_, i) => {
@@ -381,7 +381,7 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem className="space-y-3">
                       <FormLabel className="flex">
-                        Gender <span className="text-red-500 ml-0.5">*</span>
+                        Jenis Kelamin <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <FormControl>
                         <RadioGroup
@@ -394,7 +394,7 @@ export default function CandidatePage() {
                               <RadioGroupItem value="female" />
                             </FormControl>
                             <FormLabel className="font-normal cursor-pointer">
-                              Female
+                              Perempuan
                             </FormLabel>
                           </FormItem>
                           <FormItem className="flex items-center space-x-2 space-y-0">
@@ -402,7 +402,7 @@ export default function CandidatePage() {
                               <RadioGroupItem value="male" />
                             </FormControl>
                             <FormLabel className="font-normal cursor-pointer">
-                              Male
+                              Laki-laki
                             </FormLabel>
                           </FormItem>
                         </RadioGroup>
@@ -420,10 +420,10 @@ export default function CandidatePage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="flex">
-                      Passport ID <span className="text-red-500 ml-0.5">*</span>
+                      Nomor Paspor <span className="text-red-500 ml-0.5">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Passport ID" {...field} />
+                      <Input placeholder="Nomor Paspor" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -438,11 +438,11 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex">
-                        Email Address{" "}
+                        Alamat Email{" "}
                         <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="john.doe@example.com" {...field} />
+                        <Input placeholder="anda@contoh.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -453,7 +453,7 @@ export default function CandidatePage() {
                 <div className="space-y-2">
                   <div className="flex">
                     <span className="text-sm font-medium">
-                      WhatsApp Number{" "}
+                      Nomor WhatsApp{" "}
                       <span className="text-red-500 ml-0.5">*</span>
                     </span>
                   </div>
@@ -474,7 +474,7 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex">
-                        Department Applied{" "}
+                        Departemen yang Dilamar{" "}
                         <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <Select
@@ -487,7 +487,7 @@ export default function CandidatePage() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Deck & Engine Department" />
+                            <SelectValue placeholder="Pilih Departemen" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -513,7 +513,7 @@ export default function CandidatePage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex">
-                        Position <span className="text-red-500 ml-0.5">*</span>
+                        Posisi <span className="text-red-500 ml-0.5">*</span>
                       </FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -522,7 +522,7 @@ export default function CandidatePage() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select Deck & Engine Position" />
+                            <SelectValue placeholder="Pilih Posisi" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -549,17 +549,17 @@ export default function CandidatePage() {
                 render={({ field: { value, onChange, ...fieldProps } }) => (
                   <FormItem>
                     <FormLabel className="flex">
-                      Upload Your CV{" "}
+                      Unggah CV Anda{" "}
                       <span className="text-red-500 ml-0.5">*</span>
                     </FormLabel>
                     <FormControl>
                       <div className="border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center gap-2">
                         <Upload className="h-10 w-10 text-muted-foreground" />
                         <p className="text-sm font-medium">
-                          Select a file or drag and drop here
+                          Pilih file atau seret dan lepas di sini
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          Only PDF files are allowed. Max size 10MB.
+                          Hanya file PDF yang diizinkan. Ukuran maksimal 10MB.
                         </p>
                         <Input
                           type="file"
@@ -582,11 +582,11 @@ export default function CandidatePage() {
                             document.getElementById("cv-upload")?.click()
                           }
                         >
-                          Select File
+                          Pilih File
                         </Button>
                         {value && (
                           <p className="text-sm text-muted-foreground mt-2">
-                            Selected: {value instanceof File ? value.name : ""}
+                            Terpilih: {value instanceof File ? value.name : ""}
                           </p>
                         )}
                       </div>
@@ -603,17 +603,17 @@ export default function CandidatePage() {
                 render={({ field: { value, onChange, ...fieldProps } }) => (
                   <FormItem>
                     <FormLabel className="flex">
-                      Upload Your Work Experience Certificate{" "}
+                      Unggah Sertifikat Pengalaman Kerja Anda{" "}
                       <span className="text-red-500 ml-0.5">*</span>
                     </FormLabel>
                     <FormControl>
                       <div className="border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center gap-2">
                         <Upload className="h-10 w-10 text-muted-foreground" />
                         <p className="text-sm font-medium">
-                          Select a file or drag and drop here
+                          Pilih file atau seret dan lepas di sini
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          PDF size no more than 10MB.
+                          Ukuran PDF tidak lebih dari 10MB.
                         </p>
                         <Input
                           type="file"
@@ -638,11 +638,11 @@ export default function CandidatePage() {
                               ?.click()
                           }
                         >
-                          Select File
+                          Pilih File
                         </Button>
                         {value && (
                           <p className="text-sm text-muted-foreground mt-2">
-                            Selected: {value instanceof File ? value.name : ""}
+                            Terpilih: {value instanceof File ? value.name : ""}
                           </p>
                         )}
                       </div>
@@ -653,7 +653,7 @@ export default function CandidatePage() {
               />
 
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Submitting..." : "Submit Application"}
+                {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
               </Button>
             </form>
           </Form>
