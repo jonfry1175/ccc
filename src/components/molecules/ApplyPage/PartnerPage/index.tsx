@@ -160,7 +160,7 @@ export default function ContactForm() {
       <Navbar />
       <div className="py-8 pb-4">
         <div>
-          <h1 className="text-2xl text-center text-color1">Apply As Partner</h1>
+          <h1 className="text-2xl text-center text-primaryRed">Apply As Partner</h1>
         </div>
       </div>
       <Card className="w-full max-w-6xl mx-auto mb-4">

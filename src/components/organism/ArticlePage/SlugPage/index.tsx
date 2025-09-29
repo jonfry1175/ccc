@@ -28,7 +28,7 @@ export default function SlugPage({ slug }: { slug: string }) {
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 max-w-7xl mx-auto">
           <div className="space-y-4">
             <div className="flex items-center gap-4 max-w-3xl mx-auto px-6">
-              <span className="px-3 py-1 bg-color4 text-white text-sm font-medium rounded-full">
+              <span className="px-3 py-1 bg-lightGold text-white text-sm font-medium rounded-full">
                 {findSlug.category}
               </span>
               <span className="text-white/90 text-sm">{findSlug.date}</span>
@@ -48,7 +48,7 @@ export default function SlugPage({ slug }: { slug: string }) {
       {/* Dynamic Article Content */}
       <div className="max-w-2xl mx-auto px-6 py-12">
         <div
-          className="prose lg:prose-lg text-color1 text-justify"
+          className="prose lg:prose-lg text-primaryRed text-justify"
           dangerouslySetInnerHTML={{ __html: findSlug.content }}
         />
       </div>

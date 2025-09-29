@@ -48,18 +48,18 @@ export default function Testimonial() {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="bg-white border border-gold/20 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              className="bg-white border border-primaryGold/20 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
               <CardContent className="p-8 space-y-6 relative">
                 <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                  <Quote className="w-12 h-12 text-gold rotate-180" />
+                  <Quote className="w-12 h-12 text-primaryGold rotate-180" />
                 </div>
                 
                 <p className="text-navy-DEFAULT/80 min-h-[120px] italic leading-relaxed relative z-10">
                   &quot;{testimonial.quote}&quot;
                 </p>
                 
-                <div className="pt-6 flex items-center space-x-4 border-t border-gold/10">
+                <div className="pt-6 flex items-center space-x-4 border-t border-primaryGold/10">
                   <div className="overflow-hidden rounded-full w-12 h-12 bg-gold/20 flex-shrink-0">
                     <Image 
                       src={testimonial.avatar} 
@@ -74,7 +74,7 @@ export default function Testimonial() {
                       {testimonial.name}
                     </h1>
                     <p className="text-sm text-navy-DEFAULT/70">{testimonial.position}</p>
-                    <p className="text-xs text-gold font-medium mt-1">{testimonial.company}</p>
+                    <p className="text-xs text-primaryGold font-medium mt-1">{testimonial.company}</p>
                   </div>
                 </div>
               </CardContent>

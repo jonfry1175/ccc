@@ -54,9 +54,9 @@ export default function Contact() {
     >
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
-          <h1 className="inline-block mb-12 text-3xl text-center font-bold text-color1 md:text-4xl relative">
+          <h1 className="inline-block mb-12 text-3xl text-center font-bold text-primaryRed md:text-4xl relative">
             <span className="text-center">Contact Us</span>
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
+            <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
           </h1>
         </div>
         <div className="flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Contact() {
                 name="name"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
+                    <FormLabel className="block text-left text-primaryRed">
                       Username
                     </FormLabel>
                     <FormControl>
@@ -85,7 +85,7 @@ export default function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
+                    <FormLabel className="block text-left text-primaryRed">
                       Email
                     </FormLabel>
                     <FormControl>
@@ -100,7 +100,7 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem className="text-left">
-                    <FormLabel className="block text-left text-color1">
+                    <FormLabel className="block text-left text-primaryRed">
                       Message
                     </FormLabel>
                     <FormControl>
@@ -117,7 +117,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 variant={"outline"}
-                className="w-full bg-color1 hover:bg-white text-white hover:text-color1  hover:border-color1"
+                className="w-full bg-primaryRed hover:bg-white text-white hover:text-primaryRed  hover:border-primaryRed"
               >
                 Submit
               </Button>

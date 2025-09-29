@@ -36,7 +36,7 @@ export default function Services() {
   return (
     <section id="about" className="px-4 py-16 md:py-24" ref={sectionRef}>
       <div className="max-w-6xl px-10 mx-auto">
-        <section className="bg-white py-5 text-color1">
+        <section className="bg-white py-5 text-primaryRed">
           <div className="max-w-6xl mx-auto space-y-4 px-4">
             <motion.h1
               className="text-3xl font-bold mb-20"
@@ -51,7 +51,7 @@ export default function Services() {
                 {UniqueValue.map((item, index) => (
                   <motion.li
                     key={item.id}
-                    className="text-color1 w-full text-left ml-0"
+                    className="text-primaryRed w-full text-left ml-0"
                     initial={{ opacity: 0, x: -50 }}
                     animate={
                       isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }

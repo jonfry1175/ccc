@@ -57,11 +57,11 @@ export default function TestimonialCrew() {
       <div className="container max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="inline-block text-3xl text-center font-bold text-navy-DEFAULT md:text-4xl relative">
-            <span className="text-center relative z-10 text-color1">
+            <span className="text-center relative z-10 text-primaryRed">
               What Our Crew Say
             </span>
           </h1>
-          <p className="mt-4 text-color1 max-w-2xl mx-auto">
+          <p className="mt-4 text-primaryRed max-w-2xl mx-auto">
             Here&apos;s what some of them have to say about working with Marina
             Prima Sukses.
           </p>

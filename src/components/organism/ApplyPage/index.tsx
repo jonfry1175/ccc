@@ -36,7 +36,7 @@ export default function ApplyPage() {
           className="space-y-4 py-16 md:py-20"
         >
           <div>
-            <h1 className="text-color1 text-4xl">Join With Us Today</h1>
+            <h1 className="text-primaryRed text-4xl">Join With Us Today</h1>
           </div>
           <div className="flex justify-center gap-4">
             <Button>

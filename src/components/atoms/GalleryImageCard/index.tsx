@@ -35,7 +35,7 @@ export default function GalleryImageCard({ src, alt, name }: Props) {
                 />
               </div>
               {/* Nama sertifikat */}
-              <p className="mt-2 text-center font-semibold text-color1">
+              <p className="mt-2 text-center font-semibold text-primaryRed">
                 {name}
               </p>
             </div>

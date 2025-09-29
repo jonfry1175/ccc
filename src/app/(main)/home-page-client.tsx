@@ -103,7 +103,7 @@ export default function HomePageClient() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
+                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
                   onClick={() => setActiveSection("Company Profile")}
                 >
                   Business Profile
@@ -111,7 +111,7 @@ export default function HomePageClient() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
+                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
                   onClick={() => router.push("/apply-now")}
                 >
                   Apply Now
@@ -119,7 +119,7 @@ export default function HomePageClient() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-color1"
+                  className="border-2 border-primary bg-transparent text-white hover:bg-gold hover:text-primaryRed"
                   onClick={() => router.push("/training-center")}
                 >
                   Training Center

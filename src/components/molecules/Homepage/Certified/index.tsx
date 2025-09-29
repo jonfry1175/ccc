@@ -6,9 +6,9 @@ export default function Certified() {
     <section className="py-16 md:py-24 bg-gold">
       <div className="container max-w-6xl mx-auto px-4 md:px-10">
         <div className="text-center mb-14">
-          <h1 className="inline-block text-3xl font-bold text-color1 md:text-4xl relative">
+          <h1 className="inline-block text-3xl font-bold text-primaryRed md:text-4xl relative">
             <span className="relative z-10 ">Certified By</span>
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
+            <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
           </h1>
         </div>
 

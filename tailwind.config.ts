@@ -10,19 +10,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        color1: "#20386D",
-        color2: "#4F9EE1",
-        color3: "#4791A6",
-        color4: "#AAA295",
-        textColor: "#BEBFC0",
+        // New Christianity Crisis Center Colors
+        primaryRed: "#E31E24",
+        secondaryRed: "#DC143C",
+        primaryGold: "#D4AF37",
+        lightGold: "#FFD700",
+        
+        // Supporting Colors
+        primaryWhite: "#FFFFFF",
+        offWhite: "#F8F8FF",
+        darkGray: "#2B2B2B",
+        textBlack: "#1A1A1A",
+        lightGray: "#F5F5F5",
+        
+        // Legacy mapping for backward compatibility
+        color1: "#E31E24", // Was #20386D - now Primary Red
+        color2: "#DC143C", // Was #4F9EE1 - now Secondary Red
+        color3: "#D4AF37", // Was #4791A6 - now Primary Gold
+        color4: "#FFD700", // Was #AAA295 - now Light Gold
+        textColor: "#2B2B2B", // Was #BEBFC0 - now Dark Gray
         gold: {
-          DEFAULT: "#AAA295",
-          light: "#A68D6B",
-          dark: "#664D2B"
+          DEFAULT: "#D4AF37",
+          light: "#FFD700",
+          dark: "#B8860B"
         },
-        navy: {
-          DEFAULT: "#010033",
-          light: "#1A237E"
+        red: {
+          DEFAULT: "#E31E24",
+          secondary: "#DC143C",
+          dark: "#B71C1C"
         },
         elegant: {
           gray: "#2C3539",
@@ -41,7 +56,7 @@ export default {
           foreground: "hsl(var(--popover-foreground))"
         },
         primary: {
-          DEFAULT: "#AAA295",
+          DEFAULT: "#E31E24",
           foreground: "hsl(var(--primary-foreground))"
         },
         secondary: {

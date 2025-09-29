@@ -64,57 +64,66 @@ Link {
 
 @layer base {
   :root {
+    /* Christianity Crisis Center Color Scheme */
+    --primary-red: 358 85% 52%; /* #E31E24 */
+    --secondary-red: 348 79% 47%; /* #DC143C */
+    --primary-gold: 43 69% 49%; /* #D4AF37 */
+    --light-gold: 51 100% 50%; /* #FFD700 */
+    --dark-gray: 0 0% 17%; /* #2B2B2B */
+    --text-black: 0 0% 10%; /* #1A1A1A */
+    
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --foreground: var(--dark-gray);
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: var(--dark-gray);
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 33 28% 37%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 238 99% 10%;
-    --secondary-foreground: 0 0% 98%;
+    --popover-foreground: var(--dark-gray);
+    --primary: var(--primary-red);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--primary-gold);
+    --secondary-foreground: var(--text-black);
     --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 33 28% 60%;
-    --accent-foreground: 210 40% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --muted-foreground: var(--dark-gray);
+    --accent: var(--light-gold);
+    --accent-foreground: var(--text-black);
+    --destructive: var(--secondary-red);
     --destructive-foreground: 0 0% 98%;
-    --border: 33 28% 45%;
-    --input: 214 32% 91%;
-    --ring: 33 28% 37%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --border: var(--primary-gold);
+    --input: 0 0% 96%;
+    --ring: var(--primary-red);
+    --chart-1: var(--primary-red);
+    --chart-2: var(--primary-gold);
+    --chart-3: var(--secondary-red);
+    --chart-4: var(--light-gold);
+    --chart-5: var(--dark-gray);
     --radius: 0.5rem;
   }
   .dark {
-    --background: 238 99% 10%;
-    --foreground: 210 40% 98%;
-    --card: 238 90% 15%;
-    --card-foreground: 0 0% 98%;
-    --popover: 238 90% 15%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 33 28% 45%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 238 50% 30%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 238 50% 20%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 33 28% 50%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    /* Christianity Crisis Center Dark Mode */
+    --background: 0 0% 10%; /* Dark background */
+    --foreground: 0 0% 95%; /* Light text */
+    --card: 0 0% 15%; /* Dark card background */
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+    --primary: var(--primary-red);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--primary-gold);
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: var(--light-gold);
+    --accent-foreground: 0 0% 10%;
+    --destructive: var(--secondary-red);
     --destructive-foreground: 0 0% 98%;
-    --border: 33 28% 55%;
-    --input: 238 50% 20%;
-    --ring: 33 28% 55%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: var(--primary-red);
+    --chart-1: var(--primary-red);
+    --chart-2: var(--primary-gold);
+    --chart-3: var(--secondary-red);
+    --chart-4: var(--light-gold);
+    --chart-5: 0 0% 70%;
   }
 }
 

@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   };
 
   return (
-    <nav className="shadow-lg bg-gold py-2 text-color1 sticky top-0 z-50">
+    <nav className="shadow-lg bg-gold py-2 text-primaryRed sticky top-0 z-50">
       <div className="max-w-6xl px-6 mx-auto">
         <div className="flex justify-between items-center">
           <div onClick={() => handleNavigation("/")} className="cursor-pointer">
@@ -41,8 +41,8 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           <div className="items-center hidden space-x-6 md:flex">
             <button
               onClick={() => handleNavigation("/")}
-              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
-                pathname === "/" ? "border-b-2 border-color1" : ""
+              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
+                pathname === "/" ? "border-b-2 border-primaryRed" : ""
               }`}
             >
               <p className="text-[15px]">Home</p>
@@ -50,8 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
 
             <button
               onClick={() => handleNavigation("/apply-now")}
-              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
-                pathname === "/apply-now" ? "border-b-2 border-color1" : ""
+              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
+                pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
               }`}
             >
               <p className="text-[15px]">Apply Now</p>
@@ -59,9 +59,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
 
             <button
               onClick={() => handleNavigation("/training-center")}
-              className={`px-2 py-2 transition duration-300 font-medium text-color1 hover:text-gold text-shadow-md ${
+              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
                 pathname === "/training-center"
-                  ? "border-b-2 border-color1"
+                  ? "border-b-2 border-primaryRed"
                   : ""
               }`}
             >
@@ -74,9 +74,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               onClick={toggleMenu}
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-color1 drop-shadow-md" />
+                <X className="w-6 h-6 text-primaryRed drop-shadow-md" />
               ) : (
-                <Menu className="w-6 h-6 text-color1 drop-shadow-md" />
+                <Menu className="w-6 h-6 text-primaryRed drop-shadow-md" />
               )}
             </button>
           </div>
@@ -95,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           <button
             onClick={() => handleNavigation("/")}
             className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/" ? "border-b-2 border-color1" : ""
+              pathname === "/" ? "border-b-2 border-primaryRed" : ""
             }`}
           >
             Home
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           <button
             onClick={() => handleNavigation("/apply-now")}
             className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/apply-now" ? "border-b-2 border-color1" : ""
+              pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
             }`}
           >
             Apply Now
@@ -112,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           <button
             onClick={() => handleNavigation("/training-center")}
             className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/training-center" ? "border-b-2 border-color1" : ""
+              pathname === "/training-center" ? "border-b-2 border-primaryRed" : ""
             }`}
           >
             Training-center

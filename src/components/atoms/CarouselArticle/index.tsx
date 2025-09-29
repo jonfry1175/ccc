@@ -58,15 +58,15 @@ export default function CarouselArticle({
                   />
                 </div>
                 <CardContent className="p-4">
-                  <h1 className="text-lg font-semibold text-color1 line-clamp-2">
+                  <h1 className="text-lg font-semibold text-primaryRed line-clamp-2">
                     {article.title}
                   </h1>
-                  <p className="text-sm text-color1 line-clamp-2">
+                  <p className="text-sm text-primaryRed line-clamp-2">
                     {article.description}
                   </p>
                   <Link
                     href={`/article/${article.slug}`}
-                    className="inline-block mt-3 text-color1 hover:underline"
+                    className="inline-block mt-3 text-primaryRed hover:underline"
                   >
                     Read More
                   </Link>

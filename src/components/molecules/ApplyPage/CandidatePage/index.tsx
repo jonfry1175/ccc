@@ -216,7 +216,7 @@ export default function CandidatePage() {
       <Navbar />
       <div className="py-8 pb-4">
         <div>
-          <h1 className="text-2xl text-center text-color1">
+          <h1 className="text-2xl text-center text-primaryRed">
             Apply As Candidate
           </h1>
         </div>

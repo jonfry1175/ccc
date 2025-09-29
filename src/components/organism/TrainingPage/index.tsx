@@ -33,9 +33,9 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
 
       {/* <section className="px-4 py-16">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="inline-block mb-12 text-3xl font-bold text-color1 md:text-4xl relative">
+          <h1 className="inline-block mb-12 text-3xl font-bold text-primaryRed md:text-4xl relative">
             Training Center
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-color1 opacity-30 z-0"></span>
+            <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
           </h1>
         </div>
       </section> */}
@@ -70,7 +70,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-white  mb-4 py-8 text-color1" ref={sectionRef}>
+      <section className="bg-white  mb-4 py-8 text-primaryRed" ref={sectionRef}>
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <motion.h1
             className="text-4xl font-bold text-center mb-8"
@@ -84,7 +84,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
             {ProgramsTraining.map((service, index) => (
               <motion.li
                 key={index}
-                className="text-[16px] font-semibold text-color1 p-4"
+                className="text-[16px] font-semibold text-primaryRed p-4"
                 initial={{ opacity: 0, x: -50 }}
                 animate={
                   isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
@@ -98,7 +98,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
         </div>
       </section>
 
-      <section className="bg-color4 mt-4  py-5 text-color1">
+      <section className="bg-lightGold mt-4  py-5 text-primaryRed">
         <div className="max-w-6xl mx-auto space-y-4 px-4">
           <h1 className="text-4xl text-center font-bold">
             Rising Stars of Our Program
