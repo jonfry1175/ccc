@@ -112,7 +112,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           <button
             onClick={() => handleNavigation("/training-center")}
             className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/training-center" ? "border-b-2 border-primaryRed" : ""
+              pathname === "/training-center"
+                ? "border-b-2 border-primaryRed"
+                : ""
             }`}
           >
             Training-center

@@ -71,7 +71,7 @@ Link {
     --light-gold: 51 100% 50%; /* #FFD700 */
     --dark-gray: 0 0% 17%; /* #2B2B2B */
     --text-black: 0 0% 10%; /* #1A1A1A */
-    
+
     --background: 0 0% 100%;
     --foreground: var(--dark-gray);
     --card: 0 0% 100%;

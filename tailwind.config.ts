@@ -15,14 +15,14 @@ export default {
         secondaryRed: "#DC143C",
         primaryGold: "#D4AF37",
         lightGold: "#FFD700",
-        
+
         // Supporting Colors
         primaryWhite: "#FFFFFF",
         offWhite: "#F8F8FF",
         darkGray: "#2B2B2B",
         textBlack: "#1A1A1A",
         lightGray: "#F5F5F5",
-        
+
         // Legacy mapping for backward compatibility
         color1: "#E31E24", // Was #20386D - now Primary Red
         color2: "#DC143C", // Was #4F9EE1 - now Secondary Red

@@ -1,160 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christianity Crisis Center - Color Contrast Check</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .color-test {
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .test-label {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .contrast-info {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-        
-        /* Primary Red on White */
-        .primary-red-on-white {
-            background-color: #FFFFFF;
-            color: #E31E24;
-        }
-        
-        /* Dark Gray on White */
-        .dark-gray-on-white {
-            background-color: #FFFFFF;
-            color: #2B2B2B;
-        }
-        
-        /* Primary Red on Gold */
-        .primary-red-on-gold {
-            background-color: #D4AF37;
-            color: #E31E24;
-        }
-        
-        /* White on Primary Red */
-        .white-on-primary-red {
-            background-color: #E31E24;
-            color: #FFFFFF;
-        }
-        
-        /* Light Gold on Primary Red */
-        .light-gold-on-primary-red {
-            background-color: #E31E24;
-            color: #FFD700;
-        }
-        
-        /* Primary Gold on White */
-        .primary-gold-on-white {
-            background-color: #FFFFFF;
-            color: #D4AF37;
-        }
-        
-        /* Dark Mode Tests */
-        .dark-mode {
-            background-color: #1A1A1A;
-        }
-        
-        .primary-red-on-dark {
-            background-color: #1A1A1A;
-            color: #E31E24;
-        }
-        
-        .light-text-on-dark {
-            background-color: #1A1A1A;
-            color: #F5F5F5;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .color-test {
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .test-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .contrast-info {
+        font-size: 14px;
+        opacity: 0.8;
+        margin-top: 10px;
+      }
+
+      /* Primary Red on White */
+      .primary-red-on-white {
+        background-color: #ffffff;
+        color: #e31e24;
+      }
+
+      /* Dark Gray on White */
+      .dark-gray-on-white {
+        background-color: #ffffff;
+        color: #2b2b2b;
+      }
+
+      /* Primary Red on Gold */
+      .primary-red-on-gold {
+        background-color: #d4af37;
+        color: #e31e24;
+      }
+
+      /* White on Primary Red */
+      .white-on-primary-red {
+        background-color: #e31e24;
+        color: #ffffff;
+      }
+
+      /* Light Gold on Primary Red */
+      .light-gold-on-primary-red {
+        background-color: #e31e24;
+        color: #ffd700;
+      }
+
+      /* Primary Gold on White */
+      .primary-gold-on-white {
+        background-color: #ffffff;
+        color: #d4af37;
+      }
+
+      /* Dark Mode Tests */
+      .dark-mode {
+        background-color: #1a1a1a;
+      }
+
+      .primary-red-on-dark {
+        background-color: #1a1a1a;
+        color: #e31e24;
+      }
+
+      .light-text-on-dark {
+        background-color: #1a1a1a;
+        color: #f5f5f5;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Christianity Crisis Center - Color Accessibility Test</h1>
-    
+
     <h2>Light Mode Color Combinations</h2>
-    
+
     <div class="color-test primary-red-on-white">
-        <div class="test-label">Primary Red (#E31E24) on White (#FFFFFF)</div>
-        <p>This is the primary text color for headings and important content. It should have high contrast for readability.</p>
-        <div class="contrast-info">Used for: Navigation links, headings, call-to-action buttons</div>
+      <div class="test-label">Primary Red (#E31E24) on White (#FFFFFF)</div>
+      <p>
+        This is the primary text color for headings and important content. It
+        should have high contrast for readability.
+      </p>
+      <div class="contrast-info">
+        Used for: Navigation links, headings, call-to-action buttons
+      </div>
     </div>
-    
+
     <div class="color-test dark-gray-on-white">
-        <div class="test-label">Dark Gray (#2B2B2B) on White (#FFFFFF)</div>
-        <p>This is the main body text color. It provides excellent readability while being easy on the eyes for long reading sessions.</p>
-        <div class="contrast-info">Used for: Body text, paragraphs, descriptions</div>
+      <div class="test-label">Dark Gray (#2B2B2B) on White (#FFFFFF)</div>
+      <p>
+        This is the main body text color. It provides excellent readability
+        while being easy on the eyes for long reading sessions.
+      </p>
+      <div class="contrast-info">
+        Used for: Body text, paragraphs, descriptions
+      </div>
     </div>
-    
+
     <div class="color-test primary-red-on-gold">
-        <div class="test-label">Primary Red (#E31E24) on Gold (#D4AF37)</div>
-        <p>This combination is used in the navigation bar. The red text should be clearly visible against the gold background.</p>
-        <div class="contrast-info">Used for: Navbar text, gold section content</div>
+      <div class="test-label">Primary Red (#E31E24) on Gold (#D4AF37)</div>
+      <p>
+        This combination is used in the navigation bar. The red text should be
+        clearly visible against the gold background.
+      </p>
+      <div class="contrast-info">
+        Used for: Navbar text, gold section content
+      </div>
     </div>
-    
+
     <div class="color-test white-on-primary-red">
-        <div class="test-label">White (#FFFFFF) on Primary Red (#E31E24)</div>
-        <p>This high-contrast combination is perfect for buttons and call-to-action elements that need to stand out.</p>
-        <div class="contrast-info">Used for: Primary buttons, alert messages</div>
+      <div class="test-label">White (#FFFFFF) on Primary Red (#E31E24)</div>
+      <p>
+        This high-contrast combination is perfect for buttons and call-to-action
+        elements that need to stand out.
+      </p>
+      <div class="contrast-info">Used for: Primary buttons, alert messages</div>
     </div>
-    
+
     <div class="color-test light-gold-on-primary-red">
-        <div class="test-label">Light Gold (#FFD700) on Primary Red (#E31E24)</div>
-        <p>This combination provides accent highlights while maintaining the brand colors.</p>
-        <div class="contrast-info">Used for: Accent text, special highlights</div>
+      <div class="test-label">
+        Light Gold (#FFD700) on Primary Red (#E31E24)
+      </div>
+      <p>
+        This combination provides accent highlights while maintaining the brand
+        colors.
+      </p>
+      <div class="contrast-info">Used for: Accent text, special highlights</div>
     </div>
-    
+
     <div class="color-test primary-gold-on-white">
-        <div class="test-label">Primary Gold (#D4AF37) on White (#FFFFFF)</div>
-        <p>Gold text on white background for decorative elements and secondary content.</p>
-        <div class="contrast-info">Used for: Accent elements, secondary buttons</div>
+      <div class="test-label">Primary Gold (#D4AF37) on White (#FFFFFF)</div>
+      <p>
+        Gold text on white background for decorative elements and secondary
+        content.
+      </p>
+      <div class="contrast-info">
+        Used for: Accent elements, secondary buttons
+      </div>
     </div>
-    
+
     <h2>Dark Mode Color Combinations</h2>
-    
+
     <div class="color-test primary-red-on-dark">
-        <div class="test-label">Primary Red (#E31E24) on Dark Background (#1A1A1A)</div>
-        <p>Primary red maintains visibility in dark mode while preserving brand identity.</p>
-        <div class="contrast-info">Used for: Dark mode navigation, headings</div>
+      <div class="test-label">
+        Primary Red (#E31E24) on Dark Background (#1A1A1A)
+      </div>
+      <p>
+        Primary red maintains visibility in dark mode while preserving brand
+        identity.
+      </p>
+      <div class="contrast-info">Used for: Dark mode navigation, headings</div>
     </div>
-    
+
     <div class="color-test light-text-on-dark">
-        <div class="test-label">Light Gray (#F5F5F5) on Dark Background (#1A1A1A)</div>
-        <p>Light text on dark background provides comfortable reading experience in dark mode.</p>
-        <div class="contrast-info">Used for: Dark mode body text</div>
+      <div class="test-label">
+        Light Gray (#F5F5F5) on Dark Background (#1A1A1A)
+      </div>
+      <p>
+        Light text on dark background provides comfortable reading experience in
+        dark mode.
+      </p>
+      <div class="contrast-info">Used for: Dark mode body text</div>
     </div>
-    
+
     <h2>Accessibility Guidelines</h2>
-    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3>WCAG 2.1 Contrast Requirements</h3>
-        <ul>
-            <li><strong>AA Level (Minimum):</strong> 4.5:1 for normal text, 3:1 for large text</li>
-            <li><strong>AAA Level (Enhanced):</strong> 7:1 for normal text, 4.5:1 for large text</li>
-        </ul>
-        
-        <h3>Color Combination Analysis</h3>
-        <ul>
-            <li><strong>Primary Red on White:</strong> High contrast - excellent readability</li>
-            <li><strong>Dark Gray on White:</strong> Optimal contrast for body text</li>
-            <li><strong>White on Primary Red:</strong> Maximum contrast for CTAs</li>
-            <li><strong>Primary Red on Gold:</strong> Good contrast - may need testing</li>
-        </ul>
-        
-        <h3>Recommendations</h3>
-        <ul>
-            <li>Use Primary Red (#E31E24) for important headings and navigation</li>
-            <li>Use Dark Gray (#2B2B2B) for body text and descriptions</li>
-            <li>Ensure buttons have sufficient padding for touch targets</li>
-            <li>Test with color blindness simulation tools</li>
-            <li>Provide focus indicators for keyboard navigation</li>
-        </ul>
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      "
+    >
+      <h3>WCAG 2.1 Contrast Requirements</h3>
+      <ul>
+        <li>
+          <strong>AA Level (Minimum):</strong> 4.5:1 for normal text, 3:1 for
+          large text
+        </li>
+        <li>
+          <strong>AAA Level (Enhanced):</strong> 7:1 for normal text, 4.5:1 for
+          large text
+        </li>
+      </ul>
+
+      <h3>Color Combination Analysis</h3>
+      <ul>
+        <li>
+          <strong>Primary Red on White:</strong> High contrast - excellent
+          readability
+        </li>
+        <li>
+          <strong>Dark Gray on White:</strong> Optimal contrast for body text
+        </li>
+        <li>
+          <strong>White on Primary Red:</strong> Maximum contrast for CTAs
+        </li>
+        <li>
+          <strong>Primary Red on Gold:</strong> Good contrast - may need testing
+        </li>
+      </ul>
+
+      <h3>Recommendations</h3>
+      <ul>
+        <li>Use Primary Red (#E31E24) for important headings and navigation</li>
+        <li>Use Dark Gray (#2B2B2B) for body text and descriptions</li>
+        <li>Ensure buttons have sufficient padding for touch targets</li>
+        <li>Test with color blindness simulation tools</li>
+        <li>Provide focus indicators for keyboard navigation</li>
+      </ul>
     </div>
-</body>
+  </body>
 </html>
