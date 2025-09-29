@@ -12,7 +12,7 @@ const structuredData = {
     "name": "Marina Prima Sukses",
     "alternateName": "MPS Jakarta",
     "url": "https://mpsjakarta.com",
-    "logo": "https://mpsjakarta.com/images/Logo/logomps1.png",
+    "logo": "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png",
     "description": "Official MSC Cruises Manning Agency in Jakarta, Indonesia. Recruiting Indonesian crew for international cruise ships since establishment.",
     "address": {
       "@type": "PostalAddress",

@@ -46,7 +46,7 @@ export function generateArticleSchema({
       "name": "Marina Prima Sukses",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://mpsjakarta.com/images/Logo/logomps1.png"
+        "url": "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png"
       }
     },
     "mainEntityOfPage": {

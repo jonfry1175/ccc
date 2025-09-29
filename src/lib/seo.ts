@@ -45,7 +45,7 @@ export const defaultMetadata: Metadata = {
     description: "Join MSC Cruises with Marina Prima Sukses Jakarta. Professional recruitment & training for Indonesian cruise ship crew. Apply today!",
     images: [
       {
-        url: "/images/Logo/logomps1.png",
+        url: "/images/Logo/christianity-crisis-center.png",
         width: 1200,
         height: 630,
         alt: "Marina Prima Sukses Logo"
@@ -56,7 +56,7 @@ export const defaultMetadata: Metadata = {
     card: "summary_large_image",
     title: "Marina Prima Sukses | MSC Cruises Manning Agency",
     description: "Indonesia's authorized MSC Cruises manning agency - connecting qualified crew with global opportunities",
-    images: ["/images/Logo/logomps1.png"]
+    images: ["/images/Logo/christianity-crisis-center.png"]
   },
   alternates: {
     canonical: baseUrl,
@@ -117,7 +117,7 @@ export const organizationSchema = {
   "name": "Marina Prima Sukses",
   "alternateName": "MPS Jakarta",
   "url": baseUrl,
-  "logo": `${baseUrl}/images/Logo/logomps1.png`,
+  "logo": `${baseUrl}/images/Logo/christianity-crisis-center.png`,
   "description": "Official MSC Cruises Manning Agency in Jakarta, Indonesia",
   "address": {
     "@type": "PostalAddress",

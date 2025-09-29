@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
         <div className="flex justify-between items-center">
           <div onClick={() => handleNavigation("/")} className="cursor-pointer">
             <Image
-              src="/images/Logo/logomps1.png"
+              src="/images/Logo/christianity-crisis-center.png"
               alt="Marina Prima Sukses"
               width={70}
               height={50}
