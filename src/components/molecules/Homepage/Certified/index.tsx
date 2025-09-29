@@ -1,25 +1,23 @@
+import SectionHeading from "@/components/atoms/SectionHeading";
 import GalleryImageCard from "@/components/atoms/GalleryImageCard";
 import { certifiedsData } from "@/lib/DataCertified";
 
 export default function Certified() {
   return (
-    <section className="py-16 md:py-24 bg-gold">
-      <div className="container max-w-6xl mx-auto px-4 md:px-10">
-        <div className="text-center mb-14">
-          <h1 className="inline-block text-3xl font-bold text-primaryRed md:text-4xl relative">
-            <span className="relative z-10 ">Disertifikasi Oleh</span>
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
-          </h1>
-        </div>
+    <section className="bg-white py-20">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 md:px-10">
+        <SectionHeading
+          eyebrow="Kepercayaan"
+          title="Sertifikasi & Pengakuan Resmi"
+          description="Legalitas operasi kami didukung penuh oleh regulator kemaritiman Indonesia dan standar internasional."
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {certifiedsData.map((testimonial, index) => (
             <GalleryImageCard
               key={index}
               src={testimonial.image}
               alt={`Certified ${index + 1}`}
-              width={10}
-              height={10}
               name={testimonial.name}
             />
           ))}

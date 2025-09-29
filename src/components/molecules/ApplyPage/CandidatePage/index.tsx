@@ -1,12 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, Upload } from "lucide-react";
+import { CalendarIcon, CheckCircle2, Headset, Ship, ShieldCheck, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -67,15 +73,32 @@ const positions = [
   { label: "Penjahit", value: "tailor", department: "housekeeping" }
 ];
 
-const countryCodes = [
-  { label: "+1", value: "+1" },
-  { label: "+44", value: "+44" },
-  { label: "+61", value: "+61" },
-  { label: "+62", value: "+62" },
-  { label: "+65", value: "+65" },
-  { label: "+81", value: "+81" },
-  { label: "+82", value: "+82" },
-  { label: "+91", value: "+91" }
+const preparationChecklist = [
+  "Paspor dengan masa berlaku minimal 18 bulan",
+  "CV terbaru dalam format PDF (maksimal 10MB)",
+  "Sertifikat pengalaman kerja atau pelatihan relevan",
+  "Nomor WhatsApp aktif untuk proses verifikasi"
+];
+
+const supportHighlights = [
+  {
+    icon: ShieldCheck,
+    title: "Pendampingan Dokumen",
+    description:
+      "Tim compliance kami memastikan dokumen Anda sesuai standar perusahaan internasional."
+  },
+  {
+    icon: Ship,
+    title: "Jaringan Kapal Pesiar",
+    description:
+      "Kemitraan dengan operator kapal pesiar Asia hingga Timur Tengah memperluas pilihan karier Anda."
+  },
+  {
+    icon: Headset,
+    title: "Tim Support 24/7",
+    description:
+      "Konsultasi langsung melalui WhatsApp untuk pertanyaan proses rekrutmen Anda."
+  }
 ];
 
 // Check if we're in a browser environment
@@ -168,8 +191,10 @@ export default function CandidatePage() {
         }
       }
       
-      // Format WhatsApp number with country code
-      const whatsappNumber = `${data.whatsappCountryCode}${data.whatsappNumber}`;
+      // Format WhatsApp number with international prefix
+      const whatsappNumber = data.whatsappNumber.startsWith("+")
+        ? data.whatsappNumber
+        : `+${data.whatsappNumber}`;
       
       // Save candidate data to Supabase Database
       const { error } = await supabase.from('candidate').insert({
@@ -212,453 +237,548 @@ export default function CandidatePage() {
   };
 
   return (
-    <div>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-offWhite via-white to-[#FFF7E6]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primaryRed/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-[-8rem] h-80 w-80 rounded-full bg-primaryGold/10 blur-3xl"
+      />
       <Navbar />
-      <div className="py-8 pb-4">
-        <div>
-          <h1 className="text-2xl text-center text-primaryRed">
-            Lamar Sebagai Kandidat
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-24 pt-20 md:px-8 lg:pt-24">
+        <section className="mx-auto max-w-3xl text-center space-y-5">
+          <span className="inline-flex items-center justify-center rounded-full bg-white/80 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed shadow">
+            Kandidat
+          </span>
+          <h1 className="text-3xl font-semibold text-darkGray md:text-5xl md:leading-tight">
+            Lamar Sebagai Kandidat Kapal Pesiar & Hospitality
           </h1>
-        </div>
-      </div>
-      <Card className="w-full max-w-5xl mx-auto mb-4">
-        <CardContent className="p-6 ">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* First Name */}
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex">
-                        Nama Depan{" "}
-                        <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nama Depan" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+          <p className="text-base text-slate-600 md:text-lg">
+            Lengkapi formulir di bawah ini untuk memulai proses rekrutmen internasional. Kami akan meninjau dokumen Anda dan menghubungi dalam 3-5 hari kerja.
+          </p>
+        </section>
 
-                {/* Last Name */}
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex">
-                        Nama Belakang <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nama Belakang" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Date of Birth */}
-                <FormField
-                  control={form.control}
-                  name="dateOfBirth"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel className="flex">
-                        Tanggal Lahir{" "}
-                        <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={"outline"}
-                              className={cn(
-                                "w-full pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
-                              )}
-                            >
-                              {field.value ? (
-                                formatDate(field.value)
-                              ) : (
-                                <span>HH/BB/TTTT</span>
-                              )}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <div className="p-2 border-b border-border flex justify-between items-center">
-                            <div className="flex gap-1">
-                              <Select
-                                onValueChange={(month) => {
-                                  const newDate = new Date(calendarMonth);
-                                  newDate.setMonth(Number.parseInt(month));
-                                  setCalendarMonth(newDate);
-                                }}
-                                value={calendarMonth.getMonth().toString()}
-                              >
-                                <SelectTrigger className="w-[110px] h-8">
-                                  <SelectValue placeholder="Bulan" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {[
-                                    "Januari",
-                                    "Februari",
-                                    "Maret",
-                                    "April",
-                                    "Mei",
-                                    "Juni",
-                                    "Juli",
-                                    "Agustus",
-                                    "September",
-                                    "Oktober",
-                                    "November",
-                                    "Desember"
-                                  ].map((month, index) => (
-                                    <SelectItem
-                                      key={month}
-                                      value={index.toString()}
-                                    >
-                                      {month}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
-
-                              <Select
-                                onValueChange={(year) => {
-                                  const newDate = new Date(calendarMonth);
-                                  newDate.setFullYear(Number.parseInt(year));
-                                  setCalendarMonth(newDate);
-                                }}
-                                value={calendarMonth.getFullYear().toString()}
-                              >
-                                <SelectTrigger className="w-[90px] h-8">
-                                  <SelectValue placeholder="Tahun" />
-                                </SelectTrigger>
-                                <SelectContent className="max-h-[200px]">
-                                  {Array.from({ length: 100 }, (_, i) => {
-                                    const year = new Date().getFullYear() - i;
-                                    return (
-                                      <SelectItem
-                                        key={year}
-                                        value={year.toString()}
-                                      >
-                                        {year}
-                                      </SelectItem>
-                                    );
-                                  })}
-                                </SelectContent>
-                              </Select>
-                            </div>
-                          </div>
-                          <Calendar
-                            mode="single"
-                            selected={field.value}
-                            onSelect={field.onChange}
-                            month={calendarMonth}
-                            onMonthChange={setCalendarMonth}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Gender */}
-                <FormField
-                  control={form.control}
-                  name="gender"
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormLabel className="flex">
-                        Jenis Kelamin <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex gap-6"
-                        >
-                          <FormItem className="flex items-center space-x-2 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="female" />
-                            </FormControl>
-                            <FormLabel className="font-normal cursor-pointer">
-                              Perempuan
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-2 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="male" />
-                            </FormControl>
-                            <FormLabel className="font-normal cursor-pointer">
-                              Laki-laki
-                            </FormLabel>
-                          </FormItem>
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              {/* Passport ID */}
-              <FormField
-                control={form.control}
-                name="passportId"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex">
-                      Nomor Paspor <span className="text-red-500 ml-0.5">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="Nomor Paspor" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Email Address */}
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex">
-                        Alamat Email{" "}
-                        <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="anda@contoh.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* WhatsApp Number */}
-                <div className="space-y-2">
-                  <div className="flex">
-                    <span className="text-sm font-medium">
-                      Nomor WhatsApp{" "}
-                      <span className="text-red-500 ml-0.5">*</span>
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <PhoneNumberInput
-                      onChange={(value) =>
-                        form.setValue("whatsappNumber", value)
-                      }
-                      error={form.formState.errors.whatsappNumber?.message}
-                    />
-                  </div>
+        <section className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <div className="space-y-6">
+            <Card className="border-none bg-white/80 shadow-xl shadow-primaryRed/10 backdrop-blur">
+              <CardHeader className="space-y-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed/15 text-primaryRed">
+                  <CheckCircle2 className="h-5 w-5" aria-hidden />
                 </div>
+                <CardTitle className="text-xl text-darkGray">
+                  Siapkan dokumen Anda
+                </CardTitle>
+                <CardDescription>
+                  Pastikan berkas berikut siap untuk mempercepat proses seleksi.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <ul className="space-y-3 text-sm text-slate-600">
+                  {preparationChecklist.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-primaryRed" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
 
-                {/* Department Applied */}
-                <FormField
-                  control={form.control}
-                  name="department"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex">
-                        Departemen yang Dilamar{" "}
-                        <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={(value) => {
-                          field.onChange(value);
-                          form.setValue("position", "");
-                          setSelectedDepartment(value);
-                        }}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Pilih Departemen" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {departments.map((department) => (
-                            <SelectItem
-                              key={department.value}
-                              value={department.value}
-                            >
-                              {department.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {supportHighlights.map(({ icon: Icon, title, description }) => (
+                <Card
+                  key={title}
+                  className="border-none bg-gradient-to-br from-white via-white to-primaryGold/10 shadow-lg shadow-primaryRed/5 backdrop-blur"
+                >
+                  <CardHeader className="space-y-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primaryRed/12 text-primaryRed">
+                      <Icon className="h-4 w-4" aria-hidden />
+                    </div>
+                    <CardTitle className="text-lg text-darkGray">{title}</CardTitle>
+                    <CardDescription className="text-sm text-slate-600">
+                      {description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
 
-                {/* Position */}
-                <FormField
-                  control={form.control}
-                  name="position"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex">
-                        Posisi <span className="text-red-500 ml-0.5">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                        disabled={!selectedDepartment}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Pilih Posisi" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {filteredPositions.map((position) => (
-                            <SelectItem
-                              key={position.value}
-                              value={position.value}
-                            >
-                              {position.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+            <Card className="border-none bg-primaryRed text-white shadow-xl shadow-primaryRed/20">
+              <CardHeader className="space-y-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+                  <Headset className="h-5 w-5" aria-hidden />
+                </div>
+                <CardTitle className="text-xl">Butuh Bantuan?</CardTitle>
+                <CardDescription className="text-sm text-white/80">
+                  Tim rekrutmen kami siap membantu setiap hari kerja.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm">
+                <p>WhatsApp: <span className="font-semibold">+62 811-9307-777</span></p>
+                <p>Email: <span className="font-semibold">info@mpsjakarta.com</span></p>
+                <p>Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara</p>
+              </CardContent>
+            </Card>
+          </div>
 
-              {/* Upload CV */}
-              <FormField
-                control={form.control}
-                name="cv"
-                render={({ field: { value, onChange, ...fieldProps } }) => (
-                  <FormItem>
-                    <FormLabel className="flex">
-                      Unggah CV Anda{" "}
-                      <span className="text-red-500 ml-0.5">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <div className="border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center gap-2">
-                        <Upload className="h-10 w-10 text-muted-foreground" />
-                        <p className="text-sm font-medium">
-                          Pilih file atau seret dan lepas di sini
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Hanya file PDF yang diizinkan. Ukuran maksimal 10MB.
-                        </p>
-                        <Input
-                          type="file"
-                          accept=".pdf"
-                          className="hidden"
-                          id="cv-upload"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              onChange(file);
-                            }
-                          }}
-                          {...fieldProps}
-                        />
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={() =>
-                            document.getElementById("cv-upload")?.click()
-                          }
-                        >
-                          Pilih File
-                        </Button>
-                        {value && (
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Terpilih: {value instanceof File ? value.name : ""}
-                          </p>
+          <Card className="border-none bg-white/95 shadow-2xl shadow-primaryRed/15 backdrop-blur">
+            <CardHeader className="space-y-4 pb-0 text-left">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed">
+                Formulir Kandidat
+              </span>
+              <CardTitle className="text-2xl text-darkGray md:text-3xl">
+                Lengkapi data pribadi dan posisi impian Anda
+              </CardTitle>
+              <CardDescription className="text-sm text-slate-600">
+                Data yang Anda kirimkan kami jaga kerahasiaannya dan hanya digunakan untuk proses rekrutmen Marina Prima Sukses.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-8">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 text-left">
+                  <section className="space-y-6">
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
+                        Data Pribadi
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Isi sesuai identitas resmi yang tercantum pada paspor.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Nama Depan <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Nama Depan" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
                         )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                      />
 
-              {/* Upload Work Experience Certificate */}
-              <FormField
-                control={form.control}
-                name="certificate"
-                render={({ field: { value, onChange, ...fieldProps } }) => (
-                  <FormItem>
-                    <FormLabel className="flex">
-                      Unggah Sertifikat Pengalaman Kerja Anda{" "}
-                      <span className="text-red-500 ml-0.5">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <div className="border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center gap-2">
-                        <Upload className="h-10 w-10 text-muted-foreground" />
-                        <p className="text-sm font-medium">
-                          Pilih file atau seret dan lepas di sini
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Ukuran PDF tidak lebih dari 10MB.
-                        </p>
-                        <Input
-                          type="file"
-                          accept=".pdf"
-                          className="hidden"
-                          id="certificate-upload"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              onChange(file);
-                            }
-                          }}
-                          {...fieldProps}
-                        />
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={() =>
-                            document
-                              .getElementById("certificate-upload")
-                              ?.click()
-                          }
-                        >
-                          Pilih File
-                        </Button>
-                        {value && (
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Terpilih: {value instanceof File ? value.name : ""}
-                          </p>
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Nama Belakang <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Nama Belakang" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
                         )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                      />
+                    </div>
 
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="dateOfBirth"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-col">
+                            <FormLabel>
+                              Tanggal Lahir <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <FormControl>
+                                  <Button
+                                    variant="outline"
+                                    className={cn(
+                                      "w-full justify-between pl-3 text-left font-normal",
+                                      !field.value && "text-muted-foreground"
+                                    )}
+                                  >
+                                    {field.value ? (
+                                      formatDate(field.value)
+                                    ) : (
+                                      <span>HH/BB/TTTT</span>
+                                    )}
+                                    <CalendarIcon className="ml-2 h-4 w-4 opacity-60" />
+                                  </Button>
+                                </FormControl>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-auto p-0" align="start">
+                                <div className="flex items-center justify-between border-b border-border p-2">
+                                  <div className="flex gap-1">
+                                    <Select
+                                      onValueChange={(month) => {
+                                        const newDate = new Date(calendarMonth);
+                                        newDate.setMonth(Number.parseInt(month));
+                                        setCalendarMonth(newDate);
+                                      }}
+                                      value={calendarMonth.getMonth().toString()}
+                                    >
+                                      <SelectTrigger className="h-8 w-[110px]">
+                                        <SelectValue placeholder="Bulan" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                        {[
+                                          "Januari",
+                                          "Februari",
+                                          "Maret",
+                                          "April",
+                                          "Mei",
+                                          "Juni",
+                                          "Juli",
+                                          "Agustus",
+                                          "September",
+                                          "Oktober",
+                                          "November",
+                                          "Desember"
+                                        ].map((month, index) => (
+                                          <SelectItem key={month} value={index.toString()}>
+                                            {month}
+                                          </SelectItem>
+                                        ))}
+                                      </SelectContent>
+                                    </Select>
+
+                                    <Select
+                                      onValueChange={(year) => {
+                                        const newDate = new Date(calendarMonth);
+                                        newDate.setFullYear(Number.parseInt(year));
+                                        setCalendarMonth(newDate);
+                                      }}
+                                      value={calendarMonth.getFullYear().toString()}
+                                    >
+                                      <SelectTrigger className="h-8 w-[90px]">
+                                        <SelectValue placeholder="Tahun" />
+                                      </SelectTrigger>
+                                      <SelectContent className="max-h-[200px]">
+                                        {Array.from({ length: 100 }, (_, i) => {
+                                          const year = new Date().getFullYear() - i;
+                                          return (
+                                            <SelectItem key={year} value={year.toString()}>
+                                              {year}
+                                            </SelectItem>
+                                          );
+                                        })}
+                                      </SelectContent>
+                                    </Select>
+                                  </div>
+                                </div>
+                                <Calendar
+                                  mode="single"
+                                  selected={field.value}
+                                  onSelect={field.onChange}
+                                  month={calendarMonth}
+                                  onMonthChange={setCalendarMonth}
+                                  disabled={(date) =>
+                                    date > new Date() || date < new Date("1900-01-01")
+                                  }
+                                  initialFocus
+                                />
+                              </PopoverContent>
+                            </Popover>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="gender"
+                        render={({ field }) => (
+                          <FormItem className="space-y-3">
+                            <FormLabel>
+                              Jenis Kelamin <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className="flex gap-6"
+                              >
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                  <FormControl>
+                                    <RadioGroupItem value="female" />
+                                  </FormControl>
+                                  <FormLabel className="cursor-pointer font-normal">
+                                    Perempuan
+                                  </FormLabel>
+                                </FormItem>
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                  <FormControl>
+                                    <RadioGroupItem value="male" />
+                                  </FormControl>
+                                  <FormLabel className="cursor-pointer font-normal">
+                                    Laki-laki
+                                  </FormLabel>
+                                </FormItem>
+                              </RadioGroup>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="passportId"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>
+                            Nomor Paspor <span className="text-primaryRed">*</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="Nomor Paspor" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </section>
+
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-primaryRed/20 to-transparent" />
+
+                  <section className="space-y-6">
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
+                        Kontak & Posisi
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Pastikan nomor WhatsApp aktif untuk menerima update status lamaran.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Alamat Email <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="anda@contoh.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="space-y-2">
+                        <FormLabel>
+                          Nomor WhatsApp <span className="text-primaryRed">*</span>
+                        </FormLabel>
+                        <PhoneNumberInput
+                          onChange={(value) => form.setValue("whatsappNumber", value)}
+                          error={form.formState.errors.whatsappNumber?.message}
+                        />
+                      </div>
+
+                      <FormField
+                        control={form.control}
+                        name="department"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Departemen yang Dilamar <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <Select
+                              onValueChange={(value) => {
+                                field.onChange(value);
+                                form.setValue("position", "");
+                                setSelectedDepartment(value);
+                              }}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Pilih Departemen" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {departments.map((department) => (
+                                  <SelectItem key={department.value} value={department.value}>
+                                    {department.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="position"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Posisi <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              disabled={!selectedDepartment}
+                            >
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Pilih Posisi" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {filteredPositions.map((position) => (
+                                  <SelectItem key={position.value} value={position.value}>
+                                    {position.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </section>
+
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-primaryRed/20 to-transparent" />
+
+                  <section className="space-y-6">
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
+                        Dokumen Pendukung
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Unggah file PDF maksimal 10MB untuk setiap dokumen.
+                      </p>
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="cv"
+                      render={({ field: { value, onChange, ...fieldProps } }) => (
+                        <FormItem>
+                          <FormLabel>
+                            Unggah CV Anda <span className="text-primaryRed">*</span>
+                          </FormLabel>
+                          <FormControl>
+                            <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-primaryRed/40 bg-white/60 p-6 text-center transition hover:border-primaryRed">
+                              <Upload className="h-10 w-10 text-primaryRed" aria-hidden />
+                              <p className="text-sm font-medium text-darkGray">
+                                Seret & lepas atau pilih file
+                              </p>
+                              <p className="text-xs text-slate-500">
+                                Format PDF, ukuran maksimal 10MB
+                              </p>
+                              <Input
+                                type="file"
+                                accept=".pdf"
+                                className="hidden"
+                                id="cv-upload"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0];
+                                  if (file) {
+                                    onChange(file);
+                                  }
+                                }}
+                                {...fieldProps}
+                              />
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                className="border-primaryRed/40 text-primaryRed hover:border-primaryRed hover:bg-primaryRed/10"
+                                onClick={() => document.getElementById("cv-upload")?.click()}
+                              >
+                                Pilih File
+                              </Button>
+                              {value && (
+                                <p className="mt-2 text-sm text-slate-600">
+                                  Terpilih: {value instanceof File ? value.name : ""}
+                                </p>
+                              )}
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="certificate"
+                      render={({ field: { value, onChange, ...fieldProps } }) => (
+                        <FormItem>
+                          <FormLabel>
+                            Unggah Sertifikat Pengalaman Kerja <span className="text-primaryRed">*</span>
+                          </FormLabel>
+                          <FormControl>
+                            <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-primaryRed/40 bg-white/60 p-6 text-center transition hover:border-primaryRed">
+                              <Upload className="h-10 w-10 text-primaryRed" aria-hidden />
+                              <p className="text-sm font-medium text-darkGray">
+                                Seret & lepas atau pilih file
+                              </p>
+                              <p className="text-xs text-slate-500">
+                                Format PDF, ukuran maksimal 10MB
+                              </p>
+                              <Input
+                                type="file"
+                                accept=".pdf"
+                                className="hidden"
+                                id="certificate-upload"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0];
+                                  if (file) {
+                                    onChange(file);
+                                  }
+                                }}
+                                {...fieldProps}
+                              />
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                className="border-primaryRed/40 text-primaryRed hover:border-primaryRed hover:bg-primaryRed/10"
+                                onClick={() =>
+                                  document
+                                    .getElementById("certificate-upload")
+                                    ?.click()
+                                }
+                              >
+                                Pilih File
+                              </Button>
+                              {value && (
+                                <p className="mt-2 text-sm text-slate-600">
+                                  Terpilih: {value instanceof File ? value.name : ""}
+                                </p>
+                              )}
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </section>
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-primaryRed hover:bg-primaryRed/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+        </section>
+      </main>
     </div>
   );
 }

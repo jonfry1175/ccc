@@ -3,10 +3,24 @@
 import Footer from "@/components/atoms/Footer";
 import Navbar from "@/components/atoms/Navbar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Clock10,
+  FileCheck2,
+  GraduationCap,
+  UsersRound
+} from "lucide-react";
 
 const departments = [
   {
@@ -51,6 +65,57 @@ const departments = [
   }
 ];
 
+const highlights: Array<{
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  description: string;
+}> = [
+  {
+    icon: UsersRound,
+    label: "Profesional Siap Berlayar",
+    value: "2.500+",
+    description: "Talenta perhotelan yang terlatih dan tersertifikasi internasional"
+  },
+  {
+    icon: GraduationCap,
+    label: "Program Pelatihan",
+    value: "15",
+    description: "Kurikulum khusus kapal pesiar dengan pelatih berpengalaman"
+  },
+  {
+    icon: BriefcaseBusiness,
+    label: "Kemitraan Global",
+    value: "40+",
+    description: "Perusahaan mitra di Asia, Timur Tengah, dan Eropa"
+  }
+];
+
+const processSteps: Array<{
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}> = [
+  {
+    icon: FileCheck2,
+    title: "Lengkapi Profil",
+    description:
+      "Kirimkan data terbaru Anda dan unggah dokumen pendukung secara aman."
+  },
+  {
+    icon: GraduationCap,
+    title: "Pelatihan Intensif",
+    description:
+      "Ikuti program persiapan kerja dan simulasi layanan sesuai standar internasional."
+  },
+  {
+    icon: Clock10,
+    title: "Penempatan Cepat",
+    description:
+      "Tim kami menghubungkan Anda dengan peluang kapal pesiar dan hospitality terbaik."
+  }
+];
+
 export default function ApplyPage() {
   return (
     <motion.div
@@ -77,22 +142,22 @@ export default function ApplyPage() {
         <Navbar />
       </motion.section>
 
-      <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-20 pt-12 text-center md:px-10 md:pb-28 md:pt-20">
+      <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-20 pt-16 text-center md:px-10 md:pb-32 md:pt-24">
         <motion.section
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-8"
         >
-          <span className="inline-flex items-center rounded-full bg-white/70 px-5 py-2 text-sm font-medium uppercase tracking-[0.2em] text-primaryRed shadow-md backdrop-blur">
+          <span className="inline-flex items-center rounded-full bg-white/80 px-6 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-primaryRed shadow-md backdrop-blur">
             Karir
           </span>
           <div className="space-y-4">
-            <h1 className="text-3xl font-semibold text-darkGray md:text-5xl">
-              Lamar Bersama Kami Hari Ini
+            <h1 className="text-3xl font-semibold text-darkGray md:text-5xl md:leading-tight">
+              Wujudkan Karier Maritim dan Perhotelan Kelas Dunia
             </h1>
             <p className="mx-auto max-w-2xl text-base text-slate-600 md:text-lg">
-              Temukan karir impian Anda dan bergabunglah dengan kru berdedikasi yang memberikan perhotelan luar biasa di laut.
+              Temukan peluang kerja di kapal pesiar, hotel, dan spa premium. Kami mendampingi Anda sejak pendaftaran hingga penempatan kerja di luar negeri.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -103,10 +168,35 @@ export default function ApplyPage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-primaryRed/30 bg-white/80 text-darkGray shadow-sm backdrop-blur hover:border-primaryRed hover:bg-white"
+              className="border-primaryRed/30 bg-white/90 text-darkGray shadow-md backdrop-blur transition hover:border-primaryRed hover:bg-white"
             >
               <Link href="/apply-now/partner">Menjadi Mitra</Link>
             </Button>
+          </div>
+          <div className="grid w-full max-w-4xl gap-4 text-left md:grid-cols-3">
+            {highlights.map(({ icon: Icon, label, value, description }) => (
+              <Card
+                key={label}
+                className="bg-white/90 shadow-lg shadow-primaryRed/10 ring-1 ring-white/40 backdrop-blur"
+              >
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primaryRed/10 text-primaryRed">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+                      {label}
+                    </p>
+                    <CardTitle className="mt-1 text-3xl text-darkGray">
+                      {value}
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0 text-sm text-slate-600">
+                  {description}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </motion.section>
 
@@ -129,7 +219,7 @@ export default function ApplyPage() {
             {departments.map((department) => (
               <Card
                 key={department.name}
-                className="group flex h-full flex-col overflow-hidden border-none bg-white/90 text-left shadow-lg shadow-primaryRed/5 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-primaryRed/30"
+                className="group flex h-full flex-col overflow-hidden border-none bg-white/95 text-left shadow-xl shadow-primaryRed/10 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-primaryRed/40"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
@@ -156,6 +246,44 @@ export default function ApplyPage() {
                     <Link href="/apply-now/candidate">Lamar</Link>
                   </Button>
                 </CardContent>
+              </Card>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.35 }}
+          className="space-y-6 text-left"
+        >
+          <div className="mx-auto max-w-3xl text-center space-y-3">
+            <span className="inline-flex items-center justify-center rounded-full bg-primaryRed/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed">
+              proses rekrutmen
+            </span>
+            <h2 className="text-2xl font-semibold text-darkGray md:text-3xl">
+              Pendampingan penuh hingga Anda siap berangkat
+            </h2>
+            <p className="text-sm text-slate-600 md:text-base">
+              Kami memandu setiap kandidat melalui tiga tahapan utama yang memastikan kesiapan profesional dan dokumen sesuai standar internasional.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {processSteps.map(({ icon: Icon, title, description }) => (
+              <Card
+                key={title}
+                className="h-full border-none bg-gradient-to-br from-white via-white to-primaryGold/10 shadow-lg shadow-primaryRed/5 ring-1 ring-slate-100"
+              >
+                <CardHeader className="space-y-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed/15 text-primaryRed">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <CardTitle className="text-xl text-darkGray">{title}</CardTitle>
+                  <CardDescription className="text-sm text-slate-600">
+                    {description}
+                  </CardDescription>
+                </CardHeader>
               </Card>
             ))}
           </div>

@@ -1,55 +1,54 @@
+import SectionHeading from "@/components/atoms/SectionHeading";
 import { FaRegHandshake } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
 
+const highlights = [
+  {
+    icon: FaRegHandshake,
+    title: "Komitmen Kami",
+    description:
+      "Menghubungkan talenta terbaik Indonesia dengan perusahaan kapal pesiar dunia melalui kemitraan jangka panjang dan rekrutmen beretika."
+  },
+  {
+    icon: FaRegEye,
+    title: "Visi Kami",
+    description:
+      "Menjadi partner pilihan yang dipercaya untuk menghadirkan kru profesional dengan pelayanan unggul dan pengalaman tamu yang luar biasa."
+  },
+  {
+    icon: GoGoal,
+    title: "Misi Kami",
+    description:
+      "Menyediakan solusi SDM komprehensif mulai dari seleksi, pelatihan, hingga penempatan sehingga kru siap berkarier secara global."
+  }
+];
+
 export default function About() {
   return (
-    <section id="about" className="px-4 py-16 md:py-24">
-      <div className="max-w-6xl px-10 mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
-          {/* Global Reach */}
-          <div className="space-y-4 text-center border-2 rounded-md border-primaryGold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
-            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-primaryRed">
-              <FaRegHandshake className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-primaryRed">
-              Komitmen Kami
-            </h3>
-            <p className="text-primaryRed px-6 pb-8">
-              Kami berkomitmen untuk menjalin kemitraan yang kuat dengan Anda,
-              dengan memanfaatkan 31 tahun pengalaman industri kami dan solusi
-              tenaga kerja terdepan untuk memberikan talenta luar biasa dan
-              mendorong pertumbuhan dan kesuksesan bersama.
-            </p>
-          </div>
+    <section id="about" className="bg-offWhite py-20">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:px-10">
+        <SectionHeading
+          eyebrow="Identitas Kami"
+          title="Mengembangkan Talenta Maritim Sejak 1993"
+          description="Kami hadir sebagai penghubung antara armada kapal pesiar global dan tenaga kerja Indonesia yang siap tampil profesional."
+        />
 
-          {/* Industry Excellence */}
-          <div className="space-y-4 text-center border-2 rounded-md border-primaryGold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
-            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-primaryRed">
-              <FaRegEye className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-primaryRed">Visi Kami</h3>
-            <p className="text-primaryRed px-6 pb-8">
-              Menjadi mitra utama bagi perusahaan perhotelan yang mencari
-              tenaga kerja yang andal, terampil, dan berdedikasi yang
-              meningkatkan penyampaian layanan dan kepuasan tamu mereka.
-            </p>
-          </div>
-
-          {/* Expert Team */}
-          <div className="space-y-4 text-center border-2 rounded-md border-primaryGold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
-            <div className="flex items-center justify-center w-16 mt-8 h-16 mx-auto rounded-full bg-primaryRed">
-              <GoGoal className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-primaryRed">Misi Kami</h3>
-            <p className="text-primaryRed px-6 pb-8">
-              Misi kami adalah menjadi mitra global pilihan untuk bisnis
-              perhotelan yang membutuhkan tenaga kerja yang andal dan terampil.
-              Dengan memupuk kolaborasi lintas budaya dan memberikan solusi
-              tenaga kerja yang disesuaikan, kami bertujuan untuk
-              berkontribusi pada kesuksesan klien kami di seluruh dunia.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {highlights.map(({ icon: Icon, title, description }) => (
+            <article
+              key={title}
+              className="group flex h-full flex-col justify-between rounded-2xl border border-primaryRed/15 bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primaryRed/10 text-primaryRed">
+                <Icon className="h-6 w-6" aria-hidden />
+              </div>
+              <h3 className="text-lg font-semibold text-textBlack">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-darkGray/80">
+                {description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

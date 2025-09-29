@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/atoms/Footer";
-import MarqueeImageHero from "@/components/atoms/MarqueeImageHero";
 import Navbar from "@/components/atoms/Navbar";
 import About from "@/components/molecules/Homepage/About";
 import ArticlePage from "@/components/molecules/Homepage/Article";
@@ -24,7 +23,7 @@ export default function Homepage({ onBackToHome }: HomepageProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen w-full overflow-y-auto"
+      className="min-h-screen w-full overflow-y-auto bg-white text-textBlack"
     >
       {/* Navbar */}
       <motion.section
@@ -36,13 +35,13 @@ export default function Homepage({ onBackToHome }: HomepageProps) {
       </motion.section>
 
       {/* Content */}
-      <main className="text-center">
+      <main className="flex flex-col">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <MarqueeImageHero />
+          <Hero />
         </motion.div>
         <motion.div
           initial={{ y: -50, opacity: 0 }}

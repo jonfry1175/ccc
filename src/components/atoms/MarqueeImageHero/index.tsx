@@ -12,27 +12,24 @@ const reviews = [
 
 const firstRow = reviews;
 
-const MarqueLogo = ({ img, id }: { img: string; id: number }) => {
-  return (
-    <figure className="flex items-center justify-center  overflow-hidden w-[850px] h-[350px]">
-      <Image
-        className="object-cover w-full h-full rounded-lg"
-        alt={`Partner logo ${id}`}
-        src={img}
-        width={800}
-        height={800}
-      />
-    </figure>
-  );
-};
+const MarqueLogo = ({ img, id }: { img: string; id: number }) => (
+  <figure className="flex h-32 w-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-lg backdrop-blur">
+    <Image
+      className="h-full w-full object-cover"
+      alt={`Armada ${id}`}
+      src={img}
+      width={320}
+      height={180}
+      sizes="(min-width: 768px) 220px, 60vw"
+      priority={id === 1}
+    />
+  </figure>
+);
 
 export default function MarqueeImageHero() {
   return (
-    <div className="relative flex px-5 w-full flex-col bg-gold items-center justify-center overflow-hidden">
-      <Marquee
-        pauseOnHover
-        className="[--duration:30s] pauseOnHover max-w-full md:mx-auto py-10"
-      >
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <Marquee pauseOnHover className="[--duration:24s] py-4">
         {firstRow.map((review) => (
           <MarqueLogo key={review.id} {...review} />
         ))}

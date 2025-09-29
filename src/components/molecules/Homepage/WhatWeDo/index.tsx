@@ -1,53 +1,54 @@
-import { Card, CardContent } from "@/components/ui/card";
+import SectionHeading from "@/components/atoms/SectionHeading";
+import Image from "next/image";
+
+const whatWeDo = [
+  {
+    image: "/images/whatwedo/1.png",
+    description: "Talent Acquisition & Recruitment"
+  },
+  {
+    image: "/images/whatwedo/2.png",
+    description: "Talent Interview & Assessment"
+  },
+  {
+    image: "/images/whatwedo/3.png",
+    description: "Pre-Deployment Training & Skill Refresher Programs"
+  },
+  {
+    image: "/images/whatwedo/4.png",
+    description: "Employment Visa & Document Assistance"
+  }
+];
 
 export default function WhatWeDo() {
-  const whatWeDo = [
-    {
-      image: "/images/whatwedo/1.png",
-      description: "Talent Acquisition & Recruitment"
-    },
-    {
-      image: "/images/whatwedo/2.png",
-      description: "Talent Interview & Assessment"
-    },
-    {
-      image: "/images/whatwedo/3.png",
-      description: "Pre-Deployment Training & Skill Refresher Programs"
-    },
-    {
-      image: "/images/whatwedo/4.png",
-      description: "Employment Visa & Document Assistance"
-    }
-  ];
-
   return (
-    <section id="about" className="px-4 py-16 md:py-24 bg-gold">
-      <div className="max-w-6xl px-10 mx-auto">
-        <div>
-          <h1 className="inline-block mb-12 text-3xl font-bold text-primaryRed md:text-4xl relative">
-            What We Do
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
-          </h1>
-        </div>
-        <div className="mb-16 space-y-4 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whatWeDo.map((service, index) => (
-              <Card
-                key={index}
-                className="space-y-4 text-center border-8 rounded-md border-primaryGold bg-gold/10 hover:bg-gold/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg"
-              >
-                <CardContent className="px-6 pt-6 space-y-4 text-center">
-                  <img
-                    src={service.image}
-                    alt="Service Image"
-                    className="w-full h-40 object-cover rounded-md filter invert-[11%] sepia-[31%] saturate-[800%] hue-rotate-[180deg]"
-                  />
+    <section className="bg-white py-20">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:px-10">
+        <SectionHeading
+          eyebrow="Layanan Kami"
+          title="Layanan Akhir-ke-Akhir untuk Kru Kapal Pesiar"
+          description="Mengelola setiap tahapan perjalanan kandidat mulai dari seleksi hingga siap berlayar bersama armada internasional."
+        />
 
-                  <p className="text-primaryRed">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {whatWeDo.map((service) => (
+            <article
+              key={service.description}
+              className="flex h-full flex-col gap-4 rounded-2xl border border-primaryRed/10 bg-offWhite p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-primaryRed/30 hover:shadow-lg"
+            >
+              <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full bg-white p-4 shadow">
+                <Image
+                  src={service.image}
+                  alt={service.description}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-sm font-semibold text-textBlack">
+                {service.description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

@@ -6,7 +6,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -28,27 +34,13 @@ import Navbar from "@/components/atoms/Navbar";
 import PhoneNumberInput from "@/components/atoms/PhoneNumber";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
+import { Building2, Clock, Globe2, Handshake, MessageCircle } from "lucide-react";
 
 // Define the Country interface
 interface Country {
   id: string;
   name: string;
 }
-
-// Define country codes for phone selection
-const countryCodes = [
-  { value: "+1", label: "+1" },
-  { value: "+44", label: "+44" },
-  { value: "+49", label: "+49" },
-  { value: "+61", label: "+61" },
-  { value: "+62", label: "+62" },
-  { value: "+63", label: "+63" },
-  { value: "+65", label: "+65" },
-  { value: "+81", label: "+81" },
-  { value: "+82", label: "+82" },
-  { value: "+86", label: "+86" },
-  { value: "+91", label: "+91" }
-];
 
 // Form schema with validation
 const formSchema = z.object({
@@ -64,6 +56,34 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
+
+const partnerHighlights = [
+  {
+    icon: Handshake,
+    title: "Talent Siap Onboard",
+    description:
+      "Seluruh kandidat menjalani pra-seleksi kompetensi, bahasa, dan etika kerja sehingga siap bergabung dalam waktu singkat."
+  },
+  {
+    icon: Globe2,
+    title: "Jaringan Global",
+    description:
+      "Koneksikan kebutuhan kru Anda dengan jaringan kami di Asia, Timur Tengah, dan Eropa."
+  },
+  {
+    icon: Clock,
+    title: "Proses Cepat & Transparan",
+    description:
+      "Laporan status kandidat mingguan dan tim onboarding yang responsif memastikan proses tetap terpantau."
+  }
+];
+
+const onboardingChecklist = [
+  "Profil perusahaan dan kebutuhan posisi detail",
+  "Ketentuan kontrak dan fasilitas kerja",
+  "Timeline penempatan yang diharapkan",
+  "Kontak PIC HRD untuk koordinasi harian"
+];
 
 export default function ContactForm() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -116,8 +136,10 @@ export default function ContactForm() {
     try {
       setIsSubmitting(true);
       
-      // Format phone number with country code
-      const fullPhoneNumber = `${values.countryCode}${values.phoneNumber}`;
+      // Format phone number with international prefix
+      const fullPhoneNumber = values.phoneNumber.startsWith("+")
+        ? values.phoneNumber
+        : `+${values.phoneNumber}`;
       
       // Insert data into Supabase
       const { error } = await supabase.from('partner').insert({
@@ -156,195 +178,287 @@ export default function ContactForm() {
   }
 
   return (
-    <div>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-offWhite via-white to-[#FFF5DA]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-primaryGold/20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[-6rem] left-[-4rem] h-80 w-80 rounded-full bg-primaryRed/10 blur-3xl"
+      />
       <Navbar />
-      <div className="py-8 pb-4">
-        <div>
-          <h1 className="text-2xl text-center text-primaryRed">Lamar Sebagai Mitra</h1>
-        </div>
-      </div>
-      <Card className="w-full max-w-6xl mx-auto mb-4">
-        <CardContent className="p-6">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* First Name */}
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">
-                        Nama Depan <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nama Depan" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-24 pt-20 md:px-8 lg:pt-24">
+        <section className="mx-auto max-w-3xl text-center space-y-5">
+          <span className="inline-flex items-center justify-center rounded-full bg-white/80 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed shadow">
+            Kemitraan
+          </span>
+          <h1 className="text-3xl font-semibold text-darkGray md:text-5xl md:leading-tight">
+            Dapatkan Kru Profesional untuk Kapal Pesiar dan Hospitality Anda
+          </h1>
+          <p className="text-base text-slate-600 md:text-lg">
+            Kami membantu perusahaan global menyiapkan tenaga kerja yang terampil, tersertifikasi, dan siap berangkat sesuai standar internasional.
+          </p>
+        </section>
 
-                {/* Last Name */}
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">
-                        Nama Belakang <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nama Belakang" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Business Email */}
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">
-                        Email Bisnis <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="anda@contoh.com"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Phone Number */}
-                <div className="space-y-2">
-                  <div className="flex">
-                    <span className="text-sm font-medium">
-                      Nomor Telepon{" "}
-                      <span className="text-red-500 ml-0.5">*</span>
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <PhoneNumberInput
-                      error={form.formState.errors.phoneNumber?.message}
-                      onChange={(value) => form.setValue("phoneNumber", value)}
-                    />
-                  </div>
+        <section className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div className="space-y-6">
+            <Card className="border-none bg-white/85 shadow-xl shadow-primaryRed/10 backdrop-blur">
+              <CardHeader className="space-y-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primaryRed/15 text-primaryRed">
+                  <Building2 className="h-5 w-5" aria-hidden />
                 </div>
+                <CardTitle className="text-xl text-darkGray">
+                  Informasi Kemitraan yang Kami Perlukan
+                </CardTitle>
+                <CardDescription className="text-sm text-slate-600">
+                  Lengkapi data berikut agar kami dapat menyesuaikan shortlist kandidat terbaik untuk kebutuhan Anda.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <ul className="space-y-3 text-sm text-slate-600">
+                  {onboardingChecklist.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-primaryRed" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
 
-                {/* Company Name */}
-                <FormField
-                  control={form.control}
-                  name="companyName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">
-                        Nama Perusahaan <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nama Perusahaan" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {partnerHighlights.map(({ icon: Icon, title, description }) => (
+                <Card
+                  key={title}
+                  className="border-none bg-gradient-to-br from-white via-white to-primaryGold/10 shadow-lg shadow-primaryRed/5 backdrop-blur"
+                >
+                  <CardHeader className="space-y-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primaryRed/12 text-primaryRed">
+                      <Icon className="h-4 w-4" aria-hidden />
+                    </div>
+                    <CardTitle className="text-lg text-darkGray">{title}</CardTitle>
+                    <CardDescription className="text-sm text-slate-600">
+                      {description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
 
-                {/* Company Website */}
-                <FormField
-                  control={form.control}
-                  name="companyWebsite"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">
-                        Situs Web Perusahaan <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="www.contoh.com" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
+            <Card className="border-none bg-primaryRed text-white shadow-xl shadow-primaryRed/25">
+              <CardHeader className="space-y-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+                  <MessageCircle className="h-5 w-5" aria-hidden />
+                </div>
+                <CardTitle className="text-xl">Hubungi Business Team</CardTitle>
+                <CardDescription className="text-sm text-white/80">
+                  Kami siap menjadwalkan konsultasi kebutuhan kru Anda.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm">
+                <p>WhatsApp Bisnis: <span className="font-semibold">+62 811-9307-777</span></p>
+                <p>Email: <span className="font-semibold">partnership@mpsjakarta.com</span></p>
+                <p>Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara</p>
+              </CardContent>
+            </Card>
+          </div>
 
-                {/* Country */}
-                <FormField
-                  control={form.control}
-                  name="country"
-                  render={({ field }) => (
-                    <FormItem className="col-span-1 md:col-span-2">
-                      <FormLabel className="text-base">
-                        Negara <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        value={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue>
-                              {field.value || "Pilih negara"}
-                            </SelectValue>
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {isLoading ? (
-                            <SelectItem value="loading">Memuat...</SelectItem>
-                          ) : (
-                            countries.map((country) => (
-                              <SelectItem key={country.id} value={country.name}>
-                                {country.name}
-                              </SelectItem>
-                            ))
-                          )}
-                        </SelectContent>
-                      </Select>
+          <Card className="border-none bg-white/95 shadow-2xl shadow-primaryRed/15 backdrop-blur">
+            <CardHeader className="space-y-4 pb-0 text-left">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-primaryRed">
+                Formulir Kemitraan
+              </span>
+              <CardTitle className="text-2xl text-darkGray md:text-3xl">
+                Beritahu kami kebutuhan kru perusahaan Anda
+              </CardTitle>
+              <CardDescription className="text-sm text-slate-600">
+                Lengkapi detail berikut dan tim kami akan menghubungi Anda dalam satu hari kerja.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-8">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-9 text-left">
+                  <section className="space-y-6">
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
+                        Data Kontak
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Isi informasi penanggung jawab kemitraan.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Nama Depan <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Nama Depan" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                      {form.formState.errors.country && (
-                        <p className="text-red-500 text-sm mt-1">
-                          Negara wajib diisi
-                        </p>
-                      )}
-                    </FormItem>
-                  )}
-                />
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Nama Belakang <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Nama Belakang" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                {/* Message */}
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem className="col-span-1 md:col-span-2">
-                      <FormLabel className="text-base">
-                        Pesan <span className="text-red-500">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Tinggalkan pesan untuk kami"
-                          className="min-h-[120px]"
-                          {...field}
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Email Bisnis <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="anda@perusahaan.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="space-y-2">
+                        <FormLabel>
+                          Nomor Telepon <span className="text-primaryRed">*</span>
+                        </FormLabel>
+                        <PhoneNumberInput
+                          error={form.formState.errors.phoneNumber?.message}
+                          onChange={(value) => form.setValue("phoneNumber", value)}
                         />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                      </div>
+                    </div>
+                  </section>
 
-              {/* Submit Button */}
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-primaryRed/20 to-transparent" />
+
+                  <section className="space-y-6">
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
+                        Informasi Perusahaan
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Beri tahu kami profil singkat dan kebutuhan kru Anda.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="companyName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Nama Perusahaan <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Nama Perusahaan" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="companyWebsite"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Situs Web Perusahaan <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="www.perusahaan.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="country"
+                        render={({ field }) => (
+                          <FormItem className="md:col-span-2">
+                            <FormLabel>
+                              Negara <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Pilih negara" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {isLoading ? (
+                                  <SelectItem value="loading">Memuat...</SelectItem>
+                                ) : (
+                                  countries.map((country) => (
+                                    <SelectItem key={country.id} value={country.name}>
+                                      {country.name}
+                                    </SelectItem>
+                                  ))
+                                )}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem className="md:col-span-2">
+                            <FormLabel>
+                              Pesan <span className="text-primaryRed">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Ceritakan kebutuhan kru, jumlah posisi, atau catatan khusus"
+                                className="min-h-[140px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </section>
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-primaryRed hover:bg-primaryRed/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Mengirim..." : "Kirim Aplikasi"}
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+        </section>
+      </main>
     </div>
   );
 }

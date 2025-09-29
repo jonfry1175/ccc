@@ -1,89 +1,56 @@
+import SectionHeading from "@/components/atoms/SectionHeading";
 import { NumberTicker } from "@/components/ui/number-ticker";
+
+const stats = [
+  {
+    id: 1,
+    value: 8952,
+    suffix: "+",
+    label: "Kru Ditempatkan di Luar Negeri"
+  },
+  {
+    id: 2,
+    value: 4,
+    suffix: "+",
+    label: "Klien Kapal Pesiar Utama"
+  },
+  {
+    id: 3,
+    value: 32,
+    suffix: " Tahun",
+    label: "Pengalaman Operasi"
+  },
+  {
+    id: 4,
+    value: 90,
+    suffix: "%",
+    label: "Tingkat Penempatan Berhasil"
+  }
+];
 
 export default function ImpactCard() {
   return (
-    <section id="about" className="px-4 py-16 md:py-24 ">
-      <div className="max-w-6xl px-10 mx-auto text-center">
-        <h1 className="inline-block text-3xl font-bold text-primaryRed md:text-4xl relative">
-          Dampak Kami
-          <span className="absolute bottom-0 left-0 w-full h-3 bg-primaryRed opacity-30 z-0"></span>
-        </h1>
+    <section className="bg-offWhite py-20">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 text-center md:px-10">
+        <SectionHeading
+          eyebrow="Dampak"
+          title="Hasil Nyata untuk Mitra dan Kru"
+          description="Data berikut menggambarkan jejak panjang kami dalam membangun karier global bagi tenaga kerja Indonesia."
+        />
 
-        <div className="max-w-full  md:w-full mx-4 md:mx-auto">
-          <div className="bg-gold mt-8 text-primaryRed rounded-lg">
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center"
-              }}
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {stats.map((stat) => (
+            <article
+              key={stat.id}
+              className="rounded-2xl border border-primaryRed/15 bg-white p-6 shadow-sm"
             >
-              {/* 9000+ */}
-              <div
-                style={{
-                  textAlign: "center",
-                  flex: "1 1 200px",
-                  margin: "1rem"
-                }}
-              >
-                <h4 className="text-primaryRed text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
-                  <NumberTicker value={9000} delay={-1000000} direction="up" />+
-                </h4>
-                <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
-                  Ditempatkan di Luar Negeri
-                </p>
-              </div>
-
-              {/* 4+ */}
-              <div
-                style={{
-                  textAlign: "center",
-                  flex: "1 1 200px",
-                  margin: "1rem"
-                }}
-              >
-                <h4 className="text-impact text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
-                  <NumberTicker value={4} />+
-                </h4>
-                <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
-                  Klien Besar
-                </p>
-              </div>
-
-              {/* 30 Years */}
-              <div
-                style={{
-                  textAlign: "center",
-                  flex: "1 1 200px",
-                  margin: "1rem"
-                }}
-              >
-                <h4 className="text-impact text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
-                  <NumberTicker value={32} />
-                  Tahun
-                </h4>
-                <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
-                  Beroperasi di Indonesia
-                </p>
-              </div>
-
-              {/* 90% */}
-              <div
-                style={{
-                  textAlign: "center",
-                  flex: "1 1 200px",
-                  margin: "1rem"
-                }}
-              >
-                <h4 className="text-impact text-[36px] sm:text-[24px]  md:text-[50px] lg:text-[50px] font-bold text-center relative mb-2">
-                  <NumberTicker value={90} />%
-                </h4>
-                <p className=" text-[16px] sm:text-[14px] lg:text-[24px]">
-                  Tingkat Penempatan Berhasil
-                </p>
-              </div>
-            </div>
-          </div>
+              <p className="text-3xl font-semibold text-primaryRed md:text-4xl">
+                <NumberTicker value={stat.value} />
+                {stat.suffix}
+              </p>
+              <p className="mt-2 text-sm text-darkGray/70">{stat.label}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

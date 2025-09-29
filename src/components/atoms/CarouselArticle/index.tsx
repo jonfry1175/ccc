@@ -48,7 +48,7 @@ export default function CarouselArticle({
               key={index}
               className="pl-4 basis-[85%] md:basis-[50%] lg:basis-[33%]"
             >
-              <Card className="overflow-hidden shadow-lg">
+              <Card className="overflow-hidden border border-primaryRed/10 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative h-[200px]">
                   <Image
                     src={article.src || "/placeholder.svg"}
@@ -58,15 +58,15 @@ export default function CarouselArticle({
                   />
                 </div>
                 <CardContent className="p-4">
-                  <h1 className="text-lg font-semibold text-primaryRed line-clamp-2">
+                  <h1 className="line-clamp-2 text-lg font-semibold text-textBlack">
                     {article.title}
                   </h1>
-                  <p className="text-sm text-primaryRed line-clamp-2">
+                  <p className="mt-2 text-sm text-darkGray/80 line-clamp-2">
                     {article.description}
                   </p>
                   <Link
                     href={`/article/${article.slug}`}
-                    className="inline-block mt-3 text-primaryRed hover:underline"
+                    className="mt-4 inline-flex items-center text-sm font-semibold text-primaryRed hover:underline"
                   >
                     Read More
                   </Link>

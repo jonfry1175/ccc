@@ -18,31 +18,30 @@ interface Props {
 
 export default function GalleryImageCard({ src, alt, name }: Props) {
   return (
-    <Card className="relative overflow-hidden border-none bg-transparent shadow-none">
+    <Card className="relative overflow-hidden border border-primaryRed/15 bg-white/90 shadow-sm transition hover:-translate-y-1 hover:border-primaryRed/30 hover:shadow-lg">
       <CardContent className="p-0">
         <Dialog>
           {/* Gambar kecil jadi trigger untuk membuka dialog */}
           <DialogTrigger asChild>
-            <div className="relative w-full h-48 cursor-pointer hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center bg-white rounded-lg p-5 shadow-md hover:shadow-lg">
+            <div className="flex h-48 w-full cursor-pointer flex-col items-center justify-center gap-4 p-6">
               {/* Gambar */}
-              <div className="relative w-full h-32">
+              <div className="relative h-24 w-full">
                 <Image
                   src={src}
                   alt={alt}
-                  layout="fill"
-                  objectFit="contain"
-                  className="p-3"
+                  fill
+                  className="object-contain"
                 />
               </div>
               {/* Nama sertifikat */}
-              <p className="mt-2 text-center font-semibold text-primaryRed">
+              <p className="text-center text-sm font-semibold text-textBlack">
                 {name}
               </p>
             </div>
           </DialogTrigger>
 
           {/* Dialog menampilkan gambar resolusi penuh */}
-          <DialogContent className="max-w-4xl p-6 bg-white rounded-lg shadow-xl">
+          <DialogContent className="max-w-4xl rounded-2xl bg-white p-6 shadow-xl">
             <DialogHeader>
               <DialogTitle className="text-center text-lg font-bold">
                 {name}

@@ -26,10 +26,13 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   };
 
   return (
-    <nav className="shadow-lg bg-gold py-2 text-primaryRed sticky top-0 z-50">
-      <div className="max-w-6xl px-6 mx-auto">
-        <div className="flex justify-between items-center">
-          <div onClick={() => handleNavigation("/")} className="cursor-pointer">
+    <nav className="sticky top-0 z-50 border-b border-primaryRed/10 bg-white/80 py-3 text-textBlack backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-3">
+          <div
+            onClick={() => handleNavigation("/")}
+            className="cursor-pointer rounded-full bg-primaryRed/10 p-1"
+          >
             <Image
               src="/images/Logo/christianity-crisis-center.png"
               alt="Marina Prima Sukses"
@@ -38,54 +41,62 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               className="drop-shadow-md"
             />
           </div>
-          <div className="items-center hidden space-x-6 md:flex">
-            <button
-              onClick={() => handleNavigation("/")}
-              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
-                pathname === "/" ? "border-b-2 border-primaryRed" : ""
-              }`}
-            >
-              <p className="text-[15px]">Beranda</p>
-            </button>
-
-            <button
-              onClick={() => handleNavigation("/apply-now")}
-              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
-                pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
-              }`}
-            >
-              <p className="text-[15px]">Daftar Sekarang</p>
-            </button>
-
-            <button
-              onClick={() => handleNavigation("/training-center")}
-              className={`px-2 py-2 transition duration-300 font-medium text-primaryRed hover:text-secondaryRed text-shadow-md ${
-                pathname === "/training-center"
-                  ? "border-b-2 border-primaryRed"
-                  : ""
-              }`}
-            >
-              <p className="text-[15px]">Pusat Pelatihan</p>
-            </button>
+          <div className="hidden flex-col text-sm font-semibold text-primaryRed md:flex">
+            <span className="uppercase tracking-[0.3em] text-primaryRed/60">
+              Marina Prima Sukses
+            </span>
+            <span className="text-textBlack">MSC Cruises Manning Agency</span>
           </div>
-          <div className="flex items-center md:hidden transition-all">
-            <button
-              className="outline-none mobile-menu-button"
-              onClick={toggleMenu}
-            >
-              {isOpen ? (
-                <X className="w-6 h-6 text-primaryRed drop-shadow-md" />
-              ) : (
-                <Menu className="w-6 h-6 text-primaryRed drop-shadow-md" />
-              )}
-            </button>
-          </div>
+        </div>
+
+        <div className="hidden items-center space-x-6 md:flex">
+          <button
+            onClick={() => handleNavigation("/")}
+            className={`px-3 py-2 text-sm font-semibold transition-colors ${
+              pathname === "/"
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
+            }`}
+          >
+            Beranda
+          </button>
+
+          <button
+            onClick={() => handleNavigation("/apply-now")}
+            className={`px-3 py-2 text-sm font-semibold transition-colors ${
+              pathname === "/apply-now"
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
+            }`}
+          >
+            Daftar Sekarang
+          </button>
+
+          <button
+            onClick={() => handleNavigation("/training-center")}
+            className={`px-3 py-2 text-sm font-semibold transition-colors ${
+              pathname === "/training-center"
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
+            }`}
+          >
+            Pusat Pelatihan
+          </button>
+        </div>
+        <div className="flex items-center md:hidden">
+          <button
+            className="rounded-full bg-primaryRed/10 p-2 text-primaryRed"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out bg-navy-DEFAULT/90 backdrop-blur-sm ${
+        className={`md:hidden transition-all px-4 gap-4 pb-2 duration-300 ease-in-out bg-white/95 backdrop-blur-sm ${
           isOpen
             ? "opacity-100 max-h-screen translate-y-0 shadow-md"
             : "opacity-0 max-h-0 -translate-y-4 pointer-events-none"
@@ -94,8 +105,10 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
         <div className="overflow-hidden gap-4 py-2">
           <button
             onClick={() => handleNavigation("/")}
-            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/" ? "border-b-2 border-primaryRed" : ""
+            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
+              pathname === "/"
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
             }`}
           >
             Beranda
@@ -103,18 +116,20 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
 
           <button
             onClick={() => handleNavigation("/apply-now")}
-            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
-              pathname === "/apply-now" ? "border-b-2 border-primaryRed" : ""
+            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
+              pathname === "/apply-now"
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
             }`}
           >
             Daftar Sekarang
           </button>
           <button
             onClick={() => handleNavigation("/training-center")}
-            className={`w-full text-left px-2 py-2 transition duration-300 font-medium ${
+            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
               pathname === "/training-center"
-                ? "border-b-2 border-primaryRed"
-                : ""
+                ? "text-primaryRed"
+                : "text-darkGray hover:text-primaryRed"
             }`}
           >
             Pusat Pelatihan
