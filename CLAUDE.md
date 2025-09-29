@@ -1,64 +1,69 @@
-# CLAUDE.md
+# CLAUDE.md - Development Guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Panduan untuk Claude Code (claude.ai/code) saat bekerja dengan kode di repository ini.
 
-## Common Development Commands
+## Perintah Development Umum
 
 ```bash
 # Development
-npm run dev              # Start development server at localhost:3000
-npm run build            # Build for production
+npm run dev              # Start development server di localhost:3000
+npm run build            # Build untuk production
 npm run start            # Start production server
 npm run lint             # Run ESLint
 
-# Admin Setup
-npm run create-admin     # Create admin user (admin@mpsjakarta.com / mps2025)
+# Setup Admin
+npm run create-admin     # Buat admin user (admin@christianitycrisis.com / ccc2025admin)
 
-# Database (if using Supabase CLI locally)
+# Database (jika menggunakan Supabase CLI lokal)
 supabase start           # Start local Supabase instance
-supabase db reset        # Reset database and run migrations
+supabase db reset        # Reset database dan run migrations
 ```
 
-## Architecture Overview
+## Arsitektur Platform
 
-This is a Next.js 15 application for Marina Prima Sukses company, featuring job applications and partner submissions with an admin dashboard.
+Aplikasi Next.js 15 untuk **Christianity Crisis Center** - platform komunitas yang membantu anggota komunitas mendapatkan pekerjaan sesuai bidang dan kemampuan mereka. Fitur utama meliputi aplikasi pekerjaan, pendaftaran mitra perusahaan, dan dashboard administrasi.
 
 ### Tech Stack
 
-- **Framework**: Next.js 15.x with React 19.x (using latest features)
-- **Language**: TypeScript with strict mode
-- **Database**: Supabase (PostgreSQL with RLS)
-- **Styling**: Tailwind CSS + Shadcn UI components
-- **Forms**: React Hook Form + Zod validation
+- **Framework**: Next.js 15.x dengan React 19.x (menggunakan fitur terbaru)
+- **Language**: TypeScript dengan strict mode
+- **Database**: Supabase (PostgreSQL dengan Row Level Security)
+- **Styling**: Tailwind CSS + komponen Shadcn UI
+- **Forms**: React Hook Form + validasi Zod
 - **File Storage**: Supabase Storage
 
-### Key Architectural Patterns
+### Pola Arsitektur Utama
 
-1. **Component Structure**: Atomic design pattern
-   - `atoms/` - Basic UI elements (Footer, Navbar, Cards)
-   - `molecules/` - Feature-specific components grouped by page
-   - `organisms/` - Page-level components
-   - `ui/` - Shadcn UI components
+1. **Struktur Komponen**: Pola atomic design
+   - `atoms/` - Elemen UI dasar (Footer, Navbar, Cards)
+   - `molecules/` - Komponen spesifik fitur yang dikelompokkan per halaman
+   - `organisms/` - Komponen level halaman
+   - `ui/` - Komponen Shadcn UI
 
-2. **Routing Structure**:
-   - `(main)/` - Public routes (home, articles, applications)
-   - `admin/` - Protected routes (dashboard, candidates, partners)
-   - Middleware protects `/admin/*` routes with Supabase auth
+2. **Struktur Routing**:
+   - `(main)/` - Route publik (home, articles, applications)
+   - `admin/` - Route yang diproteksi (dashboard, candidates, partners)
+   - Middleware melindungi route `/admin/*` dengan Supabase auth
 
-3. **Database Schema**:
-   - `candidate` table - Job applications with file uploads (CV, certificates)
-   - `partner` table - Business partnership applications
-   - Both use integer IDs with timestamps
+3. **Skema Database**:
+   - Tabel `candidate` - Aplikasi pekerjaan dengan upload file (CV, sertifikat)
+   - Tabel `partner` - Aplikasi kemitraan perusahaan
+   - Keduanya menggunakan integer ID dengan timestamps
 
-4. **File Upload Pattern**:
-   - API route at `/api/upload` handles file uploads server-side
-   - Uses Supabase service role key for unauthenticated uploads
-   - Files stored in `marina-prima-sukses-web` bucket
+4. **Tujuan Platform**:
+   - Membantu anggota komunitas Christianity Crisis Center mendapat pekerjaan
+   - Mencocokkan keahlian kandidat dengan kebutuhan mitra perusahaan
+   - Menyediakan platform yang aman dan mudah digunakan untuk job matching
 
-5. **Authentication Flow**:
-   - Email/password auth via Supabase
-   - Middleware checks session for admin routes
-   - Static admin credentials created via script
+5. **Pola File Upload**:
+   - API route di `/api/upload` menangani upload file server-side
+   - Menggunakan Supabase service role key untuk upload tanpa autentikasi
+   - File disimpan di bucket `christianity-crisis-center-files`
+
+6. **Alur Autentikasi**:
+   - Email/password auth melalui Supabase
+   - Middleware mengecek session untuk admin routes
+   - Kredensial admin statis dibuat via script
 
 ### Important Configuration
 
@@ -74,10 +79,13 @@ This is a Next.js 15 application for Marina Prima Sukses company, featuring job 
 
 - **Tailwind**: Custom theme with navy/gold colors and marquee animations
 
-### Development Guidelines
+### Panduan Development
 
-1. When modifying forms, maintain Zod schema validation pattern
-2. File uploads must validate type and size before Supabase storage
-3. Admin routes require authentication check in middleware
-4. Use server components by default, client components only when needed
-5. Follow existing atomic design pattern for new components
+1. **Form Validation**: Pertahankan pola validasi Zod schema saat memodifikasi forms
+2. **File Upload**: Validasi type dan size file sebelum upload ke Supabase storage
+3. **Admin Routes**: Semua route admin memerlukan pengecekan autentikasi di middleware
+4. **Component Pattern**: Gunakan server components secara default, client components hanya saat dibutuhkan
+5. **Design Pattern**: Ikuti pola atomic design yang sudah ada untuk komponen baru
+6. **Community Focus**: Pastikan semua fitur baru mendukung tujuan pemberdayaan komunitas
+7. **Accessibility**: Pertimbangkan aksesibilitas untuk semua pengguna komunitas
+8. **Indonesian Language**: Prioritaskan bahasa Indonesia untuk UI yang menghadap user
