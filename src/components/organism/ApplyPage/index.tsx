@@ -394,6 +394,7 @@ export default function ApplyPage() {
             <h2 className="text-2xl font-semibold text-darkGray md:text-3xl">
               Pendampingan penuh hingga Anda siap berangkat
             </h2>
+
             <p className="text-sm text-slate-600 md:text-base">
               Kami memandu setiap kandidat melalui tiga tahapan utama yang
               memastikan kesiapan profesional dan dokumen sesuai standar
