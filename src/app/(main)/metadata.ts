@@ -8,6 +8,13 @@ export const homePageMetadata: Metadata = generatePageMetadata({
   path: "/",
 });
 
+export const aboutMetadata: Metadata = generatePageMetadata({
+  title: "Tentang Komunitas",
+  description:
+    "Kenali perjalanan, nilai, dan dampak pelayanan Christianity Crisis Center dalam memberdayakan komunitas Kristen di Jakarta dan sekitarnya.",
+  path: "/tentang-komunitas",
+});
+
 export const applyNowMetadata: Metadata = generatePageMetadata({
   title: "Daftar Sekarang",
   description:
@@ -34,6 +41,13 @@ export const trainingCenterMetadata: Metadata = generatePageMetadata({
   description:
     "Pusat Pelatihan Christianity Crisis Center Jakarta - Program peningkatan keterampilan dan sertifikasi kerja bagi anggota komunitas.",
   path: "/training-center",
+});
+
+export const contactMetadata: Metadata = generatePageMetadata({
+  title: "Hubungi Kami",
+  description:
+    "Terhubung dengan tim Christianity Crisis Center untuk konsultasi karier, kolaborasi pelayanan, atau dukungan komunitas.",
+  path: "/hubungi-kami",
 });
 
 export const articlesMetadata: Metadata = generatePageMetadata({

@@ -14,6 +14,14 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   const pathname = usePathname();
   const router = useRouter();
 
+  const navItems = [
+    { label: "Beranda", path: "/" },
+    { label: "Tentang Komunitas", path: "/tentang-komunitas" },
+    { label: "Daftar Sekarang", path: "/apply-now" },
+    { label: "Pusat Pelatihan", path: "/training-center" },
+    { label: "Hubungi Kami", path: "/hubungi-kami" },
+  ];
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const handleNavigation = (path: string) => {
@@ -50,38 +58,19 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
         </div>
 
         <div className="hidden items-center space-x-6 md:flex">
-          <button
-            onClick={() => handleNavigation("/")}
-            className={`px-3 py-2 text-sm font-semibold transition-colors ${
-              pathname === "/"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Beranda
-          </button>
-
-          <button
-            onClick={() => handleNavigation("/apply-now")}
-            className={`px-3 py-2 text-sm font-semibold transition-colors ${
-              pathname === "/apply-now"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Daftar Sekarang
-          </button>
-
-          <button
-            onClick={() => handleNavigation("/training-center")}
-            className={`px-3 py-2 text-sm font-semibold transition-colors ${
-              pathname === "/training-center"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Pusat Pelatihan
-          </button>
+          {navItems.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => handleNavigation(item.path)}
+              className={`px-3 py-2 text-sm font-semibold transition-colors ${
+                pathname === item.path
+                  ? "text-primaryRed"
+                  : "text-darkGray hover:text-primaryRed"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
         <div className="flex items-center md:hidden">
           <button
@@ -103,37 +92,19 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
         }`}
       >
         <div className="overflow-hidden gap-4 py-2">
-          <button
-            onClick={() => handleNavigation("/")}
-            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
-              pathname === "/"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Beranda
-          </button>
-
-          <button
-            onClick={() => handleNavigation("/apply-now")}
-            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
-              pathname === "/apply-now"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Daftar Sekarang
-          </button>
-          <button
-            onClick={() => handleNavigation("/training-center")}
-            className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
-              pathname === "/training-center"
-                ? "text-primaryRed"
-                : "text-darkGray hover:text-primaryRed"
-            }`}
-          >
-            Pusat Pelatihan
-          </button>
+          {navItems.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => handleNavigation(item.path)}
+              className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
+                pathname === item.path
+                  ? "text-primaryRed"
+                  : "text-darkGray hover:text-primaryRed"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </div>
     </nav>
