@@ -182,7 +182,7 @@ function formatDate(date: Date): string {
 
 export default function CandidatePage() {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
-    null
+    null,
   );
   const [calendarMonth, setCalendarMonth] = useState<Date>(new Date());
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -235,11 +235,11 @@ export default function CandidatePage() {
           await uploadFile(
             "christianity-crisis-center-files",
             certPath,
-            data.certificate
+            data.certificate,
           );
           certificateUrl = getFileUrl(
             "christianity-crisis-center-files",
-            certPath
+            certPath,
           );
         } catch (error) {
           console.error("Certificate upload error:", error);
@@ -478,7 +478,7 @@ export default function CandidatePage() {
                                     variant="outline"
                                     className={cn(
                                       "w-full justify-between pl-3 text-left font-normal",
-                                      !field.value && "text-muted-foreground"
+                                      !field.value && "text-muted-foreground",
                                     )}
                                   >
                                     {field.value ? (
@@ -500,7 +500,7 @@ export default function CandidatePage() {
                                       onValueChange={(month) => {
                                         const newDate = new Date(calendarMonth);
                                         newDate.setMonth(
-                                          Number.parseInt(month)
+                                          Number.parseInt(month),
                                         );
                                         setCalendarMonth(newDate);
                                       }}
@@ -540,7 +540,7 @@ export default function CandidatePage() {
                                       onValueChange={(year) => {
                                         const newDate = new Date(calendarMonth);
                                         newDate.setFullYear(
-                                          Number.parseInt(year)
+                                          Number.parseInt(year),
                                         );
                                         setCalendarMonth(newDate);
                                       }}

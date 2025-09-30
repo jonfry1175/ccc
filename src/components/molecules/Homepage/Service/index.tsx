@@ -6,28 +6,28 @@ const uniqueValue = [
   {
     id: 1,
     value:
-      "Sepenuhnya memenuhi standar MLC 2006 dan tersertifikasi ISO 9001:2015."
+      "Sepenuhnya memenuhi standar MLC 2006 dan tersertifikasi ISO 9001:2015.",
   },
   {
     id: 2,
     value:
-      "Tim rekrutmen terdiri dari eks pelaut berpengalaman dengan wawasan operasional mendalam."
+      "Tim rekrutmen terdiri dari eks pelaut berpengalaman dengan wawasan operasional mendalam.",
   },
   {
     id: 3,
     value:
-      "Rekrutmen transparan tanpa biaya tersembunyi, sesuai mandat prinsipal kami."
+      "Rekrutmen transparan tanpa biaya tersembunyi, sesuai mandat prinsipal kami.",
   },
   {
     id: 4,
     value:
-      "Koordinator kru khusus mendampingi setiap klien untuk memastikan operasi yang mulus."
+      "Koordinator kru khusus mendampingi setiap klien untuk memastikan operasi yang mulus.",
   },
   {
     id: 5,
     value:
-      "Kemitraan luas dengan institusi perhotelan membuka akses ke kandidat terbaik."
-  }
+      "Kemitraan luas dengan institusi perhotelan membuka akses ke kandidat terbaik.",
+  },
 ];
 
 export default function Services() {
@@ -40,7 +40,10 @@ export default function Services() {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-br from-primaryRed/5 via-primaryRed/10 to-primaryGold/10 py-20"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(227,30,36,0.12),transparent_60%)]" aria-hidden />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(227,30,36,0.12),transparent_60%)]"
+        aria-hidden
+      />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 md:px-10">
         <SectionHeading
           eyebrow="Nilai Utama"
@@ -61,7 +64,9 @@ export default function Services() {
               <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primaryRed text-sm font-semibold text-white">
                 {index + 1}
               </span>
-              <p className="text-sm text-darkGray/85 md:text-base">{item.value}</p>
+              <p className="text-sm text-darkGray/85 md:text-base">
+                {item.value}
+              </p>
             </motion.li>
           ))}
         </ul>

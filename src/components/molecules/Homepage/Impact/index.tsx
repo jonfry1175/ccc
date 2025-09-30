@@ -6,26 +6,26 @@ const stats = [
     id: 1,
     value: 8952,
     suffix: "+",
-    label: "Kru Ditempatkan di Luar Negeri"
+    label: "Kru Ditempatkan di Luar Negeri",
   },
   {
     id: 2,
     value: 4,
     suffix: "+",
-    label: "Klien Kapal Pesiar Utama"
+    label: "Klien Kapal Pesiar Utama",
   },
   {
     id: 3,
     value: 32,
     suffix: " Tahun",
-    label: "Pengalaman Operasi"
+    label: "Pengalaman Operasi",
   },
   {
     id: 4,
     value: 90,
     suffix: "%",
-    label: "Tingkat Penempatan Berhasil"
-  }
+    label: "Tingkat Penempatan Berhasil",
+  },
 ];
 
 export default function ImpactCard() {

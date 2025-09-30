@@ -19,7 +19,7 @@ export function SectionHeading({
   className,
   eyebrowClassName,
   titleClassName,
-  descriptionClassName
+  descriptionClassName,
 }: SectionHeadingProps) {
   return (
     <div
@@ -27,14 +27,14 @@ export function SectionHeading({
         "space-y-4",
         align === "center" ? "text-center mx-auto" : "text-left",
         description ? "max-w-3xl" : "max-w-2xl",
-        className
+        className,
       )}
     >
       {eyebrow && (
         <span
           className={cn(
             "inline-flex items-center rounded-full bg-primaryRed/10 px-4 py-1 text-sm font-semibold uppercase tracking-widest text-primaryRed",
-            eyebrowClassName
+            eyebrowClassName,
           )}
         >
           {eyebrow}
@@ -43,7 +43,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "text-3xl font-semibold leading-tight text-textBlack md:text-4xl",
-          titleClassName
+          titleClassName,
         )}
       >
         {title}
@@ -52,7 +52,7 @@ export function SectionHeading({
         <p
           className={cn(
             "text-base text-darkGray/80 md:text-lg",
-            descriptionClassName
+            descriptionClassName,
           )}
         >
           {description}

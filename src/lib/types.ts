@@ -32,14 +32,14 @@ export type Database = {
     Tables: {
       candidates: {
         Row: Candidate;
-        Insert: Omit<Candidate, 'id' | 'created_at'>;
-        Update: Partial<Omit<Candidate, 'id' | 'created_at'>>;
+        Insert: Omit<Candidate, "id" | "created_at">;
+        Update: Partial<Omit<Candidate, "id" | "created_at">>;
       };
       partners: {
         Row: Partner;
-        Insert: Omit<Partner, 'id' | 'created_at'>;
-        Update: Partial<Omit<Partner, 'id' | 'created_at'>>;
+        Insert: Omit<Partner, "id" | "created_at">;
+        Update: Partial<Omit<Partner, "id" | "created_at">>;
       };
     };
   };
-}; 
+};

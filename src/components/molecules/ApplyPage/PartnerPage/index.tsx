@@ -11,7 +11,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import {
   Form,
@@ -19,7 +19,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,14 +27,20 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/atoms/Navbar";
 import PhoneNumberInput from "@/components/atoms/PhoneNumber";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
-import { Building2, Clock, Globe2, Handshake, MessageCircle } from "lucide-react";
+import {
+  Building2,
+  Clock,
+  Globe2,
+  Handshake,
+  MessageCircle,
+} from "lucide-react";
 
 // Define the Country interface
 interface Country {
@@ -50,9 +56,11 @@ const formSchema = z.object({
   countryCode: z.string().min(1, { message: "Kode negara wajib diisi" }),
   phoneNumber: z.string().min(1, { message: "Nomor telepon wajib diisi" }),
   companyName: z.string().min(1, { message: "Nama perusahaan wajib diisi" }),
-  companyWebsite: z.string().min(1, { message: "Situs web perusahaan wajib diisi" }),
+  companyWebsite: z
+    .string()
+    .min(1, { message: "Situs web perusahaan wajib diisi" }),
   country: z.string().min(1, { message: "Negara wajib diisi" }),
-  message: z.string().min(1, { message: "Pesan wajib diisi" })
+  message: z.string().min(1, { message: "Pesan wajib diisi" }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -62,27 +70,27 @@ const partnerHighlights = [
     icon: Handshake,
     title: "Talent Siap Onboard",
     description:
-      "Seluruh kandidat menjalani pra-seleksi kompetensi, bahasa, dan etika kerja sehingga siap bergabung dalam waktu singkat."
+      "Seluruh kandidat menjalani pra-seleksi kompetensi, bahasa, dan etika kerja sehingga siap bergabung dalam waktu singkat.",
   },
   {
     icon: Globe2,
     title: "Jaringan Global",
     description:
-      "Koneksikan kebutuhan kru Anda dengan jaringan kami di Asia, Timur Tengah, dan Eropa."
+      "Koneksikan kebutuhan kru Anda dengan jaringan kami di Asia, Timur Tengah, dan Eropa.",
   },
   {
     icon: Clock,
     title: "Proses Cepat & Transparan",
     description:
-      "Laporan status kandidat mingguan dan tim onboarding yang responsif memastikan proses tetap terpantau."
-  }
+      "Laporan status kandidat mingguan dan tim onboarding yang responsif memastikan proses tetap terpantau.",
+  },
 ];
 
 const onboardingChecklist = [
   "Profil perusahaan dan kebutuhan posisi detail",
   "Ketentuan kontrak dan fasilitas kerja",
   "Timeline penempatan yang diharapkan",
-  "Kontak PIC HRD untuk koordinasi harian"
+  "Kontak PIC HRD untuk koordinasi harian",
 ];
 
 export default function ContactForm() {
@@ -103,8 +111,8 @@ export default function ContactForm() {
       companyName: "",
       companyWebsite: "",
       country: "",
-      message: ""
-    }
+      message: "",
+    },
   });
 
   // Fetch countries from API
@@ -116,7 +124,7 @@ export default function ContactForm() {
       const sortedCountries = data
         .map((country: any) => ({
           id: country.cca2,
-          name: country.name.common
+          name: country.name.common,
         }))
         .sort((a: Country, b: Country) => a.name.localeCompare(b.name));
       setCountries(sortedCountries);
@@ -135,14 +143,14 @@ export default function ContactForm() {
   async function onSubmit(values: FormValues) {
     try {
       setIsSubmitting(true);
-      
+
       // Format phone number with international prefix
       const fullPhoneNumber = values.phoneNumber.startsWith("+")
         ? values.phoneNumber
         : `+${values.phoneNumber}`;
-      
+
       // Insert data into Supabase
-      const { error } = await supabase.from('partner').insert({
+      const { error } = await supabase.from("partner").insert({
         first_name: values.firstName,
         last_name: values.lastName,
         email: values.email,
@@ -150,27 +158,32 @@ export default function ContactForm() {
         company_name: values.companyName,
         company_website: values.companyWebsite,
         country: values.country,
-        message: values.message
+        message: values.message,
       });
-      
+
       if (error) {
-        console.error('Database insertion error:', error);
-        throw new Error('Gagal mengirimkan permintaan kemitraan Anda. Silakan coba lagi.');
+        console.error("Database insertion error:", error);
+        throw new Error(
+          "Gagal mengirimkan permintaan kemitraan Anda. Silakan coba lagi.",
+        );
       }
-      
+
       toast({
         title: "Permintaan Kemitraan Berhasil Dikirim",
-        description: "Terima kasih atas minat Anda! Kami akan segera menghubungi Anda.",
+        description:
+          "Terima kasih atas minat Anda! Kami akan segera menghubungi Anda.",
       });
-      
+
       // Reset form
       form.reset();
     } catch (error: any) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       toast({
         variant: "destructive",
         title: "Pengiriman Gagal",
-        description: error.message || "Terjadi kesalahan saat mengirimkan permintaan Anda. Silakan coba lagi.",
+        description:
+          error.message ||
+          "Terjadi kesalahan saat mengirimkan permintaan Anda. Silakan coba lagi.",
       });
     } finally {
       setIsSubmitting(false);
@@ -197,7 +210,9 @@ export default function ContactForm() {
             Dapatkan Kru Profesional untuk Kapal Pesiar dan Hospitality Anda
           </h1>
           <p className="text-base text-slate-600 md:text-lg">
-            Kami membantu perusahaan global menyiapkan tenaga kerja yang terampil, tersertifikasi, dan siap berangkat sesuai standar internasional.
+            Kami membantu perusahaan global menyiapkan tenaga kerja yang
+            terampil, tersertifikasi, dan siap berangkat sesuai standar
+            internasional.
           </p>
         </section>
 
@@ -212,14 +227,18 @@ export default function ContactForm() {
                   Informasi Kemitraan yang Kami Perlukan
                 </CardTitle>
                 <CardDescription className="text-sm text-slate-600">
-                  Lengkapi data berikut agar kami dapat menyesuaikan shortlist kandidat terbaik untuk kebutuhan Anda.
+                  Lengkapi data berikut agar kami dapat menyesuaikan shortlist
+                  kandidat terbaik untuk kebutuhan Anda.
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
                 <ul className="space-y-3 text-sm text-slate-600">
                   {onboardingChecklist.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-primaryRed" aria-hidden />
+                      <span
+                        className="mt-1 h-2.5 w-2.5 rounded-full bg-primaryRed"
+                        aria-hidden
+                      />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -237,7 +256,9 @@ export default function ContactForm() {
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primaryRed/12 text-primaryRed">
                       <Icon className="h-4 w-4" aria-hidden />
                     </div>
-                    <CardTitle className="text-lg text-darkGray">{title}</CardTitle>
+                    <CardTitle className="text-lg text-darkGray">
+                      {title}
+                    </CardTitle>
                     <CardDescription className="text-sm text-slate-600">
                       {description}
                     </CardDescription>
@@ -257,9 +278,19 @@ export default function ContactForm() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
-                <p>WhatsApp Bisnis: <span className="font-semibold">+62 811-9307-777</span></p>
-                <p>Email: <span className="font-semibold">partnership@mpsjakarta.com</span></p>
-                <p>Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara</p>
+                <p>
+                  WhatsApp Bisnis:{" "}
+                  <span className="font-semibold">+62 811-9307-777</span>
+                </p>
+                <p>
+                  Email:{" "}
+                  <span className="font-semibold">
+                    partnership@mpsjakarta.com
+                  </span>
+                </p>
+                <p>
+                  Alamat Kantor: Lorong 101 Timur No. 73, Koja, Jakarta Utara
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -273,12 +304,16 @@ export default function ContactForm() {
                 Beritahu kami kebutuhan kru perusahaan Anda
               </CardTitle>
               <CardDescription className="text-sm text-slate-600">
-                Lengkapi detail berikut dan tim kami akan menghubungi Anda dalam satu hari kerja.
+                Lengkapi detail berikut dan tim kami akan menghubungi Anda dalam
+                satu hari kerja.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-8">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-9 text-left">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-9 text-left"
+                >
                   <section className="space-y-6">
                     <div className="space-y-1">
                       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primaryRed">
@@ -295,7 +330,8 @@ export default function ContactForm() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Nama Depan <span className="text-primaryRed">*</span>
+                              Nama Depan{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="Nama Depan" {...field} />
@@ -311,7 +347,8 @@ export default function ContactForm() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Nama Belakang <span className="text-primaryRed">*</span>
+                              Nama Belakang{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="Nama Belakang" {...field} />
@@ -327,10 +364,15 @@ export default function ContactForm() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Email Bisnis <span className="text-primaryRed">*</span>
+                              Email Bisnis{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="anda@perusahaan.com" {...field} />
+                              <Input
+                                type="email"
+                                placeholder="anda@perusahaan.com"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -339,11 +381,14 @@ export default function ContactForm() {
 
                       <div className="space-y-2">
                         <FormLabel>
-                          Nomor Telepon <span className="text-primaryRed">*</span>
+                          Nomor Telepon{" "}
+                          <span className="text-primaryRed">*</span>
                         </FormLabel>
                         <PhoneNumberInput
                           error={form.formState.errors.phoneNumber?.message}
-                          onChange={(value) => form.setValue("phoneNumber", value)}
+                          onChange={(value) =>
+                            form.setValue("phoneNumber", value)
+                          }
                         />
                       </div>
                     </div>
@@ -367,7 +412,8 @@ export default function ContactForm() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Nama Perusahaan <span className="text-primaryRed">*</span>
+                              Nama Perusahaan{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input placeholder="Nama Perusahaan" {...field} />
@@ -383,10 +429,14 @@ export default function ContactForm() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Situs Web Perusahaan <span className="text-primaryRed">*</span>
+                              Situs Web Perusahaan{" "}
+                              <span className="text-primaryRed">*</span>
                             </FormLabel>
                             <FormControl>
-                              <Input placeholder="www.perusahaan.com" {...field} />
+                              <Input
+                                placeholder="www.perusahaan.com"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -401,7 +451,10 @@ export default function ContactForm() {
                             <FormLabel>
                               Negara <span className="text-primaryRed">*</span>
                             </FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              value={field.value}
+                            >
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Pilih negara" />
@@ -409,10 +462,15 @@ export default function ContactForm() {
                               </FormControl>
                               <SelectContent>
                                 {isLoading ? (
-                                  <SelectItem value="loading">Memuat...</SelectItem>
+                                  <SelectItem value="loading">
+                                    Memuat...
+                                  </SelectItem>
                                 ) : (
                                   countries.map((country) => (
-                                    <SelectItem key={country.id} value={country.name}>
+                                    <SelectItem
+                                      key={country.id}
+                                      value={country.name}
+                                    >
                                       {country.name}
                                     </SelectItem>
                                   ))

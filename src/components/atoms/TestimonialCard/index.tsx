@@ -55,7 +55,9 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             {name && <h1 className="font-semibold text-primaryRed">{name}</h1>}
             {position && <p className="text-sm text-primaryRed">{position}</p>}
             {company && (
-              <p className="text-xs text-primaryRed font-medium mt-1">{company}</p>
+              <p className="text-xs text-primaryRed font-medium mt-1">
+                {company}
+              </p>
             )}
           </div>
         </div>

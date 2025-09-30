@@ -26,12 +26,7 @@ export default function GalleryImageCard({ src, alt, name }: Props) {
             <div className="flex h-48 w-full cursor-pointer flex-col items-center justify-center gap-4 p-6">
               {/* Gambar */}
               <div className="relative h-24 w-full">
-                <Image
-                  src={src}
-                  alt={alt}
-                  fill
-                  className="object-contain"
-                />
+                <Image src={src} alt={alt} fill className="object-contain" />
               </div>
               {/* Nama sertifikat */}
               <p className="text-center text-sm font-semibold text-textBlack">

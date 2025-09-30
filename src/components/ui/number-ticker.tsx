@@ -24,7 +24,7 @@ export function NumberTicker({
   const motionValue = useMotionValue(direction === "down" ? value : 0);
   const springValue = useSpring(motionValue, {
     damping: 60,
-    stiffness: 100
+    stiffness: 100,
   });
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
@@ -36,26 +36,23 @@ export function NumberTicker({
     }
   }, [motionValue, isInView, delay, value, direction]);
 
-  useEffect(
-    () => {
-      return springValue.on("change", (latest) => {
-        if (ref.current) {
-          ref.current.textContent = Intl.NumberFormat("en-US", {
-            minimumFractionDigits: decimalPlaces,
-            maximumFractionDigits: decimalPlaces
-          }).format(Number(latest.toFixed(decimalPlaces)));
-        }
-      });
-    },
-    [springValue, decimalPlaces]
-  );
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Intl.NumberFormat("en-US", {
+          minimumFractionDigits: decimalPlaces,
+          maximumFractionDigits: decimalPlaces,
+        }).format(Number(latest.toFixed(decimalPlaces)));
+      }
+    });
+  }, [springValue, decimalPlaces]);
 
   return (
     <span
       ref={ref}
       className={cn(
         "inline-block tabular-nums tracking-wider text-primaryRed dark:text-white",
-        className
+        className,
       )}
       {...props}
     />

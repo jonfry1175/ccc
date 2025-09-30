@@ -6,7 +6,7 @@ export default function TrainingCenter() {
   // Convert data trainings jadi format yang sesuai untuk CarouselComponent
   const trainingImages = trainings.map((training) => ({
     src: training.image,
-    alt: `Training Image ${training.id}`
+    alt: `Training Image ${training.id}`,
   }));
 
   return (

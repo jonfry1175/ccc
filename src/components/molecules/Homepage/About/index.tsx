@@ -8,20 +8,20 @@ const highlights = [
     icon: FaRegHandshake,
     title: "Komitmen Kami",
     description:
-      "Menghubungkan talenta terbaik Indonesia dengan perusahaan kapal pesiar dunia melalui kemitraan jangka panjang dan rekrutmen beretika."
+      "Menghubungkan talenta terbaik Indonesia dengan perusahaan kapal pesiar dunia melalui kemitraan jangka panjang dan rekrutmen beretika.",
   },
   {
     icon: FaRegEye,
     title: "Visi Kami",
     description:
-      "Menjadi partner pilihan yang dipercaya untuk menghadirkan kru profesional dengan pelayanan unggul dan pengalaman tamu yang luar biasa."
+      "Menjadi partner pilihan yang dipercaya untuk menghadirkan kru profesional dengan pelayanan unggul dan pengalaman tamu yang luar biasa.",
   },
   {
     icon: GoGoal,
     title: "Misi Kami",
     description:
-      "Menyediakan solusi SDM komprehensif mulai dari seleksi, pelatihan, hingga penempatan sehingga kru siap berkarier secara global."
-  }
+      "Menyediakan solusi SDM komprehensif mulai dari seleksi, pelatihan, hingga penempatan sehingga kru siap berkarier secara global.",
+  },
 ];
 
 export default function About() {

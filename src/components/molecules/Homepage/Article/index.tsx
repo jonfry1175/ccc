@@ -18,7 +18,7 @@ export default function ArticlePage() {
             alt: article.title,
             slug: article.slug,
             title: article.title,
-            description: article.description
+            description: article.description,
           }))}
           slidesToScroll={1}
         />

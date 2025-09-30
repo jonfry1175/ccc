@@ -33,12 +33,12 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
   const heroY = useTransform(
     scrollY,
     [0, 500],
-    [0, shouldReduceMotion ? 0 : -150]
+    [0, shouldReduceMotion ? 0 : -150],
   );
   const heroOpacity = useTransform(
     scrollY,
     [0, 300],
-    [1, shouldReduceMotion ? 1 : 0.3]
+    [1, shouldReduceMotion ? 1 : 0.3],
   );
 
   // Animated counter hook
@@ -272,7 +272,7 @@ export default function TrainingPage({ onBackToHome }: TrainingPageProps) {
             {heroHighlights.map((highlight, index) => {
               const animatedValue = useAnimatedCounter(
                 highlight.value,
-                areStatsInView
+                areStatsInView,
               );
 
               return (

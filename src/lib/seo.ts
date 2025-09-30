@@ -98,7 +98,12 @@ export function generatePageMetadata({
   title: string;
   description: string;
   path?: string;
-  images?: Array<{ url: string; width?: number; height?: number; alt?: string }>;
+  images?: Array<{
+    url: string;
+    width?: number;
+    height?: number;
+    alt?: string;
+  }>;
 }): Metadata {
   const url = `${baseUrl}${path}`;
 
@@ -132,7 +137,8 @@ export const organizationSchema = {
   alternateName: "CCC Jakarta",
   url: baseUrl,
   logo: `${baseUrl}/images/Logo/christianity-crisis-center.png`,
-  description: "Platform pemberdayaan karier komunitas Kristen di Jakarta, Indonesia",
+  description:
+    "Platform pemberdayaan karier komunitas Kristen di Jakarta, Indonesia",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Jakarta",

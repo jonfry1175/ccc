@@ -11,7 +11,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,14 +19,14 @@ import { toast } from "@/hooks/use-toast";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
-    message: "nama harus memiliki setidaknya 2 karakter."
+    message: "nama harus memiliki setidaknya 2 karakter.",
   }),
   email: z.string().email({
-    message: "email harus berupa email yang valid."
+    message: "email harus berupa email yang valid.",
   }),
   message: z.string().min(10, {
-    message: "pesan harus memiliki setidaknya 10 karakter."
-  })
+    message: "pesan harus memiliki setidaknya 10 karakter.",
+  }),
 });
 
 export default function Contact() {
@@ -35,15 +35,15 @@ export default function Contact() {
     defaultValues: {
       name: "",
       email: "",
-      message: ""
-    }
+      message: "",
+    },
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
       title: "Anda mengirimkan nilai-nilai berikut:",
-      description: "Berhasil mengirim"
+      description: "Berhasil mengirim",
     });
   }
 

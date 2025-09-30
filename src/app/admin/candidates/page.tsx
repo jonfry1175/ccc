@@ -56,7 +56,9 @@ export default function CandidatesPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Kandidat</h1>
-        <p className="text-muted-foreground">Semua aplikasi pekerjaan kandidat</p>
+        <p className="text-muted-foreground">
+          Semua aplikasi pekerjaan kandidat
+        </p>
       </div>
 
       <Card>

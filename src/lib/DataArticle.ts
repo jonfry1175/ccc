@@ -12,7 +12,8 @@ export const articles: Article[] = [
   {
     category: "Berita",
     date: "09 Juni 2025",
-    title: "Mengapa Memilih Agensi Manning MSC Cruises Kami yang Berbasis di Jakarta",
+    title:
+      "Mengapa Memilih Agensi Manning MSC Cruises Kami yang Berbasis di Jakarta",
     description:
       "Jika Anda ingin memulai karir di laut dengan salah satu jalur pelayaran paling bergengsi di dunia, MSC Cruises, memilih agen manning yang tepat adalah langkah pertama—dan terpenting—Anda. Di agen manning MSC Cruises kami yang berbasis di Jakarta, kami berspesialisasi dalam menghubungkan pelaut Indonesia berbakat dengan peluang kapal pesiar global. Inilah mengapa ratusan pelamar mempercayai kami dengan perjalanan mereka:",
     image: "/images/article/msc.jpg",
@@ -41,7 +42,7 @@ export const articles: Article[] = [
                   <p>Jika Anda mencari “agensi MSC Cruises Jakarta”, Anda telah menemukan mitra yang tepat. Kami di sini untuk mewujudkan impian Anda bekerja di laut — dengan kejujuran, dukungan, dan profesionalisme.</p>
                   
                  
-              `
+              `,
   },
   {
     category: "Tips",
@@ -95,7 +96,7 @@ export const articles: Article[] = [
         <h5>7. Hubungi penyedia jasa penyaluran tenaga kerja untuk kapal pesiar atau situs web khusus lowongan kerja kapal pesiar jika Anda kesulitan mencari pekerjaan di situs web perusahaan kapal pesiar</h5>
         <p>Jasa penyaluran tenaga kerja maupun situs web lowongan kerja biasanya akan memungut biaya untuk dapat menggunakan jasa mereka. Oleh karena itu, cek dulu keabsahan dan perizinan dari jasa maupun situs web tersebut agar Anda tidak tertipu.</p>
         <p>Nah, gimana, sudah siapkah Anda bekerja di atas air alias di kapal pesiar? Jika Anda memiliki pertanyaan silahkan hubungi kami.</p>
-    `
+    `,
   },
   {
     category: "Pekerjaan",
@@ -144,7 +145,7 @@ Untuk bisa mengambil posisi ini Anda harus punya pendidikan spesifik dan berpeng
 
 <p>
 Nah, jadi mana profesi yang Anda minati? Jika masih bingung atau galau memilih, Anda bisa menghubungi kami di …… Kami akan memberikan semua informasi yang Anda butuhkan untuk bisa bergabung bersama kami.</p>
-      `
+      `,
   },
   {
     category: "Tips",
@@ -171,7 +172,7 @@ Aspek lain dari pekerjaan fotografer kapal pesiar adalah mengambil foto pernikah
 <p>
 Kegiatan ini berlangsung di Galeri Foto dan Toko Photo Retail di kapal kapal pesiar. Fotografer mengambil peranan sebagai foto konsultan penjualan ritel, menjual foto, video, album, frame, folio, kamera dan aksesoris foto sehingga mendapatkan komisi individu pada semua penjualan. Toko Photo Retail di kapal kapal pesiar juga menawarkan pencetakan foto yang diambil oleh tamu dengan kamera pribadi mereka. Mengenai aspek kemampuan pekerjaan menjual adalah penting. Salesman yang lebih punya skil menjual yang bagus bisa mendapatkan komisi yang lebih banyak pada akhir perjalanan kapal pesiar.
 </p>
-      `
+      `,
   },
   {
     category: "Tips",
@@ -227,7 +228,7 @@ Kegiatan ini berlangsung di Galeri Foto dan Toko Photo Retail di kapal kapal pes
            <li>Jika menyewa kendaraan, sewa lah mobil dan jangan berkendara sendirian</li>
        </ul>
        
-      `
+      `,
   },
   {
     category: "Tips",
@@ -276,6 +277,6 @@ Kegiatan ini berlangsung di Galeri Foto dan Toko Photo Retail di kapal kapal pes
        
 
        
-      `
-  }
+      `,
+  },
 ];

@@ -1,15 +1,17 @@
 // SEO utility functions for optimizing content
 
-export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+export function generateBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
+    itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.url
-    }))
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
 
@@ -20,7 +22,7 @@ export function generateArticleSchema({
   datePublished,
   dateModified,
   image,
-  url
+  url,
 }: {
   title: string;
   description: string;
@@ -33,69 +35,72 @@ export function generateArticleSchema({
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": title,
-    "description": description,
-    "author": {
+    headline: title,
+    description: description,
+    author: {
       "@type": "Organization",
-      "name": author
+      name: author,
     },
-    "datePublished": datePublished,
-    "dateModified": dateModified || datePublished,
-    "publisher": {
+    datePublished: datePublished,
+    dateModified: dateModified || datePublished,
+    publisher: {
       "@type": "Organization",
-      "name": "Christianity Crisis Center",
-      "logo": {
+      name: "Christianity Crisis Center",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png"
-      }
+        url: "https://mpsjakarta.com/images/Logo/christianity-crisis-center.png",
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": url
+      "@id": url,
     },
     ...(image && {
-      "image": {
+      image: {
         "@type": "ImageObject",
-        "url": image
-      }
-    })
+        url: image,
+      },
+    }),
   };
 }
 
-export function generateReviewSchema(reviews: Array<{
-  author: string;
-  rating: number;
-  review: string;
-  date: string;
-}>) {
-  const aggregateRating = reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
+export function generateReviewSchema(
+  reviews: Array<{
+    author: string;
+    rating: number;
+    review: string;
+    date: string;
+  }>,
+) {
+  const aggregateRating =
+    reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
 
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Christianity Crisis Center",
-    "aggregateRating": {
+    name: "Christianity Crisis Center",
+    aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": aggregateRating.toFixed(1),
-      "reviewCount": reviews.length,
-      "bestRating": "5",
-      "worstRating": "1"
+      ratingValue: aggregateRating.toFixed(1),
+      reviewCount: reviews.length,
+      bestRating: "5",
+      worstRating: "1",
     },
-    "review": reviews.map(r => ({
+    review: reviews.map((r) => ({
       "@type": "Review",
-      "author": {
+      author: {
         "@type": "Person",
-        "name": r.author
+        name: r.author,
       },
-      "reviewRating": {
+      reviewRating: {
         "@type": "Rating",
-        "ratingValue": r.rating,
-        "bestRating": "5",
-        "worstRating": "1"
+        ratingValue: r.rating,
+        bestRating: "5",
+        worstRating: "1",
       },
-      "reviewBody": r.review,
-      "datePublished": r.date
-    }))
+      reviewBody: r.review,
+      datePublished: r.date,
+    })),
   };
 }
 
@@ -103,9 +108,9 @@ export function generateReviewSchema(reviews: Array<{
 export function generateSlug(text: string): string {
   return text
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/--+/g, '-')
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/--+/g, "-")
     .trim();
 }
 
@@ -115,30 +120,30 @@ export function optimizeMetaDescription(text: string): string {
 
   // Cut at last complete word before 157 chars and add ellipsis
   const truncated = text.substring(0, 157);
-  const lastSpace = truncated.lastIndexOf(' ');
-  return truncated.substring(0, lastSpace) + '...';
+  const lastSpace = truncated.lastIndexOf(" ");
+  return truncated.substring(0, lastSpace) + "...";
 }
 
 // Generate alt text for images
 export function generateAltText(filename: string, context?: string): string {
   // Remove file extension and replace separators with spaces
   const baseName = filename
-    .replace(/\.[^/.]+$/, '')
-    .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, l => l.toUpperCase());
+    .replace(/\.[^/.]+$/, "")
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (l) => l.toUpperCase());
 
   if (context) {
     return `${context} - ${baseName}`;
   }
 
   // Add context based on common patterns
-  if (filename.includes('logo')) {
+  if (filename.includes("logo")) {
     return `Christianity Crisis Center ${baseName}`;
   }
-  if (filename.includes('crew') || filename.includes('staff')) {
+  if (filename.includes("crew") || filename.includes("staff")) {
     return `Indonesian cruise ship ${baseName}`;
   }
-  if (filename.includes('ship') || filename.includes('cruise')) {
+  if (filename.includes("ship") || filename.includes("cruise")) {
     return `MSC Cruises ${baseName}`;
   }
 

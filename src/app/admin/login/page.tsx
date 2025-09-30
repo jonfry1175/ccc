@@ -27,7 +27,9 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
-  email: z.string().email({ message: "Silakan masukkan alamat email yang valid" }),
+  email: z
+    .string()
+    .email({ message: "Silakan masukkan alamat email yang valid" }),
   password: z.string().min(6, {
     message: "Kata sandi harus memiliki setidaknya 6 karakter",
   }),

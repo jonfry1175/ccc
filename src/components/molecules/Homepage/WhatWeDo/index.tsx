@@ -4,20 +4,20 @@ import Image from "next/image";
 const whatWeDo = [
   {
     image: "/images/whatwedo/1.png",
-    description: "Talent Acquisition & Recruitment"
+    description: "Talent Acquisition & Recruitment",
   },
   {
     image: "/images/whatwedo/2.png",
-    description: "Talent Interview & Assessment"
+    description: "Talent Interview & Assessment",
   },
   {
     image: "/images/whatwedo/3.png",
-    description: "Pre-Deployment Training & Skill Refresher Programs"
+    description: "Pre-Deployment Training & Skill Refresher Programs",
   },
   {
     image: "/images/whatwedo/4.png",
-    description: "Employment Visa & Document Assistance"
-  }
+    description: "Employment Visa & Document Assistance",
+  },
 ];
 
 export default function WhatWeDo() {
