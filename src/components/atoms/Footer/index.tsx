@@ -65,21 +65,20 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <FaLocationDot className="mt-1 h-5 w-5" />
                 <Link
-                  href="https://maps.app.goo.gl/FXgSJvUu21Ht2JH38"
+                  href="https://maps.app.goo.gl/gbicinere"
                   target="_blank"
                   className="transition hover:text-primaryWhite"
                 >
-                  Lorong 101 Timur No. 73, Kec. Koja, Jakarta Utara, 14220,
-                  Indonesia
+                  GBI Cinere, Depok, Indonesia
                 </Link>
               </div>
               <div className="flex items-center gap-3">
                 <MdOutlineEmail className="h-5 w-5" />
                 <Link
-                  href="mailto:info@mpsjakarta.com"
+                  href="mailto:admin@christianitycrisiscenter.com"
                   className="transition hover:text-primaryWhite"
                 >
-                  info@mpsjakarta.com
+                  admin@christianitycrisiscenter.com
                 </Link>
               </div>
               <div className="flex items-center gap-3">
