@@ -30,7 +30,7 @@ export default function About() {
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:px-10">
         <SectionHeading
           eyebrow="Identitas Kami"
-          title="Mengembangkan Talenta Maritim Sejak 1993"
+          title="Mengembangkan Talenta Maritim Sejak 2015"
           description="Kami hadir sebagai penghubung antara armada kapal pesiar global dan tenaga kerja Indonesia yang siap tampil profesional."
         />
 

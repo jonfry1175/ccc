@@ -24,7 +24,7 @@ export default function Footer() {
               Christianity Crisis Center
             </h3>
             <p className="text-sm leading-relaxed text-primaryWhite/80">
-              Sejak 1993 kami mendampingi komunitas dengan layanan pemberdayaan
+              Sejak 2015 kami mendampingi komunitas dengan layanan pemberdayaan
               kerja, pelatihan terarah, dan jejaring peluang bagi anggota gereja
               yang ingin membangun karier berkelanjutan.
             </p>

@@ -12,7 +12,7 @@ const impactStats = [
     label: "Anggota Komunitas",
     value: "8.200+",
     description:
-      "Jemaat, keluarga, dan profesional muda yang terhubung dalam pelayanan CCC sejak 1993.",
+      "Jemaat, keluarga, dan profesional muda yang terhubung dalam pelayanan CCC sejak 2015.",
   },
   {
     label: "Penempatan Karier",
@@ -48,7 +48,7 @@ const communityPillars = [
 
 const impactHighlights = [
   {
-    year: "1993",
+    year: "2015",
     title: "Awal Pelayanan",
     description:
       "Christianity Crisis Center berdiri sebagai respon atas kebutuhan pekerjaan jemaat lokal di Jakarta Utara.",

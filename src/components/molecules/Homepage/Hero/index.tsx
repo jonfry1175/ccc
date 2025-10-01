@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.9fr)]">
           <div className="space-y-8 text-left">
             <SectionHeading
-              eyebrow="Sejak 1993"
+              eyebrow="Sejak 2015"
               title="Christianity Crisis Center"
               description="Mendampingi komunitas Kristen melalui pelatihan kerja, mentoring, dan jejaring peluang yang memberdayakan keluarga dan pelayanan."
               align="left"

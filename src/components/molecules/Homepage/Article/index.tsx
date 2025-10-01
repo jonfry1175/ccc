@@ -9,7 +9,7 @@ export default function ArticlePage() {
         <SectionHeading
           eyebrow="Artikel"
           title="Cerita dan Wawasan dari Komunitas Kami"
-          description="Ikuti kisah sukses kru kami, panduan karier, dan pembaruan terbaru dari dunia kapal pesiar."
+          description="Ikuti kisah sukses komunitas kami, panduan karir, dan pembaruan terbaru dari dunia kerja profesional."
         />
 
         <CarouselArticle
