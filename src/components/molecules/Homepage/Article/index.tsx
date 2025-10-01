@@ -8,7 +8,7 @@ export default function ArticlePage() {
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:px-10">
         <SectionHeading
           eyebrow="Artikel"
-          title="Cerita dan Wawasan dari Armada Kami"
+          title="Cerita dan Wawasan dari Komunitas Kami"
           description="Ikuti kisah sukses kru kami, panduan karier, dan pembaruan terbaru dari dunia kapal pesiar."
         />
 
