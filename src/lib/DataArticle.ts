@@ -279,4 +279,144 @@ Kegiatan ini berlangsung di Galeri Foto dan Toko Photo Retail di kapal kapal pes
        
       `,
   },
+  {
+    category: "Wawancara",
+    date: "02 Okt 2025",
+    title: "5 Pertanyaan Umum Saat Wawancara Kerja di Kapal Pesiar dan Cara Menjawabnya",
+    description: "Persiapkan diri Anda untuk pertanyaan wawancara yang paling umum di industri kapal pesiar dan pelajari cara memberikan jawaban yang mengesankan.",
+    image: "/images/crew/3.jpeg",
+    slug: "pertanyaan-wawancara-kapal-pesiar",
+    content: `
+        <h5>1. 'Ceritakan tentang diri Anda'</h5>
+        <p>Ini bukan permintaan untuk menceritakan riwayat hidup Anda. Pewawancara ingin tahu ringkasan singkat dan relevan tentang latar belakang profesional Anda. Fokus pada 2-3 pencapaian atau pengalaman kunci yang paling sesuai dengan posisi yang Anda lamar. Hubungkan semangat Anda untuk perhotelan atau perjalanan dengan peran tersebut.</p>
+        
+        <h5>2. 'Mengapa Anda ingin bekerja di kapal pesiar?'</h5>
+        <p>Jawaban Anda harus menunjukkan pemahaman tentang gaya hidup di kapal. Hindari jawaban klise seperti 'Saya suka jalan-jalan'. Sebaliknya, bicarakan tentang keinginan untuk berkarir di lingkungan yang dinamis, bertemu orang-orang dari berbagai budaya, dan komitmen Anda terhadap layanan pelanggan yang luar biasa dalam lingkungan yang unik.</p>
+        
+        <h5>3. 'Bagaimana Anda menangani situasi sulit dengan tamu?'</h5>
+        <p>Gunakan metode STAR (Situation, Task, Action, Result). Ceritakan situasi spesifik di mana Anda menghadapi tamu yang tidak puas. Jelaskan tugas Anda, tindakan yang Anda ambil untuk menyelesaikan masalah, dan hasil positifnya. Ini menunjukkan kemampuan pemecahan masalah dan ketenangan Anda di bawah tekanan.</p>
+        
+        <h5>4. 'Bagaimana Anda beradaptasi tinggal di ruang terbatas dengan orang lain?'</h5>
+        <p>Kehidupan di kabin kru adalah bagian besar dari pekerjaan ini. Tunjukkan bahwa Anda adalah orang yang fleksibel, menghargai privasi orang lain, dan komunikator yang baik. Sebutkan pengalaman sebelumnya tinggal di asrama atau situasi serupa jika ada. Tekankan kemampuan Anda untuk menjadi rekan tim yang kooperatif dan pengertian.</p>
+        
+        <h5>5. 'Di mana Anda melihat diri Anda dalam 5 tahun?'</h5>
+        <p>Perusahaan ingin melihat ambisi dan potensi pertumbuhan Anda di dalam perusahaan mereka. Kaitkan tujuan karir Anda dengan jalur karir yang tersedia di industri kapal pesiar. Tunjukkan bahwa Anda melihat ini sebagai karir jangka panjang, bukan hanya pekerjaan sementara untuk jalan-jalan.</p>
+    `
+  },
+  {
+    category: "Karir",
+    date: "03 Okt 2025",
+    title: "Membangun Karir Jangka Panjang di Industri Kapal Pesiar: Dari Staf Menjadi Manajer",
+    description: "Bekerja di kapal pesiar bukan hanya pekerjaan sementara. Pelajari bagaimana Anda dapat membangun jalur karir yang sukses dan berkelanjutan di laut.",
+    image: "/images/crew/4.jpeg",
+    slug: "karir-jangka-panjang-kapal-pesiar",
+    content: `
+        <h5>Langkah Awal: Kuasai Peran Anda Saat Ini</h5>
+        <p>Kunci untuk promosi adalah keunggulan. Jadilah yang terbaik di posisi Anda saat ini, apakah itu sebagai pelayan, asisten kabin, atau staf hiburan. Tunjukkan inisiatif, keandalan, dan etos kerja yang kuat. Atasan Anda akan memperhatikan.</p>
+        
+        <h5>Pelajari Keterampilan Baru</h5>
+        <p>Manfaatkan pelatihan internal yang ditawarkan oleh perusahaan. Banyak jalur pelayaran memiliki program pengembangan kepemimpinan. Jangan ragu untuk mempelajari departemen lain. Seorang koki yang memahami operasi bar memiliki nilai lebih.</p>
+        
+        <h5>Bangun Jaringan Profesional</h5>
+        <p>Kenali kru dari berbagai departemen. Hubungan baik tidak hanya membuat hidup di kapal lebih menyenangkan, tetapi juga membuka mata Anda terhadap peluang lain. Manajer sering kali lebih suka mempromosikan seseorang yang sudah mereka kenal dan percayai.</p>
+        
+        <h5>Tunjukkan Kemampuan Kepemimpinan</h5>
+        <p>Bahkan tanpa jabatan formal, Anda bisa menunjukkan potensi kepemimpinan. Bimbing anggota tim baru, tawarkan diri untuk proyek-proyek khusus, dan berikan solusi konstruktif untuk masalah tim. Sikap proaktif ini sangat dihargai.</p>
+        
+        <h5>Komunikasikan Tujuan Anda</h5>
+        <p>Bicaralah dengan atasan Anda tentang aspirasi karir Anda. Tanyakan apa yang diperlukan untuk mencapai posisi berikutnya. Ini menunjukkan ambisi Anda dan memungkinkan mereka untuk membimbing Anda. Sebagian besar manajer yang baik ingin melihat tim mereka berhasil.</p>
+    `
+  },
+  {
+    category: "Kehidupan Kru",
+    date: "04 Okt 2025",
+    title: "Kehidupan Sehari-hari Kru Kapal Pesiar: Antara Kerja Keras dan Petualangan",
+    description: "Intip di balik layar kehidupan kru kapal pesiar. Ini bukan hanya tentang tujuan eksotis, tetapi juga tentang komunitas, disiplin, dan kerja tim.",
+    image: "/images/crew/5.jpeg",
+    slug: "kehidupan-kru-kapal-pesiar",
+    content: `
+        <h5>Pagi Hari: Persiapan untuk Hari yang Sibuk</h5>
+        <p>Hari sering dimulai lebih awal, jauh sebelum tamu pertama bangun. Baik itu menyiapkan sarapan prasmanan, membersihkan dek, atau memeriksa sistem keselamatan, efisiensi adalah kuncinya. Ruang kru adalah pusat aktivitas, tempat semua orang berbagi cerita sambil minum kopi cepat.</p>
+        
+        <h5>Siang Hari: Puncak Pelayanan</h5>
+        <p>Saat para tamu menikmati fasilitas kapal atau menjelajahi pelabuhan, para kru bekerja tanpa lelah. Ini adalah waktu untuk layanan makan siang, membersihkan kabin, menjalankan kegiatan, dan memastikan semuanya berjalan lancar. Fleksibilitas sangat penting karena tugas tak terduga bisa muncul kapan saja.</p>
+        
+        <h5>Waktu Istirahat: Mengisi Ulang Tenaga</h5>
+        <p>Waktu istirahat sangat berharga. Kru mungkin menggunakannya untuk tidur siang, pergi ke gym khusus kru, atau sekadar bersantai di bar kru. Ini juga merupakan kesempatan untuk menjelajahi pelabuhan jika jadwal memungkinkan, memberikan petualangan singkat di tengah hari kerja yang panjang.</p>
+        
+        <h5>Malam Hari: Energi dan Hiburan</h5>
+        <p>Malam hari membawa energi baru. Restoran dipenuhi tamu, pertunjukan teater dimulai, dan bar menjadi hidup. Bagi banyak kru, ini adalah waktu tersibuk. Setelah giliran kerja selesai, kru sering berkumpul untuk bersosialisasi, menciptakan ikatan komunitas yang erat yang menjadi ciri khas kehidupan di kapal.</p>
+    `
+  },
+  {
+    category: "Keuangan",
+    date: "05 Okt 2025",
+    title: "Manajemen Keuangan untuk Pelaut: Tips Mengelola Gaji Dollar Anda",
+    description: "Menerima gaji dalam mata uang asing bisa menjadi keuntungan besar. Pelajari cara memaksimalkan penghasilan Anda dan merencanakan masa depan keuangan Anda.",
+    image: "/images/cruise/1.jpg",
+    slug: "manajemen-keuangan-pelaut",
+    content: `
+        <h5>Buat Anggaran yang Jelas</h5>
+        <p>Meskipun biaya hidup di kapal rendah (akomodasi dan makanan disediakan), pengeluaran kecil bisa menumpuk. Lacak pengeluaran Anda di pelabuhan dan pembelian di toko kru. Tetapkan anggaran bulanan untuk pengeluaran tidak penting.</p>
+        
+        <h5>Manfaatkan Transfer Uang Cerdas</h5>
+        <p>Jangan hanya mengandalkan metode transfer tradisional. Teliti layanan transfer uang online yang menawarkan nilai tukar lebih baik dan biaya lebih rendah. Mengirim uang ke rumah secara teratur dapat membantu keluarga Anda dan membangun tabungan.</p>
+        
+        <h5>Pikirkan Investasi Jangka Panjang</h5>
+        <p>Gaji bebas pajak Anda adalah peluang emas. Pertimbangkan untuk menginvestasikan sebagian dari penghasilan Anda. Baik itu di reksa dana, properti di negara asal, atau pendidikan lebih lanjut, buat uang Anda bekerja untuk Anda.</p>
+        
+        <h5>Siapkan Dana Darurat</h5>
+        <p>Kehidupan tidak dapat diprediksi. Sisihkan setidaknya 3-6 bulan biaya hidup dalam dana darurat. Ini akan memberi Anda jaring pengaman jika terjadi keadaan darurat keluarga atau jika Anda memutuskan untuk istirahat di antara kontrak.</p>
+        
+        <h5>Waspadai Perbedaan Mata Uang</h5>
+        <p>Saat berbelanja di berbagai negara, pahami nilai tukar. Gunakan aplikasi konverter mata uang untuk memastikan Anda mendapatkan penawaran yang bagus dan tidak menghabiskan terlalu banyak uang secara tidak sengaja.</p>
+    `
+  },
+  {
+    category: "Sertifikasi",
+    date: "06 Okt 2025",
+    title: "Sertifikasi Wajib untuk Bekerja di Kapal Pesiar: Panduan Lengkap",
+    description: "Sebelum Anda dapat berlayar, Anda memerlukan dokumen yang tepat. Panduan ini menguraikan sertifikasi penting yang dibutuhkan oleh sebagian besar jalur pelayaran.",
+    image: "/images/training/1.jpg",
+    slug: "sertifikasi-wajib-kapal-pesiar",
+    content: `
+        <h5>1. BST (Basic Safety Training)</h5>
+        <p>Ini adalah yang paling mendasar dan wajib bagi semua pelaut. Pelatihan ini mencakup keselamatan pribadi dan tanggung jawab sosial, teknik bertahan hidup pribadi, pencegahan dan pemadaman kebakaran, serta pertolongan pertama dasar. Tanpa BST, Anda tidak bisa bekerja di laut.</p>
+        
+        <h5>2. CCM (Crowd and Crisis Management)</h5>
+        <p>Sertifikat ini wajib bagi personel yang berinteraksi langsung dengan penumpang. Pelatihan ini mengajarkan cara mengelola kerumunan dalam situasi normal dan darurat, memastikan evakuasi yang aman dan teratur jika diperlukan.</p>
+        
+        <h5>3. Buku Pelaut (Seaman's Book)</h5>
+        <p>Ini adalah paspor pelaut Anda, yang mencatat pengalaman laut Anda. Ini adalah dokumen identitas resmi yang diakui secara internasional dan diperlukan untuk bergabung dengan kapal mana pun.</p>
+        
+        <h5>4. Sertifikat Kesehatan (Medical Certificate)</h5>
+        <p>Anda harus lulus pemeriksaan kesehatan yang ketat dari dokter yang disetujui oleh otoritas maritim. Ini memastikan Anda sehat secara fisik untuk bekerja di lingkungan laut yang menuntut.</p>
+        
+        <h5>5. Visa (jika diperlukan)</h5>
+        <p>Tergantung pada kebangsaan Anda dan rute kapal, Anda mungkin memerlukan visa khusus, seperti visa C1/D AS untuk kapal yang berlayar di perairan AS. Agen perekrutan Anda akan memandu Anda melalui proses ini.</p>
+    `
+  },
+  {
+    category: "Kisah Sukses",
+    date: "07 Okt 2025",
+    title: "Kisah Sukses Alumni: Meraih Impian Keliling Dunia Bersama Kapal Pesiar",
+    description: "Dari desa kecil di Indonesia hingga memimpin tim di Karibia. Baca kisah inspiratif dari salah satu alumni kami yang telah mengubah hidupnya melalui karir di kapal pesiar.",
+    image: "/images/crew/8.jpeg",
+    slug: "kisah-sukses-alumni-kapal-pesiar",
+    content: `
+        <p>Lima tahun yang lalu, Budi adalah seorang pemuda dengan mimpi besar tetapi peluang terbatas di kampung halamannya. Hari ini, dia adalah Asisten Manajer Restoran di salah satu kapal pesiar termewah di dunia, setelah mengunjungi lebih dari 50 negara.</p>
+        
+        <h5>Awal yang Sederhana</h5>
+        <p>'Saya memulai sebagai asisten pelayan,' kenang Budi. 'Pekerjaan itu berat, dan saya sangat merindukan rumah. Tetapi saya fokus pada tujuan saya: belajar bahasa Inggris, memberikan layanan terbaik, dan menyerap semua yang saya bisa pelajari.'</p>
+        
+        <h5>Mendaki Tangga Karir</h5>
+        <p>Etos kerja Budi tidak luput dari perhatian. Dalam setahun, ia dipromosikan menjadi pelayan. Dia terus belajar, mengambil kursus internal tentang anggur dan santapan lezat. Dua tahun kemudian, dia mendapatkan posisi sebagai kepala pelayan, memimpin sebuah tim kecil.</p>
+        
+        <h5>Pelajaran Terbesar</h5>
+        <p>'Pelajaran terbesar yang saya dapatkan adalah bahwa keragaman adalah kekuatan,' katanya. 'Tim saya berasal dari 15 negara yang berbeda. Belajar berkomunikasi dan bekerja sama dengan orang-orang dari semua latar belakang adalah keterampilan paling berharga yang saya peroleh.'</p>
+        
+        <h5>Nasihat untuk Pemimpi Lain</h5>
+        <p>'Jangan pernah menyerah,' desak Budi. 'Akan ada hari-hari yang sulit, tetapi imbalannya luar biasa. Anda tidak hanya mendapatkan gaji yang bagus, tetapi Anda tumbuh sebagai pribadi dengan cara yang tidak pernah Anda bayangkan. Dunia benar-benar menjadi kantor Anda.'</p>
+    `
+  }
 ];

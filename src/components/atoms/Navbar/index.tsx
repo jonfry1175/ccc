@@ -19,6 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
     { label: "Tentang Komunitas", path: "/tentang-komunitas" },
     { label: "Daftar Sekarang", path: "/apply-now" },
     { label: "Pusat Pelatihan", path: "/training-center" },
+    { label: "Berita", path: "/berita" },
     { label: "Hubungi Kami", path: "/hubungi-kami" },
   ];
 
@@ -57,20 +58,30 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
           </div>
         </div>
 
-        <div className="hidden items-center space-x-6 md:flex">
-          {navItems.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => handleNavigation(item.path)}
-              className={`px-3 py-2 text-sm font-semibold transition-colors ${
-                pathname === item.path
-                  ? "text-primaryRed"
-                  : "text-darkGray hover:text-primaryRed"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div className="hidden items-center space-x-2 md:flex">
+          {navItems.map((item) =>
+            item.label === "Hubungi Kami" ? (
+              <button
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className="rounded-md bg-primaryRed px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primaryRed/90"
+              >
+                {item.label}
+              </button>
+            ) : (
+              <button
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className={`px-3 py-2 text-sm font-semibold transition-colors ${
+                  pathname === item.path
+                    ? "text-primaryRed"
+                    : "text-darkGray hover:text-primaryRed"
+                }`}
+              >
+                {item.label}
+              </button>
+            )
+          )}
         </div>
         <div className="flex items-center md:hidden">
           <button
@@ -92,19 +103,29 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
         }`}
       >
         <div className="overflow-hidden gap-4 py-2">
-          {navItems.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => handleNavigation(item.path)}
-              className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
-                pathname === item.path
-                  ? "text-primaryRed"
-                  : "text-darkGray hover:text-primaryRed"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) =>
+            item.label === "Hubungi Kami" ? (
+              <button
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className="mt-2 w-full rounded-md bg-primaryRed px-4 py-2 text-left text-base font-medium text-white transition-colors hover:bg-primaryRed/90"
+              >
+                {item.label}
+              </button>
+            ) : (
+              <button
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className={`w-full px-2 py-2 text-left text-base font-medium transition-colors ${
+                  pathname === item.path
+                    ? "text-primaryRed"
+                    : "text-darkGray hover:text-primaryRed"
+                }`}
+              >
+                {item.label}
+              </button>
+            )
+          )}
         </div>
       </div>
     </nav>
