@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
     { label: "Tentang Komunitas", path: "/tentang-komunitas" },
     { label: "Daftar Sekarang", path: "/apply-now" },
     { label: "Pusat Pelatihan", path: "/training-center" },
-    { label: "Berita", path: "/berita" },
+    { label: "Berita", path: "/article" },
     { label: "Hubungi Kami", path: "/hubungi-kami" },
   ];
 

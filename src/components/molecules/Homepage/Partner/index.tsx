@@ -7,8 +7,8 @@ export default function Partner() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 text-center md:px-10">
         <SectionHeading
           eyebrow="Kolaborasi"
-          title="Dipercaya Oleh Pemimpin Maritim Dunia"
-          description="Kami menjalin hubungan strategis dengan operator kapal pesiar global yang menuntut standar tertinggi pada kru mereka."
+          title="Dipercaya Oleh Perusahaan Mitra Terpercaya di Indonesia"
+          description="Kami menjalin hubungan strategis dengan klien dari Perusahaan Mitra Terpercaya di Indonesia yang menuntut standar tertinggi pada talenta mereka."
         />
 
         <div className="rounded-3xl border border-primaryRed/15 bg-white/80 p-8 shadow-lg backdrop-blur">

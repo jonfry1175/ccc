@@ -9,7 +9,7 @@ export default function Certified() {
         <SectionHeading
           eyebrow="Kepercayaan"
           title="Sertifikasi & Pengakuan Resmi"
-          description="Legalitas operasi kami didukung penuh oleh regulator kemaritiman Indonesia dan standar internasional."
+          description="Legalitas komunitas kami didukung penuh oleh standar profesional Indonesia."
         />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
