@@ -1,10 +1,6 @@
 import Link from "next/link";
-import {
-  FaWhatsapp,
-  FaInstagram,
-  FaFacebook,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
+import { SiTiktok } from "react-icons/si";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -45,14 +41,16 @@ export default function Footer() {
                 <FaInstagram className="h-5 w-5" />
               </Link>
               <Link
-                href="https://www.linkedin.com"
+                href="https://www.tiktok.com/@mpsjakarta"
+                target="_blank"
                 className="rounded-full bg-primaryWhite/10 p-2 text-primaryWhite transition hover:bg-primaryWhite/20"
-                aria-label="LinkedIn Christianity Crisis Center"
+                aria-label="TikTok Christianity Crisis Center"
               >
-                <FaLinkedin className="h-5 w-5" />
+                <SiTiktok className="h-5 w-5" />
               </Link>
               <Link
-                href="https://wa.me/62214354959"
+                href="https://wa.me/6281xxxxxxx"
+                target="_blank"
                 className="rounded-full bg-primaryWhite/10 p-2 text-primaryWhite transition hover:bg-primaryWhite/20"
                 aria-label="WhatsApp Christianity Crisis Center"
               >
@@ -87,10 +85,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <FaWhatsapp className="h-5 w-5" />
                 <Link
-                  href="tel:+62214354959"
+                  href="tel:+6281xxxxxxx"
                   className="transition hover:text-primaryWhite"
                 >
-                  (+62)21-435-4959
+                  (+62)81-xxx-xxx
                 </Link>
               </div>
             </div>
